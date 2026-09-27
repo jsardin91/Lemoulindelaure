@@ -1,38 +1,50 @@
 ---
-status: template
+status: draft
 brand: "Le Moulin de Laure"
 last_reviewed: 2026-09-27
 ---
 
 # Le Moulin de Laure — Master Design System
 
-> `status: template` means no visual direction is approved yet.
-> Client brand guidelines are still pending.
-> Change to `draft` only after the guidelines have been reviewed, and to `active` only after user/client validation.
+> `status: draft` means the supplied logo and painted artwork informed a working palette. Formal brand guidelines, final service names and client validation are still pending. Do not mark active yet.
 
 ## Brand foundations
 
-Purpose, offer, audiences, personality and desired perception: pending brand/client brief.
+Business card: Laure Moulin, communicatrice animalière. Confirm all offers, audiences and page copy with the client.
 
 ## Visual thesis
 
-Pending client brand guidelines. Do not generate a final visual thesis from AI-tool defaults.
+Handmade painted imagery, a cream paper ground, a clear blue text color and gentle gold detail. The portal/door motif leads to real service pages; artwork is decorative around readable HTML content.
 
 ## Color system
 
-Pending client brand guidelines.
+Draft palette sampled and tuned for legible web use from the supplied JPEG logo (not official color specifications):
+
+| Role | Hex | Usage |
+| --- | --- | --- |
+| Cream | `#FAF7EF` | Main background |
+| Paper | `#FFFDF8` | Raised surface |
+| Ink | `#173F54` | Headings and body |
+| Moulin blue | `#165A77` | Links and primary actions |
+| Teal | `#306C67` | Secondary actions and accents |
+| Leaf green | `#426F47` | Accent on light ground |
+| Antique gold | `#B68631` | Illustration, border and large ornament, not small text on cream |
+| Lavender | `#666294` | Accent |
+| Line | `#DCD4BD` | Neutral separation |
+
+Reference colors: `wp-content/themes/lemoulindelaure-child/style.css` and `theme.json`.
 
 ## Typography
 
-Pending client brand guidelines. Do not introduce a font family before reviewing the supplied brand material.
+The logo lettering remains the supplied artwork. No body or heading font has been selected.
 
 ## Spacing, layout, components, imagery and icons
 
-Pending brand and content review.
+Four paintings and four door illustrations are prepared; artwork does not determine service labels. Use real headings, descriptions and anchors in HTML. The door component can accompany a link, not replace it.
 
 ## Motion
 
-Pending design direction. Always honor `prefers-reduced-motion`.
+Subtle hover movement is permitted for decorative doors; honor `prefers-reduced-motion`. No compulsory timed reveal, scroll gate or inaccessible door mechanism.
 
 ## Responsive behavior
 

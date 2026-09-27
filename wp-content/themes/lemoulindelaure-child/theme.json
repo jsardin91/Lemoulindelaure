@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "bleu-moulin", "name": "Bleu Moulin", "color": "#165a77" },
+        { "slug": "vert-lien", "name": "Vert lien", "color": "#306c67" },
+        { "slug": "encre", "name": "Encre", "color": "#173f54" },
+        { "slug": "creme", "name": "Crème", "color": "#faf7ef" },
+        { "slug": "papier", "name": "Papier", "color": "#fffdf8" },
+        { "slug": "or", "name": "Or", "color": "#b68631" },
+        { "slug": "lavande", "name": "Lavande", "color": "#666294" },
+        { "slug": "vert-feuille", "name": "Vert feuille", "color": "#426f47" }
+      ]
+    }
+  }
+}

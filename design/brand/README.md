@@ -1,6 +1,8 @@
 # Brand Guidelines Intake
 
-Status: **WAITING FOR CLIENT GUIDELINES**
+Status: **source visual materials received; formal guidelines pending**
+
+`source/` contains the original supplied logo and four original paintings. The business-card photographs were reviewed for brand context but are not versioned because they contain personal contact details. `doors/` contains four generated master illustrations inspired by the artwork. The generated doors are concepts for navigation decoration; their labels and mapping to services require the actual service list. The exact logo remains the original JPEG. Transparent cropped logo derivatives are approximate because the source is a JPEG on a cream ground; request a vector or transparent master from the client for final precision.
 
 When the files arrive:
 

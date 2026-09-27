@@ -1,0 +1,45 @@
+/*
+Theme Name: Le Moulin de Laure Child
+Theme URI: https://github.com/jsardin91/Lemoulindelaure
+Description: Identité visuelle de Le Moulin de Laure pour Astra.
+Author: Le Moulin de Laure
+Template: astra
+Version: 0.1.0
+Text Domain: lemoulindelaure-child
+*/
+
+:root {
+  --lmdl-cream: #faf7ef;
+  --lmdl-paper: #fffdf8;
+  --lmdl-ink: #173f54;
+  --lmdl-blue: #165a77;
+  --lmdl-teal: #306c67;
+  --lmdl-green: #426f47;
+  --lmdl-gold: #b68631;
+  --lmdl-lavender: #666294;
+  --lmdl-line: #dcd4bd;
+  --lmdl-focus: #165a77;
+  --ast-global-color-0: var(--lmdl-blue);
+  --ast-global-color-1: var(--lmdl-teal);
+  --ast-global-color-2: var(--lmdl-ink);
+  --ast-global-color-3: #3f5355;
+  --ast-global-color-4: var(--lmdl-cream);
+  --ast-global-color-5: var(--lmdl-paper);
+  --ast-global-color-6: var(--lmdl-line);
+  --ast-global-color-7: var(--lmdl-lavender);
+  --ast-global-color-8: var(--lmdl-gold);
+}
+
+body { background: var(--lmdl-cream); color: var(--lmdl-ink); }
+a { color: var(--lmdl-blue); }
+a:hover { color: var(--lmdl-teal); }
+:where(a, button, input, textarea, select):focus-visible { outline: 3px solid var(--lmdl-focus); outline-offset: 3px; }
+
+/* The image is decoration; the real heading and link stay in HTML. */
+.lmdl-door-link { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; color: var(--lmdl-ink); text-decoration: none; }
+.lmdl-door-link__scene { display: grid; width: min(100%, 18rem); }
+.lmdl-door-link__scene img { display: block; grid-area: 1 / 1; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; }
+.lmdl-door-link__open { opacity: 0; transform: scale(.96); transition: opacity .35s ease, transform .35s ease; }
+.lmdl-door-link:is(:hover, :focus-visible) .lmdl-door-link__open { opacity: 1; transform: scale(1); }
+.lmdl-door-link__label { font-size: 1.125rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+@media (prefers-reduced-motion: reduce) { .lmdl-door-link__open { transition: none; transform: none; } .lmdl-door-link:is(:hover, :focus-visible) .lmdl-door-link__open { transform: none; } }

@@ -1,6 +1,6 @@
 # Le Moulin de Laure — Brand & Website Design Brief
 
-Status: **awaiting client brand guidelines**
+Status: **client visual references received; formal guidelines and service taxonomy pending**
 
 This file is input for the design system. It is not an approved design system.
 
@@ -10,7 +10,7 @@ Brand: Le Moulin de Laure
 
 Website/domain: TBD
 
-What the business does: TBD from client material.
+What the business does: Client business card states "Communicatrice Animalière". Other offers remain to confirm.
 
 Primary offers:
 - TBD
@@ -38,14 +38,14 @@ Secondary conversions:
 
 ## Brand
 
-Brand guidelines: **Pending — do not invent final brand rules.**
+Brand guidelines: Formal document pending. The client supplied a logo, four paintings and a business card on 2026-09-27. Preserve their visual identity; treat inferred colors as draft.
 
 Existing assets:
-- Logo: pending
-- Colors: pending
-- Fonts: pending
-- Photography: pending
-- Tone: pending
+- Logo: original JPEG under `design/brand/source/logo-client-original.jpeg`, with a four-leaf/windmill motif, central heart, title and the motto "Au cœur du lien, au-delà des sens".
+- Colors: proposed from logo in `MASTER.md` and child theme; awaiting validation against a source vector/brand guide.
+- Fonts: original lettering is part of the raster logo; font family unknown and not replaced.
+- Imagery: original butterfly, turtle, squirrel and phoenix paintings under `design/brand/source/`; business-card photographs were reviewed but excluded from Git because they contain contact details.
+- Tone: gentle, imaginative, rooted in living things; to confirm with client.
 
 ## Technical context
 

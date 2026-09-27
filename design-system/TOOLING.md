@@ -2,7 +2,7 @@
 
 ## Status
 
-Brand guidelines: **pending**
+Formal guidelines: **pending**. Supplied logo, paintings and business card are now in `design/brand/source/`.
 
 Do not finalize these values until the brand brief is available.
 
@@ -33,9 +33,9 @@ Project-local copies are vendored at:
 
 Project dials:
 
-- `DESIGN_VARIANCE`: TBD after brand review
-- `MOTION_INTENSITY`: TBD after brand review
-- `VISUAL_DENSITY`: TBD after brand review
+- `DESIGN_VARIANCE`: 7 (draft; painted artwork supports a more expressive but coherent composition)
+- `MOTION_INTENSITY`: 3 (draft; a subtle door response is enough and never blocks navigation)
+- `VISUAL_DENSITY`: 3 (draft; leave room for original paintings and readable service content)
 
 When the brand guidelines arrive, choose values from the actual brand, audience, content and conversion goals. Record the reason beside each value before implementation.
 
