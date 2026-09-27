@@ -77,7 +77,7 @@ Read, in order:
 
 ## Deployment
 
-GitHub Actions SSH secrets are configured separately. The repository currently includes only a **manual SSH connectivity test**. Production deployment must not be enabled until the real WordPress document root has been verified.
+GitHub Actions SSH secrets are configured separately. The diagnostic workflow verified exactly one WordPress installation with Astra and WP-CLI without exposing server paths. The child theme was installed and activated on https://lemoulindelaure.fr by the `Install Astra child theme` workflow. Future deployments are manual (`workflow_dispatch`); changing theme files on `main` alone does not update the live site.
 
 ## Security
 

@@ -28,11 +28,11 @@ Do not version WordPress core, Astra parent theme, third-party plugin source, up
 
 1. Repository organization: complete.
 2. SSH secrets: configured by the owner.
-3. SSH connectivity: manual workflow available.
-4. Production WordPress path: still to be verified.
+3. SSH connectivity: tested successfully in GitHub Actions.
+4. Production WordPress installation: uniquely located and checked for Astra and WP-CLI without recording its document root in logs or the repository.
 5. Visual references: logo and four paintings received; formal brand guidelines pending.
 6. Design system: `draft` palette and typography benchmark, awaiting client approval.
-7. Astra child theme: palette, local fonts, logo/site-icon defaults and brand assets implemented in code; WordPress activation and visual QA pending.
+7. Astra child theme: installed and active on https://lemoulindelaure.fr; live header logo, stylesheet, palette and typefaces verified. Sample WordPress content remains and portal assets are not placed in pages yet.
 
 ## Next gate
 
