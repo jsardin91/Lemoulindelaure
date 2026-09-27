@@ -1,0 +1,92 @@
+name: Install Astra child theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/install-child-theme.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare SSH and archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          tar -C wp-content/themes -czf "$RUNNER_TEMP/lemoulindelaure-child.tgz" lemoulindelaure-child
+
+      - name: Upload child theme
+        shell: bash
+        run: |
+          set -euo pipefail
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" \
+            "$RUNNER_TEMP/lemoulindelaure-child.tgz" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-child-${GITHUB_RUN_ID}.tgz"
+
+      - name: Install, activate, and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}'" <<'REMOTE'
+          set -euo pipefail
+          archive="$HOME/.lmdl-child-$1.tgz"
+          trap 'rm -f "$archive"' EXIT
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then
+            mapfile -t configs <<< "$listings"
+          fi
+          if [ "${#configs[@]}" -ne 1 ]; then
+            printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'
+            exit 1
+          fi
+          root="$(dirname "${configs[0]}")"
+          themes="$root/wp-content/themes"
+          child="$themes/lemoulindelaure-child"
+          test -d "$root/wp-admin" && test -d "$themes/astra" && test -f "$archive"
+          wp --path="$root" core is-installed --quiet
+          old_theme="$(wp --path="$root" option get stylesheet)"
+          staging="$(mktemp -d "$themes/.lmdl-stage.XXXXXX")"
+          trap 'rm -f "$archive"; rm -rf "$staging"' EXIT
+          tar -xzf "$archive" -C "$staging" --no-same-owner
+          test -f "$staging/lemoulindelaure-child/style.css"
+          test -f "$staging/lemoulindelaure-child/functions.php"
+          if ! php -l "$staging/lemoulindelaure-child/functions.php" >/dev/null; then
+            printf 'PHP_LINT_FAILED\n'
+            exit 1
+          fi
+          backup=''
+          if [ -e "$child" ]; then
+            backup="$(mktemp -d "$themes/.lmdl-backup.XXXXXX")"
+            mv "$child" "$backup/lemoulindelaure-child"
+          fi
+          mv "$staging/lemoulindelaure-child" "$child"
+          if ! wp --path="$root" theme activate lemoulindelaure-child >/dev/null 2>&1 ||
+             [ "$(wp --path="$root" option get stylesheet)" != 'lemoulindelaure-child' ]; then
+            rm -rf "$child"
+            if [ -n "$backup" ]; then
+              mv "$backup/lemoulindelaure-child" "$child"
+              rmdir "$backup"
+            fi
+            if [ "$old_theme" != 'lemoulindelaure-child' ]; then
+              wp --path="$root" theme activate "$old_theme" >/dev/null 2>&1 || true
+            fi
+            printf 'ACTIVATION_FAILED_ROLLED_BACK\n'
+            exit 1
+          fi
+          printf 'CHILD_THEME_ACTIVE\n'
+          printf 'SITE_URL=%s\n' "$(wp --path="$root" option get home)"
+          REMOTE
