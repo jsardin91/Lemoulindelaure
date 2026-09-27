@@ -21,14 +21,14 @@
         {
           "slug": "lmdl-body",
           "name": "Source Sans 3 · textes",
-          "fontFamily": "'LMDL Source Sans 3', 'Source Sans 3', Arial, sans-serif",
-          "fontFace": [{ "fontFamily": "LMDL Source Sans 3", "fontStyle": "normal", "fontWeight": "300 700", "src": ["file:./assets/fonts/source-sans-3-latin-variable.woff2"] }]
+          "fontFamily": "'Source Sans 3', Arial, sans-serif",
+          "fontFace": [{ "fontFamily": "Source Sans 3", "fontStyle": "normal", "fontWeight": "300 700", "src": ["file:./assets/fonts/source-sans-3-latin-variable.woff2"] }]
         },
         {
           "slug": "lmdl-heading",
           "name": "Lora · titres",
-          "fontFamily": "'LMDL Lora', Lora, Georgia, serif",
-          "fontFace": [{ "fontFamily": "LMDL Lora", "fontStyle": "normal", "fontWeight": "400 700", "src": ["file:./assets/fonts/lora-latin-variable.woff2"] }]
+          "fontFamily": "Lora, Georgia, serif",
+          "fontFace": [{ "fontFamily": "Lora", "fontStyle": "normal", "fontWeight": "400 700", "src": ["file:./assets/fonts/lora-latin-variable.woff2"] }]
         }
       ]
     }

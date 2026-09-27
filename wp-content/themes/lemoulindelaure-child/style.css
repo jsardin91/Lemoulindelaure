@@ -9,14 +9,14 @@ Text Domain: lemoulindelaure-child
  */
 
 @font-face {
-  font-family: 'LMDL Source Sans 3';
+  font-family: 'Source Sans 3';
   src: url('assets/fonts/source-sans-3-latin-variable.woff2') format('woff2');
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
 }
 @font-face {
-  font-family: 'LMDL Lora';
+  font-family: 'Lora';
   src: url('assets/fonts/lora-latin-variable.woff2') format('woff2');
   font-style: normal;
   font-weight: 400 700;
@@ -34,8 +34,8 @@ Text Domain: lemoulindelaure-child
   --lmdl-lavender: #666294;
   --lmdl-line: #dcd4bd;
   --lmdl-focus: #165a77;
-  --lmdl-font-body: 'LMDL Source Sans 3', 'Source Sans 3', Arial, sans-serif;
-  --lmdl-font-heading: 'LMDL Lora', Lora, Georgia, serif;
+  --lmdl-font-body: 'Source Sans 3', Arial, sans-serif;
+  --lmdl-font-heading: Lora, Georgia, serif;
   --ast-global-color-0: var(--lmdl-blue);
   --ast-global-color-1: var(--lmdl-teal);
   --ast-global-color-2: var(--lmdl-ink);

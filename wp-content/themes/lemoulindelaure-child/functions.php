@@ -37,13 +37,21 @@ add_action( 'after_switch_theme', function () {
 		$settings = array();
 	}
 	$settings['global-color-palette'] = array( 'palette' => $colors );
-	$settings['body-font-family'] = 'LMDL Source Sans 3';
+	$settings['body-font-family'] = 'Source Sans 3';
 	$settings['body-font-weight'] = '400';
 	$settings['body-line-height'] = '1.65';
-	$settings['headings-font-family'] = 'LMDL Lora';
+	$settings['headings-font-family'] = 'Lora';
 	$settings['headings-font-weight'] = '600';
 	update_option( ASTRA_THEME_SETTINGS, $settings );
 	update_option( 'lmdl_brand_defaults_installed', '1' );
+} );
+
+/** Fonts stay selectable in Astra; their files are served by the child theme. */
+add_filter( 'astra_render_fonts', function ( $fonts ) {
+	if ( is_array( $fonts ) ) {
+		unset( $fonts['Lora'], $fonts['Source Sans 3'] );
+	}
+	return $fonts;
 } );
 
 /** Use the theme artwork as a logo until one is selected in WordPress Media. */
