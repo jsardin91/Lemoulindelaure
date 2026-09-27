@@ -4,7 +4,9 @@
 
 Formal guidelines: **pending**. Supplied logo, paintings and business card are now in `design/brand/source/`.
 
-Do not finalize these values until the brand brief is available.
+The draft palette and fonts were explicitly requested by the owner. Keep them provisional until formal brand guidelines and client validation arrive.
+
+Typography research and decision: `TYPOGRAPHY-BENCHMARK.md`.
 
 ## UI/UX Pro Max
 

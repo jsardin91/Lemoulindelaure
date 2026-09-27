@@ -4,12 +4,11 @@ These are repository-level instructions for AI coding agents.
 
 ## Non-negotiable project gate
 
-The client brand guidelines have **not yet been supplied**.
+The client has supplied a JPEG logo, four paintings and a business-card reference. Formal brand guidelines have **not yet been supplied**. On 2026-09-27 the owner explicitly authorized a draft palette from the logo and a typography benchmark with UI/UX Pro Max.
 
 Until they are added under `design/brand/` and summarized in `design-system/BRIEF.md`:
 
-- do not invent final colors;
-- do not invent final typography;
+- treat the brand-derived colors and the benchmark-selected fonts as draft, not final client approval;
 - do not lock a visual style;
 - do not mark `design-system/MASTER.md` as active;
 - do not begin a full homepage/page redesign.
@@ -102,4 +101,4 @@ Detailed rules: `docs/WORDPRESS-WEB-DESIGN.md`.
 - `active`: approved project source of truth.
 - `deprecated`: historical only.
 
-The current state must remain `template` until brand guidelines arrive and a design direction is validated.
+The current state is `draft` for the owner's explicitly requested identity work. Keep it `draft` until client validation.

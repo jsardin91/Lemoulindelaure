@@ -30,18 +30,18 @@ Do not version WordPress core, Astra parent theme, third-party plugin source, up
 2. SSH secrets: configured by the owner.
 3. SSH connectivity: manual workflow available.
 4. Production WordPress path: still to be verified.
-5. Brand guidelines: waiting for client material.
-6. Design system: intentionally `template`.
-7. Visual implementation: not started.
+5. Visual references: logo and four paintings received; formal brand guidelines pending.
+6. Design system: `draft` palette and typography benchmark, awaiting client approval.
+7. Astra child theme: palette, local fonts, logo/site-icon defaults and brand assets implemented in code; WordPress activation and visual QA pending.
 
 ## Next gate
 
-When brand guidelines arrive:
+When the complete formal brand guidelines arrive:
 
 1. store/summarize them under `design/brand/`;
 2. fill `design-system/BRIEF.md`;
 3. use UI/UX Pro Max + Taste Skill + 21st selectively;
-4. create a coherent draft in `design-system/MASTER.md`;
-5. validate with the user;
+4. reconcile the existing draft in `design-system/MASTER.md` with the guidelines;
+5. validate with the user and client;
 6. mark the Master `active` only after approval;
 7. then implement the WordPress child theme.

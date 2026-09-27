@@ -13,6 +13,7 @@ Last updated: 2026-09-27
 - Safe manual SSH connectivity workflow added.
 - Design work gated until brand guidelines arrive.
 - Client logo and four original paintings integrated on `main`; business-card photographs reviewed but excluded from Git. Draft palette, logo variants, four door illustrations and Astra child-theme assets are available. Formal approval and service list remain open.
+- UI/UX Pro Max installed locally for Codex and Claude; typography benchmark completed. Astra child theme now seeds native palette and self-hosted Lora/Source Sans 3 on first activation and provides default logo/site icon fallbacks.
 
 ## Waiting on
 

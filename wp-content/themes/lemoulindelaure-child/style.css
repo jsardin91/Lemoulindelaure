@@ -6,7 +6,22 @@ Author: Le Moulin de Laure
 Template: astra
 Version: 0.1.0
 Text Domain: lemoulindelaure-child
-*/
+ */
+
+@font-face {
+  font-family: 'LMDL Source Sans 3';
+  src: url('assets/fonts/source-sans-3-latin-variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LMDL Lora';
+  src: url('assets/fonts/lora-latin-variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
 
 :root {
   --lmdl-cream: #faf7ef;
@@ -19,6 +34,8 @@ Text Domain: lemoulindelaure-child
   --lmdl-lavender: #666294;
   --lmdl-line: #dcd4bd;
   --lmdl-focus: #165a77;
+  --lmdl-font-body: 'LMDL Source Sans 3', 'Source Sans 3', Arial, sans-serif;
+  --lmdl-font-heading: 'LMDL Lora', Lora, Georgia, serif;
   --ast-global-color-0: var(--lmdl-blue);
   --ast-global-color-1: var(--lmdl-teal);
   --ast-global-color-2: var(--lmdl-ink);
@@ -30,7 +47,10 @@ Text Domain: lemoulindelaure-child
   --ast-global-color-8: var(--lmdl-gold);
 }
 
-body { background: var(--lmdl-cream); color: var(--lmdl-ink); }
+body { background: var(--lmdl-cream); color: var(--lmdl-ink); font: 400 1.0625rem/1.65 var(--lmdl-font-body); }
+:where(button, input, select, textarea) { font-family: var(--lmdl-font-body); }
+:where(h1, h2, h3, h4, h5, h6, .entry-title) { font-family: var(--lmdl-font-heading); font-weight: 600; line-height: 1.25; }
+.lmdl-site-logo img { display: block; width: clamp(160px, 22vw, 260px); height: auto; }
 a { color: var(--lmdl-blue); }
 a:hover { color: var(--lmdl-teal); }
 :where(a, button, input, textarea, select):focus-visible { outline: 3px solid var(--lmdl-focus); outline-offset: 3px; }

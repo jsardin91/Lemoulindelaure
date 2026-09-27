@@ -36,7 +36,7 @@ Reference colors: `wp-content/themes/lemoulindelaure-child/style.css` and `theme
 
 ## Typography
 
-The logo lettering remains the supplied artwork. No body or heading font has been selected.
+Proposition issue du benchmark UI/UX Pro Max : Lora 600 pour les titres et Source Sans 3 400 pour le corps, 600 pour les contrôles. Fichiers WOFF2 hébergés dans le thème enfant ; détails et alternatives dans `TYPOGRAPHY-BENCHMARK.md`. Le lettrage du logo reste la photographie fournie. Validation du client encore attendue.
 
 ## Spacing, layout, components, imagery and icons
 

@@ -4,15 +4,37 @@
   "settings": {
     "color": {
       "palette": [
-        { "slug": "bleu-moulin", "name": "Bleu Moulin", "color": "#165a77" },
-        { "slug": "vert-lien", "name": "Vert lien", "color": "#306c67" },
-        { "slug": "encre", "name": "Encre", "color": "#173f54" },
-        { "slug": "creme", "name": "Crème", "color": "#faf7ef" },
-        { "slug": "papier", "name": "Papier", "color": "#fffdf8" },
-        { "slug": "or", "name": "Or", "color": "#b68631" },
-        { "slug": "lavande", "name": "Lavande", "color": "#666294" },
+        { "slug": "ast-global-color-0", "name": "Bleu Moulin · principal", "color": "#165a77" },
+        { "slug": "ast-global-color-1", "name": "Vert d'eau · survol", "color": "#306c67" },
+        { "slug": "ast-global-color-2", "name": "Encre · titres", "color": "#173f54" },
+        { "slug": "ast-global-color-3", "name": "Texte", "color": "#3f5355" },
+        { "slug": "ast-global-color-4", "name": "Crème · fond", "color": "#faf7ef" },
+        { "slug": "ast-global-color-5", "name": "Papier · surface", "color": "#fffdf8" },
+        { "slug": "ast-global-color-6", "name": "Ligne", "color": "#dcd4bd" },
+        { "slug": "ast-global-color-7", "name": "Lavande", "color": "#666294" },
+        { "slug": "ast-global-color-8", "name": "Or · décor", "color": "#b68631" },
         { "slug": "vert-feuille", "name": "Vert feuille", "color": "#426f47" }
       ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "lmdl-body",
+          "name": "Source Sans 3 · textes",
+          "fontFamily": "'LMDL Source Sans 3', 'Source Sans 3', Arial, sans-serif",
+          "fontFace": [{ "fontFamily": "LMDL Source Sans 3", "fontStyle": "normal", "fontWeight": "300 700", "src": ["file:./assets/fonts/source-sans-3-latin-variable.woff2"] }]
+        },
+        {
+          "slug": "lmdl-heading",
+          "name": "Lora · titres",
+          "fontFamily": "'LMDL Lora', Lora, Georgia, serif",
+          "fontFace": [{ "fontFamily": "LMDL Lora", "fontStyle": "normal", "fontWeight": "400 700", "src": ["file:./assets/fonts/lora-latin-variable.woff2"] }]
+        }
+      ]
     }
+  },
+  "styles": {
+    "typography": { "fontFamily": "var(--wp--preset--font-family--lmdl-body)", "fontSize": "17px", "lineHeight": "1.65" },
+    "elements": { "heading": { "typography": { "fontFamily": "var(--wp--preset--font-family--lmdl-heading)", "fontWeight": "600", "lineHeight": "1.25" } } }
   }
 }

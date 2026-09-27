@@ -1,6 +1,6 @@
 # Le Moulin de Laure Child Theme
 
-Custom Astra child theme. Activate Astra first, then this child theme in WordPress.
+Custom Astra child theme. Activate Astra first, then this child theme in WordPress. The first activation initializes Astra's nine native Global Palette slots, Lora headings and Source Sans 3 body type in Astra's saved Customizer settings. The defaults are installed once (`lmdl_brand_defaults_installed`); later changes in Astra remain possible. The site's real WordPress database must be available for the activation step.
 
 ## Assets
 
@@ -11,10 +11,13 @@ Custom Astra child theme. Activate Astra first, then this child theme in WordPre
 - `assets/logo/signature-transparent.png`: client lettering only, for wide headers.
 - `assets/logo/devise-transparent.png`: optional tagline, not a substitute for HTML copy.
 - `assets/logo/icone-32.png`, `icone-180.png`, `icone-512.png`: favicon and app icons. The WordPress Site Icon can use the 512 px file.
+- The header displays the included horizontal logo if no Media Library logo is selected. WordPress Site Icon uses the included icons if no icon is set in the Customizer. Selecting a logo or icon in WordPress takes priority over the theme fallback.
 - `assets/art/painting-*.webp`: optimized versions of the four original paintings.
 - `assets/doors/door-*.webp`: optimized decorative portals. `passage` is open; `ocean`, `forest` and `phoenix` are closed illustrations. These are distinct images, not frames of an opening animation.
 
 Original client files and generated masters are in `design/brand/`. Rebuild derivatives with `python scripts/build-brand-assets.py` after installing Pillow. The palette is recorded in CSS custom properties and the editor palette in `theme.json`. Astra's global color variables are also given fallback values in `style.css`; check Astra Customizer settings on the installed site because saved customizer colors may override CSS declarations.
+
+Fonts: `assets/fonts/` holds local variable WOFF2 files and SIL OFL licenses for Lora and Source Sans 3. `theme.json` exposes them in the block editor; `style.css` loads them on the public site. Typography rationale: `design-system/TYPOGRAPHY-BENCHMARK.md`.
 
 Use the `[lmdl_door href="/service/" label="Nom du service" art="ocean"]` shortcode for a decorative link. Valid art values: `ocean`, `forest`, `phoenix`, `passage`. The shortcode returns nothing until both a real URL and label are supplied. Keep an actual service heading, explanatory paragraph and HTML link on the page; avoid inventing service names from the paintings. On mobile, keyboard or reduced-motion settings, navigation remains a regular link.
 
