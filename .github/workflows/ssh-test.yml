@@ -1,6 +1,10 @@
 name: Test SSH Connection
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/ssh-test.yml
   workflow_dispatch:
 
 permissions:
@@ -25,3 +29,27 @@ jobs:
         run: |
           set -euo pipefail
           ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" 'printf "SSH_CONNECTION_OK\n"'
+
+      - name: Verify a single WordPress installation and Astra
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" 'bash -s' <<'REMOTE'
+          set -euo pipefail
+          mapfile -t configs < <(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' 2>/dev/null)
+          if [ "${#configs[@]}" -ne 1 ]; then
+            printf 'WORDPRESS_INSTALLATIONS=%s (expected exactly one; paths withheld)\n' "${#configs[@]}"
+            exit 1
+          fi
+          root="$(dirname "${configs[0]}")"
+          test -d "$root/wp-admin" && test -d "$root/wp-content/themes/astra" || {
+            printf 'WORDPRESS_OR_ASTRA_MISSING\n'
+            exit 1
+          }
+          printf 'WORDPRESS_AND_ASTRA_OK\n'
+          if command -v wp >/dev/null 2>&1; then
+            printf 'WP_CLI_AVAILABLE\n'
+          else
+            printf 'WP_CLI_UNAVAILABLE\n'
+          fi
+          REMOTE
