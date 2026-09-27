@@ -2,34 +2,22 @@
 
 @AGENTS.md
 
-Claude Code should use the repository-level rules above as the primary shared
-project instructions.
+Use `AGENTS.md` as the shared project authority.
 
-## Claude-specific discovery
+For design/frontend work also read:
 
-For design/frontend work, use the project-local skill at:
-
-- `.claude/skills/frontend-design-pro/SKILL.md`
-
-If installed, also use:
-
-- `.claude/skills/ui-ux-pro-max/SKILL.md`
-
-Do not assume a globally installed skill exists when the project-local copy is
-available.
-
-## Design context
-
-Before substantial design work, read:
-
+- `docs/PROJECT.md`
+- `design-system/BRIEF.md`
 - `design-system/MASTER.md`
-- a matching file under `design-system/pages/` if present
+- `design-system/TOOLING.md`
 - `docs/AI-DESIGN-WORKFLOW.md`
 
-For WordPress work also read:
+Project-local skills:
 
-- `docs/WORDPRESS-WEB-DESIGN.md`
+- `.claude/skills/frontend-design-pro/SKILL.md`
+- `.claude/skills/taste-skill/SKILL.md`
+- `.claude/skills/ui-ux-pro-max/SKILL.md` after UI/UX Pro Max bootstrap
 
-The `frontend-design-pro` skill owns the creative/design workflow.
-UI UX Pro Max provides supporting searchable recommendations and should not
-override approved brand choices.
+For 21st MCP setup and usage, read `docs/21ST-MCP.md`.
+
+Do not begin final visual design until the client brand guidelines are present and the design-system gate in `AGENTS.md` is satisfied.

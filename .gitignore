@@ -1,0 +1,51 @@
+# WordPress core
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+
+# Secrets / production config
+wp-config.php
+.env
+.env.*
+*.pem
+*.key
+*.ppk
+
+# Runtime / user content
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/litespeed/
+/wp-content/upgrade/
+/wp-content/backups*/
+*.sql
+*.sql.gz
+*.log
+
+# Third-party plugins: keep only project-owned plugin
+/wp-content/plugins/*
+!/wp-content/plugins/structured-faq/
+!/wp-content/plugins/structured-faq/**
+
+# Themes: keep only project child theme
+/wp-content/themes/*
+!/wp-content/themes/lemoulindelaure-child/
+!/wp-content/themes/lemoulindelaure-child/**
+
+# Dependencies / tooling
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+
+# Local editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local MCP/auth files
+.mcp.local.json

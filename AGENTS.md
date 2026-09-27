@@ -1,133 +1,105 @@
-# AI Project Instructions
+# AI Project Instructions — Le Moulin de Laure
 
 These are repository-level instructions for AI coding agents.
 
-Keep this file concise. Detailed design methodology lives in the project-local
-skills and reference files.
+## Non-negotiable project gate
+
+The client brand guidelines have **not yet been supplied**.
+
+Until they are added under `design/brand/` and summarized in `design-system/BRIEF.md`:
+
+- do not invent final colors;
+- do not invent final typography;
+- do not lock a visual style;
+- do not mark `design-system/MASTER.md` as active;
+- do not begin a full homepage/page redesign.
+
+Technical setup, content architecture, audits, inventory and tooling work are allowed.
 
 ## Source of truth and precedence
 
 When instructions conflict, use this order:
 
 1. Explicit user request in the current task
-2. Existing approved brand identity and real production behavior
-3. `design-system/MASTER.md` when its status is `active`
-4. `design-system/pages/<page>.md` for deliberate page-specific overrides
-5. Existing reusable components, tokens, architecture, and conventions
-6. Project-local `frontend-design-pro` skill
-7. Project-local `ui-ux-pro-max` skill, if installed
-8. General UX conventions
-9. Trends and stylistic preferences
+2. Client brand guidelines and approved client assets
+3. Approved real production behavior/content
+4. `design-system/MASTER.md` when its status is `active`
+5. `design-system/pages/<page>.md` for approved page-specific exceptions
+6. Existing reusable components/tokens/architecture
+7. Project-local `frontend-design-pro`
+8. UI/UX Pro Max
+9. Taste Skill
+10. 21st component/pattern references
+11. Generic conventions and trends
 
-Never let a generic preset, trend, generated palette, or font pairing replace an
-approved brand system.
+Never let a generated palette, font pairing, component catalogue, trend, or AI aesthetic overwrite the approved brand.
 
 ## Required design workflow
 
-For meaningful UI, UX, frontend, responsive, layout, component, page-design, or
-visual-quality work:
+For meaningful UI/UX/frontend work:
 
-1. Use the `frontend-design-pro` project skill.
-2. Read `design-system/MASTER.md`.
-3. If a matching `design-system/pages/<page>.md` exists, read it.
-4. Inspect the current implementation before inventing a replacement.
-5. Use UI UX Pro Max as supporting design intelligence when installed.
-6. Default to `EVOLVE` mode on existing sites.
-7. Review the implemented result visually when browser/screenshot tooling exists.
-8. Check responsive behavior, accessibility basics, and obvious performance impact.
+1. Read `docs/PROJECT.md`.
+2. Read the available brand material in `design/brand/`.
+3. Read `design-system/BRIEF.md` and `design-system/MASTER.md`.
+4. Read `design-system/TOOLING.md`.
+5. Use `frontend-design-pro` for overall design process and implementation discipline.
+6. Use UI/UX Pro Max for research and UX/design-system evidence.
+7. Use Taste Skill for anti-generic composition, typography, spacing and polish.
+8. Use 21st MCP for component/pattern exploration when useful.
+9. Translate references into the approved WordPress/Astra architecture.
+10. Review visually, responsively and accessibly before considering work finished.
 
-## UI UX Pro Max
+## Tool-specific rules
 
-UI UX Pro Max is optional but strongly recommended.
+### UI/UX Pro Max
 
-Expected project-local locations after running the bootstrap script:
+Expected project-local locations after its bootstrap is run:
 
 - Codex: `.agents/skills/ui-ux-pro-max/`
 - Claude Code: `.claude/skills/ui-ux-pro-max/`
 
-Its recommendations are advisory. Approved brand rules win.
+It is advisory. Brand rules win.
 
-Do not install software silently. If the skill is missing and installation is
-required, tell the user to run the repository bootstrap script.
+### Taste Skill
+
+Vendored project-local copies live at:
+
+- Codex: `.agents/skills/taste-skill/SKILL.md`
+- Claude Code: `.claude/skills/taste-skill/SKILL.md`
+
+Do not blindly apply its defaults. Infer from the client brief and brand first. Project-specific dials belong in `design-system/TOOLING.md`.
+
+### 21st
+
+21st is an external MCP/CLI design resource. Setup is documented in `docs/21ST-MCP.md`.
+
+This is a WordPress/Astra project. Do **not** add React, shadcn, Tailwind or a JS application layer just because a 21st reference uses those technologies. Use the design idea, not necessarily the implementation stack.
+
+## WordPress architecture
+
+- Never modify WordPress core.
+- Never modify Astra parent-theme files.
+- Custom theme work belongs in `wp-content/themes/lemoulindelaure-child/`.
+- Custom Structured FAQ work belongs in `wp-content/plugins/structured-faq/`.
+- Do not vendor Rank Math, Complianz, Forminator, Astra or LiteSpeed Cache into this repository.
+- Preserve plugin-generated SEO/schema behavior unless a task explicitly changes it.
+- Keep modifications upgrade-safe and rollbackable.
+
+Detailed rules: `docs/WORDPRESS-WEB-DESIGN.md`.
+
+## Production safety
+
+- Never commit secrets, SSH keys, API keys, `wp-config.php`, database dumps or uploads.
+- GitHub deployment remains disabled until the real WordPress document root is verified.
+- Do not expose server paths or credentials in logs.
+- Prefer small, auditable changes.
+- Update `docs/HANDOFF.md` after meaningful project milestones.
 
 ## Design-system status
 
-`design-system/MASTER.md` has a status.
-
-- `template`: placeholders are NOT approved design decisions.
-- `draft`: proposed system; do not treat unapproved choices as immutable.
-- `active`: approved source of truth.
+- `template`: no visual choices are approved.
+- `draft`: proposed direction only.
+- `active`: approved project source of truth.
 - `deprecated`: historical only.
 
-If status is `template`, use real existing site styles and explicit user context
-as authority. Do not invent a new brand merely to fill the template.
-
-## Design mode
-
-### EVOLVE
-
-Default for existing sites.
-
-Preserve the recognizable identity and improve:
-- hierarchy
-- composition
-- spacing
-- usability
-- conversion clarity
-- responsive behavior
-- accessibility
-- performance
-- visual polish
-
-Do not redesign unrelated sections.
-
-### REDESIGN
-
-Use only when the user explicitly requests or approves a new visual direction.
-
-## WordPress
-
-When this repository contains WordPress:
-
-- never modify WordPress core for design work
-- prefer the child theme or an approved custom plugin
-- inspect existing theme settings and CSS before overriding
-- reuse existing design tokens and components where possible
-- avoid unnecessary `!important`
-- avoid loading a second font system without approval
-- keep changes upgrade-safe
-- avoid page-specific hacks when a reusable component is appropriate
-- validate PHP when modifying PHP
-- preserve rollbackability
-
-Read `docs/WORDPRESS-WEB-DESIGN.md` for detailed rules.
-
-## Implementation discipline
-
-Before changing code:
-
-- inspect related files and selectors
-- identify the smallest reasonable implementation surface
-- avoid duplicate rules and specificity wars
-- preserve naming conventions
-- avoid unrelated cleanup
-- preserve content, SEO, localization, and accessibility behavior unless the task requires changes
-
-After changing code:
-
-- inspect the diff
-- run relevant validation/tests when available
-- verify the changed page/component
-- visually inspect meaningful design work when possible
-- report any limitation that prevented visual verification
-
-## Keep project instructions healthy
-
-Do not continuously append task history to this file.
-
-Persistent brand decisions belong in:
-- `design-system/MASTER.md`
-- `design-system/DECISIONS.md`
-- page overrides when genuinely page-specific
-
-Task-specific notes belong in the task/conversation, not in permanent instructions.
+The current state must remain `template` until brand guidelines arrive and a design direction is validated.
