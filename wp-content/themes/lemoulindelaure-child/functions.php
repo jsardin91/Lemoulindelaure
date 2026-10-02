@@ -1,6 +1,6 @@
 <?php
 /**
- * Astra child theme assets and reusable portal link.
+ * Astra child theme assets and reusable presentation helpers.
  *
  * @package LeMoulinDeLaure
  */
@@ -72,6 +72,21 @@ add_filter( 'get_site_icon_url', function ( $url, $size ) {
 	return get_stylesheet_directory_uri() . '/assets/logo/icone-' . $asset_size . '.png';
 }, 10, 2 );
 
+/** Enqueue a child-theme stylesheet with a filemtime cache-busting version. */
+function lmdl_enqueue_css( $handle, $relative_path, $dependencies = array() ) {
+	$path = get_stylesheet_directory() . '/' . ltrim( $relative_path, '/' );
+	if ( ! file_exists( $path ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		$handle,
+		get_stylesheet_directory_uri() . '/' . ltrim( $relative_path, '/' ),
+		$dependencies,
+		(string) filemtime( $path )
+	);
+}
+
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style(
 		'lemoulindelaure-child',
@@ -79,11 +94,44 @@ add_action( 'wp_enqueue_scripts', function () {
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
+
+	lmdl_enqueue_css( 'lmdl-components', 'assets/css/components.css', array( 'lemoulindelaure-child' ) );
+
+	if ( is_front_page() ) {
+		lmdl_enqueue_css( 'lmdl-home', 'assets/css/pages/home.css', array( 'lmdl-components' ) );
+	}
+
+	if ( is_page( 'accompagnements' ) ) {
+		lmdl_enqueue_css( 'lmdl-accompagnements', 'assets/css/pages/accompagnements.css', array( 'lmdl-components' ) );
+	}
+
+	if ( is_page( array(
+		'communication-animaliere',
+		'communication-animale',
+		'accompagnement-energetique-animalier',
+		'connexion-defunts',
+		'guidance-pour-soi',
+	) ) ) {
+		lmdl_enqueue_css( 'lmdl-accompaniment-detail', 'assets/css/pages/accompaniment-detail.css', array( 'lmdl-components' ) );
+	}
+
+	if ( is_page( array( 'le-jardin', 'a-propos', 'journal' ) ) || is_singular( 'post' ) ) {
+		lmdl_enqueue_css( 'lmdl-editorial-pages', 'assets/css/pages/editorial.css', array( 'lmdl-components' ) );
+	}
+
+	if ( is_page( array( 'faq', 'contact', 'prendre-rendez-vous', 'merci', 'reservation-confirmee', 'reservation-annulee' ) ) ) {
+		lmdl_enqueue_css( 'lmdl-functional-pages', 'assets/css/pages/functional.css', array( 'lmdl-components' ) );
+	}
 }, 20 );
 
 /**
+ * Legacy prototype shortcode.
+ *
  * Usage: [lmdl_door href="/service/" label="Nom du service" art="ocean"]
- * Available art: ocean, forest, phoenix, passage. Set a real URL and a real service name.
+ * Available art: ocean, forest, phoenix, passage.
+ *
+ * This remains useful for a simple decorative link but is not the planned
+ * production implementation for the coordinated four-universe hub.
  */
 add_shortcode( 'lmdl_door', function ( $atts ) {
 	$atts = shortcode_atts( array( 'href' => '', 'label' => '', 'art' => 'passage' ), $atts, 'lmdl_door' );

@@ -1,0 +1,50 @@
+/* Shared detail-page family. Add universe modifier classes in Gutenberg patterns. */
+
+.lmdl-accompaniment-hero {
+  --lmdl-universe-accent: var(--lmdl-blue);
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.lmdl-accompaniment-hero--earth { --lmdl-universe-accent: var(--lmdl-green); }
+.lmdl-accompaniment-hero--fire { --lmdl-universe-accent: var(--lmdl-gold); }
+.lmdl-accompaniment-hero--water { --lmdl-universe-accent: var(--lmdl-blue); }
+.lmdl-accompaniment-hero--air { --lmdl-universe-accent: var(--lmdl-lavender); }
+
+.lmdl-accompaniment-hero__identity {
+  color: var(--lmdl-universe-accent);
+  font-weight: 600;
+}
+
+.lmdl-situations-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--lmdl-line);
+}
+
+.lmdl-situations-list > * {
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--lmdl-line);
+}
+
+.lmdl-practical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.lmdl-related-accompaniments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 767px) {
+  .lmdl-accompaniment-hero,
+  .lmdl-practical-grid,
+  .lmdl-related-accompaniments {
+    grid-template-columns: 1fr;
+  }
+}

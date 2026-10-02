@@ -1,0 +1,133 @@
+/* Shared Le Moulin de Laure presentation primitives. */
+
+:root {
+  --lmdl-content: 78rem;
+  --lmdl-prose: 70ch;
+  --lmdl-section-space: clamp(4rem, 8vw, 8rem);
+  --lmdl-gutter: clamp(1.25rem, 4vw, 4rem);
+  --lmdl-radius: 1rem;
+  --lmdl-fast: 180ms;
+  --lmdl-medium: 280ms;
+}
+
+.lmdl-container {
+  width: min(calc(100% - (2 * var(--lmdl-gutter))), var(--lmdl-content));
+  margin-inline: auto;
+}
+
+.lmdl-section {
+  padding-block: var(--lmdl-section-space);
+}
+
+.lmdl-prose {
+  max-width: var(--lmdl-prose);
+}
+
+.lmdl-prose > :first-child {
+  margin-top: 0;
+}
+
+.lmdl-prose > :last-child {
+  margin-bottom: 0;
+}
+
+.lmdl-editorial-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.lmdl-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+}
+
+.lmdl-art-frame {
+  overflow: hidden;
+  border-radius: var(--lmdl-radius);
+  background: var(--lmdl-paper);
+}
+
+.lmdl-art-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lmdl-kicker {
+  color: var(--lmdl-teal);
+  font-weight: 600;
+}
+
+.lmdl-boundary {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--lmdl-line);
+  border-radius: var(--lmdl-radius);
+  background: var(--lmdl-paper);
+}
+
+.lmdl-process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  counter-reset: lmdl-step;
+}
+
+.lmdl-process__step {
+  position: relative;
+  padding-top: 3rem;
+  border-top: 1px solid var(--lmdl-line);
+  counter-increment: lmdl-step;
+}
+
+.lmdl-process__step::before {
+  content: counter(lmdl-step, decimal-leading-zero);
+  position: absolute;
+  top: .7rem;
+  left: 0;
+  color: var(--lmdl-blue);
+  font-family: var(--lmdl-font-heading);
+  font-weight: 600;
+}
+
+.lmdl-surface--ink {
+  background: var(--lmdl-ink);
+  color: var(--lmdl-paper);
+}
+
+.lmdl-surface--blue {
+  background: var(--lmdl-blue);
+  color: var(--lmdl-paper);
+}
+
+.lmdl-surface--paper {
+  background: var(--lmdl-paper);
+}
+
+.lmdl-surface--cream {
+  background: var(--lmdl-cream);
+}
+
+@media (max-width: 767px) {
+  .lmdl-editorial-split,
+  .lmdl-process {
+    grid-template-columns: 1fr;
+  }
+
+  .lmdl-editorial-split {
+    gap: 2rem;
+  }
+
+  .lmdl-process__step {
+    padding-top: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+  }
+}

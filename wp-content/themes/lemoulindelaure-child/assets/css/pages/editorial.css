@@ -1,0 +1,41 @@
+/* Jardin, About, Journal and article reading layouts. */
+
+.lmdl-profile-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.lmdl-profile {
+  display: grid;
+  grid-template-columns: minmax(8rem, .7fr) minmax(0, 1.3fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.lmdl-reading {
+  width: min(calc(100% - (2 * var(--lmdl-gutter))), 72ch);
+  margin-inline: auto;
+}
+
+.lmdl-reading :where(p, li) {
+  line-height: 1.72;
+}
+
+.lmdl-reading :where(h2, h3) {
+  scroll-margin-top: 6rem;
+}
+
+.lmdl-journal-index {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (max-width: 767px) {
+  .lmdl-profile-list,
+  .lmdl-profile,
+  .lmdl-journal-index {
+    grid-template-columns: 1fr;
+  }
+}

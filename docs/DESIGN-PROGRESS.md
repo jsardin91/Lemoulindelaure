@@ -2,56 +2,48 @@
 
 Last updated: 2026-10-02
 
-## V1 design status
+## V1 product/design
 
-Every public top-level page has V1 UX/content architecture.
+Complete at working-V1 level for all public top-level pages.
 
-No production page implementation has begun.
+## SEO V1
 
-## SEO milestone
-
-Working V1 complete:
+Complete:
 - SERP research;
-- intent/page ownership;
-- metadata direction;
-- internal linking;
-- technical SEO/schema/indexation rules.
+- SEO strategy;
+- page metadata map.
 
-Files:
-- `docs/SEO-SERP-RESEARCH-2026-10-02.md`
-- `docs/SEO-STRATEGY-V1.md`
-- `docs/SEO-PAGE-MAP-V1.md`
+## Implementation foundation
 
-## Implementation-planning milestone
+**Started in repository, not deployed.**
 
-WordPress implementation architecture is documented:
-- `docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
+Added:
+- reusable CSS primitives;
+- homepage layout shell;
+- Accompagnements four-panel responsive shell;
+- shared accompaniment-detail shell;
+- editorial page shell;
+- functional page shell;
+- conditional page-style enqueueing.
 
-Key decision:
-**native Gutenberg content + child-theme patterns/classes**, not hardcoded page copy/templates.
+No page/database content created.
+No production deployment triggered.
 
-Theme audit:
-- active brand tokens already exist;
-- child README was outdated and is now synchronized;
-- current `[lmdl_door]` is a prototype, not final hub;
-- current manual GitHub Action can safely deploy child-theme code but not DB content/config.
+Implementation plan:
+`docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
 
-## Pre-code gates
+## Next safe work
 
-Resolve:
-1. Communication animale vs Communication animalière;
-2. exact Laila Del Monte credential wording;
-3. energetic-service terminology;
-4. whether “guidance intuitive” is approved;
-5. service logistics/prices;
-6. Timetics availability/cancellation rules.
+- Gutenberg pattern registration;
+- component markup prototypes;
+- visual mapping of door assets;
+- homepage pattern shell.
 
-## Next executable work
+## Gates before real page content
 
-Without waiting for final copy, agents can safely start:
-- CSS architecture cleanup;
-- reusable Gutenberg block-pattern registration;
-- non-content-specific layout primitives;
-- staging/local homepage component build.
-
-Do not mutate production content/database until naming/content gates are resolved.
+- Communication animale label/slug;
+- credential wording;
+- energetic wording;
+- guidance wording;
+- service logistics;
+- Timetics configuration.
