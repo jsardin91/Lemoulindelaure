@@ -2,6 +2,14 @@
 
 Last updated: 2026-10-02
 
+## Functional pages V1 — current milestone
+
+The validated editorial branch was merged into `main` at `ad34f1206cd8b38bfb44ca14d9af86b4a07b867d`. `feat/functional-pages-v1` now contains editable FAQ, Contact/Forminator and Booking/Timetics patterns plus receipt patterns, scoped CSS and site-local plugin ID options. The local test exercised a true Forminator error → correction → inline success flow and a Timetics TEST LOCAL service → date → slot → form → native confirmation flow.
+
+First visual pass found Timetics' white card wall/blue default buttons and undersized form labels. The second pass changed the meeting list to brand-consistent ruled rows and improved field/target styling. The 375/768/1024/1440 review found no horizontal overflow or missing loaded image on the three pages; receipt pages were also checked at 375/1440. All 90 functional Gutenberg blocks were valid with two edit/save/reload cycles per page. 21st previews were visually compared and adapted only for FAQ rhythm, form brevity and booking hierarchy; no component code was copied. Full test evidence and plugin limits: `docs/FUNCTIONAL-PAGES-INTEGRATION-REPORT.md`.
+
+FAQ answers, real service/booking terms, verified notifications, legal consent, French plugin UI and Rank Math sitemap setup remain staging gates. The complete one-pass Laure questionnaire is `docs/CLIENT-CONTENT-QUESTIONS.md`; staging actions are in `docs/STAGING-READINESS-CHECKLIST.md`. No production change or deployment occurred.
+
 ## Editorial pages V1 — current milestone
 
 The validated four-page accompaniment branch was fast-forwarded into `main` and pushed at `7232f079a41a15949fc23d42667c40045a408ca3`. On `feat/editorial-pages-v1`, Le Jardin, À propos and Journal now have editable native Gutenberg full-page patterns, and native posts use a quiet `/journal/[slug]/` reading template. Journal's six-post Query Loop, pagination and empty state update as posts change. No public Jardin profile or article is invented.

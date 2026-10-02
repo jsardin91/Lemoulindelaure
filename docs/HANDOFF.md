@@ -2,6 +2,14 @@
 
 Last updated: 2026-10-02
 
+## Current milestone: functional pages V1
+
+The reviewed editorial branch was fast-forwarded into `main` and pushed at `ad34f1206cd8b38bfb44ca14d9af86b4a07b867d`; no deployment workflow file changed or deployment was run. The current review branch is `feat/functional-pages-v1`, created from that main. It adds editable native patterns for FAQ, Contact, Booking, Merci and reservation confirmation; site-option-backed Forminator/Timetics shortcode wrappers; scoped functional CSS; and noindex/sitemap fallbacks. No live WordPress data or Astra parent file was changed.
+
+The isolated local WordPress tested the Forminator empty/invalid/corrected/success flow and Timetics TEST LOCAL service/date/slot/form/confirmation flow. Gutenberg validated 32 FAQ, 20 Contact and 38 Booking blocks with two save/reload text passes each. Twelve required responsive views plus four receipt views passed; Timetics' initial generic cards were corrected in a second visual pass. WordPress core receipt sitemap exclusion and noindex worked locally; Rank Math sitemap and Complianz banner remain unconfigured in the fixture. Timetics' English UI and unverified email promise are staging gates. Exact evidence and limits: [FUNCTIONAL-PAGES-INTEGRATION-REPORT.md](FUNCTIONAL-PAGES-INTEGRATION-REPORT.md).
+
+The single client collection document is [CLIENT-CONTENT-QUESTIONS.md](CLIENT-CONTENT-QUESTIONS.md), with the next environment gate in [STAGING-READINESS-CHECKLIST.md](STAGING-READINESS-CHECKLIST.md). Next step: review this branch, collect Laure's answers once, then build and test real approved content/plugin configuration on staging. Keep production deployment separate.
+
 ## New milestone: Jardin, À propos, Journal and article V1
 
 `feat/accompaniment-pages-v1` was verified, fast-forwarded into `main` and pushed at `7232f079a41a15949fc23d42667c40045a408ca3`. The current branch is `feat/editorial-pages-v1`, based on that main; leave it separate for review. It adds `lmdl/le-jardin-v1`, `lmdl/a-propos-v1`, `lmdl/journal-v1` and optional hidden `lmdl/jardin-profile-entry` in `inc/editorial-page-patterns.php`. Insert a full-page pattern on each matching page and select **LMdL — Page V1**. `assets/css/pages/editorial.css` is conditionally loaded. Native Journal posts use `single.php`, `/journal/[slug]/`, one dynamic six-post Query Loop and native pagination/empty state. Flush permalinks once after installing this code on staging.

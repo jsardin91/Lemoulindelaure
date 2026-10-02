@@ -15,7 +15,9 @@
 .lmdl-page-v1 .entry-content { margin: 0; }
 .lmdl-page-v1 .entry-content > .lmdl-section { padding-inline: 0; }
 .main-header-menu .lmdl-nav-booking > .menu-link,
-.ast-mobile-header-content .lmdl-nav-booking > .menu-link {
+.ast-mobile-header-content .lmdl-nav-booking > .menu-link,
+body.lmdl-page-v1 .main-header-menu .lmdl-nav-booking > .menu-link,
+body.lmdl-page-v1 .ast-mobile-header-content .lmdl-nav-booking > .menu-link {
   min-height: 44px;
   margin-block: .4rem;
   padding-inline: 1rem;
@@ -24,7 +26,9 @@
   color: var(--lmdl-paper);
 }
 .main-header-menu .lmdl-nav-booking > .menu-link:is(:hover, :focus-visible),
-.ast-mobile-header-content .lmdl-nav-booking > .menu-link:is(:hover, :focus-visible) {
+.ast-mobile-header-content .lmdl-nav-booking > .menu-link:is(:hover, :focus-visible),
+body.lmdl-page-v1 .main-header-menu .lmdl-nav-booking > .menu-link:is(:hover, :focus-visible),
+body.lmdl-page-v1 .ast-mobile-header-content .lmdl-nav-booking > .menu-link:is(:hover, :focus-visible) {
   background: var(--lmdl-ink);
   color: var(--lmdl-paper);
 }

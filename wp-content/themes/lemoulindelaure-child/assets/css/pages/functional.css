@@ -1,37 +1,61 @@
-/* FAQ, Contact and Timetics shells. Plugin widgets keep functional ownership. */
+/* FAQ, Contact and Booking share a quiet service rhythm. Plugins own behavior. */
+.lmdl-functional-hero { padding-block: clamp(2.5rem, 5vw, 5rem); background: var(--lmdl-paper); border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-functional-hero h1 { max-width: 17ch; margin-bottom: 1rem; font-size: clamp(2.65rem, 5vw, 4.8rem); line-height: 1.12; }
+.lmdl-functional-lead { max-width: 55ch; font-size: clamp(1.18rem, 1.6vw, 1.4rem); line-height: 1.55; }
+.lmdl-functional-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 7vw, 7rem); align-items: start; }
+.lmdl-functional-split h2 { max-width: 18ch; font-size: clamp(2rem, 3.2vw, 3.1rem); }
+.lmdl-functional-close { background: var(--lmdl-paper); border-top: 1px solid var(--lmdl-line); }
+.lmdl-functional-close .lmdl-prose > p:last-child { margin-top: 1.5rem; }
+.lmdl-functional-receipt { min-height: min(65vh, 42rem); display: flex; align-items: flex-start; justify-content: center; flex-direction: column; background: var(--lmdl-paper); }
+.lmdl-functional-receipt h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+.lmdl-functional-receipt p { max-width: 50ch; }
+.lmdl-functional-unavailable { padding: 1.4rem; border-left: .25rem solid var(--lmdl-green); background: var(--lmdl-paper); }
 
-.lmdl-faq-list {
-  border-top: 1px solid var(--lmdl-line);
-}
+/* Four questions remain editor-only until Laure supplies real answers. */
+.lmdl-faq-list { border-top: 1px solid var(--lmdl-line); }
+.lmdl-faq-list .lmdl-faq-item { margin: 0; padding: 0; border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-faq-item summary { position: relative; display: block; min-height: 3.5rem; padding: 1.1rem 2rem 1.1rem 0; cursor: pointer; font: 600 clamp(1.1rem, 1.5vw, 1.4rem)/1.35 var(--lmdl-font-heading); list-style: none; }
+.lmdl-faq-item summary::-webkit-details-marker { display: none; }
+.lmdl-faq-item summary::after { content: '+'; position: absolute; right: .2rem; top: 1rem; font: 400 1.5rem/1 var(--lmdl-font-body); }
+.lmdl-faq-item[open] summary::after { content: '−'; }
+.lmdl-faq-item > p { max-width: 65ch; margin: 0 0 1.5rem; }
+.lmdl-faq-item summary:focus-visible { outline: 3px solid var(--lmdl-blue); outline-offset: 3px; }
 
-.lmdl-faq-list details,
-.lmdl-faq-list .lmdl-faq-item {
-  border-bottom: 1px solid var(--lmdl-line);
-}
+/* Forminator fields keep their native validation, loading and success states. */
+.lmdl-contact-form { min-width: 0; }
+.lmdl-contact-form .forminator-ui { max-width: 42rem; margin: 0; }
+.lmdl-contact-form .forminator-ui .forminator-label { color: var(--lmdl-ink); font-size: 1rem; font-weight: 600; }
+.lmdl-contact-form .forminator-ui :is(input, textarea, select) { border-color: var(--lmdl-line); border-radius: .25rem; }
+.lmdl-contact-form .forminator-ui :is(input, textarea, select):focus-visible { outline: 3px solid var(--lmdl-blue); outline-offset: 2px; }
+.lmdl-contact-form .forminator-ui .forminator-button-submit { min-height: 48px; padding-inline: 1.7rem; background: var(--lmdl-blue); color: var(--lmdl-paper); }
+.lmdl-contact-form .forminator-ui .forminator-button-submit:focus-visible { outline: 3px solid var(--lmdl-ink); outline-offset: 3px; }
+.lmdl-contact-form .forminator-ui .forminator-response-message { max-width: 42rem; }
 
-.lmdl-functional-split {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-}
-
-.lmdl-booking-shell {
-  padding: clamp(1.25rem, 3vw, 2.5rem);
-  border: 1px solid var(--lmdl-line);
-  border-radius: var(--lmdl-radius);
-  background: var(--lmdl-paper);
-}
-
-.lmdl-booking-services {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
+/* Timetics is a single real booking surface, not a second handmade calendar. */
+.lmdl-booking-paths { border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-booking-paths h2 { margin-bottom: 2rem; }
+.lmdl-booking-services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(2rem, 5vw, 5rem); border-top: 1px solid var(--lmdl-line); }
+.lmdl-booking-choice { padding-block: 1.4rem 1.6rem; border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-booking-choice__identity { margin-bottom: .4rem; color: var(--lmdl-green); font-size: .95rem; font-weight: 600; }
+.lmdl-booking-choice h3 { margin: 0 0 .7rem; font-size: clamp(1.25rem, 1.8vw, 1.65rem); }
+.lmdl-booking-choice .lmdl-text-link { min-height: 44px; display: inline-flex; align-items: center; }
+.lmdl-booking-main > .lmdl-container > p { max-width: 58ch; }
+.lmdl-booking-shell { min-width: 0; margin-top: 2rem; border-top: 1px solid var(--lmdl-line); }
+.lmdl-booking-shell .timetics-shortcode-wrapper { min-width: 0; }
+.lmdl-booking-shell .tt-meeting-list-wrapper { display: block; margin: 0; }
+.lmdl-booking-shell { --tt-primary-color: var(--lmdl-blue); }
+.lmdl-booking-shell .timetics-meeting-list-wrapper .tt-meeting-list-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 2rem; align-items: center; width: 100%; min-height: 8rem; margin: 0; padding: 1.5rem 0; border: 0; border-bottom: 1px solid var(--lmdl-line); border-radius: 0; background: transparent; box-shadow: none; }
+.lmdl-booking-shell .tt-meeting-information, .lmdl-booking-shell .tt-meeting-action { min-width: 0; margin: 0; padding: 0; }
+.lmdl-booking-shell .tt-meeting-information .tt-title { margin: .35rem 0; color: var(--lmdl-ink); font-family: var(--lmdl-font-heading); font-size: clamp(1.15rem, 1.7vw, 1.55rem); line-height: 1.3; }
+.lmdl-booking-shell .tt-author, .lmdl-booking-shell .meeting-info-list { margin: 0; padding: 0; }
+.lmdl-booking-shell .tt-author { color: var(--lmdl-green); font-size: .9rem; }
+.lmdl-booking-shell .tt-meeting-action { display: flex; align-items: center; gap: 1.2rem; }
+.lmdl-booking-shell .timetics-meeting-list-wrapper .tt-meeting-action .ant-btn.ant-btn-primary { width: auto; min-width: 9rem; min-height: 48px; padding-inline: 1rem; border-color: var(--lmdl-blue); border-radius: .25rem; background: var(--lmdl-blue); color: var(--lmdl-paper); font-size: 1rem; }
+.lmdl-booking-shell .tt-meeting-action .ant-btn:focus-visible { outline: 3px solid var(--lmdl-ink); outline-offset: 3px; }
 
 @media (max-width: 767px) {
-  .lmdl-functional-split,
-  .lmdl-booking-services {
-    grid-template-columns: 1fr;
-  }
+  .lmdl-functional-split, .lmdl-booking-services { grid-template-columns: 1fr; }
+  .lmdl-functional-split { gap: 1.5rem; }
+  .lmdl-booking-shell .timetics-meeting-list-wrapper .tt-meeting-list-item { grid-template-columns: 1fr; }
+  .lmdl-booking-shell .tt-meeting-action { justify-content: space-between; flex-wrap: wrap; }
 }

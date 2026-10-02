@@ -1,8 +1,16 @@
 # WordPress Implementation Plan V1 — Le Moulin de Laure
 
-Status: **Homepage, Accompagnements hub, four service pages and editorial page/article V1 implemented and verified in isolated WordPress; production content/build not started.**
+Status: **Homepage, Accompagnements hub, four service pages, editorial pages/articles and functional pages V1 implemented and verified in isolated WordPress; production content/build not started.**
 
 Last updated: 2026-10-02
+
+## Functional-page extension
+
+`inc/functional-page-patterns.php` adds complete editable FAQ, Contact and Booking patterns and optional receipt patterns. Use **LMdL — Page V1** on the canonical pages. Forminator and Timetics remain the functional engines: patterns contain stable `[lmdl_contact_form]` and `[lmdl_booking]` core shortcode blocks. Configure the real Forminator form ID in `lmdl_forminator_contact_id`; configure Timetics with `lmdl_timetics_booking_mode=list` for a verified four-meeting list, or `lmdl_timetics_booking_id` for a verified single form. These are WordPress site options, never hardcoded local IDs. The child theme only supplies visual styles and a clear unconfigured fallback.
+
+The local Timetics 1.0.64 fixture proved four TEST LOCAL meetings, a date/slot selection and native booking confirmation. No robust documented service preselection from detail pages was confirmed, so each detail page continues to the one canonical booking route. The booking route retains Timetics scripts; other pages keep the existing dequeue rule. Native Timetics confirmation is used; `/reservation-confirmee/` is prepared but not wired as a redirect. Forminator uses an inline success message; `/merci/` is prepared but not a mandatory redirect. Receipt pages and duplicate Timetics appointment URLs are crawlable noindex; both Rank Math hooks and a WordPress core sitemap fallback exclude them from sitemaps.
+
+FAQ has four source questions in an editor-only note, with no public answers until Laure approves them. No FAQPage/QAPage schema is generated. Rank Math may own future FAQPage only if every answer is visible and approved; the source-only Structured FAQ plugin remains untouched. The isolated fixture cannot prove the configured Rank Math sitemap or Complianz banner. Detailed local results, plugin limitations and 21st visual references: `docs/FUNCTIONAL-PAGES-INTEGRATION-REPORT.md`. Required client inputs are consolidated in `docs/CLIENT-CONTENT-QUESTIONS.md`; follow `docs/STAGING-READINESS-CHECKLIST.md` before publishing any staging content. No production deployment is authorized by this milestone.
 
 ## Editorial-page extension
 

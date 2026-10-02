@@ -23,6 +23,29 @@ $editorial_patterns_file = get_stylesheet_directory() . '/inc/editorial-page-pat
 if ( file_exists( $editorial_patterns_file ) ) {
 	require_once $editorial_patterns_file;
 }
+$functional_patterns_file = get_stylesheet_directory() . '/inc/functional-page-patterns.php';
+if ( file_exists( $functional_patterns_file ) ) {
+	require_once $functional_patterns_file;
+}
+
+/** Site-local plugin IDs stay in WordPress options, never in the public patterns. */
+add_shortcode( 'lmdl_contact_form', function () {
+	$id = absint( get_option( 'lmdl_forminator_contact_id', 0 ) );
+	if ( ! $id || ! shortcode_exists( 'forminator_form' ) ) {
+		return '<p class="lmdl-functional-unavailable">Le formulaire de contact n’est pas encore configuré.</p>';
+	}
+	return do_shortcode( '[forminator_form id="' . $id . '"]' );
+} );
+add_shortcode( 'lmdl_booking', function () {
+	if ( 'list' === get_option( 'lmdl_timetics_booking_mode', '' ) && shortcode_exists( 'timetics-meeting-list' ) ) {
+		return do_shortcode( '[timetics-meeting-list limit="4"]' );
+	}
+	$id = absint( get_option( 'lmdl_timetics_booking_id', 0 ) );
+	if ( ! $id || ! shortcode_exists( 'timetics-booking-form' ) ) {
+		return '<p class="lmdl-functional-unavailable">La réservation en ligne n’est pas encore configurée. Vous pouvez contacter Laure pour une question.</p>';
+	}
+	return do_shortcode( '[timetics-booking-form id="' . $id . '"]' );
+} );
 
 /** Keep native posts under the approved Journal path. Flush permalinks once on staging. */
 add_action( 'init', function () {
@@ -34,6 +57,54 @@ add_filter( 'post_link', function ( $permalink, $post ) {
 	}
 	return home_url( user_trailingslashit( 'journal/' . $post->post_name ) );
 }, 10, 2 );
+
+/** Keep receipts and Timetics' duplicate meeting URLs crawlable but noindex. */
+function lmdl_is_functional_noindex() {
+	return is_page( array( 'merci', 'reservation-confirmee', 'reservation-annulee' ) )
+		|| is_singular( 'timetics-appointment' )
+		|| is_post_type_archive( 'timetics-appointment' )
+		|| is_tax( 'timetics-meeting-category' );
+}
+add_filter( 'wp_robots', function ( $robots ) {
+	if ( lmdl_is_functional_noindex() ) {
+		unset( $robots['index'] );
+		$robots['noindex'] = true;
+		$robots['follow'] = true;
+	}
+	return $robots;
+} );
+add_filter( 'rank_math/frontend/robots', function ( $robots ) {
+	if ( lmdl_is_functional_noindex() ) {
+		$robots['index'] = 'noindex';
+		$robots['follow'] = 'follow';
+	}
+	return $robots;
+} );
+add_filter( 'rank_math/sitemap/entry', function ( $entry, $type, $object ) {
+	if ( 'post' === $type && $object instanceof WP_Post && ( in_array( $object->post_name, array( 'merci', 'reservation-confirmee', 'reservation-annulee' ), true ) || 'timetics-appointment' === $object->post_type ) ) {
+		return false;
+	}
+	return $entry;
+}, 10, 3 );
+/** WordPress core sitemap fallback when Rank Math's sitemap module is inactive. */
+add_filter( 'wp_sitemaps_posts_query_args', function ( $args, $post_type ) {
+	if ( 'page' !== $post_type ) {
+		return $args;
+	}
+	$excluded = array();
+	foreach ( array( 'merci', 'reservation-confirmee', 'reservation-annulee' ) as $slug ) {
+		$page = get_page_by_path( $slug );
+		if ( $page ) {
+			$excluded[] = $page->ID;
+		}
+	}
+	$args['post__not_in'] = array_merge( isset( $args['post__not_in'] ) ? $args['post__not_in'] : array(), $excluded );
+	return $args;
+}, 10, 2 );
+add_filter( 'wp_sitemaps_post_types', function ( $post_types ) {
+	unset( $post_types['timetics-appointment'] );
+	return $post_types;
+} );
 
 /** Nine slots matching Astra's native Global Palette (0–8). */
 function lmdl_astra_palette() {
@@ -168,7 +239,7 @@ add_action( 'wp_enqueue_scripts', function () {
 
 /** Timetics globally queues its React bundle; content without a booking embed does not need it. */
 add_action( 'wp_enqueue_scripts', function () {
-	if ( is_front_page() || is_page( 'accompagnements' ) || is_page_template( 'templates/lmdl-page-v1.php' ) || is_singular( 'post' ) ) {
+	if ( ! is_page( 'prendre-rendez-vous' ) && ( is_front_page() || is_page( 'accompagnements' ) || is_page_template( 'templates/lmdl-page-v1.php' ) || is_singular( 'post' ) ) ) {
 		$content = (string) get_post_field( 'post_content', get_queried_object_id() );
 		if ( false === stripos( $content, 'timetics' ) ) {
 			wp_dequeue_script( 'timetics-packages' );
