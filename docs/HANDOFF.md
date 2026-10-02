@@ -2,56 +2,61 @@
 
 Last updated: 2026-10-02
 
-## Foundations
+## Foundation state
 
 Complete:
-- WordPress/Astra architecture
+- architecture / stack
 - deployment foundation
 - active child theme
-- brand assets
-- approved palette/type/logo system
-- client brief normalization
+- approved visual system
+- brand/source assets
+- client brief
 - site architecture V1
 - Journal naming
 - Timetics booking architecture
 
-## Design package status
+## Design work
 
 ### Homepage
 Working V1 complete:
 - wireframe
-- composition spec
+- composition
 - 21st reference study
 
 ### Accompagnements hub
 Working V1 complete:
-- four-universe interaction design
-- responsive fallback
+- four-universe interaction
+- responsive behavior
 - 21st reference study
 
-### Individual accompaniment family
-Shared template created:
+### Shared accompaniment detail template
+Created:
 - `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
 
 ### Communication animalière
-Working V1 created:
+Working V1:
 - `design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
-- `design/references/21ST-COMMUNICATION-ANIMALIERE-REFERENCES.md`
+- source detail reasonably strong
+- process/FAQ/commercial gaps preserved
 
-Important intentional gaps:
-- exact process not invented
-- exact diploma wording not finalized
-- FAQ answers not invented
-- pricing/duration/cancellation not invented
+### Accompagnement énergétique animalier
+Structural V1:
+- `design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
 
-Current source-supported identity:
-**Écureuil — Terre — Vivant**
+Important:
+source content for this offer is currently sparse.
 
-Lead visual:
-original squirrel painting.
+The page intentionally does **not** invent:
+- use cases
+- protocol
+- benefits
+- duration
+- price
+- FAQ answers
+- energy-specific qualifications
 
-Veterinary/medical boundary:
-must remain visible and explicit.
+Visual identity:
+**Phénix — Feu — Énergie**
 
 ## Canonical progress board
 
@@ -59,44 +64,21 @@ must remain visible and explicit.
 
 ## Next page
 
-**Accompagnement énergétique animalier**
+**Connexion avec les défunts**
 
 Then:
-- Connexion avec les défunts
 - Guidance pour soi
 - Le Jardin
 - À propos
 - Journal
 - FAQ
 - Contact
-- Timetics booking page
-
-## Later implementation
-
-No live page implementation has been authorized in this design pass.
-
-When implementation starts:
-- WordPress/Astra child theme only
-- 21st is reference/MCP preview layer, not stack authority
-- test responsive/a11y/reduced-motion/performance
-- preserve source-safe content boundaries
-
-## Open inputs
-
-- exact commercial details
-- exact operational process
-- exact credential wording
-- final approved copy
-- portrait
-- reviews
-- launch Journal articles
-- Le Jardin participants/consent
-- legal terms
+- Timetics booking
 
 ## Guardrails
 
 - no medical/veterinary efficacy claims
-- no fabricated portrait/reviews/credentials/partners
-- no unsupported use-cases added for SEO
-- no Astra parent modification
-- repo currently public; avoid raw private client data
+- no unsupported wellness claims
+- no fabricated credentials/reviews/partners
+- missing content remains explicit TODO
+- WordPress implementation not started in this design pass
