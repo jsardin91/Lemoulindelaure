@@ -9,57 +9,54 @@ Last updated: 2026-10-02
 - active child theme
 - approved visual system
 - brand/source assets
-- client brief normalization
+- client brief
 - site architecture V1
 - Journal naming
 - Timetics booking architecture
 
-## Design work completed to working-draft level
+## Design work to working-V1 level
 
-### Homepage
-- wireframe
-- composition spec
-- 21st references
+Completed:
+- Homepage
+- Accompagnements hub
+- Shared accompaniment detail template
+- Communication animalière
+- Accompagnement énergétique animalier
+- Connexion avec les défunts
+- Guidance pour soi
+- Le Jardin du Moulin
 
-### Accompagnements hub
-- four-universe interaction
-- responsive behavior
-- 21st references
+## Le Jardin files
 
-### Shared accompaniment detail template
-- `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
+- `design/wireframes/LE-JARDIN-V1.md`
+- `design/references/21ST-LE-JARDIN-REFERENCES.md`
 
-### Four detail pages
+Direction:
+**A living garden of real encounters.**
 
-Communication animalière:
-- `design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
+Source-backed structure:
+- philosophy of complementary viewpoints;
+- people Laure has actually encountered;
+- consent before inclusion;
+- one-line activity + contact;
+- humans / animals grouping.
 
-Accompagnement énergétique animalier:
-- `design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
+Do not:
+- invent profiles;
+- use fake stock portraits;
+- imply employment/partnership;
+- add ratings/prices;
+- route third-party practitioners through Laure's Timetics.
 
-Connexion avec les défunts:
-- `design/wireframes/CONNEXION-DEFUNTS-V1.md`
-- `design/references/21ST-CONNEXION-DEFUNTS-REFERENCES.md`
+## Canonical board
 
-Guidance pour soi:
-- `design/wireframes/GUIDANCE-POUR-SOI-V1.md`
-- `design/references/21ST-GUIDANCE-REFERENCES.md`
-
-## Current accompaniment identities
-
-- Écureuil — Terre — Vivant
-- Phénix — Feu — Énergie
-- Tortue — Eau — Famille
-- Papillon — Air — Messager
-
-All four share one design family but retain different art/accent/rhythm.
+`docs/DESIGN-PROGRESS.md`
 
 ## Next page
 
-**Le Jardin du Moulin**
+**À propos**
 
 Then:
-- À propos
 - Journal
 - FAQ
 - Contact
@@ -67,9 +64,7 @@ Then:
 
 ## Guardrails
 
-- no medical/veterinary efficacy claims;
-- no certainty claims for deceased connection;
-- no predictive/certainty claims for Guidance;
-- no fabricated process, credentials, reviews or partners;
-- missing content remains TODO;
-- production implementation not started.
+- no unsupported claims;
+- no fabricated people/reviews/credentials;
+- no production implementation started;
+- preserve active brand system.

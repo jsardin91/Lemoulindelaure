@@ -22,56 +22,53 @@ Last updated: 2026-10-02
 | Communication animalière | Approved V1 | V1 | V1 | Documented | Not started |
 | Accompagnement énergétique animalier | Approved V1 | V1 structural | V1 | Shared family | Not started |
 | Connexion avec les défunts | Approved V1 | V1 sensitive | V1 | Documented | Not started |
-| **Guidance pour soi** | Approved V1 | **V1 structural** | **V1 drafted** | **Documented** | Not started |
-| Le Jardin | Approved V1 | Not started | Not started | Not started | Not started |
+| Guidance pour soi | Approved V1 | V1 structural | V1 | Documented | Not started |
+| **Le Jardin** | Approved V1 | **V1** | **V1 drafted** | **Documented** | Not started |
 | À propos | Approved V1 | Not started | Not started | Not started | Not started |
 | Journal | Approved V1 | Not started | Not started | Reference family | Not started |
 | FAQ | Approved V1 | Pattern identified | Not started | Reference family | Not started |
 | Contact | Approved V1 | Not started | Not started | Not started | Not started |
 | Prendre rendez-vous / Timetics | Approved V1 | Not started | Not started | Not started | Not started |
 
-## Four accompaniment detail pages
+## Four accompaniment pages
 
-Shared family template:
+Shared template:
 `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
 
-Communication:
-`design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
+Individual V1s:
+- `COMMUNICATION-ANIMALIERE-V1.md`
+- `ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
+- `CONNEXION-DEFUNTS-V1.md`
+- `GUIDANCE-POUR-SOI-V1.md`
 
-Energetic:
-`design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
+## Le Jardin
 
-Deceased connection:
-`design/wireframes/CONNEXION-DEFUNTS-V1.md`
+Files:
+- `design/wireframes/LE-JARDIN-V1.md`
+- `design/references/21ST-LE-JARDIN-REFERENCES.md`
 
-Guidance:
-`design/wireframes/GUIDANCE-POUR-SOI-V1.md`
+Direction:
+**curated garden of real encounters, not marketplace/team page**
 
-## Guidance direction
-
-Identity:
-**Papillon — Air — Messager**
-
-Page character:
-light, spacious, perspective-oriented.
-
-Key guardrail:
-do not turn “guidance” into prediction/certainty language.
-
-Source detail level:
-limited.
+Key rules:
+- explicit participant permission;
+- real names/info only;
+- one-sentence activity + contact;
+- humans / animals paths;
+- no fake sample profiles;
+- hide empty categories;
+- no ratings/prices/booking through Laure.
 
 ## Immediate next page
 
-**Le Jardin du Moulin**
+**À propos**
 
-Reason:
-it is structurally different from the accompaniment pages and will establish the directory/network presentation before About/Journal.
+Then:
+- Journal
+- FAQ
+- Contact
+- Prendre rendez-vous / Timetics
 
-## Do not fabricate
+## Open inputs
 
-- specific guidance use cases;
-- process;
-- predictions;
-- outcomes;
-- FAQ answers.
+Le Jardin cannot be fully production-populated until Laure supplies approved participants and their contact data.
