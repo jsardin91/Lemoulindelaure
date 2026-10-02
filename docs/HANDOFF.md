@@ -9,52 +9,63 @@ The project has:
 - V1 architecture/UX;
 - V1 SEO strategy;
 - CSS implementation foundation;
-- Gutenberg pattern infrastructure.
+- 7 Gutenberg structural patterns.
 
 No deployment or WordPress DB mutation occurred.
 
-## Gutenberg patterns available
+## Gutenberg patterns
 
-- LMdL — Split éditorial
-- LMdL — Processus en 3 étapes
-- LMdL — Cadre responsable
-- LMdL — CTA prise de rendez-vous
-- LMdL — Hero accompagnement
-- **LMdL — Hero accueil**
-- **LMdL — Quatre univers**
+- Split éditorial
+- Processus en 3 étapes
+- Cadre responsable
+- CTA prise de rendez-vous
+- Hero accompagnement
+- Hero accueil
+- Quatre univers
 
-Homepage Hero:
-- brand/motto present;
-- stable CTA links;
-- four editable art slots;
-- intro copy remains editor placeholder.
+## Asset mapping
 
-Four Universes:
-- four accessible structural panels;
-- current approved architecture labels;
-- stable animal/element identities;
-- image slots remain empty until door mapping is visually verified;
-- editor note reminds that Communication animale naming is still pending.
+Canonical note:
+`docs/BRAND-ASSET-MAPPING.md`
 
-## Door mapping
+Verified painting mapping:
+- squirrel -> Terre / Communication
+- phoenix -> Feu / Énergétique
+- turtle -> Eau / Défunts
+- butterfly -> Air / Guidance
 
-Do **not** infer final mapping from filenames.
+Door system is not four confirmed universe doors.
 
-This ChatGPT session can read GitHub text but could not retrieve the WebP binaries for direct visual inspection.
+Current legacy shortcode behavior:
+- forest / ocean / phoenix are selectable closed arts;
+- `door-passage.webp` is used as the common open overlay for every selection.
 
-Use local repo / Codex / Claude with filesystem access to open:
-- `door-forest.webp`
-- `door-ocean.webp`
-- `door-passage.webp`
-- `door-phoenix.webp`
+Therefore:
+- do not assign `door-passage` to Papillon/Air by default;
+- forest/ocean/phoenix mappings still need visual verification;
+- Air may need a dedicated door asset or a revised/shared-door treatment.
 
-Then record mapping in the repo before wiring final imagery.
+The Four Universes Gutenberg pattern intentionally keeps media slots unbound.
 
-## Next
+## Next safe task
 
-1. visual door mapping;
-2. staging/local insertion of Home + Four Universes patterns;
-3. responsive/a11y review;
-4. only then page bootstrap/content work.
+With local/Codex filesystem access:
+1. open the four WebP doors;
+2. compare them visually;
+3. update `docs/BRAND-ASSET-MAPPING.md`;
+4. decide whether a dedicated Air door is missing;
+5. then wire media into the Four Universes pattern.
 
-No manual deploy workflow was triggered.
+Parallel safe work can continue on structural page patterns.
+
+## No deploy
+
+No workflow run was triggered.
+
+## Content gates remain
+
+- Communication animale public label/slug;
+- exact Laila credential;
+- energetic/guidance wording;
+- service logistics/pricing;
+- Timetics settings.
