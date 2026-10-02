@@ -13,38 +13,37 @@ Complete:
 - strategy;
 - metadata/page map.
 
-## Implementation foundation
+## Implementation
 
-**Started in repository, not deployed.**
-
-Implemented:
-- CSS primitives and page-family shells;
+Repository foundation:
+- CSS primitives/page shells;
 - editor styles;
-- Gutenberg pattern category;
-- **7 structural patterns**, including Homepage Hero and Four Universes.
+- 7 Gutenberg structural patterns.
 
-No page/database content created.
-No production deployment triggered.
+No deployment / DB mutation.
 
-## Current technical gate
+## Asset-mapping status
 
-Exact generated-door mapping could not be visually retrieved through this session's GitHub binary connector.
+Paintings: **fully mapped**.
 
-No mapping was guessed.
+Doors: **partially unresolved**.
 
-The Four Universes pattern therefore contains image slots and editor notes until a local/Codex/Claude visual check maps:
-- forest;
-- ocean;
-- passage;
-- phoenix
+Important finding:
+`door-passage.webp` is used by the legacy shortcode as a common open overlay, so it must not be assumed to represent Papillon/Air.
 
-to the four universes.
+See:
+`docs/BRAND-ASSET-MAPPING.md`
+
+## Next safe work
+
+- visual door mapping in an environment with binary filesystem access;
+- then final universe-media wiring;
+- staging/local page prototypes.
 
 ## Other gates
 
-- Communication animale label/slug;
+- Communication animale naming;
 - credential wording;
-- energetic wording;
-- guidance wording;
-- service logistics;
-- Timetics configuration.
+- energetic/guidance wording;
+- logistics/pricing;
+- Timetics config.
