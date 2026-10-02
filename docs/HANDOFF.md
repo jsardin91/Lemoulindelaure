@@ -2,15 +2,15 @@
 
 Last updated: 2026-10-02
 
-## Foundation state
+## Foundation
 
 Complete:
-- architecture / stack
+- WordPress/Astra architecture
 - deployment foundation
 - active child theme
 - approved visual system
 - brand/source assets
-- client brief
+- client brief normalization
 - site architecture V1
 - Journal naming
 - Timetics booking architecture
@@ -18,45 +18,44 @@ Complete:
 ## Design work
 
 ### Homepage
-Working V1 complete:
+Working V1:
 - wireframe
 - composition
-- 21st reference study
+- 21st references
 
 ### Accompagnements hub
-Working V1 complete:
+Working V1:
 - four-universe interaction
-- responsive behavior
-- 21st reference study
+- responsive fallback
+- 21st references
 
-### Shared accompaniment detail template
-Created:
+### Shared detail-page template
 - `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
 
 ### Communication animalière
 Working V1:
 - `design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
-- source detail reasonably strong
-- process/FAQ/commercial gaps preserved
 
 ### Accompagnement énergétique animalier
 Structural V1:
 - `design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
 
-Important:
-source content for this offer is currently sparse.
+### Connexion avec les défunts
+Sensitive-content V1:
+- `design/wireframes/CONNEXION-DEFUNTS-V1.md`
+- `design/references/21ST-CONNEXION-DEFUNTS-REFERENCES.md`
 
-The page intentionally does **not** invent:
-- use cases
-- protocol
-- benefits
-- duration
-- price
-- FAQ answers
-- energy-specific qualifications
+Identity:
+**Tortue — Eau — Famille**
 
-Visual identity:
-**Phénix — Feu — Énergie**
+Key design/content decisions:
+- turtle painting lead visual;
+- no morbid/dark/paranormal cliché aesthetic;
+- client belief framed as Laure's approach, not universal fact;
+- no guaranteed contact/message;
+- individual/group formats acknowledged but mechanics remain TODO;
+- no grief vulnerability/urgency tactics;
+- calm booking CTA only.
 
 ## Canonical progress board
 
@@ -64,10 +63,9 @@ Visual identity:
 
 ## Next page
 
-**Connexion avec les défunts**
+**Guidance pour soi**
 
 Then:
-- Guidance pour soi
 - Le Jardin
 - À propos
 - Journal
@@ -77,8 +75,9 @@ Then:
 
 ## Guardrails
 
-- no medical/veterinary efficacy claims
-- no unsupported wellness claims
-- no fabricated credentials/reviews/partners
-- missing content remains explicit TODO
-- WordPress implementation not started in this design pass
+- no medical/veterinary efficacy claims;
+- no certainty claims about deceased contact;
+- no fabricated process, reviews, credentials or partners;
+- missing content remains explicit TODO;
+- no Astra parent modification;
+- production implementation not started in this design pass.

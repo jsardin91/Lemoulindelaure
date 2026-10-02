@@ -20,8 +20,8 @@ Last updated: 2026-10-02
 | Accueil | Approved V1 | Advanced | V1 + composition | Documented | Not started |
 | Accompagnements hub | Approved V1 | V1 | V1 | Documented | Not started |
 | Communication animalière | Approved V1 | V1 | V1 | Documented | Not started |
-| **Accompagnement énergétique animalier** | Approved V1 | **V1 structural** | **V1 drafted** | Shared family | Not started |
-| Connexion avec les défunts | Approved V1 | Not started | Not started | Not started | Not started |
+| Accompagnement énergétique animalier | Approved V1 | V1 structural | V1 | Shared family | Not started |
+| **Connexion avec les défunts** | Approved V1 | **V1 sensitive-content** | **V1 drafted** | **Documented** | Not started |
 | Guidance pour soi | Approved V1 | Not started | Not started | Not started | Not started |
 | Le Jardin | Approved V1 | Not started | Not started | Not started | Not started |
 | À propos | Approved V1 | Not started | Not started | Not started | Not started |
@@ -34,45 +34,41 @@ Last updated: 2026-10-02
 
 `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
 
-## Communication animalière
+## Connexion avec les défunts
 
-`design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
+Files:
+- `design/wireframes/CONNEXION-DEFUNTS-V1.md`
+- `design/references/21ST-CONNEXION-DEFUNTS-REFERENCES.md`
+
+Direction:
+**Tortue · Eau · Famille**
+
+Design:
+- calm water/family/memory language;
+- no dark/morbid/paranormal aesthetic;
+- no certainty/guarantee messaging;
+- confidentiality and sensitive framing emphasized;
+- individual/group modes reserved but detail still TODO.
 
 Source detail level:
-relatively strong.
-
-Important open items:
-exact process, diploma wording, FAQ answers, commercial details.
-
-## Accompagnement énergétique animalier
-
-`design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
-
-Source detail level:
-**limited**.
-
-Known:
-- phoenix / fire / energy
-- energetic approach to the living
-- “soins énergétiques pour les animaux” preliminary wording
-- veterinary/medical boundary
-- global appointment timing
-
-Not known:
-- process
-- situations
-- benefits
-- price/duration
-- service-specific FAQ
-
-These gaps are intentionally preserved.
+limited-to-moderate.
 
 ## Immediate next design page
 
-**Connexion avec les défunts**
+**Guidance pour soi**
 
-This page requires a more sensitive editorial frame and stricter avoidance of certainty/guarantee language.
+Then:
+- Le Jardin
+- À propos
+- Journal
+- FAQ
+- Contact
+- Timetics booking page
 
-## Guardrail
+## Guardrails
 
-Do not fill missing service detail from generic wellness/spiritual sources.
+Do not:
+- convert beliefs into factual certainty;
+- exploit grief/vulnerability for conversion;
+- invent session mechanics;
+- fabricate FAQ answers.
