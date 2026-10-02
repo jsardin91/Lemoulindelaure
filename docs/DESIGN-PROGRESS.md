@@ -2,42 +2,48 @@
 
 Last updated: 2026-10-02
 
-## V1 product/design
+## Product / UX
 
-Complete at working-V1 level for all public top-level pages.
+Working V1 complete for all public top-level pages.
 
 ## SEO V1
 
 Complete:
 - SERP research;
-- SEO strategy;
-- page metadata map.
+- strategy;
+- metadata/page map.
 
 ## Implementation foundation
 
 **Started in repository, not deployed.**
 
-Added:
+Implemented:
 - reusable CSS primitives;
-- homepage layout shell;
-- Accompagnements four-panel responsive shell;
-- shared accompaniment-detail shell;
-- editorial page shell;
-- functional page shell;
-- conditional page-style enqueueing.
+- page-family CSS;
+- conditional enqueueing;
+- editor styles;
+- Gutenberg pattern category;
+- 5 structural patterns.
+
+Patterns:
+- Split éditorial
+- Processus en 3 étapes
+- Cadre responsable
+- CTA prise de rendez-vous
+- Hero accompagnement
+
+PHP lint:
+**PASS** on `functions.php` and `inc/patterns.php`.
 
 No page/database content created.
 No production deployment triggered.
 
-Implementation plan:
-`docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
-
 ## Next safe work
 
-- Gutenberg pattern registration;
-- component markup prototypes;
-- visual mapping of door assets;
-- homepage pattern shell.
+- visually map door assets;
+- four-universe pattern;
+- homepage visual pattern shell;
+- staging/local page prototype.
 
 ## Gates before real page content
 

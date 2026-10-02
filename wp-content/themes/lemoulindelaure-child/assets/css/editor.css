@@ -1,0 +1,18 @@
+/* Block-editor-only helpers. */
+
+.editor-styles-wrapper .lmdl-pattern-placeholder {
+  display: block !important;
+  margin: 0;
+  padding: 1rem;
+  border: 2px dashed var(--lmdl-line, #dcd4bd);
+  border-radius: .75rem;
+  background: rgba(182, 134, 49, .08);
+  color: var(--lmdl-ink, #173f54);
+  font-size: .875rem;
+  line-height: 1.45;
+}
+
+.editor-styles-wrapper .lmdl-pattern-placeholder::before {
+  content: 'Éditeur · ';
+  font-weight: 700;
+}

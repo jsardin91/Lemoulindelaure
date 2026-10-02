@@ -7,6 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$patterns_file = get_stylesheet_directory() . '/inc/patterns.php';
+if ( file_exists( $patterns_file ) ) {
+	require_once $patterns_file;
+}
+
 /** Nine slots matching Astra's native Global Palette (0–8). */
 function lmdl_astra_palette() {
 	return array( '#165a77', '#306c67', '#173f54', '#3f5355', '#faf7ef', '#fffdf8', '#dcd4bd', '#666294', '#b68631' );
@@ -44,6 +49,21 @@ add_action( 'after_switch_theme', function () {
 	$settings['headings-font-weight'] = '600';
 	update_option( ASTRA_THEME_SETTINGS, $settings );
 	update_option( 'lmdl_brand_defaults_installed', '1' );
+} );
+
+/** Load the project presentation CSS inside the block editor as well. */
+add_action( 'after_setup_theme', function () {
+	add_theme_support( 'editor-styles' );
+	add_editor_style( array(
+		'style.css',
+		'assets/css/components.css',
+		'assets/css/pages/home.css',
+		'assets/css/pages/accompagnements.css',
+		'assets/css/pages/accompaniment-detail.css',
+		'assets/css/pages/editorial.css',
+		'assets/css/pages/functional.css',
+		'assets/css/editor.css',
+	) );
 } );
 
 /** Fonts stay selectable in Astra; their files are served by the child theme. */

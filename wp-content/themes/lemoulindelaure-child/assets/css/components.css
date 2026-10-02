@@ -111,6 +111,11 @@
   background: var(--lmdl-cream);
 }
 
+/* Editor notes embedded in structural patterns must never appear publicly. */
+.lmdl-pattern-placeholder {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .lmdl-editorial-split,
   .lmdl-process {
