@@ -65,14 +65,11 @@ navigation/orientation, not main generic acquisition page.
 
 ## 3. Communication animale
 
-Current project URL:
-`/accompagnements/communication-animaliere/`
-
-SEO-recommended URL before build:
+Canonical URL:
 `/accompagnements/communication-animale/`
 
 Status:
-**recommended change pending owner/client wording approval**
+**approved by project owner on 2026-10-02**
 
 Primary query:
 **communication animale**
@@ -84,7 +81,7 @@ Secondary:
 - comprendre son animal
 - communication animale chien/chat/cheval only if source-safe
 
-Suggested public label:
+Public label:
 **Communication animale**
 
 Suggested title:
@@ -349,7 +346,7 @@ Allow crawl so Google can read noindex.
 # Final pre-build metadata gate
 
 Before page creation:
-1. decide whether Communication animalière becomes public “Communication animale”;
+1. use the approved public label/slug `Communication animale` / `/accompagnements/communication-animale/`;
 2. confirm exact credential wording;
 3. confirm energy-service wording;
 4. confirm whether “guidance intuitive” is acceptable;

@@ -62,13 +62,13 @@ Before meaningful page/content/frontend work:
 
 Current approved architecture uses **Accompagnements** and **Journal**.
 
-Current working service labels:
-- Communication animalière
+Current public service labels:
+- Communication animale
 - Accompagnement énergétique animalier
 - Connexion avec les défunts
 - Guidance pour soi
 
-SEO research recommends changing the public communication-service wording to **Communication animale** before implementation because it matches both the client's keyword input and current SERP language. This remains pending owner/client wording approval.
+The project owner approved the public communication-service wording **Communication animale** on 2026-10-02. Canonical slug: `/accompagnements/communication-animale/`. Client-source quotations may still preserve “communication animalière” when documenting the original brief.
 
 ## Credential safety — Laila Del Monte
 

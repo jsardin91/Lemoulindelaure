@@ -1,5 +1,32 @@
 # Persistent Design Decisions
 
+## 2026-10-02 — Public naming: Communication animale
+
+**Decision**
+
+Use **Communication animale** as the public service label and `/accompagnements/communication-animale/` as the canonical slug.
+
+The original client brief may still be quoted/documented with “communication animalière” where preserving source wording matters.
+
+**Reason**
+
+Explicit project-owner approval after SEO/wording review.
+
+**Applies to**
+
+Navigation, H1, internal links, WordPress page slug, Rank Math metadata and implementation patterns.
+
+**Supersedes**
+
+Previous working public label “Communication animalière”.
+
+**Approved**
+
+Yes.
+
+---
+
+
 Record only decisions that future agents should preserve.
 
 Do not use this as a task log.

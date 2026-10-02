@@ -14,7 +14,7 @@ The detailed content of pages may evolve. Structural changes should be recorded 
 /
 ├── Accueil
 ├── Accompagnements
-│   ├── Communication animalière
+│   ├── Communication animale
 │   ├── Accompagnement énergétique animalier
 │   ├── Connexion avec les défunts
 │   └── Guidance pour soi
@@ -34,7 +34,7 @@ The detailed content of pages may evolve. Structural changes should be recorded 
 | --- | --- | --- |
 | Accueil | `/` | index |
 | Accompagnements | `/accompagnements/` | index |
-| Communication animalière | `/accompagnements/communication-animaliere/` | index |
+| Communication animale | `/accompagnements/communication-animale/` | index |
 | Accompagnement énergétique animalier | `/accompagnements/accompagnement-energetique-animalier/` | index |
 | Connexion avec les défunts | `/accompagnements/connexion-defunts/` | index |
 | Guidance pour soi | `/accompagnements/guidance-pour-soi/` | index |
@@ -114,9 +114,9 @@ Purpose:
 
 The “doors opening to universes” concept is especially suitable here.
 
-## Communication animalière
+## Communication animale
 
-URL: `/accompagnements/communication-animaliere/`
+URL: `/accompagnements/communication-animale/`
 
 Suggested structure:
 - what it is;

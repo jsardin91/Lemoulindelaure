@@ -268,13 +268,13 @@ HTML,
 <p class="lmdl-kicker">Écureuil · Terre · Vivant</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Communication animalière</h3>
+<h3 class="wp-block-heading">Communication animale</h3>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"className":"lmdl-pattern-placeholder"} -->
-<p class="lmdl-pattern-placeholder">SEO : confirmer le libellé final « Communication animale » avant création de la page.</p>
+
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p><a href="/accompagnements/communication-animaliere/">Découvrir</a></p>
+<p><a href="/accompagnements/communication-animale/">Découvrir</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
