@@ -11,6 +11,10 @@ $patterns_file = get_stylesheet_directory() . '/inc/patterns.php';
 if ( file_exists( $patterns_file ) ) {
 	require_once $patterns_file;
 }
+$page_patterns_file = get_stylesheet_directory() . '/inc/page-patterns.php';
+if ( file_exists( $page_patterns_file ) ) {
+	require_once $page_patterns_file;
+}
 
 /** Nine slots matching Astra's native Global Palette (0–8). */
 function lmdl_astra_palette() {
@@ -121,7 +125,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		lmdl_enqueue_css( 'lmdl-home', 'assets/css/pages/home.css', array( 'lmdl-components' ) );
 	}
 
-	if ( is_page( 'accompagnements' ) ) {
+	if ( is_front_page() || is_page( 'accompagnements' ) ) {
 		lmdl_enqueue_css( 'lmdl-accompagnements', 'assets/css/pages/accompagnements.css', array( 'lmdl-components' ) );
 	}
 
@@ -143,6 +147,18 @@ add_action( 'wp_enqueue_scripts', function () {
 		lmdl_enqueue_css( 'lmdl-functional-pages', 'assets/css/pages/functional.css', array( 'lmdl-components' ) );
 	}
 }, 20 );
+
+/** Let the V1 core-block compositions reach the page edges inside Astra. */
+add_filter( 'body_class', function ( $classes ) {
+	if ( is_front_page() || is_page( 'accompagnements' ) ) {
+		$content = (string) get_post_field( 'post_content', get_queried_object_id() );
+		if ( false === strpos( $content, 'lmdl-home-intro' ) && false === strpos( $content, 'lmdl-hub-intro' ) ) {
+			return $classes;
+		}
+		$classes[] = 'lmdl-page-v1';
+	}
+	return $classes;
+} );
 
 /**
  * Legacy prototype shortcode.

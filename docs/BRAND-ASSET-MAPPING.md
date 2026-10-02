@@ -1,66 +1,27 @@
 # Brand Asset Mapping — Le Moulin de Laure
 
-Status: **source paintings mapped; door system partially unresolved**
+Status: **visually verified 2026-10-02**
 
-Last updated: 2026-10-02
+The eight production WebP files were opened together in `design/asset-contact-sheet.png` and inspected individually at their native dimensions. The paintings are approximately 1440 × 1440 px; doors are 512 × 768 px.
 
-## Original paintings — verified mapping
+| Painting | Visible subject | Universe | Public service |
+| --- | --- | --- | --- |
+| `painting-squirrel.webp` | Squirrel on a branch, green ground | Terre | Communication animale |
+| `painting-phoenix.webp` | Phoenix with multicolour wings, warm red/yellow ground | Feu | Accompagnement énergétique animalier |
+| `painting-turtle.webp` | Turtle in blue water | Eau | Connexion avec les défunts |
+| `painting-butterfly.webp` | Butterfly on a purple/blue sky | Air | Guidance pour soi |
 
-| Asset | Universe | Accompaniment |
+| Door | What it actually depicts | Mapping |
 | --- | --- | --- |
-| `painting-squirrel.webp` | Écureuil · Terre · Vivant | Communication animale / animalière |
-| `painting-phoenix.webp` | Phénix · Feu · Énergie | Accompagnement énergétique animalier |
-| `painting-turtle.webp` | Tortue · Eau · Famille | Connexion avec les défunts |
-| `painting-butterfly.webp` | Papillon · Air · Messager | Guidance pour soi |
+| `door-forest.webp` | Closed green door with squirrel | Terre / Écureuil |
+| `door-phoenix.webp` | Closed red door with phoenix | Feu / Phénix |
+| `door-ocean.webp` | Closed blue door with turtle | Eau / Tortue |
+| `door-passage.webp` | **Open** shared passage toward a winding landscape, with no butterfly | No one universe; shared transition artwork |
 
-Theme location:
-`wp-content/themes/lemoulindelaure-child/assets/art/`
+**A fourth closed Air/Papillon door is missing.** The old `[lmdl_door]` shortcode uses `door-passage.webp` as its common open state, confirming that it cannot be treated as Air.
 
-## Door assets — current code behavior
+## V1 decision
 
-Current theme assets:
-- `door-forest.webp`
-- `door-ocean.webp`
-- `door-phoenix.webp`
-- `door-passage.webp`
+Use the **four original paintings** as the principal, equal identity source for four universe panels. Give every painting the same architectural arch/threshold frame in CSS; vary image crop and content, not asset availability. Keep the three closed door artworks and the shared open passage for later editorial use, once a consistent four-door set or deliberate shared transition is approved. The hero uses paintings only. No fourth door is fabricated.
 
-The legacy `[lmdl_door]` shortcode treats:
-- forest / ocean / phoenix as selectable closed-art values;
-- **passage as the common open overlay**, regardless of which closed art was selected.
-
-Therefore:
-
-**Do not map `door-passage.webp` to Papillon/Air by default.**
-
-The repository does not yet prove that there is a dedicated fourth closed door for the Air/Papillon universe.
-
-## Working hypotheses — visual verification still required
-
-Filename semantics suggest:
-- forest -> Terre / Écureuil;
-- ocean -> Eau / Tortue;
-- phoenix -> Feu / Phénix.
-
-These remain hypotheses until the WebP files are visually checked.
-
-Air / Papillon remains unresolved.
-
-## Implementation options after visual verification
-
-1. Confirm/create a dedicated Air door.
-2. Intentionally use a different Air treatment.
-3. Use the four original paintings as universe media and a shared door/frame motif as decoration.
-
-## Rule for agents
-
-Before wiring final universe media:
-1. open all four WebP door assets locally;
-2. compare them visually;
-3. record the confirmed mapping here;
-4. only then bind exact files in the Four Universes pattern.
-
-Do not infer final mapping from filenames alone.
-
-## Current Gutenberg pattern
-
-`lmdl/four-universe-panels` deliberately contains media placeholders instead of hardcoded door files until this decision is closed.
+The full-page Gutenberg patterns `lmdl/homepage-v1` and `lmdl/accompagnements-v1` implement this decision. Old structural `lmdl/four-universe-panels` remains as a legacy editor shell and should not be inserted for new V1 pages.

@@ -1,120 +1,42 @@
-/* Homepage composition shell. Final content comes from Gutenberg/patterns. */
-
-.lmdl-home-hero {
-  min-height: calc(100dvh - 5rem);
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-}
-
-.lmdl-home-hero__copy {
-  position: relative;
-  z-index: 2;
-}
-
-.lmdl-home-hero__art {
-  min-width: 0;
-}
-
-.lmdl-art-collage {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(10, minmax(1.5rem, 4vw));
-  min-height: clamp(28rem, 58vw, 44rem);
-}
-
-.lmdl-art-collage > figure,
-.lmdl-art-collage > .lmdl-art-slot {
-  margin: 0;
-  min-width: 0;
-  overflow: hidden;
-  border-radius: var(--lmdl-radius);
-  background: var(--lmdl-paper);
-}
-
-.lmdl-art-collage > :nth-child(1) { grid-column: 5 / 13; grid-row: 1 / 8; }
-.lmdl-art-collage > :nth-child(2) { grid-column: 1 / 6; grid-row: 2 / 6; }
-.lmdl-art-collage > :nth-child(3) { grid-column: 2 / 7; grid-row: 6 / 10; }
-.lmdl-art-collage > :nth-child(4) { grid-column: 7 / 12; grid-row: 7 / 11; }
-
-.lmdl-art-collage img,
-.lmdl-art-slot > .wp-block-image,
-.lmdl-art-slot > .wp-block-image img {
-  width: 100%;
-  height: 100%;
-}
-
-.lmdl-art-collage img {
-  object-fit: cover;
-}
-
-.lmdl-art-slot > .wp-block-image {
-  margin: 0;
-}
-
-.lmdl-home-manifesto {
-  text-align: center;
-}
-
-.lmdl-home-manifesto .lmdl-prose {
-  margin-inline: auto;
-}
-
-.lmdl-values-field {
-  padding: clamp(3rem, 7vw, 6rem);
-  border-radius: var(--lmdl-radius);
-}
-
-.lmdl-journal-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-}
-
-.lmdl-journal-grid__supporting {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.lmdl-faq-booking {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-}
-
-@media (max-width: 1023px) {
-  .lmdl-home-hero {
-    min-height: auto;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-
-  .lmdl-art-collage {
-    min-height: 32rem;
-  }
-}
-
+/* Homepage V1: painted editorial entry, then varied content rhythm. */
+.lmdl-home-intro { padding-block: clamp(1.5rem, 3vw, 3rem) clamp(3rem, 6vw, 6rem); }
+.lmdl-home-hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; min-height: min(48rem, calc(100dvh - 6rem)); }
+.lmdl-home-hero__copy { position: relative; z-index: 1; }
+.lmdl-home-hero h1 { font-size: clamp(2.7rem, 5vw, 4.2rem); line-height: 1.12; margin-bottom: .75rem; }
+.lmdl-home-hero__signature { color: var(--lmdl-teal); font-family: var(--lmdl-font-heading); font-size: clamp(1.25rem, 2vw, 1.65rem); }
+.lmdl-home-hero__copy > p:not(.lmdl-home-hero__signature) { font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
+.lmdl-home-hero__art { min-width: 0; }
+.lmdl-art-collage { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); grid-template-rows: repeat(12, minmax(0, 1fr)); aspect-ratio: 1.1; max-height: 40rem; }
+.lmdl-art-collage figure { min-width: 0; min-height: 0; margin: 0; overflow: hidden; border: 5px solid var(--lmdl-cream); background: var(--lmdl-paper); }
+.lmdl-art-collage img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lmdl-art-collage__lead { grid-area: 1 / 5 / 10 / 13; border-radius: 45% 45% .35rem .35rem; }
+.lmdl-art-collage__second { grid-area: 2 / 1 / 7 / 6; border-radius: .35rem 40% .35rem .35rem; }
+.lmdl-art-collage__third { grid-area: 7 / 2 / 12 / 7; border-radius: .35rem .35rem .35rem 40%; }
+.lmdl-art-collage__fourth { grid-area: 9 / 7 / 13 / 12; border-radius: .35rem 40% .35rem .35rem; }
+.lmdl-home-manifesto { background: var(--lmdl-paper); }
+.lmdl-home-manifesto .lmdl-prose { max-width: 52rem; margin-inline: auto; text-align: center; }
+.lmdl-home-manifesto h2 { font-size: clamp(2rem, 3.5vw, 3.2rem); }
+.lmdl-home-universes > .lmdl-container > p { margin-bottom: 2.5rem; }
+.lmdl-home-laure__emblem { max-width: 20rem; margin-inline: auto; }
+.lmdl-home-laure__emblem img { width: 100%; height: auto; }
+.lmdl-home-values { background: var(--lmdl-ink); color: var(--lmdl-paper); }
+.lmdl-home-values .lmdl-container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem 5rem; align-items: start; }
+.lmdl-home-values h2 { grid-row: span 2; max-width: 13ch; font-size: clamp(2rem, 3.5vw, 3.2rem); }
+.lmdl-home-values p { max-width: 48ch; }
+.lmdl-home-garden { background: var(--lmdl-paper); }
+.lmdl-home-garden__art { max-width: 28rem; margin-inline: auto; }
+.lmdl-home-garden__art img { width: 100%; height: auto; border-radius: 48% 48% .5rem .5rem; }
+.lmdl-home-journal { border-block: 1px solid var(--lmdl-line); }
+.lmdl-home-journal .lmdl-container { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 1.5rem; }
+.lmdl-home-close__booking { padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--lmdl-line); border-radius: var(--lmdl-radius); background: var(--lmdl-paper); }
+.lmdl-faq-booking { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+@media (max-width: 1023px) { .lmdl-home-hero { min-height: 0; } .lmdl-home-journal .lmdl-container { grid-template-columns: 1fr auto; } .lmdl-home-journal p { grid-column: 1 / -1; grid-row: 2; } }
 @media (max-width: 767px) {
-  .lmdl-home-hero,
-  .lmdl-journal-grid,
-  .lmdl-faq-booking {
-    grid-template-columns: 1fr;
-  }
-
-  .lmdl-home-hero {
-    padding-block: 2rem 4rem;
-  }
-
-  .lmdl-home-hero__copy {
-    order: 1;
-  }
-
-  .lmdl-home-hero__art {
-    order: 2;
-  }
-
-  .lmdl-art-collage {
-    min-height: 26rem;
-  }
+  .lmdl-home-hero, .lmdl-home-values .lmdl-container, .lmdl-faq-booking { grid-template-columns: 1fr; }
+  .lmdl-home-hero { gap: 2rem; }
+  .lmdl-home-hero__copy { order: 1; }
+  .lmdl-home-hero__art { order: 2; }
+  .lmdl-art-collage { aspect-ratio: 1.25; max-height: 25rem; }
+  .lmdl-home-values h2 { grid-row: auto; }
+  .lmdl-home-journal .lmdl-container { display: block; }
 }

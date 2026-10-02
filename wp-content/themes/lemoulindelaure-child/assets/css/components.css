@@ -9,6 +9,10 @@
   --lmdl-fast: 180ms;
   --lmdl-medium: 280ms;
 }
+.lmdl-page-v1 .site-content > .ast-container { display: block; max-width: none; padding: 0; }
+.lmdl-page-v1 .site-content .site-main { width: 100%; padding: 0; }
+.lmdl-page-v1 .entry-content { margin: 0; }
+.lmdl-page-v1 article.page > .entry-header { display: none; }
 
 .lmdl-container {
   width: min(calc(100% - (2 * var(--lmdl-gutter))), var(--lmdl-content));
@@ -44,6 +48,23 @@
   gap: .75rem 1rem;
   align-items: center;
 }
+.lmdl-cta-group > p { margin: 0; }
+.lmdl-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: .7rem 1.25rem;
+  border-radius: .5rem;
+  background: var(--lmdl-blue);
+  color: var(--lmdl-paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+.lmdl-button:is(:hover, :focus-visible) { background: var(--lmdl-ink); color: var(--lmdl-paper); }
+.lmdl-text-link { display: inline-flex; align-items: center; min-height: 3rem; font-weight: 600; text-underline-offset: .25em; }
+.lmdl-section :where(h1, h2, h3) { text-wrap: balance; }
+.lmdl-section p { max-width: 70ch; }
 
 .lmdl-art-frame {
   overflow: hidden;

@@ -52,7 +52,7 @@ Primary navigation:
 
 Current accompaniment pages:
 
-1. Communication animalière
+1. Communication animale
 2. Accompagnement énergétique animalier
 3. Connexion avec les défunts
 4. Guidance pour soi
@@ -65,7 +65,7 @@ The client brief defines “Un chemin de cœur et 4 ailes”:
 
 | Universe | Element / meaning | Accompaniment |
 | --- | --- | --- |
-| Écureuil | Terre / vivant | Communication animalière |
+| Écureuil | Terre / vivant | Communication animale |
 | Phénix | Feu / énergie | Accompagnement énergétique animalier |
 | Tortue | Eau / famille | Connexion avec les défunts |
 | Papillon | Air / messager | Guidance pour soi |

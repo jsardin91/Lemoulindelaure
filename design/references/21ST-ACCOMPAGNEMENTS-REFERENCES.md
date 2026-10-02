@@ -114,3 +114,6 @@ When using Codex/Claude with 21st MCP, search:
 Ask for preview candidates only. Do not install before comparing against:
 - `design-system/MASTER.md`
 - `design/wireframes/ACCOMPAGNEMENTS-V1.md`
+# V1 implementation review — 2026-10-02
+
+The installed 21st MCP was queried for `expanding image panels` and `four panel interactive gallery`. The public [Hover Expand preview](https://21st.dev/@educalvolpz/components/hover-expand) was opened in the browser. Its useful principle is modest space redistribution that gives one image emphasis. Its thin inactive rails and rotated labels were rejected: all four Moulin service names, animals, elements and links need to remain legible at once. The WordPress V1 uses CSS flex growth on hover and keyboard focus only at desktop widths; tablet and mobile are static grids. No 21st component code or dependency was copied.

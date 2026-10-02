@@ -49,3 +49,6 @@ Thumbs.db
 
 # Local MCP/auth files
 .mcp.local.json
+
+# Generated visual-review screenshots (recreate with scripts/review-v1-preview.mjs)
+/design/prototypes/*.png

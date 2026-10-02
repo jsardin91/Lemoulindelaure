@@ -121,7 +121,7 @@ Avoid generic stock imagery when client/original imagery can tell the story bett
 
 ## Doors / universe navigation
 
-Four master door illustrations are available under `design/brand/doors/`.
+Four door illustration files are available under `design/brand/doors/`, but visual audit confirms three closed universe doors and one shared open passage. There is no closed Air/Papillon door. See `../docs/BRAND-ASSET-MAPPING.md` before assigning door media.
 
 Use them as storytelling/navigation support, especially for the Accompagnements hub.
 

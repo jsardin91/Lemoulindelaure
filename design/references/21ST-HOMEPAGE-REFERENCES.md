@@ -197,3 +197,8 @@ Compare any candidate against:
 - `design/wireframes/HOMEPAGE-COMPOSITION-V1.md`
 
 Do not install a component solely because it looks polished.
+# V1 implementation review — 2026-10-02
+
+The installed 21st MCP was queried for `editorial collage hero`, `founder editorial section`, `editorial magazine content grid` and `accessible faq`. The public [Editorial Collage Hero preview](https://21st.dev/@felipemenezes098/components/hero-04) was opened in the browser. Its useful idea is the readable left editorial copy next to visual artwork and two clear actions. The V1 hero uses a more asymmetric four-painting composition, the approved palette/type, and native Gutenberg blocks. Its React/shadcn code, pale wash, imagery and motion were not copied.
+
+The magazine and FAQ results were reviewed as metadata only. They were not adopted because no validated articles or FAQ answers exist yet. The V1 provides restrained Journal/FAQ entry points for later editorial completion.
