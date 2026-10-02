@@ -1,28 +1,150 @@
 # Le Moulin de Laure Child Theme
 
-Custom Astra child theme. Activate Astra first, then this child theme in WordPress. The first activation initializes Astra's nine native Global Palette slots, Lora headings and Source Sans 3 body type in Astra's saved Customizer settings. The defaults are installed once (`lmdl_brand_defaults_installed`); later changes in Astra remain possible. The site's real WordPress database must be available for the activation step.
+Custom Astra child theme for **Le Moulin de Laure**.
+
+## Status
+
+The visual foundations are **approved and active as of 2026-10-02**.
+
+Canonical design source:
+- `design-system/MASTER.md`
+
+Canonical implementation plan:
+- `docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
+
+Never modify Astra parent-theme files.
+
+## Current responsibilities
+
+The child theme currently provides:
+- approved brand palette;
+- Lora / Source Sans 3 local fonts;
+- default logo/site-icon fallbacks;
+- optimized client-art derivatives;
+- decorative door assets;
+- basic accessibility/focus styling;
+- a prototype `[lmdl_door]` shortcode.
+
+The final public pages have **not yet been implemented**.
 
 ## Assets
 
-- `assets/logo/logo-complet-creme.webp`: faithful logo on its original cream ground, recommended default for the site logo.
-- `assets/logo/logo-complet-transparent.png`: isolated lockup for a matching light background; transparency is approximate because the supplied source is JPEG.
-- `assets/logo/embleme-transparent.png`: emblem for compact headers or accents.
-- `assets/logo/logo-horizontal-transparent.png`: emblem plus original client lettering, recommended for a wide header.
-- `assets/logo/signature-transparent.png`: client lettering only, for wide headers.
-- `assets/logo/devise-transparent.png`: optional tagline, not a substitute for HTML copy.
-- `assets/logo/icone-32.png`, `icone-180.png`, `icone-512.png`: favicon and app icons. The WordPress Site Icon can use the 512 px file.
-- The header displays the included horizontal logo if no Media Library logo is selected. WordPress Site Icon uses the included icons if no icon is set in the Customizer. Selecting a logo or icon in WordPress takes priority over the theme fallback.
-- `assets/art/painting-*.webp`: optimized versions of the four original paintings.
-- `assets/doors/door-*.webp`: optimized decorative portals. `passage` is open; `ocean`, `forest` and `phoenix` are closed illustrations. These are distinct images, not frames of an opening animation.
+### Logo
 
-Original client files and generated masters are in `design/brand/`. Rebuild derivatives with `python scripts/build-brand-assets.py` after installing Pillow. The palette is recorded in CSS custom properties and the editor palette in `theme.json`. Astra's global color variables are also given fallback values in `style.css`; check Astra Customizer settings on the installed site because saved customizer colors may override CSS declarations.
+- `assets/logo/logo-complet-creme.webp`
+- `assets/logo/logo-complet-transparent.png`
+- `assets/logo/logo-horizontal-transparent.png`
+- `assets/logo/embleme-transparent.png`
+- `assets/logo/signature-transparent.png`
+- `assets/logo/devise-transparent.png`
+- `assets/logo/icone-32.png`
+- `assets/logo/icone-180.png`
+- `assets/logo/icone-512.png`
 
-Fonts: `assets/fonts/` holds local variable WOFF2 files and SIL OFL licenses for Lora and Source Sans 3. `theme.json` exposes them in the block editor; `style.css` loads them on the public site. Typography rationale: `design-system/TYPOGRAPHY-BENCHMARK.md`.
+WordPress Media Library selections take priority over theme fallbacks.
 
-Use the `[lmdl_door href="/service/" label="Nom du service" art="ocean"]` shortcode for a decorative link. Valid art values: `ocean`, `forest`, `phoenix`, `passage`. The shortcode returns nothing until both a real URL and label are supplied. Keep an actual service heading, explanatory paragraph and HTML link on the page; avoid inventing service names from the paintings. On mobile, keyboard or reduced-motion settings, navigation remains a regular link.
+### Paintings
 
-The brand palette and illustrations are a **draft** inferred from the supplied images, pending formal guidelines and client approval. Typography is undecided.
+Optimized theme derivatives:
+- `assets/art/painting-butterfly.webp`
+- `assets/art/painting-phoenix.webp`
+- `assets/art/painting-squirrel.webp`
+- `assets/art/painting-turtle.webp`
 
-Do not implement final visual styling until the brand guidelines and `design-system/MASTER.md` are approved.
+For major content imagery, the implementation plan recommends importing optimized derivatives into the WordPress Media Library so responsive image sizes/alt text can be managed natively.
 
-Never modify Astra parent-theme files.
+### Doors
+
+- `assets/doors/door-forest.webp`
+- `assets/doors/door-ocean.webp`
+- `assets/doors/door-passage.webp`
+- `assets/doors/door-phoenix.webp`
+
+The final service mapping must be visually verified before implementation. Do not infer every service mapping from filenames alone.
+
+## Palette
+
+Approved tokens:
+
+- Moulin blue: `#165A77`
+- Teal: `#306C67`
+- Ink: `#173F54`
+- Cream: `#FAF7EF`
+- Paper: `#FFFDF8`
+- Line: `#DCD4BD`
+- Lavender: `#666294`
+- Antique gold: `#B68631`
+- Leaf green: `#426F47`
+
+See:
+- `style.css`
+- `theme.json`
+- `design-system/MASTER.md`
+
+## Typography
+
+Approved:
+- Lora 600 for headings
+- Source Sans 3 400 for body
+- Source Sans 3 600 for controls/emphasis
+
+Fonts are self-hosted under `assets/fonts/`.
+
+## Astra activation behavior
+
+On first activation, `functions.php` seeds:
+- Astra's nine native global palette slots;
+- Source Sans 3 body;
+- Lora headings.
+
+The defaults are installed once using:
+`lmdl_brand_defaults_installed`
+
+Later client edits in Astra are preserved.
+
+## Door shortcode
+
+Prototype usage:
+
+`[lmdl_door href="/service/" label="Nom du service" art="ocean"]`
+
+This shortcode is **not** the planned final four-universe hub component.
+
+Keep it only as a prototype/simple decorative link unless the final implementation plan explicitly reuses it.
+
+The final Accompagnements hub needs:
+- four coordinated panels;
+- always-visible text;
+- richer responsive behavior;
+- focus/keyboard equivalence;
+- reduced-motion fallback.
+
+See:
+- `design/wireframes/ACCOMPAGNEMENTS-V1.md`
+- `docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
+
+## Asset rebuilding
+
+Original client files and generated masters are under:
+`design/brand/`
+
+Rebuild derivatives with:
+`python scripts/build-brand-assets.py`
+
+after installing Pillow.
+
+## Deployment
+
+Theme deployment is manual through:
+`.github/workflows/install-child-theme.yml`
+
+The workflow:
+- packages the current child theme;
+- uploads via SSH;
+- PHP-lints `functions.php`;
+- swaps with rollback;
+- activates/verifies the child theme.
+
+Normal commits to theme files do not automatically deploy to production.
+
+WordPress content/database/plugin configuration is separate from theme deployment.

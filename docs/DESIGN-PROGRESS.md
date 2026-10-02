@@ -4,59 +4,54 @@ Last updated: 2026-10-02
 
 ## V1 design status
 
-| Page / area | IA | UX/design | Wireframe | References | Implementation |
-| --- | --- | --- | --- | --- | --- |
-| Accueil | Approved V1 | Advanced | V1 + composition | Documented | Not started |
-| Accompagnements hub | Approved V1 | V1 | V1 | Documented | Not started |
-| Communication animalière | Approved V1 | V1 | V1 | Documented | Not started |
-| Accompagnement énergétique animalier | Approved V1 | V1 structural | V1 | Shared | Not started |
-| Connexion avec les défunts | Approved V1 | V1 sensitive | V1 | Documented | Not started |
-| Guidance pour soi | Approved V1 | V1 structural | V1 | Documented | Not started |
-| Le Jardin | Approved V1 | V1 | V1 | Documented | Not started |
-| À propos | Approved V1 | V1 | V1 | Documented | Not started |
-| Journal | Approved V1 | V1 | Index + article V1 | Documented | Not started |
-| FAQ | Approved V1 | V1 | V1 | Documented | Not started |
-| Contact | Approved V1 | V1 | V1 | Documented | Not started |
-| Prendre rendez-vous / Timetics | Approved V1 | V1 integration | V1 | Timetics + 21st | Not started |
-
-## Site-wide V1 design milestone
-
 Every public top-level page has V1 UX/content architecture.
+
+No production page implementation has begun.
 
 ## SEO milestone
 
-Completed working V1:
-- qualitative SERP research;
-- intent ownership;
-- page/keyword map;
-- draft Title/H1/meta direction;
-- internal linking rules;
-- schema/indexation rules;
-- Journal SEO/content governance;
-- credential verification guardrail.
+Working V1 complete:
+- SERP research;
+- intent/page ownership;
+- metadata direction;
+- internal linking;
+- technical SEO/schema/indexation rules.
 
 Files:
 - `docs/SEO-SERP-RESEARCH-2026-10-02.md`
 - `docs/SEO-STRATEGY-V1.md`
 - `docs/SEO-PAGE-MAP-V1.md`
 
-## Important SEO decisions/open items
+## Implementation-planning milestone
 
-Recommended before implementation:
-- consider renaming public “Communication animalière” to **Communication animale** and changing slug to `/accompagnements/communication-animale/`.
+WordPress implementation architecture is documented:
+- `docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
 
-Needs client/owner confirmation:
-- exact Laila Del Monte credential wording;
-- whether “guidance intuitive” is acceptable public wording;
-- exact energetic-service terminology.
+Key decision:
+**native Gutenberg content + child-theme patterns/classes**, not hardcoded page copy/templates.
 
-## Remaining before implementation
+Theme audit:
+- active brand tokens already exist;
+- child README was outdated and is now synchronized;
+- current `[lmdl_door]` is a prototype, not final hub;
+- current manual GitHub Action can safely deploy child-theme code but not DB content/config.
 
-1. owner reviews SEO recommendations;
-2. collect missing client inputs;
-3. finalize page copy;
-4. finalize metadata;
-5. implementation planning;
-6. Timetics config;
-7. WordPress build;
-8. QA.
+## Pre-code gates
+
+Resolve:
+1. Communication animale vs Communication animalière;
+2. exact Laila Del Monte credential wording;
+3. energetic-service terminology;
+4. whether “guidance intuitive” is approved;
+5. service logistics/prices;
+6. Timetics availability/cancellation rules.
+
+## Next executable work
+
+Without waiting for final copy, agents can safely start:
+- CSS architecture cleanup;
+- reusable Gutenberg block-pattern registration;
+- non-content-specific layout primitives;
+- staging/local homepage component build.
+
+Do not mutate production content/database until naming/content gates are resolved.

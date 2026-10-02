@@ -2,75 +2,88 @@
 
 Last updated: 2026-10-02
 
-## Major milestone
+## Current milestone
 
-The full approved public site architecture has:
-- V1 UX/content design;
-- V1 qualitative SEO strategy.
+The project now has:
+- approved active brand system;
+- approved V1 information architecture;
+- V1 UX/content design for all public pages;
+- qualitative SEO strategy/page map;
+- WordPress implementation architecture.
 
-No production page build has started in this design/SEO pass.
+No production page build/content migration has started in this phase.
 
-## SEO package
+## Canonical reading order for a new agent
 
-Read:
-- `docs/SEO-SERP-RESEARCH-2026-10-02.md`
-- `docs/SEO-STRATEGY-V1.md`
-- `docs/SEO-PAGE-MAP-V1.md`
+1. `AGENTS.md`
+2. `docs/PROJECT.md`
+3. `design/brand/BRAND-GUIDELINES-WORKING.md`
+4. `docs/SITE-ARCHITECTURE.md`
+5. `docs/SEO-STRATEGY-V1.md`
+6. `docs/SEO-PAGE-MAP-V1.md`
+7. `design-system/MASTER.md`
+8. `docs/DESIGN-PROGRESS.md`
+9. `docs/WORDPRESS-IMPLEMENTATION-PLAN-V1.md`
+10. relevant page wireframe/reference
 
-## Main SEO finding
+## Implementation direction
 
-“Communication animale” is the dominant current search wording.
+Use:
+- WordPress native pages/posts;
+- Gutenberg core blocks;
+- project block patterns/classes;
+- Astra header/footer/native behavior;
+- child theme for brand presentation;
+- plugins for SEO/forms/booking/privacy.
 
-Current architecture still says:
-“Communication animalière”
+Do not:
+- add a page builder;
+- hardcode all page copy into PHP;
+- recreate Timetics calendar;
+- recreate Forminator form processing;
+- modify Astra parent.
 
-Recommendation before page creation:
-- public label/H1 -> **Communication animale**
-- slug -> `/accompagnements/communication-animale/`
+## Theme audit
 
-This is **not yet applied to canonical site architecture**; owner/client wording approval remains the gate.
+Current child theme already has:
+- approved palette;
+- approved fonts;
+- logo fallbacks;
+- art/door assets;
+- prototype door shortcode.
 
-## Other SERP wording
+The prototype door shortcode is not sufficient for the final four-panel Accompagnements hub.
 
-Energetic:
-- search language strongly uses “soin(s) énergétique(s) animaux”;
-- keep Laure's safer “Accompagnement énergétique animalier” as primary brand label;
-- use search variants only when client-approved and without medical claims.
+Current GitHub Action:
+`install-child-theme.yml`
+works as a manual child-theme deployment with rollback.
 
-Deceased:
-- “communication avec les défunts” / “contact défunt” are common;
-- do not label Laure “médium” unless she explicitly chooses that title.
+It does not deploy database/page content.
 
-Guidance:
-- “guidance intuitive” is the dominant current phrase;
-- use only after Laure approves that wording.
+## Important unresolved gates
 
-## Credential warning
+- recommended SEO label/slug change to “Communication animale”;
+- exact Laila Del Monte credential;
+- energy-service public wording;
+- “guidance intuitive” wording approval;
+- service logistics/prices;
+- Timetics schedule/rules;
+- FAQ answers;
+- portrait/reviews/Journal/Jardin content.
 
-Current official Laila Del Monte sources state no professional should be presented as “certified by Laila Del Monte” and distinguish communication-animal training from energetic/deceased practices.
+## SEO trust warning
 
-Do not publish ambiguous credential wording.
+Do not publish “certifiée par Laila Del Monte” without documentary evidence.
 
-Obtain Laure's exact certificate/diploma evidence first.
+Do not imply Laila Del Monte training covers energetic care or deceased communication.
 
-## Google Search 2026 changes captured
+## Next safe implementation work
 
-- FAQ rich results removed;
-- Article/BlogPosting remains useful;
-- noindex pages must remain crawlable;
-- titles/meta should be unique/descriptive;
-- mass AI-generated SEO content is not allowed as project strategy;
-- image/multimodal Search Console reporting now matters for the original artwork.
+Can begin without client-content invention:
+- CSS/pattern foundations;
+- staging/local component prototypes;
+- responsive header/footer;
+- homepage visual shell;
+- four-universe interaction prototype.
 
-## Next phase
-
-1. owner reviews the three SEO wording questions;
-2. collect missing business/content inputs;
-3. write source-approved final page copy;
-4. finalize Rank Math metadata;
-5. implementation planning;
-6. WordPress + Timetics build;
-7. technical/SEO/a11y/performance QA.
-
-Canonical design board:
-`docs/DESIGN-PROGRESS.md`
+Production DB/page creation waits for naming gates.
