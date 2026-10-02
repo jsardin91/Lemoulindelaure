@@ -4,9 +4,17 @@ Repository for the **Le Moulin de Laure** client website.
 
 ## Status
 
-**Foundation ready. Brand/design work is intentionally blocked until the client brand guidelines are received.**
+The project foundation, client vision, service architecture and visual foundations are now documented.
 
-Do not invent a palette, typography system, visual language, or art direction before those guidelines are added to `design/brand/` and reflected in `design-system/BRIEF.md`.
+**Visual system status: ACTIVE (approved 2026-10-02).**
+
+Approved foundations include:
+- color palette;
+- typography;
+- logo variants and usage rules;
+- general visual direction.
+
+Editorial copy and detailed page content can still evolve without reopening the approved visual foundations.
 
 ## WordPress stack
 
@@ -16,20 +24,52 @@ Do not invent a palette, typography system, visual language, or art direction be
 - Rank Math
 - Complianz
 - Forminator
+- Timetics — appointment booking
 - Structured FAQ custom plugin
 - LiteSpeed Cache
 
+Third-party plugins are not vendored in this repository.
+
+## Canonical project references
+
+Read these before meaningful work:
+
+1. `AGENTS.md`
+2. `docs/PROJECT.md`
+3. `design/brand/BRAND-GUIDELINES-WORKING.md`
+4. `docs/SITE-ARCHITECTURE.md`
+5. `design-system/BRIEF.md`
+6. `design-system/MASTER.md`
+7. `design-system/TOOLING.md`
+8. `docs/AI-DESIGN-WORKFLOW.md`
+
+## Current public architecture
+
+Primary navigation:
+
+**Accompagnements · Le Jardin · À propos · Journal · FAQ · Contact · [Prendre rendez-vous]**
+
+Accompagnements:
+1. Communication animalière
+2. Accompagnement énergétique animalier
+3. Connexion avec les défunts
+4. Guidance pour soi
+
+The public editorial/blog label is **Journal**.
+
+Canonical slugs, page roles, SEO rules and booking flow are documented in `docs/SITE-ARCHITECTURE.md`.
+
 ## Design toolchain
 
-This project deliberately combines:
+This project combines:
 
-1. **UI/UX Pro Max** for design intelligence, UX checks and design-system research.
-2. **Taste Skill** (`design-taste-frontend`) for anti-generic visual quality and layout/art-direction discipline.
-3. **21st MCP / CLI** for component and pattern exploration.
+1. **UI/UX Pro Max** for structured UX/design research.
+2. **Taste Skill** for anti-generic composition and visual polish.
+3. **21st MCP / CLI** for component/pattern exploration.
 
-The client brand always wins over generated recommendations.
+These tools are advisory. The approved client brand and `design-system/MASTER.md` win.
 
-For this WordPress project, 21st components are primarily **reference material**. Do not introduce React/shadcn/Tailwind into production merely because a 21st component uses them. Translate useful patterns into the existing WordPress/Astra/child-theme architecture unless a stack change is explicitly approved.
+Production remains WordPress + Astra + child theme. Do not introduce React/shadcn/Tailwind simply because a reference uses them.
 
 ## Repository map
 
@@ -38,13 +78,12 @@ For this WordPress project, 21st components are primarily **reference material**
 ├── AGENTS.md
 ├── CLAUDE.md
 ├── .agents/skills/
-│   ├── frontend-design-pro/
-│   └── taste-skill/
 ├── .claude/skills/
-│   ├── frontend-design-pro/
-│   └── taste-skill/
 ├── design/
 │   ├── brand/
+│   │   ├── BRAND-GUIDELINES-WORKING.md
+│   │   ├── source/
+│   │   └── doors/
 │   ├── references/
 │   ├── reviews/
 │   └── wireframes/
@@ -55,6 +94,8 @@ For this WordPress project, 21st components are primarily **reference material**
 │   ├── TOOLING.md
 │   └── pages/
 ├── docs/
+│   ├── SITE-ARCHITECTURE.md
+│   └── ...
 ├── scripts/
 ├── licenses/
 ├── wp-content/
@@ -63,22 +104,12 @@ For this WordPress project, 21st components are primarily **reference material**
 └── .github/workflows/
 ```
 
-## Before any visual work
-
-Read, in order:
-
-1. `AGENTS.md`
-2. `docs/PROJECT.md`
-3. `design/brand/README.md`
-4. `design-system/BRIEF.md`
-5. `design-system/MASTER.md`
-6. `design-system/TOOLING.md`
-7. `docs/AI-DESIGN-WORKFLOW.md`
-
 ## Deployment
 
-GitHub Actions SSH secrets are configured separately. The diagnostic workflow verified exactly one WordPress installation with Astra and WP-CLI without exposing server paths. The child theme was installed and activated on https://lemoulindelaure.fr by the `Install Astra child theme` workflow. Future deployments are manual (`workflow_dispatch`); changing theme files on `main` alone does not update the live site.
+GitHub Actions SSH secrets are configured separately. The child theme is installed and active on https://lemoulindelaure.fr. Production releases remain manual/reviewable; changing files on `main` alone does not necessarily update the live site.
 
-## Security
+## Security / client material
 
-This is a client project. Keep the repository **private** before adding brand files, private documents, credentials, database exports, production paths or other client-sensitive material.
+The repository currently reports as **public**. Do not commit raw private client briefs, personal contact details, credentials, database exports or other sensitive material without an explicit privacy review.
+
+The client Word brief received on 2026-10-02 is summarized in durable repository documentation instead of being committed as a raw source file.

@@ -2,15 +2,21 @@
 
 ## Status
 
-Formal guidelines: **pending**. Supplied logo, paintings and business card are now in `design/brand/source/`.
+Client brief: received.
 
-The draft palette and fonts were explicitly requested by the owner. Keep them provisional until formal brand guidelines and client validation arrive.
+Visual foundations: **approved 2026-10-02**.
 
-Typography research and decision: `TYPOGRAPHY-BENCHMARK.md`.
+Canonical visual source:
+- `MASTER.md`
+
+Typography decision:
+- `TYPOGRAPHY-BENCHMARK.md`
+
+Tools below are advisory and must not overwrite the active Master Design System.
 
 ## UI/UX Pro Max
 
-Role: design intelligence and UX validation.
+Role: design intelligence and UX validation for unresolved questions.
 
 Install/update using the repository bootstrap:
 
@@ -18,7 +24,6 @@ Install/update using the repository bootstrap:
 - macOS/Linux/WSL: `bash scripts/setup-ui-ux-pro-max.sh`
 
 Expected locations:
-
 - `.agents/skills/ui-ux-pro-max/`
 - `.claude/skills/ui-ux-pro-max/`
 
@@ -28,25 +33,31 @@ Source: `https://github.com/Leonxlnx/taste-skill`
 
 Installed name: `design-taste-frontend`
 
-Project-local copies are vendored at:
-
+Project-local copies:
 - `.agents/skills/taste-skill/SKILL.md`
 - `.claude/skills/taste-skill/SKILL.md`
 
-Project dials:
+Current project dials:
+- `DESIGN_VARIANCE: 7` — expressive painted identity, but coherent
+- `MOTION_INTENSITY: 3` — subtle response, especially around doors
+- `VISUAL_DENSITY: 3` — room for artwork and readable content
 
-- `DESIGN_VARIANCE`: 7 (draft; painted artwork supports a more expressive but coherent composition)
-- `MOTION_INTENSITY`: 3 (draft; a subtle door response is enough and never blocks navigation)
-- `VISUAL_DENSITY`: 3 (draft; leave room for original paintings and readable service content)
-
-When the brand guidelines arrive, choose values from the actual brand, audience, content and conversion goals. Record the reason beside each value before implementation.
+These dials are implementation guidance, not permission to alter the approved palette/typography/logo system.
 
 ## 21st
 
-Official MCP endpoint: `https://21st.dev/api/mcp`
+Official MCP endpoint:
+- `https://21st.dev/api/mcp`
 
-Use cases: compare section/component directions, search existing patterns, inspect interaction ideas and generate alternatives when genuinely useful.
+Use cases:
+- compare component directions;
+- inspect interaction ideas;
+- explore patterns.
 
-Project constraint: **No automatic React/shadcn/Tailwind adoption.** Production remains WordPress + Astra + child theme unless explicitly approved.
+Constraint:
+**No automatic React/shadcn/Tailwind adoption.**
 
-Setup instructions: `docs/21ST-MCP.md`.
+Production remains WordPress + Astra + child theme unless explicitly approved.
+
+Setup:
+- `docs/21ST-MCP.md`

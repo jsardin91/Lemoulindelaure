@@ -1,16 +1,43 @@
-# Brand Guidelines Intake
+# Brand Workspace — Le Moulin de Laure
 
-Status: **source visual materials received; formal guidelines pending**
+Status: **client brief received; visual foundations approved**
 
-`source/` contains the original supplied logo and four original paintings. The business-card photographs were reviewed for brand context but are not versioned because they contain personal contact details. `doors/` contains four generated master illustrations inspired by the artwork. The generated doors are concepts for navigation decoration; their labels and mapping to services require the actual service list. The exact logo remains the original JPEG. Transparent cropped logo derivatives are approximate because the source is a JPEG on a cream ground; request a vector or transparent master from the client for final precision.
+Last updated: 2026-10-02
 
-When the files arrive:
+## Canonical documents
 
-1. store only material safe/licensed to keep in this private client repository;
-2. summarize the rules here;
-3. update `../../design-system/BRIEF.md`;
-4. distinguish mandatory brand rules from optional examples;
-5. note logo, colors, typography, imagery, tone and prohibited uses;
-6. do not infer missing rules as approved facts.
+- `BRAND-GUIDELINES-WORKING.md` — normalized client vision, tone, services and brand guidance
+- `../../design-system/MASTER.md` — approved visual system
+- `../../docs/SITE-ARCHITECTURE.md` — approved working information architecture
 
-The source guidelines outrank all AI design tools.
+## Source assets
+
+`source/` contains:
+- original client logo;
+- original butterfly painting;
+- original phoenix painting;
+- original squirrel painting;
+- original turtle painting.
+
+Business-card photographs were reviewed for context but are not versioned because they include personal contact information.
+
+## Doors
+
+`doors/` contains the generated master door illustrations.
+
+They support the “doors opening to new universes” navigation/storytelling concept.
+
+They are decorative/brand assets, not substitutes for accessible links or real page labels.
+
+## Approval state
+
+Approved on 2026-10-02:
+- palette currently encoded in the child theme / Master Design System;
+- Lora + Source Sans 3 typography;
+- existing logo declinations and usage rules.
+
+The client brief also validates the broader direction: joyful, gentle, grounded, colorful, professional and not excessively spiritual.
+
+## Rule
+
+Client source material and explicit owner/client decisions outrank all AI tooling and generic design trends.

@@ -2,77 +2,106 @@
 
 These are repository-level instructions for AI coding agents.
 
-## Non-negotiable project gate
+## Current project state
 
-The client has supplied a JPEG logo, four paintings and a business-card reference. Formal brand guidelines have **not yet been supplied**. On 2026-09-27 the owner explicitly authorized a draft palette from the logo and a typography benchmark with UI/UX Pro Max.
+A written client vision / brand brief was received on **2026-10-02**. The service universes, audience, values, tone, website goals and visual intent are documented in:
 
-Until they are added under `design/brand/` and summarized in `design-system/BRIEF.md`:
+- `design/brand/BRAND-GUIDELINES-WORKING.md`
+- `docs/SITE-ARCHITECTURE.md`
+- `design-system/BRIEF.md`
 
-- treat the brand-derived colors and the benchmark-selected fonts as draft, not final client approval;
-- do not lock a visual style;
-- do not mark `design-system/MASTER.md` as active;
-- do not begin a full homepage/page redesign.
+The visual foundations were explicitly approved by the project owner on **2026-10-02**:
 
-Technical setup, content architecture, audits, inventory and tooling work are allowed.
+- palette;
+- typography;
+- logo variants and usage rules.
+
+Therefore `design-system/MASTER.md` is **active** and is the visual source of truth unless a later explicit client decision supersedes it.
+
+Page copy, SEO wording and detailed editorial content can still evolve.
 
 ## Source of truth and precedence
 
 When instructions conflict, use this order:
 
 1. Explicit user request in the current task
-2. Client brand guidelines and approved client assets
-3. Approved real production behavior/content
-4. `design-system/MASTER.md` when its status is `active`
-5. `design-system/pages/<page>.md` for approved page-specific exceptions
-6. Existing reusable components/tokens/architecture
-7. Project-local `frontend-design-pro`
-8. UI/UX Pro Max
-9. Taste Skill
-10. 21st component/pattern references
-11. Generic conventions and trends
+2. Later explicit client/owner decisions
+3. Client source material
+4. `design/brand/BRAND-GUIDELINES-WORKING.md`
+5. `docs/SITE-ARCHITECTURE.md` for current IA/navigation/URL decisions
+6. `design-system/MASTER.md` for approved visual foundations
+7. Approved production behavior/content
+8. `design-system/pages/<page>.md` for approved page-specific exceptions
+9. Existing reusable components/tokens/architecture
+10. Project-local `frontend-design-pro`
+11. UI/UX Pro Max
+12. Taste Skill
+13. 21st component/pattern references
+14. Generic conventions/trends
 
-Never let a generated palette, font pairing, component catalogue, trend, or AI aesthetic overwrite the approved brand.
+Never let an AI-generated palette, font pairing, component catalogue or trend overwrite the approved brand.
 
-## Required design workflow
+## Required workflow
 
-For meaningful UI/UX/frontend work:
+For meaningful UI/UX/frontend/content architecture work:
 
 1. Read `docs/PROJECT.md`.
-2. Read the available brand material in `design/brand/`.
-3. Read `design-system/BRIEF.md` and `design-system/MASTER.md`.
-4. Read `design-system/TOOLING.md`.
-5. Use `frontend-design-pro` for overall design process and implementation discipline.
-6. Use UI/UX Pro Max for research and UX/design-system evidence.
-7. Use Taste Skill for anti-generic composition, typography, spacing and polish.
-8. Use 21st MCP for component/pattern exploration when useful.
-9. Translate references into the approved WordPress/Astra architecture.
-10. Review visually, responsively and accessibly before considering work finished.
+2. Read `design/brand/BRAND-GUIDELINES-WORKING.md`.
+3. Read `docs/SITE-ARCHITECTURE.md`.
+4. Read `design-system/BRIEF.md`, `MASTER.md` and `TOOLING.md`.
+5. Inspect relevant assets in `design/brand/`.
+6. Use UI/UX Pro Max only for unresolved UX/design questions.
+7. Use Taste Skill to challenge generic composition and improve polish.
+8. Use 21st selectively for component/pattern references.
+9. Translate references into WordPress/Astra rather than changing stack by default.
+10. Review responsive behavior, accessibility, performance and content accuracy.
 
-## Tool-specific rules
+## Content and naming rules
 
-### UI/UX Pro Max
+Current public architecture uses **Accompagnements**, not “Services”, as the navigation label.
 
-Expected project-local locations after its bootstrap is run:
+Current four accompaniment pages:
 
-- Codex: `.agents/skills/ui-ux-pro-max/`
-- Claude Code: `.claude/skills/ui-ux-pro-max/`
+- Communication animalière
+- Accompagnement énergétique animalier
+- Connexion avec les défunts
+- Guidance pour soi
 
-It is advisory. Brand rules win.
+Editorial/blog label: **Journal**.
 
-### Taste Skill
+The client source also uses “connexion à l’invisible” in one business-goal passage. The public V1 page label remains “Connexion avec les défunts” unless explicitly changed.
 
-Vendored project-local copies live at:
+### Tone
 
-- Codex: `.agents/skills/taste-skill/SKILL.md`
-- Claude Code: `.claude/skills/taste-skill/SKILL.md`
+- French
+- vouvoiement
+- accessible
+- primarily informative
+- warm, gentle and sincere
+- a light touch of humour is welcome
+- grounded/professional rather than excessively esoteric
+- animal remains prominent in the brand/storytelling
 
-Do not blindly apply its defaults. Infer from the client brief and brand first. Project-specific dials belong in `design-system/TOOLING.md`.
+### Sensitive / medical rule
 
-### 21st
+Never claim veterinary or medical diagnosis/treatment.
 
-21st is an external MCP/CLI design resource. Setup is documented in `docs/21ST-MCP.md`.
+Communication animalière and energetic content must clearly state that Laure is neither a veterinarian nor a doctor and that competent professionals remain essential when appropriate.
 
-This is a WordPress/Astra project. Do **not** add React, shadcn, Tailwind or a JS application layer just because a 21st reference uses those technologies. Use the design idea, not necessarily the implementation stack.
+Do not invent efficacy claims.
+
+## Approved visual foundations
+
+Canonical source: `design-system/MASTER.md`.
+
+Do not replace approved:
+- palette;
+- Lora / Source Sans 3 typography;
+- approved logo family;
+- deep-blue-led brand writing;
+- cream/paper grounds and painted-art direction.
+
+Do not distort, recolor, stretch or reconstruct the logo outside the approved variants.
 
 ## WordPress architecture
 
@@ -80,25 +109,26 @@ This is a WordPress/Astra project. Do **not** add React, shadcn, Tailwind or a J
 - Never modify Astra parent-theme files.
 - Custom theme work belongs in `wp-content/themes/lemoulindelaure-child/`.
 - Custom Structured FAQ work belongs in `wp-content/plugins/structured-faq/`.
-- Do not vendor Rank Math, Complianz, Forminator, Astra or LiteSpeed Cache into this repository.
-- Preserve plugin-generated SEO/schema behavior unless a task explicitly changes it.
+- Do not vendor Rank Math, Complianz, Forminator, Timetics, Astra or LiteSpeed Cache.
+- Preserve plugin-generated SEO/schema/privacy/form/booking behavior unless explicitly changed.
 - Keep modifications upgrade-safe and rollbackable.
 
+Timetics is the booking system. The canonical site entry point is `/prendre-rendez-vous/`.
+
 Detailed rules: `docs/WORDPRESS-WEB-DESIGN.md`.
+
+## SEO / indexation baseline
+
+Canonical content structure is documented in `docs/SITE-ARCHITECTURE.md`.
+
+Indexable content pages should have coherent title/H1/metadata and internal linking. Functional confirmation/thank-you/cancellation pages should be noindex.
+
+Do not create categories or landing pages simply to fill the site.
 
 ## Production safety
 
 - Never commit secrets, SSH keys, API keys, `wp-config.php`, database dumps or uploads.
-- GitHub deployment remains disabled until the real WordPress document root is verified.
+- Repository currently reports as public: do not commit raw private client briefs or contact details without review.
 - Do not expose server paths or credentials in logs.
 - Prefer small, auditable changes.
-- Update `docs/HANDOFF.md` after meaningful project milestones.
-
-## Design-system status
-
-- `template`: no visual choices are approved.
-- `draft`: proposed direction only.
-- `active`: approved project source of truth.
-- `deprecated`: historical only.
-
-The current state is `draft` for the owner's explicitly requested identity work. Keep it `draft` until client validation.
+- Update `docs/HANDOFF.md` after meaningful milestones.
