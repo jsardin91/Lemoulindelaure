@@ -5,70 +5,56 @@ Last updated: 2026-10-02
 ## Current state
 
 The project has:
-- active approved brand system;
-- V1 site architecture;
-- V1 UX for all public pages;
-- V1 SEO strategy/page map;
-- WordPress implementation plan;
-- CSS foundation;
-- **reusable Gutenberg pattern infrastructure**.
+- active approved brand;
+- V1 architecture/UX;
+- V1 SEO strategy;
+- CSS implementation foundation;
+- Gutenberg pattern infrastructure.
 
-Nothing in this pass was deployed or written to the WordPress database.
+No deployment or WordPress DB mutation occurred.
 
-## Pattern files
+## Gutenberg patterns available
 
-- `wp-content/themes/lemoulindelaure-child/inc/patterns.php`
-- `wp-content/themes/lemoulindelaure-child/assets/css/editor.css`
-
-Registered structural patterns:
 - LMdL — Split éditorial
 - LMdL — Processus en 3 étapes
 - LMdL — Cadre responsable
 - LMdL — CTA prise de rendez-vous
 - LMdL — Hero accompagnement
+- **LMdL — Hero accueil**
+- **LMdL — Quatre univers**
 
-Editor placeholder notes are intentionally hidden on the public frontend.
+Homepage Hero:
+- brand/motto present;
+- stable CTA links;
+- four editable art slots;
+- intro copy remains editor placeholder.
 
-## Validation
+Four Universes:
+- four accessible structural panels;
+- current approved architecture labels;
+- stable animal/element identities;
+- image slots remain empty until door mapping is visually verified;
+- editor note reminds that Communication animale naming is still pending.
 
-Local PHP lint:
-- functions.php: PASS
-- inc/patterns.php: PASS
+## Door mapping
 
-## Important
+Do **not** infer final mapping from filenames.
 
-These patterns are shells, not final copy.
+This ChatGPT session can read GitHub text but could not retrieve the WebP binaries for direct visual inspection.
 
-The Accompagnements four-panel pattern is **not yet registered** because door-to-universe visual mapping still needs verification.
+Use local repo / Codex / Claude with filesystem access to open:
+- `door-forest.webp`
+- `door-ocean.webp`
+- `door-passage.webp`
+- `door-phoenix.webp`
 
-The legacy `[lmdl_door]` shortcode is not the final hub.
+Then record mapping in the repo before wiring final imagery.
 
-## Next safe task
+## Next
 
-Visually verify:
-- door-forest
-- door-ocean
-- door-passage
-- door-phoenix
+1. visual door mapping;
+2. staging/local insertion of Home + Four Universes patterns;
+3. responsive/a11y review;
+4. only then page bootstrap/content work.
 
-Then map them deliberately to:
-- squirrel / earth
-- phoenix / fire
-- turtle / water
-- butterfly / air
-
-After that:
-- build the 4-universe Gutenberg pattern;
-- build the homepage collage pattern shell.
-
-## No deploy
-
-No manual workflow run was triggered.
-
-## Gates remain
-
-- Communication animale public label/slug;
-- exact Laila credential;
-- energetic/guidance wording;
-- service logistics/pricing;
-- Timetics settings.
+No manual deploy workflow was triggered.

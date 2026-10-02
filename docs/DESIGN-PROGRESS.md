@@ -18,34 +18,29 @@ Complete:
 **Started in repository, not deployed.**
 
 Implemented:
-- reusable CSS primitives;
-- page-family CSS;
-- conditional enqueueing;
+- CSS primitives and page-family shells;
 - editor styles;
 - Gutenberg pattern category;
-- 5 structural patterns.
-
-Patterns:
-- Split éditorial
-- Processus en 3 étapes
-- Cadre responsable
-- CTA prise de rendez-vous
-- Hero accompagnement
-
-PHP lint:
-**PASS** on `functions.php` and `inc/patterns.php`.
+- **7 structural patterns**, including Homepage Hero and Four Universes.
 
 No page/database content created.
 No production deployment triggered.
 
-## Next safe work
+## Current technical gate
 
-- visually map door assets;
-- four-universe pattern;
-- homepage visual pattern shell;
-- staging/local page prototype.
+Exact generated-door mapping could not be visually retrieved through this session's GitHub binary connector.
 
-## Gates before real page content
+No mapping was guessed.
+
+The Four Universes pattern therefore contains image slots and editor notes until a local/Codex/Claude visual check maps:
+- forest;
+- ocean;
+- passage;
+- phoenix
+
+to the four universes.
+
+## Other gates
 
 - Communication animale label/slug;
 - credential wording;
