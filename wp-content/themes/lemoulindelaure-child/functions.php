@@ -19,6 +19,21 @@ $detail_patterns_file = get_stylesheet_directory() . '/inc/accompaniment-page-pa
 if ( file_exists( $detail_patterns_file ) ) {
 	require_once $detail_patterns_file;
 }
+$editorial_patterns_file = get_stylesheet_directory() . '/inc/editorial-page-patterns.php';
+if ( file_exists( $editorial_patterns_file ) ) {
+	require_once $editorial_patterns_file;
+}
+
+/** Keep native posts under the approved Journal path. Flush permalinks once on staging. */
+add_action( 'init', function () {
+	add_rewrite_rule( '^journal/([^/]+)/?$', 'index.php?name=$matches[1]', 'top' );
+} );
+add_filter( 'post_link', function ( $permalink, $post ) {
+	if ( 'post' !== $post->post_type || 'publish' !== $post->post_status ) {
+		return $permalink;
+	}
+	return home_url( user_trailingslashit( 'journal/' . $post->post_name ) );
+}, 10, 2 );
 
 /** Nine slots matching Astra's native Global Palette (0–8). */
 function lmdl_astra_palette() {
@@ -151,9 +166,9 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 }, 20 );
 
-/** Timetics globally queues its React bundle; these two V1 pages contain no booking UI. */
+/** Timetics globally queues its React bundle; content without a booking embed does not need it. */
 add_action( 'wp_enqueue_scripts', function () {
-	if ( is_front_page() || is_page( 'accompagnements' ) ) {
+	if ( is_front_page() || is_page( 'accompagnements' ) || is_page_template( 'templates/lmdl-page-v1.php' ) || is_singular( 'post' ) ) {
 		$content = (string) get_post_field( 'post_content', get_queried_object_id() );
 		if ( false === stripos( $content, 'timetics' ) ) {
 			wp_dequeue_script( 'timetics-packages' );

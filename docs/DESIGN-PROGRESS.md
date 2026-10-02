@@ -2,7 +2,13 @@
 
 Last updated: 2026-10-02
 
-## Four accompaniment pages V1 — current milestone
+## Editorial pages V1 — current milestone
+
+The validated four-page accompaniment branch was fast-forwarded into `main` and pushed at `7232f079a41a15949fc23d42667c40045a408ca3`. On `feat/editorial-pages-v1`, Le Jardin, À propos and Journal now have editable native Gutenberg full-page patterns, and native posts use a quiet `/journal/[slug]/` reading template. Journal's six-post Query Loop, pagination and empty state update as posts change. No public Jardin profile or article is invented.
+
+The first rendered pass found a local starter post in Journal, English pagination and stiff training copy. Those were corrected; the second pass reopened all four views at 375/768/1024/1440 px. All 114 editorial blocks validate after multiple save/reload cycles; no tested view has overflow, a broken loaded image, console error or route 404. Keyboard focus and reduced motion pass. Existing Homepage/hub and four service pages passed regression review. Visual choices, 21st previews, fixture isolation and remaining content gates are recorded in `docs/EDITORIAL-PAGES-INTEGRATION-REPORT.md`. No production change was made.
+
+## Four accompaniment pages V1 — previous milestone
 
 The validated Homepage/hub branch was fast-forwarded into `main` at `25bbbd12892f876f92254e959bf9c34c2d49db6b`. On `feat/accompaniment-pages-v1`, four editable full-page Gutenberg patterns now provide distinct Terre, Feu, Eau and Air service pages. Shared CSS and the original paintings preserve the approved visual system. Feu remains intentionally concise; no missing service details were invented. The public communication label is **Communication animale**.
 

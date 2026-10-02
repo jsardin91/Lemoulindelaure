@@ -1,14 +1,22 @@
 # WordPress Implementation Plan V1 — Le Moulin de Laure
 
-Status: **Homepage, Accompagnements hub and four service-page patterns implemented and verified in isolated WordPress; production content/build not started.**
+Status: **Homepage, Accompagnements hub, four service pages and editorial page/article V1 implemented and verified in isolated WordPress; production content/build not started.**
 
 Last updated: 2026-10-02
+
+## Editorial-page extension
+
+`inc/editorial-page-patterns.php` registers three full-page patterns at `init` priority 22: `lmdl/le-jardin-v1`, `lmdl/a-propos-v1` and `lmdl/journal-v1`. Insert each on its canonical page and select **LMdL — Page V1**. A separate `lmdl/jardin-profile-entry` is an editor draft hidden in public until a real participant consents and the `lmdl-pattern-placeholder` class is removed. The public Jardin pattern remains useful with no profiles. À propos uses the brand emblem pending a real Laure portrait and contains no unverified qualification wording.
+
+Journal is a normal WordPress `post` system. Its saved native `core/query` displays six recent published posts, date descending, with the first as the visual lead; native pagination and no-results blocks handle both lifecycle states. The child `single.php` renders an article reading view and actual WordPress author. `functions.php` maps published post links and requests to `/journal/[slug]/`; **flush permalink rules once on staging after code installation** and check collision/canonical behavior with Rank Math. `assets/css/pages/editorial.css` loads for the three canonical page slugs and singular posts. Rank Math remains the schema/metadata owner; the isolated fixture did not emit Article JSON-LD, so staging configuration and validation are required. No fake articles, categories or client profiles belong in Git.
+
+The full local integration and second-pass design report is `docs/EDITORIAL-PAGES-INTEGRATION-REPORT.md`. The current `feat/editorial-pages-v1` branch should be reviewed and merged separately. Production deployment remains out of scope.
 
 ## Service-page extension
 
 Four detail patterns are registered from `inc/accompaniment-page-patterns.php` at `init` priority 21 after the shared page-pattern helpers: `lmdl/earth-accompaniment-v1`, `lmdl/fire-accompaniment-v1`, `lmdl/water-accompaniment-v1`, `lmdl/air-accompaniment-v1`. Insert the appropriate pattern into each child page under `/accompagnements/`, then select **LMdL — Page V1**. The four pages share `assets/css/pages/accompaniment-detail.css`; that stylesheet loads only for the four canonical slugs. Their hero paintings receive render-time dimensions and high fetch priority. Client-only TODO text appears as editor-styled paragraphs with `lmdl-pattern-placeholder` and is hidden on the frontend. Remove or replace those notes when confirmed content is supplied.
 
-The pages were loaded only into the ignored local WordPress instance. Full 265-block Gutenberg validation, editing, responsive and second-pass visual results are in `docs/ACCOMPANIMENT-PAGES-INTEGRATION-REPORT.md`. Do not run the local fixture against production. The previous “Next safe step” below pertains to the completed foundation; the current next step is review of `feat/accompaniment-pages-v1`, then collection of client service details and staging integration.
+The pages were loaded only into the ignored local WordPress instance. Full 265-block Gutenberg validation, editing, responsive and second-pass visual results are in `docs/ACCOMPANIMENT-PAGES-INTEGRATION-REPORT.md`. Do not run the local fixture against production. The previous “Next safe step” below pertains to the completed foundation; that branch is now in `main`; client service details and staging integration remain pending.
 
 ## Implemented architecture
 
@@ -24,9 +32,9 @@ The real door audit is resolved in `docs/BRAND-ASSET-MAPPING.md`: three closed u
 
 See `docs/WORDPRESS-INTEGRATION-REPORT.md` for environment, plugin versions, browser/editor findings, image and performance checks, accessibility, responsive results and limitations. In local WordPress 7.1.2 + Astra 4.14.0, all 171 blocks across the two pages validate, multiple Gutenberg edit/save/reload cycles pass, all local destination links return 200 and the 375/768/1024/1440 frontend views pass. The PHP lint and existing static preview tests also pass. The disposable local installation/database is ignored under `/.local-wp/`; no script here should be run against production.
 
-## Next safe step
+## Earlier foundation handoff
 
-Review and merge the code branch only. In a separate staging phase, create the two actual pages, insert the V1 patterns, select their template, and repeat the integration check with configured Timetics, Forminator, Complianz and Rank Math. Keep production deployment as a separate authorized decision.
+The foundation and accompaniment code is already in `main`; review the editorial branch separately. On staging, create or update all actual pages with approved patterns/content, then repeat integration checks with configured Timetics, Forminator, Complianz and Rank Math. Keep production deployment as a separate decision.
 
 ## Content gates
 

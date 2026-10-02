@@ -1,41 +1,108 @@
-/* Jardin, About, Journal and article reading layouts. */
+/* Jardin, About, Journal and quiet article reading. */
+.lmdl-editorial-lead { max-width: 46ch; font-size: clamp(1.15rem,1.6vw,1.45rem); line-height: 1.55; }
+.lmdl-editorial-statement { max-width: 30ch; font: 500 clamp(1.7rem,3.3vw,3.3rem)/1.35 var(--lmdl-font-heading); }
+.lmdl-editorial-columns { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: clamp(2rem,7vw,8rem); align-items: start; }
+.lmdl-editorial-columns h2 { max-width: 17ch; font-size: clamp(2rem,3.4vw,3.2rem); }
+.lmdl-editorial-columns .lmdl-prose { font-size: clamp(1.07rem,1.25vw,1.2rem); }
+.lmdl-editorial-columns .lmdl-prose > p + p { margin-top: 1.3rem; }
 
-.lmdl-profile-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(2rem, 5vw, 4rem);
-}
+/* The empty Jardin deliberately has no profile grid or category shell. */
+.lmdl-jardin-hero { padding-block: clamp(3rem,6vw,5rem) clamp(4rem,8vw,7rem); background: var(--lmdl-paper); }
+.lmdl-jardin-hero__layout { display: grid; grid-template-columns: minmax(0,7fr) minmax(0,4fr); gap: clamp(2rem,6vw,7rem); align-items: center; }
+.lmdl-jardin-hero h1 { max-width: 12ch; margin-bottom: 1.3rem; font-size: clamp(2.65rem,5.3vw,5rem); line-height: 1.12; }
+.lmdl-jardin-hero__emblem { width: min(100%,23rem); margin: 0 auto; opacity: .86; }
+.lmdl-jardin-hero__emblem img { display: block; width: 100%; height: auto; }
+.lmdl-jardin-manifesto { background: var(--lmdl-green); color: var(--lmdl-paper); }
+.lmdl-jardin-manifesto h2 { color: inherit; margin-bottom: 1.4rem; font-size: 1.15rem; }
+.lmdl-jardin-manifesto__inner { max-width: 60rem; margin-inline: auto; }
+.lmdl-jardin-manifesto .lmdl-editorial-statement { margin: 0; }
+.lmdl-jardin-intention { border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-jardin-close { padding-block: clamp(3rem,6vw,5rem); }
+.lmdl-jardin-close .lmdl-cta-group { margin-top: 1.4rem; }
+.lmdl-profile-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(2rem,5vw,4rem); }
+.lmdl-profile { display: grid; grid-template-columns: minmax(7rem,.7fr) minmax(0,1.3fr); gap: 1.5rem; align-items: start; border-top: 1px solid var(--lmdl-line); padding-top: 1.5rem; }
+.lmdl-profile__media img { display: block; width: 100%; height: auto; }
+.lmdl-profile__copy h3 { margin-top: 0; }
 
-.lmdl-profile {
-  display: grid;
-  grid-template-columns: minmax(8rem, .7fr) minmax(0, 1.3fr);
-  gap: 1.5rem;
-  align-items: start;
-}
+/* About keeps the story linear without turning it into an invented timeline. */
+.lmdl-about-hero { padding-block: clamp(2rem,5vw,4.5rem) clamp(3rem,7vw,6rem); background: var(--lmdl-paper); }
+.lmdl-about-hero__layout { display: grid; grid-template-columns: minmax(0,6fr) minmax(0,5fr); gap: clamp(2rem,7vw,8rem); align-items: center; }
+.lmdl-about-hero h1 { max-width: 12ch; font-size: clamp(2.7rem,5vw,4.8rem); line-height: 1.12; }
+.lmdl-about-hero__copy > p:last-child { margin-top: 1.8rem; }
+.lmdl-about-hero__art { display: grid; place-items: center; min-height: clamp(20rem,35vw,31rem); border-top: 3px solid var(--lmdl-gold); background: var(--lmdl-cream); }
+.lmdl-about-hero__emblem { max-width: 18rem; margin: 0; }
+.lmdl-about-hero__emblem img { display: block; width: 100%; height: auto; }
+.lmdl-about-story { padding-block: clamp(5rem,9vw,9rem); }
+.lmdl-about-training { border-block: 1px solid var(--lmdl-line); }
+.lmdl-about-posture { background: var(--lmdl-ink); color: var(--lmdl-paper); }
+.lmdl-about-posture h2 { color: inherit; }
+.lmdl-about-signature { background: #eaf0ee; }
+.lmdl-about-signature__layout { display: grid; grid-template-columns: minmax(0,7fr) minmax(0,4fr); gap: clamp(2rem,8vw,8rem); align-items: center; }
+.lmdl-about-signature__art { margin: 0; border: .8rem solid var(--lmdl-paper); }
+.lmdl-about-signature__art img { display: block; width: 100%; height: auto; }
+.lmdl-about-boundary { padding-block: clamp(2rem,5vw,4rem); }
+.lmdl-about-boundary .lmdl-boundary { max-width: 66rem; border-left: .3rem solid var(--lmdl-green); }
+.lmdl-editorial-paths { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2rem; max-width: 65rem; margin-block: 2rem; border-top: 1px solid var(--lmdl-line); }
+.lmdl-editorial-paths p { margin: 0; border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-editorial-paths__link { display: flex; align-items: center; min-height: 4.25rem; font: 600 clamp(1.1rem,1.5vw,1.4rem)/1.35 var(--lmdl-font-heading); text-underline-offset: .2em; }
+.lmdl-about-close { border-top: 1px solid var(--lmdl-line); }
 
-.lmdl-reading {
-  width: min(calc(100% - (2 * var(--lmdl-gutter))), 72ch);
-  margin-inline: auto;
-}
+/* One native Query Loop: the first post leads, the rest form an editorial list. */
+.lmdl-journal-hero { padding-block: clamp(2.5rem,5vw,4.5rem); background: var(--lmdl-paper); }
+.lmdl-journal-hero__layout { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.lmdl-journal-hero h1 { margin-bottom: 1rem; font-size: clamp(3rem,6vw,5.5rem); }
+.lmdl-journal-hero__emblem { width: clamp(7rem,15vw,12rem); flex: 0 0 auto; margin: 0; opacity: .85; }
+.lmdl-journal-hero__emblem img { display: block; width: 100%; height: auto; }
+.lmdl-journal-articles { padding-block: clamp(4rem,7vw,7rem); }
+.lmdl-journal-articles h2 { margin-bottom: 2rem; }
+.lmdl-journal-list { display: grid; grid-template-columns: minmax(0,7fr) minmax(0,5fr); gap: 0 clamp(2rem,5vw,5rem); padding: 0; list-style: none; }
+.lmdl-journal-list > li { min-width: 0; padding-block: 1.6rem; border-top: 1px solid var(--lmdl-line); }
+.lmdl-journal-list > li:first-child { grid-row: span 5; padding-top: 0; border-top: 0; }
+.lmdl-journal-list .wp-block-post-featured-image { margin: 0 0 1.2rem; }
+.lmdl-journal-list .wp-block-post-featured-image img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; }
+.lmdl-journal-list > li:first-child .wp-block-post-featured-image img { aspect-ratio: 6/5; }
+.lmdl-journal-list > li:not(:first-child) .wp-block-post-featured-image { width: 26%; float: left; margin: 0 1.3rem .4rem 0; }
+.lmdl-journal-list > li:not(:first-child) .wp-block-post-featured-image img { aspect-ratio: 1; }
+.lmdl-journal-list .wp-block-post-date { margin-bottom: .45rem; color: var(--lmdl-ink); font-size: .9rem; }
+.lmdl-journal-list .wp-block-post-title { margin: 0 0 .5rem; font-size: clamp(1.3rem,1.8vw,1.7rem); line-height: 1.3; }
+.lmdl-journal-list > li:first-child .wp-block-post-title { font-size: clamp(2rem,3vw,3rem); }
+.lmdl-journal-list .wp-block-post-title a { color: var(--lmdl-ink); text-decoration: none; }
+.lmdl-journal-list .wp-block-post-title a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.lmdl-journal-list .wp-block-post-excerpt { margin: 0; }
+.lmdl-journal-list .wp-block-post-excerpt__excerpt { margin: 0; }
+.lmdl-journal-empty { max-width: 42rem; padding-block: 2rem; border-top: 1px solid var(--lmdl-line); font-size: 1.2rem; }
+.lmdl-journal-pagination { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--lmdl-line); }
+.lmdl-journal-pagination a { display: inline-flex; align-items: center; min-height: 44px; }
+.lmdl-journal-close { padding-block: clamp(2rem,4vw,3rem); background: var(--lmdl-paper); border-top: 1px solid var(--lmdl-line); }
 
-.lmdl-reading :where(p, li) {
-  line-height: 1.72;
-}
-
-.lmdl-reading :where(h2, h3) {
-  scroll-margin-top: 6rem;
-}
-
-.lmdl-journal-index {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
+/* The article is deliberately quieter than the index. */
+.single-post .site-content > .ast-container { display: block; max-width: none; padding: 0; }
+.lmdl-article { width: 100%; padding: clamp(2rem,5vw,5rem) var(--lmdl-gutter) clamp(4rem,7vw,7rem); }
+.lmdl-reading { width: min(100%,72ch); margin-inline: auto; }
+.lmdl-article__back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: clamp(1.7rem,4vw,3rem); text-underline-offset: .25em; }
+.lmdl-article__header h1 { margin: 0 0 1.3rem; font-size: clamp(2.5rem,4.7vw,4.5rem); line-height: 1.13; overflow-wrap: anywhere; }
+.lmdl-article__standfirst { font-size: clamp(1.18rem,1.5vw,1.4rem); line-height: 1.55; }
+.lmdl-article__meta { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.7rem; color: var(--lmdl-ink); font-size: .95rem; }
+.lmdl-article__cover { max-width: 66rem; margin: clamp(2rem,5vw,4rem) auto; }
+.lmdl-article__cover img { display: block; width: 100%; height: auto; max-height: 45rem; object-fit: contain; }
+.lmdl-article__cover figcaption { margin-top: .6rem; font-size: .9rem; }
+.lmdl-article__body { font-size: 1.125rem; line-height: 1.72; }
+.lmdl-article__body :where(p,ul,ol,blockquote) { margin-bottom: 1.45em; }
+.lmdl-article__body :where(h2,h3) { margin-block: 2em .7em; scroll-margin-top: 6rem; }
+.lmdl-article__body h2 { font-size: clamp(1.7rem,2.6vw,2.3rem); }
+.lmdl-article__body h3 { font-size: clamp(1.35rem,2vw,1.7rem); }
+.lmdl-article__body img { max-width: 100%; height: auto; }
+.lmdl-article__footer { margin-top: clamp(3rem,6vw,5rem); padding-top: 1.5rem; border-top: 1px solid var(--lmdl-line); }
+@media (max-width: 1023px) { .lmdl-journal-list { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
 @media (max-width: 767px) {
-  .lmdl-profile-list,
-  .lmdl-profile,
-  .lmdl-journal-index {
-    grid-template-columns: 1fr;
-  }
+  .lmdl-editorial-columns, .lmdl-jardin-hero__layout, .lmdl-about-hero__layout, .lmdl-about-signature__layout, .lmdl-profile-list, .lmdl-profile, .lmdl-editorial-paths, .lmdl-journal-list { grid-template-columns: 1fr; }
+  .lmdl-editorial-columns { gap: 1rem; }
+  .lmdl-jardin-hero__emblem { max-width: 12rem; }
+  .lmdl-about-hero__art { min-height: 15rem; }
+  .lmdl-about-hero__emblem { max-width: 12rem; }
+  .lmdl-about-signature__art { width: min(100%,18rem); }
+  .lmdl-journal-hero__emblem { width: 6rem; }
+  .lmdl-journal-list > li:first-child { grid-row: auto; }
+  .lmdl-journal-list > li:not(:first-child) .wp-block-post-featured-image { width: 28%; }
+  .lmdl-article { padding-inline: var(--lmdl-gutter); }
 }
