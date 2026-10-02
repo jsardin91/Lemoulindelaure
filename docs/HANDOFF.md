@@ -2,97 +2,94 @@
 
 Last updated: 2026-10-02
 
-## Done
+## Completed foundations
 
-- Repository structure normalized.
-- WordPress/Astra stack documented.
-- UI/UX Pro Max bootstrap retained.
-- Taste Skill vendored for Codex and Claude Code.
-- 21st MCP usage/setup documented.
-- SSH diagnostic/deployment foundation completed.
-- Astra child theme installed and active on https://lemoulindelaure.fr.
-- Client logo and four original paintings integrated.
-- Logo declinations, icons, four door illustrations and child-theme brand assets prepared.
+- WordPress/Astra stack and deployment foundation documented.
+- Astra child theme installed and active.
+- Brand source assets and logo variants integrated.
 - Lora + Source Sans 3 implemented.
-- Client vision/brand Word brief received and normalized into repository documentation.
-- Four accompaniment universes documented.
-- “Le Jardin du Moulin” documented as a separate network/editorial space.
-- Site architecture V1 approved and documented in `docs/SITE-ARCHITECTURE.md`.
-- Public editorial/blog name fixed to **Journal**.
-- Timetics added to the project stack and booking architecture.
-- Palette, typography and logo rules explicitly approved on 2026-10-02.
-- `design-system/MASTER.md` is **active**.
-- Homepage UX/design study completed to working V1 level.
-- Homepage composition spec created for desktop/tablet/mobile.
-- 21st homepage reference study expanded with current catalogue/reference families.
-- Durable design progress board maintained.
+- Client brief normalized.
+- Four universes documented.
+- Site architecture V1 approved.
+- Journal naming fixed.
+- Timetics added to booking architecture.
+- Visual foundations approved; `design-system/MASTER.md` active.
 
-## Current canonical references
+## Design work completed to working-draft level
 
-- `docs/PROJECT.md`
-- `docs/SITE-ARCHITECTURE.md`
-- `design/brand/BRAND-GUIDELINES-WORKING.md`
-- `design-system/MASTER.md`
-- `docs/DESIGN-PROGRESS.md`
+### Homepage
+- UX wireframe
+- detailed composition spec
+- 21st reference study
 
-## Current homepage package
-
+Files:
 - `design/wireframes/HOMEPAGE-V1.md`
 - `design/wireframes/HOMEPAGE-COMPOSITION-V1.md`
 - `design/references/21ST-HOMEPAGE-REFERENCES.md`
 
-Current homepage thesis:
+Direction:
 **The Moulin as a threshold into four living universes.**
 
-Key working decisions:
-- asymmetric editorial hero;
-- four original paintings used as hero collage;
-- four doors reserved as signature accompaniment navigation;
-- message-first source order on mobile;
-- no generic repeated card sections;
-- organic/editorial composition;
-- clear CTA vocabulary;
-- booking routes to `/prendre-rendez-vous/`;
-- testimonials conditional on verified reviews;
-- Journal section hidden until real launch content exists;
-- real Laure portrait required for the credibility block;
-- no full Timetics embed on homepage V1.
+### Accompagnements hub
+- UX/wireframe V1
+- desktop interaction model
+- tablet/mobile fallback
+- 21st reference study
 
-Homepage design is **ready for owner direction review**, but not yet implementation-approved.
+Files:
+- `design/wireframes/ACCOMPAGNEMENTS-V1.md`
+- `design/references/21ST-ACCOMPAGNEMENTS-REFERENCES.md`
 
-## Next work
+Direction:
+**four connected thresholds, not four service cards**
 
-If owner is satisfied with homepage direction:
-1. mark homepage V1 approved for implementation;
-2. design Accompagnements hub;
-3. deepen and test four-door interaction;
-4. optionally use Codex/Claude + 21st MCP for preview comparisons;
-5. then design individual accompaniment pages.
+Core desktop idea:
+four adjacent panels with moderate focus/hover expansion, always-readable labels, door + original artwork reveal.
 
-Parallel later tasks:
-- SEO intent/keyword research
-- Timetics configuration/booking UX
-- page creation in WordPress
-- content/copy validation
-- legal/copyright review
-- final responsive/accessibility/performance QA
+No carousel on mobile.
 
-## Still to confirm / collect
+## Design handoff board
 
-- final commercial details per accompaniment
+Canonical status:
+- `docs/DESIGN-PROGRESS.md`
+
+## Next page
+
+Unless the owner redirects:
+**Communication animalière**
+
+It should establish the individual-accompaniment page template while accounting for its specific training/expertise and veterinary boundary.
+
+## Later work
+
+- remaining 3 individual accompaniment pages
+- Le Jardin
+- À propos
+- Journal
+- FAQ
+- Contact
+- Timetics booking page
+- SEO research/copy
+- WordPress implementation
+- legal/copyright
+- responsive/accessibility/performance QA
+
+## Open inputs
+
+- exact commercial details per accompaniment
 - exact public credential wording
-- final client-approved page copy
+- final copy
 - professional portrait
 - verified reviews
-- launch Journal content
-- Le Jardin participants and consent/contact data
+- launch Journal articles
+- Le Jardin participants/consent
 - CGV/CGS applicability
 
-## Important notes
+## Guardrails
 
-- Do not reopen approved visual foundations without explicit later approval.
-- Do not make medical/veterinary efficacy claims.
-- Do not modify Astra parent theme.
-- Keep production releases manual/reviewable.
-- Repository currently reports as public; avoid raw private client documents/contact details.
-- Do not invent portrait, reviews, partners, credentials or commercial details.
+- do not reopen approved visual system without explicit later decision
+- no medical/veterinary efficacy claims
+- no fabricated portrait/reviews/partners/credentials
+- do not modify Astra parent theme
+- keep production releases manual/reviewable
+- repo currently reports public; do not add raw private client information
