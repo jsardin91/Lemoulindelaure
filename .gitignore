@@ -52,3 +52,6 @@ Thumbs.db
 
 # Generated visual-review screenshots (recreate with scripts/review-v1-preview.mjs)
 /design/prototypes/*.png
+
+# Disposable WordPress integration environment
+/.local-wp/

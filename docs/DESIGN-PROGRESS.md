@@ -2,32 +2,26 @@
 
 Last updated: 2026-10-02
 
-## Completed in repository
+## Completed
 
-- Brand palette, typography and logo remain approved and active.
-- V1 architecture/wireframes and SEO strategy remain the source of page intent.
-- All four original paintings and all four door files were visually audited. See `docs/BRAND-ASSET-MAPPING.md` and `design/asset-contact-sheet.png`.
-- Two complete, editable native Gutenberg page patterns are registered: `lmdl/homepage-v1` and `lmdl/accompagnements-v1`.
-- Homepage has asymmetric painting collage hero, manifesto, four universes, Laure, process, values, Jardin, Journal and FAQ/booking close.
-- Accompagnements has a text intro, four adjacent thresholds, orientation links, common values, practical/care boundary and booking close.
-- Child-theme CSS supplies the composition and interaction. Astra remains responsible for header/footer and responsive navigation. No page or database was created.
-- Isolated static previews live in `design/prototypes/`. Regenerate with `python scripts/build-v1-preview.py` and inspect with `node scripts/review-v1-preview.mjs` (Windows Edge required for the review script). Generated screenshots are ignored by Git.
+- Approved palette, typography, logo and active `design-system/MASTER.md` remain unchanged.
+- Original paintings and door files were visually audited; see `docs/BRAND-ASSET-MAPPING.md` and `design/asset-contact-sheet.png`.
+- Native editable patterns `lmdl/homepage-v1` and `lmdl/accompagnements-v1` now have a valid real Gutenberg parse/save cycle. Homepage contains collage hero, manifesto, four universes, Laure, process, values, Jardin, Journal and FAQ/booking close. The hub contains four adjacent thresholds, orientation, values, practical boundary and booking close.
+- Four 960 px WebP display derivatives reduce artwork weight while preserving the original paintings.
+- Both pages were inspected in real WordPress 7.1.2 with Astra 4.14.0 and the child theme at 375/768/1024/1440 px. See `docs/WORDPRESS-INTEGRATION-REPORT.md`.
 
-## Design decisions
+## Design decisions and second pass
 
-- Hero paintings are asymmetric; doors are reserved. In the hub, paintings sit inside a shared arched threshold because Air has no closed door illustration.
-- Four hub labels and destinations are always visible. Desktop focus/hover grows one panel to 1.38 relative flex; tablet is 2 × 2; mobile stacks. Reduced motion is static.
-- Rejected the thin collapsed rails seen in the 21st Hover Expand preview. Adapted only its focus principle. Adapted editorial hero hierarchy from the 21st Editorial Collage Hero preview; used approved assets and typography.
-- Generated 960 px display WebP derivatives; source artworks remain untouched.
+The hero uses asymmetric original art; the doors stay secondary. The hub uses a common continuous frame around the four paintings because Air has no closed door. Earth/Fire/Water/Air labels, services and links are always visible. Desktop focus/hover grows one panel by 1.38 flex factor; tablet is 2 × 2; mobile stacks; reduced motion is static.
 
-## Review and second pass
+The first WordPress pass exposed Astra's wrapping desktop menu at 1024 px, extra mobile page/section insets and generic separated panel boxes. A native Astra tablet breakpoint adjustment, explicit V1 page template, wrapper spacing fixes and continuous panel borders resolved those issues. The second pass restored the mobile hub title to one line, kept the hero CTAs in the opening viewport and confirmed the panel link targets are 44 px or more. Editor screenshots show a usable approximation of the frontend.
 
-Visual review at 375, 768, 1024 and 1440 px for both preview pages. Initial issues: mobile hub H1 overflow and desktop hub labels below the initial viewport. Fixed the heading scale, reduced intro height and panel height, then reran captures. Final CDP review reports zero horizontal overflow, zero missing images, zero console errors, 44 px panel link targets, first keyboard Tab to skip link, and desktop focus growth `1.38`. Reduced-motion emulation returned a static layout at all four widths.
+21st references actually adapted: [Editorial Collage Hero](https://21st.dev/@felipemenezes098/components/hero-04) for asymmetric editorial balance and [Hover Expand](https://21st.dev/@educalvolpz/components/hover-expand) for moderate focus expansion. Thin collapsed rails, generic card grids and 21st implementation code were rejected. UI/UX Pro Max checked responsive behavior, focus, targets and image loading; Taste Skill checked composition and anti-generic rhythm; Frontend Design Pro guided the child-theme implementation.
 
-PHP 8.4.26 lint passed for `functions.php`, `inc/patterns.php`, `inc/page-patterns.php`. No existing repo test suite was found. `git diff --check` passed.
+## Verification
 
-## Still pending before publication
+Real WordPress: 104/104 Homepage and 67/67 hub blocks valid; two paragraph edit/save/reload cycles plus title/image/section-move cycles pass on each page. One H1 per frontend page; no overflow, missing image, frontend console error or internal 404 at the four widths. Skip link is the first keyboard Tab, menu expands, focus is visible, reduced motion has zero transition, and local CLS stayed at or below 0.05. Five requested plugins activated locally. PHP lint passed on four child-theme PHP files; existing preview build and eight-view browser review passed.
 
-- Client review/fact check of every public phrase, exact training credential, service logistics/pricing, Timetics setup, and confirmed Journal/FAQ content.
-- Integration in a local/staging WordPress installation to validate Gutenberg block round trips and Astra/Timetics/plugin presentation. The isolated preview is not a WordPress runtime.
-- No production deploy, Action run or production DB mutation in this phase.
+## Remaining before publication
+
+Client review/fact check of all provisional text; exact Laila credential wording; service logistics/pricing; real FAQ and Journal content; configured Timetics, Forminator, Complianz and Rank Math metadata; staging verification with real plugin content and production-like caching. No production deploy, GitHub Action or live DB change was made.

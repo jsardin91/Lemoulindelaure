@@ -50,7 +50,7 @@ Text Domain: lemoulindelaure-child
 body { background: var(--lmdl-cream); color: var(--lmdl-ink); font: 400 1.0625rem/1.65 var(--lmdl-font-body); }
 :where(button, input, select, textarea) { font-family: var(--lmdl-font-body); }
 :where(h1, h2, h3, h4, h5, h6, .entry-title) { font-family: var(--lmdl-font-heading); font-weight: 600; line-height: 1.25; }
-.lmdl-site-logo img { display: block; width: clamp(160px, 22vw, 260px); height: auto; }
+.lmdl-site-logo img { display: block; width: clamp(160px, 17vw, 190px); height: auto; }
 a { color: var(--lmdl-blue); }
 a:hover { color: var(--lmdl-teal); }
 :where(a, button, input, textarea, select):focus-visible { outline: 3px solid var(--lmdl-focus); outline-offset: 3px; }

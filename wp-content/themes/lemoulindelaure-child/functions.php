@@ -148,17 +148,72 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 }, 20 );
 
-/** Let the V1 core-block compositions reach the page edges inside Astra. */
-add_filter( 'body_class', function ( $classes ) {
+/** Timetics globally queues its React bundle; these two V1 pages contain no booking UI. */
+add_action( 'wp_enqueue_scripts', function () {
 	if ( is_front_page() || is_page( 'accompagnements' ) ) {
 		$content = (string) get_post_field( 'post_content', get_queried_object_id() );
-		if ( false === strpos( $content, 'lmdl-home-intro' ) && false === strpos( $content, 'lmdl-hub-intro' ) ) {
-			return $classes;
+		if ( false === stripos( $content, 'timetics' ) ) {
+			wp_dequeue_script( 'timetics-packages' );
 		}
+	}
+}, 100 );
+
+/** The page template is an explicit editor setting, independent of page copy. */
+function lmdl_is_v1_page() {
+	return is_page_template( 'templates/lmdl-page-v1.php' );
+}
+
+/** Let the V1 core-block compositions reach the page edges inside Astra. */
+add_filter( 'body_class', function ( $classes ) {
+	if ( lmdl_is_v1_page() ) {
 		$classes[] = 'lmdl-page-v1';
 	}
 	return $classes;
 } );
+
+/** Gutenberg patterns include their own H1, so suppress Astra's page title. */
+add_filter( 'astra_the_title_enabled', function ( $enabled ) {
+	return lmdl_is_v1_page() ? false : $enabled;
+} );
+
+/** The full desktop menu needs more room than Astra's default tablet switch. */
+add_filter( 'astra_tablet_breakpoint', function () {
+	return 1199;
+} );
+
+/** Keep serialized core/image blocks valid while sizing the bundled art. */
+add_filter( 'render_block', function ( $html, $block ) {
+	if ( 'core/image' !== $block['blockName'] || ! class_exists( 'WP_HTML_Tag_Processor' ) ) {
+		return $html;
+	}
+	$classes = isset( $block['attrs']['className'] ) ? (string) $block['attrs']['className'] : '';
+	if ( false === strpos( $classes, 'lmdl-' ) ) {
+		return $html;
+	}
+	$image = new WP_HTML_Tag_Processor( $html );
+	if ( ! $image->next_tag( 'img' ) ) {
+		return $html;
+	}
+	$asset = basename( (string) wp_parse_url( (string) $image->get_attribute( 'src' ), PHP_URL_PATH ) );
+	$sizes = array(
+		'painting-squirrel-display.webp' => array( 945, 960 ),
+		'painting-phoenix-display.webp'  => array( 945, 960 ),
+		'painting-turtle-display.webp'   => array( 960, 946 ),
+		'painting-butterfly-display.webp' => array( 960, 959 ),
+		'embleme-transparent.png'       => array( 700, 636 ),
+	);
+	if ( isset( $sizes[ $asset ] ) && ! $image->get_attribute( 'width' ) ) {
+		$image->set_attribute( 'width', (string) $sizes[ $asset ][0] );
+		$image->set_attribute( 'height', (string) $sizes[ $asset ][1] );
+	}
+	if ( false !== strpos( $classes, 'lmdl-art-collage__' ) ) {
+		$image->set_attribute( 'loading', 'eager' );
+		if ( false !== strpos( $classes, 'lmdl-art-collage__lead' ) ) {
+			$image->set_attribute( 'fetchpriority', 'high' );
+		}
+	}
+	return $image->get_updated_html();
+}, 10, 2 );
 
 /**
  * Legacy prototype shortcode.
