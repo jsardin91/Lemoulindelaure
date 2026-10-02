@@ -2,49 +2,41 @@
 
 Last updated: 2026-10-02
 
-## Design V1 completed so far
+## Working V1 design completed
 
 - Homepage
 - Accompagnements hub
-- Shared accompaniment detail template
-- Communication animalière
-- Accompagnement énergétique animalier
-- Connexion avec les défunts
-- Guidance pour soi
-- Le Jardin du Moulin
+- 4 individual accompaniment pages
+- Le Jardin
 - À propos
+- Journal index + article template
 
-## À propos
+## Journal
 
 Files:
-- `design/wireframes/A-PROPOS-V1.md`
-- `design/references/21ST-A-PROPOS-REFERENCES.md`
+- `design/wireframes/JOURNAL-V1.md`
+- `design/references/21ST-JOURNAL-REFERENCES.md`
 
-Direction:
-human/editorial rather than CV/timeline.
+Rules:
+- no empty public Journal;
+- no premature categories/tags;
+- index can be visual/editorial;
+- article prioritizes reading;
+- 60–75ch body measure;
+- correct heading hierarchy;
+- honest dates;
+- no thin SEO-only content.
 
-Important:
-- real portrait required;
-- four-year training can be highlighted;
-- exact credential wording still requires confirmation;
-- no timeline until real dated milestones exist.
-
-## Canonical status board
+## Canonical board
 
 `docs/DESIGN-PROGRESS.md`
 
 ## Next
 
-**Journal**
+**FAQ**
 
 Then:
-- FAQ
 - Contact
 - Timetics booking page
 
-## Global guardrails
-
-- active visual system remains authoritative;
-- source gaps remain explicit;
-- do not fabricate people, credentials, reviews, process or claims;
-- production implementation not started.
+No production implementation started yet.
