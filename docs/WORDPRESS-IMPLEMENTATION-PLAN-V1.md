@@ -1,8 +1,14 @@
 # WordPress Implementation Plan V1 — Le Moulin de Laure
 
-Status: **Homepage + Accompagnements foundation implemented and verified in isolated WordPress; production content/build not started.**
+Status: **Homepage, Accompagnements hub and four service-page patterns implemented and verified in isolated WordPress; production content/build not started.**
 
 Last updated: 2026-10-02
+
+## Service-page extension
+
+Four detail patterns are registered from `inc/accompaniment-page-patterns.php` at `init` priority 21 after the shared page-pattern helpers: `lmdl/earth-accompaniment-v1`, `lmdl/fire-accompaniment-v1`, `lmdl/water-accompaniment-v1`, `lmdl/air-accompaniment-v1`. Insert the appropriate pattern into each child page under `/accompagnements/`, then select **LMdL — Page V1**. The four pages share `assets/css/pages/accompaniment-detail.css`; that stylesheet loads only for the four canonical slugs. Their hero paintings receive render-time dimensions and high fetch priority. Client-only TODO text appears as editor-styled paragraphs with `lmdl-pattern-placeholder` and is hidden on the frontend. Remove or replace those notes when confirmed content is supplied.
+
+The pages were loaded only into the ignored local WordPress instance. Full 265-block Gutenberg validation, editing, responsive and second-pass visual results are in `docs/ACCOMPANIMENT-PAGES-INTEGRATION-REPORT.md`. Do not run the local fixture against production. The previous “Next safe step” below pertains to the completed foundation; the current next step is review of `feat/accompaniment-pages-v1`, then collection of client service details and staging integration.
 
 ## Implemented architecture
 

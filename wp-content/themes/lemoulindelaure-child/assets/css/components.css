@@ -90,6 +90,7 @@
   text-decoration: none;
 }
 .lmdl-button:is(:hover, :focus-visible) { background: var(--lmdl-ink); color: var(--lmdl-paper); }
+.lmdl-page-v1 .entry-content .lmdl-button { text-decoration: none; }
 .lmdl-text-link { display: inline-flex; align-items: center; min-height: 48px; font-weight: 600; text-underline-offset: .25em; }
 .lmdl-section :where(h1, h2, h3) { text-wrap: balance; }
 .lmdl-section p { max-width: 70ch; }

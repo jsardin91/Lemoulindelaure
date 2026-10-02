@@ -2,6 +2,12 @@
 
 Last updated: 2026-10-02
 
+## New milestone: four service pages V1
+
+The validated foundation branch was fast-forwarded to `main` and pushed at `25bbbd12892f876f92254e959bf9c34c2d49db6b`. The current work branch is `feat/accompaniment-pages-v1` and should remain separate for code review. Four full-page Gutenberg patterns in `inc/accompaniment-page-patterns.php` now cover Communication animale, Accompagnement énergétique animalier, Connexion avec les défunts and Guidance pour soi. Select **LMdL — Page V1** for each. `assets/css/pages/accompaniment-detail.css` is the shared style; `functions.php` loads it conditionally on the four canonical slugs. Text, artwork, title and section order are editor-owned. No production data was changed.
+
+The local WordPress/Astra/Gutenberg integration passed 265/265 valid blocks, text/image/title/section save cycles, 16 responsive views, keyboard focus, reduced motion, route, PHP and existing preview checks. The first visual pass was corrected and reopened. See [ACCOMPANIMENT-PAGES-INTEGRATION-REPORT.md](ACCOMPANIMENT-PAGES-INTEGRATION-REPORT.md) for the exact evidence, 21st previews, design decisions and client content gaps. The next step is **review this branch, then collect Laure's missing service facts and copy approval before staging content integration**. Do not merge/deploy automatically.
+
 ## Current milestone
 
 Homepage V1 and the Accompagnements hub are implemented as editable native Gutenberg patterns in the Astra child theme and were **integrated in an isolated local WordPress 7.1.2 + Astra 4.14.0 instance**. This was a repository/local milestone: no live page, production database, deployment workflow or Astra parent file was changed. The full evidence, plugin versions, tests and limitations are in [WORDPRESS-INTEGRATION-REPORT.md](WORDPRESS-INTEGRATION-REPORT.md).

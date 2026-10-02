@@ -1,50 +1,72 @@
-/* Shared detail-page family. Add universe modifier classes in Gutenberg patterns. */
-
-.lmdl-accompaniment-hero {
-  --lmdl-universe-accent: var(--lmdl-blue);
-  display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
-}
-
-.lmdl-accompaniment-hero--earth { --lmdl-universe-accent: var(--lmdl-green); }
+/* Shared editorial family for the four accompaniment pages. */
+.lmdl-detail-intro { padding-block: clamp(2rem,5vw,4.5rem) clamp(3rem,6vw,6rem); background: var(--lmdl-paper); }
+.lmdl-accompaniment-hero { --lmdl-universe-accent: var(--lmdl-green); display: grid; grid-template-columns: minmax(0,6fr) minmax(0,5fr); gap: clamp(2rem,6vw,6rem); align-items: center; }
 .lmdl-accompaniment-hero--fire { --lmdl-universe-accent: var(--lmdl-gold); }
 .lmdl-accompaniment-hero--water { --lmdl-universe-accent: var(--lmdl-blue); }
 .lmdl-accompaniment-hero--air { --lmdl-universe-accent: var(--lmdl-lavender); }
-
-.lmdl-accompaniment-hero__identity {
-  color: var(--lmdl-universe-accent);
-  font-weight: 600;
-}
-
-.lmdl-situations-list {
-  display: grid;
-  gap: 0;
-  border-top: 1px solid var(--lmdl-line);
-}
-
-.lmdl-situations-list > * {
-  padding-block: 1.25rem;
-  border-bottom: 1px solid var(--lmdl-line);
-}
-
-.lmdl-practical-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 4vw, 3rem);
-}
-
-.lmdl-related-accompaniments {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
+.lmdl-detail-back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: clamp(1.5rem,3vw,2.5rem); text-underline-offset: .22em; }
+.lmdl-detail-back::before { content: '←'; margin-right: .5rem; }
+.lmdl-accompaniment-hero__identity { margin-bottom: .8rem; color: var(--lmdl-ink); font-size: .95rem; font-weight: 700; letter-spacing: .035em; }
+.lmdl-accompaniment-hero h1 { max-width: 13ch; margin: 0 0 1.5rem; font-size: clamp(2.45rem,4.6vw,4.7rem); line-height: 1.1; }
+.lmdl-accompaniment-hero--fire h1 { max-width: 19ch; font-size: clamp(2.2rem,3.65vw,3.65rem); }
+.lmdl-accompaniment-hero__lead { max-width: 47ch; margin-bottom: 1.7rem; font-size: clamp(1.15rem,1.5vw,1.4rem); line-height: 1.55; }
+.lmdl-accompaniment-hero__art { min-width: 0; padding: clamp(.6rem,2vw,1.5rem); border-top: 4px solid var(--lmdl-universe-accent); background: var(--lmdl-cream); }
+.lmdl-detail-hero__image { margin: 0; }
+.lmdl-detail-hero__image img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.lmdl-detail-intro--fire .lmdl-accompaniment-hero__art { background: #f5eddb; }
+.lmdl-detail-intro--water .lmdl-accompaniment-hero__art { background: #eaf0ee; }
+.lmdl-detail-intro--air .lmdl-accompaniment-hero__art { background: #f1eff5; }
+.lmdl-detail-intro--air { padding-bottom: clamp(5rem,9vw,9rem); }
+.lmdl-detail-story__layout, .lmdl-detail-posture__layout { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: clamp(2rem,7vw,8rem); align-items: start; }
+.lmdl-detail-story h2, .lmdl-detail-posture h2 { max-width: 17ch; font-size: clamp(2rem,3.5vw,3.4rem); }
+.lmdl-detail-story .lmdl-prose { font-size: clamp(1.08rem,1.3vw,1.22rem); }
+.lmdl-detail-story--fire, .lmdl-detail-story--air { padding-block: clamp(5rem,9vw,9rem); }
+.lmdl-detail-audience__rows { max-width: 58rem; margin-top: 2rem; border-top: 1px solid var(--lmdl-line); }
+.lmdl-detail-audience__row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; padding-block: 1.6rem; border-bottom: 1px solid var(--lmdl-line); }
+.lmdl-detail-audience__row h3, .lmdl-detail-audience__row p { margin: 0; }
+.lmdl-situations-list { max-width: 60rem; margin-top: 2rem; border-top: 1px solid var(--lmdl-line); }
+.lmdl-situations-list > * { margin: 0; padding-block: 1.3rem; border-bottom: 1px solid var(--lmdl-line); font: 500 clamp(1.2rem,2vw,1.6rem)/1.4 var(--lmdl-font-heading); }
+.lmdl-detail-posture { background: var(--lmdl-ink); color: var(--lmdl-paper); }
+.lmdl-detail-posture--earth { background: var(--lmdl-green); }
+.lmdl-detail-posture--fire { border-top: .4rem solid var(--lmdl-gold); }
+.lmdl-detail-posture--water { background: var(--lmdl-blue); }
+.lmdl-detail-posture--air { background: #efedf4; color: var(--lmdl-ink); }
+.lmdl-detail-posture h2, .lmdl-detail-posture p { margin: 0; }
+.lmdl-detail-posture h2 { color: inherit; }
+.lmdl-detail-posture p { font-size: clamp(1.15rem,1.5vw,1.35rem); }
+.lmdl-detail-practical { border-block: 1px solid var(--lmdl-line); }
+.lmdl-practical-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(2rem,5vw,5rem); max-width: 65rem; }
+.lmdl-practical-grid__item { border-top: 1px solid var(--lmdl-line); padding-top: 1.2rem; }
+.lmdl-detail-practical > .lmdl-container > p:not(.lmdl-pattern-placeholder) { font-size: 1.16rem; }
+.lmdl-detail-boundary { padding-block: clamp(2rem,5vw,4rem); }
+.lmdl-detail-boundary .lmdl-boundary { max-width: 65rem; border-left: .3rem solid var(--lmdl-green); }
+.lmdl-detail-boundary .lmdl-boundary h2 { font-size: 1.7rem; }
+.lmdl-detail-questions { padding-top: 2rem; }
+.lmdl-detail-statement { padding-block: clamp(5rem,9vw,9rem); }
+.lmdl-detail-statement--water { background: #eaf0ee; }
+.lmdl-detail-statement--air { background: #f1eff5; }
+.lmdl-detail-statement__inner { max-width: 58rem; margin-inline: auto; }
+.lmdl-detail-statement h2 { font-size: 1.1rem; }
+.lmdl-detail-statement__quote { max-width: 30ch !important; margin: 1.4rem 0 0; font: 500 clamp(1.8rem,3.8vw,3.5rem)/1.35 var(--lmdl-font-heading); }
+.lmdl-detail-close { background: var(--lmdl-paper); border-top: 1px solid var(--lmdl-line); }
+.lmdl-detail-close--fire { border-top: .4rem solid var(--lmdl-gold); }
+.lmdl-detail-close--air { background: #f1eff5; }
+.lmdl-detail-close__layout { display: flex; justify-content: space-between; align-items: end; gap: 2rem; }
+.lmdl-detail-close__layout h2 { margin-bottom: .6rem; }
+.lmdl-detail-related { padding-block: clamp(3rem,6vw,5rem); }
+.lmdl-detail-related__grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; margin-block: 2rem; }
+.lmdl-detail-related__item { min-width: 0; padding-top: 1rem; border-top: 2px solid var(--lmdl-line); }
+.lmdl-detail-related__identity { margin-bottom: .4rem; font-size: .92rem; }
+.lmdl-detail-related__link { display: inline-flex; align-items: center; min-height: 44px; font: 600 1.3rem/1.3 var(--lmdl-font-heading); text-underline-offset: .2em; }
+@media (max-width: 1023px) { .lmdl-accompaniment-hero { gap: 2rem; } .lmdl-accompaniment-hero h1 { font-size: clamp(2.1rem,4.5vw,3.4rem); } .lmdl-detail-story__layout, .lmdl-detail-posture__layout { gap: 3rem; } }
 @media (max-width: 767px) {
-  .lmdl-accompaniment-hero,
-  .lmdl-practical-grid,
-  .lmdl-related-accompaniments {
-    grid-template-columns: 1fr;
-  }
+  .lmdl-accompaniment-hero, .lmdl-detail-story__layout, .lmdl-detail-posture__layout, .lmdl-practical-grid, .lmdl-detail-related__grid, .lmdl-detail-audience__row { grid-template-columns: 1fr; }
+  .lmdl-detail-intro { padding-top: 1rem; }
+  .lmdl-accompaniment-hero h1 { max-width: 18ch; font-size: clamp(2.2rem,9vw,3.25rem); }
+  .lmdl-accompaniment-hero__art { width: min(100%,30rem); margin-inline: auto; }
+  .lmdl-detail-story__layout, .lmdl-detail-posture__layout { gap: 1rem; }
+  .lmdl-detail-audience__row { gap: .5rem; }
+  .lmdl-detail-close__layout { display: block; }
+  .lmdl-detail-close__layout .lmdl-cta-group { margin-top: 1.5rem; }
+  .lmdl-detail-related__grid { gap: .75rem; }
 }

@@ -15,6 +15,10 @@ $page_patterns_file = get_stylesheet_directory() . '/inc/page-patterns.php';
 if ( file_exists( $page_patterns_file ) ) {
 	require_once $page_patterns_file;
 }
+$detail_patterns_file = get_stylesheet_directory() . '/inc/accompaniment-page-patterns.php';
+if ( file_exists( $detail_patterns_file ) ) {
+	require_once $detail_patterns_file;
+}
 
 /** Nine slots matching Astra's native Global Palette (0–8). */
 function lmdl_astra_palette() {
@@ -130,7 +134,6 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 
 	if ( is_page( array(
-		'communication-animaliere',
 		'communication-animale',
 		'accompagnement-energetique-animalier',
 		'connexion-defunts',
@@ -206,9 +209,9 @@ add_filter( 'render_block', function ( $html, $block ) {
 		$image->set_attribute( 'width', (string) $sizes[ $asset ][0] );
 		$image->set_attribute( 'height', (string) $sizes[ $asset ][1] );
 	}
-	if ( false !== strpos( $classes, 'lmdl-art-collage__' ) ) {
+	if ( false !== strpos( $classes, 'lmdl-art-collage__' ) || false !== strpos( $classes, 'lmdl-detail-hero__image' ) ) {
 		$image->set_attribute( 'loading', 'eager' );
-		if ( false !== strpos( $classes, 'lmdl-art-collage__lead' ) ) {
+		if ( false !== strpos( $classes, 'lmdl-art-collage__lead' ) || false !== strpos( $classes, 'lmdl-detail-hero__image' ) ) {
 			$image->set_attribute( 'fetchpriority', 'high' );
 		}
 	}

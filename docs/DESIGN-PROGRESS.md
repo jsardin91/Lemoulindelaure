@@ -2,6 +2,12 @@
 
 Last updated: 2026-10-02
 
+## Four accompaniment pages V1 — current milestone
+
+The validated Homepage/hub branch was fast-forwarded into `main` at `25bbbd12892f876f92254e959bf9c34c2d49db6b`. On `feat/accompaniment-pages-v1`, four editable full-page Gutenberg patterns now provide distinct Terre, Feu, Eau and Air service pages. Shared CSS and the original paintings preserve the approved visual system. Feu remains intentionally concise; no missing service details were invented. The public communication label is **Communication animale**.
+
+The first visual pass found the Feu title wrapping badly, an Eau heading with insufficient contrast and internal-status copy in public view. All were corrected. The second WordPress pass covered 16 views at 375/768/1024/1440 px: no overflow, missing art or console errors; 265 valid blocks; keyboard-visible CTA focus; no mandatory motion; and all tested routes returned 200. Each page passed two text edit/save/reload cycles plus title, image and section reordering. Full results, 21st references and content gates: `docs/ACCOMPANIMENT-PAGES-INTEGRATION-REPORT.md`.
+
 ## Completed
 
 - Approved palette, typography, logo and active `design-system/MASTER.md` remain unchanged.
