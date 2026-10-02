@@ -15,35 +15,48 @@ Last updated: 2026-10-02
 | Le Jardin | Approved V1 | V1 | V1 | Documented | Not started |
 | À propos | Approved V1 | V1 | V1 | Documented | Not started |
 | Journal | Approved V1 | V1 | Index + article V1 | Documented | Not started |
-| **FAQ** | Approved V1 | **V1** | **V1** | Documented | Not started |
-| **Contact** | Approved V1 | **V1** | **V1** | Documented | Not started |
-| **Prendre rendez-vous / Timetics** | Approved V1 | **V1 integration design** | **V1** | Timetics + 21st refs | Not started |
+| FAQ | Approved V1 | V1 | V1 | Documented | Not started |
+| Contact | Approved V1 | V1 | V1 | Documented | Not started |
+| Prendre rendez-vous / Timetics | Approved V1 | V1 integration | V1 | Timetics + 21st | Not started |
 
 ## Site-wide V1 design milestone
 
-**Every public top-level page in the approved architecture now has a V1 UX/content architecture.**
+Every public top-level page has V1 UX/content architecture.
 
-No production page implementation has begun.
+## SEO milestone
+
+Completed working V1:
+- qualitative SERP research;
+- intent ownership;
+- page/keyword map;
+- draft Title/H1/meta direction;
+- internal linking rules;
+- schema/indexation rules;
+- Journal SEO/content governance;
+- credential verification guardrail.
+
+Files:
+- `docs/SEO-SERP-RESEARCH-2026-10-02.md`
+- `docs/SEO-STRATEGY-V1.md`
+- `docs/SEO-PAGE-MAP-V1.md`
+
+## Important SEO decisions/open items
+
+Recommended before implementation:
+- consider renaming public “Communication animalière” to **Communication animale** and changing slug to `/accompagnements/communication-animale/`.
+
+Needs client/owner confirmation:
+- exact Laila Del Monte credential wording;
+- whether “guidance intuitive” is acceptable public wording;
+- exact energetic-service terminology.
 
 ## Remaining before implementation
 
-1. owner review of V1 directions;
-2. resolve missing client inputs;
-3. SEO intent/keyword work;
-4. decide exact WordPress implementation model/templates;
-5. Timetics service configuration;
-6. then implementation and QA.
-
-## Missing client inputs with highest impact
-
-- service prices;
-- service durations;
-- exact operational processes;
-- exact Timetics availability;
-- booking/cancellation rules;
-- credential wording;
-- portrait;
-- reviews;
-- Journal launch articles;
-- Le Jardin participants;
-- FAQ answers.
+1. owner reviews SEO recommendations;
+2. collect missing client inputs;
+3. finalize page copy;
+4. finalize metadata;
+5. implementation planning;
+6. Timetics config;
+7. WordPress build;
+8. QA.

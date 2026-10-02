@@ -11,14 +11,18 @@ A written client vision / brand brief was received on **2026-10-02**. The servic
 - `design-system/BRIEF.md`
 
 The visual foundations were explicitly approved by the project owner on **2026-10-02**:
-
 - palette;
 - typography;
 - logo variants and usage rules.
 
-Therefore `design-system/MASTER.md` is **active** and is the visual source of truth unless a later explicit client decision supersedes it.
+`design-system/MASTER.md` is **active**.
 
-Page copy, SEO wording and detailed editorial content can still evolve.
+V1 UX/content architecture exists for all public top-level pages.
+
+SEO research/strategy exists at:
+- `docs/SEO-SERP-RESEARCH-2026-10-02.md`
+- `docs/SEO-STRATEGY-V1.md`
+- `docs/SEO-PAGE-MAP-V1.md`
 
 ## Source of truth and precedence
 
@@ -28,107 +32,125 @@ When instructions conflict, use this order:
 2. Later explicit client/owner decisions
 3. Client source material
 4. `design/brand/BRAND-GUIDELINES-WORKING.md`
-5. `docs/SITE-ARCHITECTURE.md` for current IA/navigation/URL decisions
-6. `design-system/MASTER.md` for approved visual foundations
-7. Approved production behavior/content
-8. `design-system/pages/<page>.md` for approved page-specific exceptions
-9. Existing reusable components/tokens/architecture
-10. Project-local `frontend-design-pro`
-11. UI/UX Pro Max
-12. Taste Skill
-13. 21st component/pattern references
-14. Generic conventions/trends
+5. `docs/SITE-ARCHITECTURE.md`
+6. `docs/SEO-STRATEGY-V1.md` for SEO/content intent
+7. `design-system/MASTER.md`
+8. Approved production behavior/content
+9. Page-specific approved override
+10. Existing reusable components/tokens
+11. Frontend Design Pro
+12. UI/UX Pro Max
+13. Taste Skill
+14. 21st references
+15. Generic conventions/trends
 
-Never let an AI-generated palette, font pairing, component catalogue or trend overwrite the approved brand.
+SEO research never overrides a client fact.
 
 ## Required workflow
 
-For meaningful UI/UX/frontend/content architecture work:
+Before meaningful page/content/frontend work:
+1. read `docs/PROJECT.md`;
+2. read brand guidelines;
+3. read site architecture;
+4. read SEO strategy/page map;
+5. read design Master;
+6. read current page wireframe/reference;
+7. inspect real assets/content;
+8. implement only source-supported content.
 
-1. Read `docs/PROJECT.md`.
-2. Read `design/brand/BRAND-GUIDELINES-WORKING.md`.
-3. Read `docs/SITE-ARCHITECTURE.md`.
-4. Read `design-system/BRIEF.md`, `MASTER.md` and `TOOLING.md`.
-5. Inspect relevant assets in `design/brand/`.
-6. Use UI/UX Pro Max only for unresolved UX/design questions.
-7. Use Taste Skill to challenge generic composition and improve polish.
-8. Use 21st selectively for component/pattern references.
-9. Translate references into WordPress/Astra rather than changing stack by default.
-10. Review responsive behavior, accessibility, performance and content accuracy.
+## Content and naming
 
-## Content and naming rules
+Current approved architecture uses **Accompagnements** and **Journal**.
 
-Current public architecture uses **Accompagnements**, not “Services”, as the navigation label.
-
-Current four accompaniment pages:
-
+Current working service labels:
 - Communication animalière
 - Accompagnement énergétique animalier
 - Connexion avec les défunts
 - Guidance pour soi
 
-Editorial/blog label: **Journal**.
+SEO research recommends changing the public communication-service wording to **Communication animale** before implementation because it matches both the client's keyword input and current SERP language. This remains pending owner/client wording approval.
 
-The client source also uses “connexion à l’invisible” in one business-goal passage. The public V1 page label remains “Connexion avec les défunts” unless explicitly changed.
+## Credential safety — Laila Del Monte
 
-### Tone
+Do not publish “certifiée par Laila Del Monte” by default.
+
+The current official Laila Del Monte site explicitly states that no communication-animal professional is certified by Laila Del Monte and distinguishes communication-animal training from energetic care and deceased-animal communication.
+
+Until Laure supplies documentary wording:
+- use “quatre ans de formation” only if approved;
+- refer to the school/training exactly as evidenced;
+- do not imply the training covers energetic care;
+- do not imply the training covers communication with the deceased.
+
+See:
+`docs/SEO-SERP-RESEARCH-2026-10-02.md`.
+
+## Tone
 
 - French
 - vouvoiement
 - accessible
-- primarily informative
-- warm, gentle and sincere
-- a light touch of humour is welcome
-- grounded/professional rather than excessively esoteric
-- animal remains prominent in the brand/storytelling
+- informative
+- warm/gentle
+- grounded
+- light humour possible
+- avoid overly esoteric language
 
-### Sensitive / medical rule
+## Sensitive / medical rule
 
 Never claim veterinary or medical diagnosis/treatment.
 
-Communication animalière and energetic content must clearly state that Laure is neither a veterinarian nor a doctor and that competent professionals remain essential when appropriate.
-
 Do not invent efficacy claims.
+
+Do not exploit grief/vulnerability.
+
+Do not present guidance as prediction/certainty.
 
 ## Approved visual foundations
 
-Canonical source: `design-system/MASTER.md`.
+Canonical:
+`design-system/MASTER.md`
 
-Do not replace approved:
-- palette;
-- Lora / Source Sans 3 typography;
-- approved logo family;
-- deep-blue-led brand writing;
-- cream/paper grounds and painted-art direction.
+Do not replace approved palette/type/logo.
 
-Do not distort, recolor, stretch or reconstruct the logo outside the approved variants.
+## WordPress
 
-## WordPress architecture
+- never modify WordPress core;
+- never modify Astra parent theme;
+- project theme work in child theme;
+- custom FAQ code in project plugin;
+- do not vendor third-party plugins;
+- Timetics is booking system;
+- Rank Math is primary SEO metadata/canonical/sitemap layer unless explicitly changed.
 
-- Never modify WordPress core.
-- Never modify Astra parent-theme files.
-- Custom theme work belongs in `wp-content/themes/lemoulindelaure-child/`.
-- Custom Structured FAQ work belongs in `wp-content/plugins/structured-faq/`.
-- Do not vendor Rank Math, Complianz, Forminator, Timetics, Astra or LiteSpeed Cache.
-- Preserve plugin-generated SEO/schema/privacy/form/booking behavior unless explicitly changed.
-- Keep modifications upgrade-safe and rollbackable.
+## SEO implementation
 
-Timetics is the booking system. The canonical site entry point is `/prendre-rendez-vous/`.
+- unique descriptive title/meta per indexable page;
+- natural internal links;
+- one intent owner per page;
+- no keyword stuffing;
+- self-canonical indexable pages;
+- noindex functional pages;
+- do not block noindex pages in robots.txt;
+- no thin categories/tags;
+- BlogPosting/Article on Journal articles;
+- FAQ rich results are no longer a Google Search feature as of 2026;
+- do not use QAPage for the site's own FAQ.
 
-Detailed rules: `docs/WORDPRESS-WEB-DESIGN.md`.
+## AI-assisted content
 
-## SEO / indexation baseline
+Do not mass-produce SEO pages/articles.
 
-Canonical content structure is documented in `docs/SITE-ARCHITECTURE.md`.
-
-Indexable content pages should have coherent title/H1/metadata and internal linking. Functional confirmation/thank-you/cancellation pages should be noindex.
-
-Do not create categories or landing pages simply to fill the site.
+Any AI-assisted public copy must be:
+- reviewed by a human/client;
+- fact-checked;
+- source-safe;
+- original/useful;
+- accurately attributed where authorship is shown.
 
 ## Production safety
 
-- Never commit secrets, SSH keys, API keys, `wp-config.php`, database dumps or uploads.
-- Repository currently reports as public: do not commit raw private client briefs or contact details without review.
-- Do not expose server paths or credentials in logs.
-- Prefer small, auditable changes.
-- Update `docs/HANDOFF.md` after meaningful milestones.
+- never commit secrets/private client raw data;
+- repo currently reports public;
+- prefer small auditable changes;
+- update `docs/HANDOFF.md` after milestones.
