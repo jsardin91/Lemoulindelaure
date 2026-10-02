@@ -23,52 +23,39 @@ Last updated: 2026-10-02
 | Accompagnement énergétique animalier | Approved V1 | V1 structural | V1 | Shared family | Not started |
 | Connexion avec les défunts | Approved V1 | V1 sensitive | V1 | Documented | Not started |
 | Guidance pour soi | Approved V1 | V1 structural | V1 | Documented | Not started |
-| **Le Jardin** | Approved V1 | **V1** | **V1 drafted** | **Documented** | Not started |
-| À propos | Approved V1 | Not started | Not started | Not started | Not started |
+| Le Jardin | Approved V1 | V1 | V1 | Documented | Not started |
+| **À propos** | Approved V1 | **V1** | **V1 drafted** | **Documented** | Not started |
 | Journal | Approved V1 | Not started | Not started | Reference family | Not started |
 | FAQ | Approved V1 | Pattern identified | Not started | Reference family | Not started |
 | Contact | Approved V1 | Not started | Not started | Not started | Not started |
 | Prendre rendez-vous / Timetics | Approved V1 | Not started | Not started | Not started | Not started |
 
-## Four accompaniment pages
-
-Shared template:
-`design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
-
-Individual V1s:
-- `COMMUNICATION-ANIMALIERE-V1.md`
-- `ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
-- `CONNEXION-DEFUNTS-V1.md`
-- `GUIDANCE-POUR-SOI-V1.md`
-
-## Le Jardin
+## À propos
 
 Files:
-- `design/wireframes/LE-JARDIN-V1.md`
-- `design/references/21ST-LE-JARDIN-REFERENCES.md`
+- `design/wireframes/A-PROPOS-V1.md`
+- `design/references/21ST-A-PROPOS-REFERENCES.md`
 
 Direction:
-**curated garden of real encounters, not marketplace/team page**
+**human editorial story + real portrait + training + values**
 
-Key rules:
-- explicit participant permission;
-- real names/info only;
-- one-sentence activity + contact;
-- humans / animals paths;
-- no fake sample profiles;
-- hide empty categories;
-- no ratings/prices/booking through Laure.
+Rejected:
+- artificial timeline;
+- corporate CV;
+- achievement cards;
+- fake portrait.
 
 ## Immediate next page
 
-**À propos**
+**Journal**
 
 Then:
-- Journal
 - FAQ
 - Contact
 - Prendre rendez-vous / Timetics
 
 ## Open inputs
 
-Le Jardin cannot be fully production-populated until Laure supplies approved participants and their contact data.
+- Laure portrait;
+- exact credential wording;
+- final story wording.

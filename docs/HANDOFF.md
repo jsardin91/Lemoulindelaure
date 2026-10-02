@@ -2,21 +2,8 @@
 
 Last updated: 2026-10-02
 
-## Foundations complete
+## Design V1 completed so far
 
-- WordPress/Astra architecture
-- deployment foundation
-- active child theme
-- approved visual system
-- brand/source assets
-- client brief
-- site architecture V1
-- Journal naming
-- Timetics booking architecture
-
-## Design work to working-V1 level
-
-Completed:
 - Homepage
 - Accompagnements hub
 - Shared accompaniment detail template
@@ -25,46 +12,39 @@ Completed:
 - Connexion avec les défunts
 - Guidance pour soi
 - Le Jardin du Moulin
+- À propos
 
-## Le Jardin files
+## À propos
 
-- `design/wireframes/LE-JARDIN-V1.md`
-- `design/references/21ST-LE-JARDIN-REFERENCES.md`
+Files:
+- `design/wireframes/A-PROPOS-V1.md`
+- `design/references/21ST-A-PROPOS-REFERENCES.md`
 
 Direction:
-**A living garden of real encounters.**
+human/editorial rather than CV/timeline.
 
-Source-backed structure:
-- philosophy of complementary viewpoints;
-- people Laure has actually encountered;
-- consent before inclusion;
-- one-line activity + contact;
-- humans / animals grouping.
+Important:
+- real portrait required;
+- four-year training can be highlighted;
+- exact credential wording still requires confirmation;
+- no timeline until real dated milestones exist.
 
-Do not:
-- invent profiles;
-- use fake stock portraits;
-- imply employment/partnership;
-- add ratings/prices;
-- route third-party practitioners through Laure's Timetics.
-
-## Canonical board
+## Canonical status board
 
 `docs/DESIGN-PROGRESS.md`
 
-## Next page
+## Next
 
-**À propos**
+**Journal**
 
 Then:
-- Journal
 - FAQ
 - Contact
 - Timetics booking page
 
-## Guardrails
+## Global guardrails
 
-- no unsupported claims;
-- no fabricated people/reviews/credentials;
-- no production implementation started;
-- preserve active brand system.
+- active visual system remains authoritative;
+- source gaps remain explicit;
+- do not fabricate people, credentials, reviews, process or claims;
+- production implementation not started.
