@@ -21,8 +21,8 @@ Last updated: 2026-10-02
 | Accompagnements hub | Approved V1 | V1 | V1 | Documented | Not started |
 | Communication animalière | Approved V1 | V1 | V1 | Documented | Not started |
 | Accompagnement énergétique animalier | Approved V1 | V1 structural | V1 | Shared family | Not started |
-| **Connexion avec les défunts** | Approved V1 | **V1 sensitive-content** | **V1 drafted** | **Documented** | Not started |
-| Guidance pour soi | Approved V1 | Not started | Not started | Not started | Not started |
+| Connexion avec les défunts | Approved V1 | V1 sensitive | V1 | Documented | Not started |
+| **Guidance pour soi** | Approved V1 | **V1 structural** | **V1 drafted** | **Documented** | Not started |
 | Le Jardin | Approved V1 | Not started | Not started | Not started | Not started |
 | À propos | Approved V1 | Not started | Not started | Not started | Not started |
 | Journal | Approved V1 | Not started | Not started | Reference family | Not started |
@@ -30,45 +30,48 @@ Last updated: 2026-10-02
 | Contact | Approved V1 | Not started | Not started | Not started | Not started |
 | Prendre rendez-vous / Timetics | Approved V1 | Not started | Not started | Not started | Not started |
 
-## Shared individual-page template
+## Four accompaniment detail pages
 
+Shared family template:
 `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
 
-## Connexion avec les défunts
+Communication:
+`design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
 
-Files:
-- `design/wireframes/CONNEXION-DEFUNTS-V1.md`
-- `design/references/21ST-CONNEXION-DEFUNTS-REFERENCES.md`
+Energetic:
+`design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
 
-Direction:
-**Tortue · Eau · Famille**
+Deceased connection:
+`design/wireframes/CONNEXION-DEFUNTS-V1.md`
 
-Design:
-- calm water/family/memory language;
-- no dark/morbid/paranormal aesthetic;
-- no certainty/guarantee messaging;
-- confidentiality and sensitive framing emphasized;
-- individual/group modes reserved but detail still TODO.
+Guidance:
+`design/wireframes/GUIDANCE-POUR-SOI-V1.md`
+
+## Guidance direction
+
+Identity:
+**Papillon — Air — Messager**
+
+Page character:
+light, spacious, perspective-oriented.
+
+Key guardrail:
+do not turn “guidance” into prediction/certainty language.
 
 Source detail level:
-limited-to-moderate.
+limited.
 
-## Immediate next design page
+## Immediate next page
 
-**Guidance pour soi**
+**Le Jardin du Moulin**
 
-Then:
-- Le Jardin
-- À propos
-- Journal
-- FAQ
-- Contact
-- Timetics booking page
+Reason:
+it is structurally different from the accompaniment pages and will establish the directory/network presentation before About/Journal.
 
-## Guardrails
+## Do not fabricate
 
-Do not:
-- convert beliefs into factual certainty;
-- exploit grief/vulnerability for conversion;
-- invent session mechanics;
-- fabricate FAQ answers.
+- specific guidance use cases;
+- process;
+- predictions;
+- outcomes;
+- FAQ answers.

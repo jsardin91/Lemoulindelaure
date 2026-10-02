@@ -2,9 +2,8 @@
 
 Last updated: 2026-10-02
 
-## Foundation
+## Foundations complete
 
-Complete:
 - WordPress/Astra architecture
 - deployment foundation
 - active child theme
@@ -15,69 +14,62 @@ Complete:
 - Journal naming
 - Timetics booking architecture
 
-## Design work
+## Design work completed to working-draft level
 
 ### Homepage
-Working V1:
 - wireframe
-- composition
+- composition spec
 - 21st references
 
 ### Accompagnements hub
-Working V1:
 - four-universe interaction
-- responsive fallback
+- responsive behavior
 - 21st references
 
-### Shared detail-page template
+### Shared accompaniment detail template
 - `design/wireframes/ACCOMPANIMENT-DETAIL-TEMPLATE-V1.md`
 
-### Communication animalière
-Working V1:
+### Four detail pages
+
+Communication animalière:
 - `design/wireframes/COMMUNICATION-ANIMALIERE-V1.md`
 
-### Accompagnement énergétique animalier
-Structural V1:
+Accompagnement énergétique animalier:
 - `design/wireframes/ACCOMPAGNEMENT-ENERGETIQUE-ANIMALIER-V1.md`
 
-### Connexion avec les défunts
-Sensitive-content V1:
+Connexion avec les défunts:
 - `design/wireframes/CONNEXION-DEFUNTS-V1.md`
 - `design/references/21ST-CONNEXION-DEFUNTS-REFERENCES.md`
 
-Identity:
-**Tortue — Eau — Famille**
+Guidance pour soi:
+- `design/wireframes/GUIDANCE-POUR-SOI-V1.md`
+- `design/references/21ST-GUIDANCE-REFERENCES.md`
 
-Key design/content decisions:
-- turtle painting lead visual;
-- no morbid/dark/paranormal cliché aesthetic;
-- client belief framed as Laure's approach, not universal fact;
-- no guaranteed contact/message;
-- individual/group formats acknowledged but mechanics remain TODO;
-- no grief vulnerability/urgency tactics;
-- calm booking CTA only.
+## Current accompaniment identities
 
-## Canonical progress board
+- Écureuil — Terre — Vivant
+- Phénix — Feu — Énergie
+- Tortue — Eau — Famille
+- Papillon — Air — Messager
 
-`docs/DESIGN-PROGRESS.md`
+All four share one design family but retain different art/accent/rhythm.
 
 ## Next page
 
-**Guidance pour soi**
+**Le Jardin du Moulin**
 
 Then:
-- Le Jardin
 - À propos
 - Journal
 - FAQ
 - Contact
-- Timetics booking
+- Timetics booking page
 
 ## Guardrails
 
 - no medical/veterinary efficacy claims;
-- no certainty claims about deceased contact;
-- no fabricated process, reviews, credentials or partners;
-- missing content remains explicit TODO;
-- no Astra parent modification;
-- production implementation not started in this design pass.
+- no certainty claims for deceased connection;
+- no predictive/certainty claims for Guidance;
+- no fabricated process, credentials, reviews or partners;
+- missing content remains TODO;
+- production implementation not started.
