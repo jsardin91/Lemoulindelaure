@@ -22,6 +22,19 @@ Production remains:
 
 The active brand system always wins over the reference component.
 
+## Verified 21st catalogue observations
+
+The current 21st image/hero catalogues expose relevant patterns including:
+- Editorial Collage Hero
+- Split Hero With Image Cards
+- Content Grid Section
+- image stacks/galleries
+- clean CTA sections
+- editorial/split testimonials
+- Two-Column FAQ / FAQ collections
+
+21st's split-screen guidance also emphasizes that, when a split hero collapses to one column, the message should be first in source order and the image second. This is adopted for the Moulin mobile hero.
+
 ## Selected references
 
 ### 1. Ravi Katiyar — Hero Section
@@ -29,124 +42,158 @@ The active brand system always wins over the reference component.
 URL:
 https://21st.dev/%40ravikatiyar162/components/hero-section-2
 
-What is useful:
-- asymmetrical split-screen composition;
-- strong copy area plus expressive visual asset;
-- image treated as part of the composition rather than a generic card;
-- clear CTA hierarchy.
-
-Adaptation for Le Moulin:
-- replace adventure imagery with the original four client paintings;
-- remove dependency on Framer Motion;
-- use the approved cream/paper/deep-blue palette;
-- keep motion subtle;
-- no duplicate logo/contact information inside the hero.
-
-Decision:
-**Use composition principle, not component code.**
-
-### 2. Systaliko UI — CTA section with gallery
-
-URL:
-https://21st.dev/%40youcefbnm/components/cta-section-with-gallery
-
-What is useful:
-- editorial image grouping;
-- staggered visual rhythm;
-- good pattern for showing multiple source images without equal-sized generic cards.
-
-Adaptation for Le Moulin:
-- useful inspiration for the homepage visual collage and possibly final CTA;
-- use Laure's own paintings/photos rather than stock imagery;
-- remove heavy entrance/stagger animation;
-- keep image ratios stable to avoid CLS.
-
-Decision:
-**Use gallery rhythm selectively.**
-
-### 3. Tommy Jepsen — Testimonials
-
-URL:
-https://21st.dev/%40tommyjepsen/components/testimonials
-
-What is useful:
-- dedicated social-proof section;
-- visual separation from the sales narrative;
-- carousel structure can handle several reviews.
-
-Adaptation for Le Moulin:
-- only activate when real client reviews are available;
-- never invent testimonials;
-- if carousel is used, provide visible previous/next controls;
-- no automatic rotation by default;
-- on mobile, a simple stacked/manual pattern may be preferable.
-
-Decision:
-**Conditional reference.**
-
-### 4. PrebuiltUI — FAQ section
-
-URL:
-https://21st.dev/%40prebuiltui/components/faq-sections/clean-faq-section-with-filled-bg
-
-What is useful:
-- simple accordion rhythm;
-- strong scanning;
-- clear question/answer hierarchy.
-
-Adaptation for Le Moulin:
-- use project FAQ questions;
-- preserve semantic button/region behavior;
-- use custom Structured FAQ/schema architecture without duplicate schema;
-- use approved colors instead of slate defaults.
-
-Decision:
-**Use interaction pattern, simplify visuals.**
-
-### 5. 21st Hero library / Editorial Collage direction
-
-URL:
-https://21st.dev/community/components/s/hero-section
-
-Useful catalogue directions:
-- Editorial Collage Hero;
-- Split Hero With Image Cards;
-- Hero with group of images, text and two buttons.
+Useful:
+- asymmetrical split-screen composition
+- strong copy area plus expressive visual asset
+- clear CTA hierarchy
 
 Adaptation:
-- favor editorial collage and split composition;
-- reject generic image-card grids;
-- reject heavy WebGL/shader/3D hero treatments.
+- use original paintings
+- remove Framer Motion dependency
+- no redundant contact information in hero
+- approved cream/deep-blue palette only
+
+Decision:
+**composition principle only**
+
+### 2. Editorial Collage Hero
+
+Catalogue:
+https://21st.dev/community/components/s/hero-section
+https://21st.dev/community/components/s/image
+
+Useful:
+- editorial image grouping
+- varying image scale
+- art-led composition without forcing equal cards
+
+Adaptation:
+- four original client paintings
+- restrained overlap
+- no fake photography treatment
+- no heavy entrance choreography
+
+Decision:
+**primary hero visual reference family**
+
+### 3. Split Hero With Image Cards
+
+Catalogue:
+https://21st.dev/community/components/s/hero-section
+
+Useful:
+- reliable copy/visual separation
+- graceful mobile collapse concept
+
+Important guidance:
+message-first source order on mobile.
+
+Decision:
+**layout logic, but replace card language with freer editorial collage**
+
+### 4. Content Grid Section
+
+Catalogue:
+https://21st.dev/community/components/s/image
+
+Useful:
+- image-led content hierarchy
+- possible reference for Journal teaser
+
+Adaptation:
+- one featured article + two supporting articles
+- avoid equal card grid
+
+Decision:
+**Journal reference family**
+
+### 5. Editorial Testimonial
+
+URL:
+https://21st.dev/%40jatin-yadav05/components/editorial-testimonial
+
+Useful:
+- quote treated as editorial typography rather than a generic review card
+
+Adaptation:
+- activate only with real verified reviews
+- no fabricated avatar/photo
+
+Decision:
+**preferred review direction if reviews exist**
+
+### 6. Split Testimonial
+
+URL:
+https://21st.dev/%40jatin-yadav05/components/split-testimonial
+
+Useful:
+- portrait + quote pairing
+- controlled single-story focus
+
+Adaptation:
+- manual controls
+- no autoplay by default
+- reduced-motion safe
+
+Decision:
+**secondary review option**
+
+### 7. FAQ patterns
+
+Catalogue examples:
+https://21st.dev/community/components/explore/contact-us-page-examples
+https://21st.dev/community/components/s/landing-page
+
+Useful:
+- two-column FAQ
+- clean accordion hierarchy
+
+Adaptation:
+- project FAQ
+- semantic button/region behavior
+- custom Structured FAQ/schema ownership
+- approved colors only
+
+Decision:
+**interaction reference**
 
 ## Explicitly rejected directions
 
-For this brand, do **not** use as primary homepage language:
-- black-hole / shader heroes;
-- liquid-glass effects;
-- tech spotlight cards;
-- cyberpunk/neon;
-- large WebGL scenes;
-- heavy scroll morphing;
-- full-screen scroll-jacking;
-- generic SaaS bento grids;
-- purple AI gradients.
+Do not use as primary homepage language:
+- black-hole / shader heroes
+- liquid-glass effects
+- tech spotlight cards
+- cyberpunk/neon
+- large WebGL scenes
+- heavy scroll morphing
+- full-screen scroll-jacking
+- generic SaaS bento grids
+- purple AI gradients
+- testimonial marquees just because they are popular
 
 Reason:
-they conflict with the approved grounded, gentle, animal-forward and handmade identity.
+they conflict with the approved grounded, gentle, animal-forward, readable and handmade identity.
 
-## 21st implementation handoff
+## Search prompts for future 21st MCP use
 
-When Codex/Claude Code with 21st MCP is used later, search for:
-- editorial collage hero;
-- split hero with image composition;
-- organic editorial gallery;
-- accessible testimonials;
-- clean FAQ accordion;
-- image-led CTA.
+When Codex/Claude has the real MCP connected, use narrow searches such as:
+- editorial collage hero organic
+- split hero artwork editorial
+- image-led magazine content grid
+- editorial testimonial
+- accessible two-column faq
+- gallery CTA editorial
+- organic about founder portrait
 
-The agent should return previews first, then compare them against:
+Ask for 2–3 preview candidates before installing anything.
+
+## Implementation handoff
+
+Compare any candidate against:
 - `design-system/MASTER.md`
 - `design/brand/BRAND-GUIDELINES-WORKING.md`
 - `design/wireframes/HOMEPAGE-V1.md`
+- `design/wireframes/HOMEPAGE-COMPOSITION-V1.md`
 
 Do not install a component solely because it looks polished.
