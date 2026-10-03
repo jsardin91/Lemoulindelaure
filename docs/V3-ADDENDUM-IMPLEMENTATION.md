@@ -36,10 +36,11 @@ Browser QA on `https://lemoulindelaure.fr/` found `noindex, follow`, one H1, no 
 | Body background | `#FAF7EF` | `rgb(250, 247, 239)` |
 | Booking CTA text and one border | `#173F54` | `rgb(23, 63, 84)`; `text-decoration: none` |
 | Footer background | `#173F54` | `rgb(23, 63, 84)` |
+| Astra global slot 3 | `#426F47` | `#426f47` |
 
 Live Timetics exposed the spinner-only native modal described above. Theme-only polish run `37127901152` hid its inoperative action while retaining the list. The final live read-only check found four entries, zero visible action buttons and zero visible placeholder durations. Live Forminator empty submission displayed three French errors and focused Nom; an invalid email displayed its French error. No valid public test message was stored. The actual calendar and keyboard flow remain gated by Laure's real booking information.
 
-The last palette audit found that Astra slot 3 and `theme.json` still carried legacy `#3F5355` while the official nine-color set includes leaf green `#426F47`. The final source revision changes that slot in `functions.php`, `style.css` and `theme.json`; rerun the guarded configuration workflow to synchronize the live DB, then verify the palette and computed styles again.
+The last palette audit found that Astra slot 3 and `theme.json` still carried legacy `#3F5355` while the official nine-color set includes leaf green `#426F47`. Final guarded theme/configuration run `37128150718` deployed commit `4d69c8d` and synchronized the DB. A read-only browser check at 375, 768, 1024 and 1440 px found CSS slot 3 `#426f47`; body, H1, header link, CTA and footer kept the expected colors. The rerun reused Forminator ID 79 and Timetics IDs 80–83, confirming idempotence. Cache purge and preview noindex checks passed.
 
 ## Deployment sequence and gate
 

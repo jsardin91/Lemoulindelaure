@@ -70,3 +70,5 @@ Client review/fact check of all provisional text; exact Laila credential wording
 # 2026-10-03 — V3 addendum
 
 Implemented first-person copy, asset-caption cleanup, complete V3 header, editorial footer, V3 Contact/Booking partials and scoped plugin styling. Added guarded local preview configuration for Forminator, Timetics and Astra palette. Second local responsive pass corrected Contact overflow at 375 px; 48 route/width checks passed. See `docs/V3-ADDENDUM-IMPLEMENTATION.md` for tests, deployment gate and remaining live QA.
+
+Live preview deployed with backup `pre-37127265874`; final source/configuration run `37128150718` passed. The public domain retained `noindex, follow`. Live QA covered 48 route/width views, working internal links, French Forminator validation and the exact official Astra palette. Timetics' four native preview entries remain visible with their unusable booking controls hidden until real availability and staff details are confirmed. The handoff and implementation report record the remaining content gates.
