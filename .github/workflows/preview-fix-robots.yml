@@ -1,0 +1,70 @@
+name: Allow crawling of noindex preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      backup_id:
+        description: Verified private rollback snapshot ID
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Save and replace only the default blocking robots file
+        shell: bash
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: |
+          set -euo pipefail
+          case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '$BACKUP_ID'" <<'REMOTE'
+          set -euo pipefail
+          umask 077
+          backup_id="$1"
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          if [ "${#configs[@]}" -ne 1 ]; then printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'; exit 1; fi
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          backup_dir="$(realpath "$HOME")/.lmdl-preview-backups/$backup_id"
+          robots="$root/robots.txt"
+          test -f "$robots" && test -d "$backup_dir"
+          grep -Fxq "backup_id=$backup_id" "$backup_dir/manifest.txt"
+          sha256sum -c "$backup_dir/SHA256SUMS" >/dev/null
+          test "$(wp --path="$root" option get home)" = 'https://lemoulindelaure.fr'
+          test "$(wp --path="$root" option get blog_public)" = '1'
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
+          current="$(tr -d '\r' < "$robots")"
+          expected="$(printf 'User-agent: *\nDisallow: /*')"
+          if [ "$current" != "$expected" ]; then printf 'UNEXPECTED_ROBOTS_FILE_REFUSED\n'; exit 1; fi
+          test ! -e "$backup_dir/robots-before.txt"
+          cp "$robots" "$backup_dir/robots-before.txt"
+          chmod 600 "$backup_dir/robots-before.txt"
+          sha256sum "$backup_dir/robots-before.txt" > "$backup_dir/ROBOTS-SHA256"
+          chmod 600 "$backup_dir/ROBOTS-SHA256"
+          replacement="$(mktemp "$root/.lmdl-robots.XXXXXX")"
+          trap 'rm -f "$replacement"' EXIT
+          printf 'User-agent: *\nAllow: /\n' > "$replacement"
+          chmod 644 "$replacement"
+          mv -f "$replacement" "$robots"
+          test "$(cat "$robots")" = "$(printf 'User-agent: *\nAllow: /')"
+          printf 'ROBOTS_CRAWL_ALLOWED_WITH_NOINDEX\n'
+          printf 'ROBOTS_ROLLBACK_BACKUP=%s\n' "$backup_id"
+          REMOTE
