@@ -112,7 +112,7 @@ add_filter( 'wp_sitemaps_post_types', function ( $post_types ) {
 
 /** Nine slots matching Astra's native Global Palette (0–8). */
 function lmdl_astra_palette() {
-	return array( '#165a77', '#306c67', '#173f54', '#3f5355', '#faf7ef', '#fffdf8', '#dcd4bd', '#666294', '#b68631' );
+	return array( '#165a77', '#306c67', '#173f54', '#426f47', '#faf7ef', '#fffdf8', '#dcd4bd', '#666294', '#b68631' );
 }
 
 /**

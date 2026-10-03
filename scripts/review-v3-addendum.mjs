@@ -20,19 +20,23 @@ try{
   const result=await ev(`(()=>{const q=s=>document.querySelector(s),css=(s,p)=>q(s)&&getComputedStyle(q(s))[p];return {width:${width},nav:[...document.querySelectorAll('.v3-header__nav>a,.v3-header__group>a')].map(x=>x.textContent.trim()),body:css('body','color'),bodyBackground:css('body','backgroundColor'),h1:css('h1','color'),link:css('.v3-header__nav a','color'),cta:css('.v3-header__booking','color'),ctaDecoration:css('.v3-header__booking','textDecorationLine'),ctaBorder:css('.v3-header__booking','borderBottomColor'),footer:css('.v3-footer','backgroundColor'),scrollWidth:document.documentElement.scrollWidth}})()`);
   console.log(JSON.stringify(result));
  }
- if(!process.env.LMDL_READ_ONLY){
  await send('Emulation.setDeviceMetricsOverride',{width:375,height:900,deviceScaleFactor:1,mobile:true});
  await send('Page.navigate',{url:(process.env.LMDL_BASE_URL||'http://127.0.0.1:8765')+'/contact/'});await new Promise(r=>setTimeout(r,1300));
  await ev(`document.querySelector('.forminator-button-submit')?.click()`);await new Promise(r=>setTimeout(r,900));
  console.log('FORM_EMPTY='+JSON.stringify(await ev(`({errors:[...document.querySelectorAll('.forminator-error-message')].map(x=>x.textContent.trim()),focus:document.activeElement?.id})`)));
  await ev(`(()=>{const f=document.querySelector('.lmdl-contact-form form');for(const [n,v] of [['text-1','Test Local'],['email-1','invalide'],['textarea-1','Message de test local']]){const x=f?.querySelector('[name="'+n+'"]');if(x){x.value=v;x.dispatchEvent(new Event('input',{bubbles:true}));x.dispatchEvent(new Event('change',{bubbles:true}))}}f?.querySelector('.forminator-button-submit')?.click()})()`);await new Promise(r=>setTimeout(r,900));
  console.log('FORM_INVALID='+JSON.stringify(await ev(`({errors:[...document.querySelectorAll('.forminator-error-message')].map(x=>x.textContent.trim())})`)));
+ if(!process.env.LMDL_READ_ONLY){
  await ev(`(()=>{const x=document.querySelector('.lmdl-contact-form input[type=email]');x.value='test-local@example.invalid';x.dispatchEvent(new Event('input',{bubbles:true}));x.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('.forminator-button-submit')?.click()})()`);await new Promise(r=>setTimeout(r,1500));
  console.log('FORM_SUCCESS='+JSON.stringify(await ev(`({response:document.querySelector('.forminator-response-message')?.innerText,errors:[...document.querySelectorAll('.forminator-error-message')].map(x=>x.textContent.trim())})`)));
  }
  await send('Emulation.setDeviceMetricsOverride',{width:375,height:900,deviceScaleFactor:1,mobile:true});
  await send('Page.navigate',{url:(process.env.LMDL_BASE_URL||'http://127.0.0.1:8765')+'/prendre-rendez-vous/'});await new Promise(r=>setTimeout(r,2300));
- await ev(`document.querySelector('.tt-meeting-list-item button')?.click()`);await new Promise(r=>setTimeout(r,1200));
- console.log('TIMETICS_CALENDAR='+JSON.stringify(await ev(`({modal:!!document.querySelector('.ant-modal'),text:document.querySelector('.ant-modal')?.innerText.slice(0,600),enabledDays:document.querySelectorAll('.ant-modal .flatpickr-day:not(.flatpickr-disabled):not(.prevMonthDay):not(.nextMonthDay)').length,slots:document.querySelectorAll('.tt-slot-list button').length})`)));
+ if(process.env.LMDL_READ_ONLY){
+  console.log('TIMETICS_PREVIEW='+JSON.stringify(await ev(`({meetings:document.querySelectorAll('.tt-meeting-list-item').length,visibleActions:[...document.querySelectorAll('.tt-meeting-action')].filter(x=>getComputedStyle(x).display!=='none').length,visibleDurations:[...document.querySelectorAll('.meeting-info-list')].filter(x=>getComputedStyle(x).display!=='none').length})`)));
+ }else{
+  await ev(`document.querySelector('.tt-meeting-list-item button')?.click()`);await new Promise(r=>setTimeout(r,1200));
+  console.log('TIMETICS_CALENDAR='+JSON.stringify(await ev(`({modal:!!document.querySelector('.ant-modal'),text:document.querySelector('.ant-modal')?.innerText.slice(0,600),enabledDays:document.querySelectorAll('.ant-modal .flatpickr-day:not(.flatpickr-disabled):not(.prevMonthDay):not(.nextMonthDay)').length,slots:document.querySelectorAll('.tt-slot-list button').length})`)));
+ }
  if(process.env.LMDL_MODAL_SCREENSHOT){const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(process.env.LMDL_MODAL_SCREENSHOT,Buffer.from(shot.data,'base64'))}
 }finally{socket?.close();edge.kill();await new Promise(r=>setTimeout(r,150));await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:100})}

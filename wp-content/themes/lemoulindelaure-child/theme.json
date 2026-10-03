@@ -7,13 +7,12 @@
         { "slug": "ast-global-color-0", "name": "Bleu Moulin · principal", "color": "#165a77" },
         { "slug": "ast-global-color-1", "name": "Vert d'eau · survol", "color": "#306c67" },
         { "slug": "ast-global-color-2", "name": "Encre · titres", "color": "#173f54" },
-        { "slug": "ast-global-color-3", "name": "Texte", "color": "#3f5355" },
+        { "slug": "ast-global-color-3", "name": "Vert feuille", "color": "#426f47" },
         { "slug": "ast-global-color-4", "name": "Crème · fond", "color": "#faf7ef" },
         { "slug": "ast-global-color-5", "name": "Papier · surface", "color": "#fffdf8" },
         { "slug": "ast-global-color-6", "name": "Ligne", "color": "#dcd4bd" },
         { "slug": "ast-global-color-7", "name": "Lavande", "color": "#666294" },
-        { "slug": "ast-global-color-8", "name": "Or · décor", "color": "#b68631" },
-        { "slug": "vert-feuille", "name": "Vert feuille", "color": "#426f47" }
+        { "slug": "ast-global-color-8", "name": "Or · décor", "color": "#b68631" }
       ]
     },
     "typography": {

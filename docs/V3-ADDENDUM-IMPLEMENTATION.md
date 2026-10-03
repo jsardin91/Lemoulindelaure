@@ -37,7 +37,9 @@ Browser QA on `https://lemoulindelaure.fr/` found `noindex, follow`, one H1, no 
 | Booking CTA text and one border | `#173F54` | `rgb(23, 63, 84)`; `text-decoration: none` |
 | Footer background | `#173F54` | `rgb(23, 63, 84)` |
 
-Live Timetics exposed the spinner-only native modal described above. A final theme-only polish hides its inoperative action while retaining the list. Repeat the Booking screenshot and visible-action check after that deployment. The actual calendar and keyboard flow remain gated by Laure's real booking information.
+Live Timetics exposed the spinner-only native modal described above. Theme-only polish run `37127901152` hid its inoperative action while retaining the list. The final live read-only check found four entries, zero visible action buttons and zero visible placeholder durations. Live Forminator empty submission displayed three French errors and focused Nom; an invalid email displayed its French error. No valid public test message was stored. The actual calendar and keyboard flow remain gated by Laure's real booking information.
+
+The last palette audit found that Astra slot 3 and `theme.json` still carried legacy `#3F5355` while the official nine-color set includes leaf green `#426F47`. The final source revision changes that slot in `functions.php`, `style.css` and `theme.json`; rerun the guarded configuration workflow to synchronize the live DB, then verify the palette and computed styles again.
 
 ## Deployment sequence and gate
 
