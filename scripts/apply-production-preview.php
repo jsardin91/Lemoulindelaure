@@ -49,8 +49,9 @@ if ( get_option( 'lmdl_forminator_contact_id', 0 ) || get_option( 'lmdl_timetics
 	throw new RuntimeException( 'Existing plugin integration options require manual review before public preview.' );
 }
 
-update_option( 'blog_public', 0 );
 update_option( 'lmdl_preview_noindex', 1 );
+/* Keep robots.txt crawlable so crawlers can read each page's noindex tag. */
+update_option( 'blog_public', 1 );
 $ids = array();
 foreach ( $pages as $page ) {
 	$existing = get_page_by_path( $page['path'] );

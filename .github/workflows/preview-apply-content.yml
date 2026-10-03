@@ -105,7 +105,7 @@ jobs:
             fi
             exit 1
           fi
-          test "$(wp --path="$root" option get blog_public)" = '0'
+          test "$(wp --path="$root" option get blog_public)" = '1'
           test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
           test "$(wp --path="$root" option get show_on_front)" = 'page'
           wp --path="$root" eval 'do_action("litespeed_purge_all");' >/dev/null
