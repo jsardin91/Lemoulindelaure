@@ -37,6 +37,9 @@ foreach ( $pages as $page ) {
 		throw new RuntimeException( 'Missing or empty approved pattern: ' . $page['pattern'] );
 	}
 	$pattern_content[ $page['key'] ] = $registered['content'];
+	if ( 'https' === wp_parse_url( home_url(), PHP_URL_SCHEME ) ) {
+		$pattern_content[ $page['key'] ] = str_replace( 'http://lemoulindelaure.fr/', 'https://lemoulindelaure.fr/', $pattern_content[ $page['key'] ] );
+	}
 	$existing = get_page_by_path( $page['path'] );
 	if ( $existing && trim( (string) $existing->post_content ) && get_post_meta( $existing->ID, '_lmdl_preview_pattern', true ) !== $page['pattern'] ) {
 		throw new RuntimeException( 'Existing nonempty target page requires manual review: ' . $page['path'] );
