@@ -14,6 +14,7 @@ get_header( 'v3' );
 	<article <?php post_class( 'lmdl-article__entry' ); ?>>
 		<header class="lmdl-article__header lmdl-reading">
 			<a class="lmdl-article__back" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">← Journal</a>
+			<p class="v3-folio">Le Moulin de Laure · Le Journal</p>
 			<h1><?php the_title(); ?></h1>
 			<?php if ( has_excerpt() ) : ?>
 				<p class="lmdl-article__standfirst"><?php echo esc_html( get_the_excerpt() ); ?></p>
@@ -48,7 +49,8 @@ get_header( 'v3' );
 			<?php wp_link_pages( array( 'before' => '<nav class="lmdl-article__pages" aria-label="Pages de l’article">', 'after' => '</nav>' ) ); ?>
 		</div>
 		<footer class="lmdl-article__footer lmdl-reading">
-			<a class="lmdl-text-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Tous les articles du Journal</a>
+			<div><p class="v3-folio">La page suivante</p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Tous les articles du Journal <span aria-hidden="true">↗</span></a></div>
+			<?php echo lmdl_v3_image( 'logo/signature-transparent.png', '', 'lmdl-article__signature' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 		</footer>
 	</article>
 	<?php endwhile; ?>
