@@ -7,6 +7,11 @@ on:
         description: Verified private rollback snapshot ID
         required: true
         type: string
+      refresh_content:
+        description: Refresh previously installed LMdL patterns (overwrites their current text)
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -38,14 +43,16 @@ jobs:
         shell: bash
         env:
           BACKUP_ID: ${{ inputs.backup_id }}
+          REFRESH_CONTENT: ${{ inputs.refresh_content }}
         run: |
           set -euo pipefail
           case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          case "$REFRESH_CONTENT" in true) refresh=1;; false) refresh=0;; *) printf 'INVALID_REFRESH_FLAG\n'; exit 1;; esac
           theme_function_hash="$(sha256sum wp-content/themes/lemoulindelaure-child/functions.php | cut -d ' ' -f 1)"
           theme_pattern_hash="$(sha256sum wp-content/themes/lemoulindelaure-child/inc/functional-page-patterns.php | cut -d ' ' -f 1)"
           ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
-            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID' '${GITHUB_SHA}' '$theme_function_hash' '$theme_pattern_hash'" <<'REMOTE'
+            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID' '${GITHUB_SHA}' '$theme_function_hash' '$theme_pattern_hash' '$refresh'" <<'REMOTE'
           set -euo pipefail
           umask 077
           run_id="$1"
@@ -53,6 +60,7 @@ jobs:
           source_sha="$3"
           function_hash="$4"
           pattern_hash="$5"
+          refresh="$6"
           uploaded="$HOME/.lmdl-apply-$run_id.php"
           trap 'rm -f "$uploaded"' EXIT
           listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
@@ -85,7 +93,7 @@ jobs:
           chmod 600 "$rollback_dir"/*
           printf 'CONTENT_ROLLBACK_ID=%s\n' "$rollback_id"
 
-          if ! LMDL_PREVIEW_APPLY=1 LMDL_PREVIEW_SOURCE_SHA="$source_sha" \
+          if ! LMDL_PREVIEW_APPLY=1 LMDL_PREVIEW_REFRESH="$refresh" LMDL_PREVIEW_SOURCE_SHA="$source_sha" \
             wp --path="$root" --skip-plugins eval-file "$uploaded"; then
             gunzip -c "$rollback_dir/wordpress.sql.gz" > "$rollback_dir/restore.sql"
             if wp --path="$root" db import "$rollback_dir/restore.sql" --quiet; then

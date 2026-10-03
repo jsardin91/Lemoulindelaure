@@ -54,7 +54,7 @@ foreach ( $pages as $page ) {
 	$parent_id = isset( $page['parent'] ) ? $ids[ $page['parent'] ] : 0;
 	if ( $existing ) {
 		$id = (int) $existing->ID;
-		if ( ! trim( (string) $existing->post_content ) ) {
+		if ( ! trim( (string) $existing->post_content ) || ( '1' === getenv( 'LMDL_PREVIEW_REFRESH' ) && get_post_meta( $id, '_lmdl_preview_pattern', true ) === $page['pattern'] ) ) {
 			$result = wp_update_post( array( 'ID' => $id, 'post_content' => $pattern_content[ $page['key'] ], 'post_status' => 'publish', 'post_parent' => $parent_id ), true );
 			if ( is_wp_error( $result ) ) { throw new RuntimeException( 'Failed to populate ' . $page['path'] ); }
 		}
@@ -141,6 +141,19 @@ $locations['primary'] = $primary;
 $locations['mobile_menu'] = $primary;
 $locations['footer_menu'] = $footer;
 set_theme_mod( 'nav_menu_locations', $locations );
+
+/* Use Astra's native footer builder. Replace its untouched default credit only. */
+if ( function_exists( 'astra_get_option' ) && function_exists( 'astra_update_option' ) ) {
+	$credit = (string) astra_get_option( 'footer-copyright-editor' );
+	if ( false !== strpos( $credit, '[theme_author]' ) ) {
+		astra_update_option( 'footer-copyright-editor', '© [current_year] [site_title]' );
+	}
+	$footer_layout = astra_get_option( 'footer-desktop-items' );
+	if ( is_array( $footer_layout ) && isset( $footer_layout['above']['above_1'] ) && is_array( $footer_layout['above']['above_1'] ) && ! in_array( 'menu', $footer_layout['above']['above_1'], true ) ) {
+		$footer_layout['above']['above_1'][] = 'menu';
+		astra_update_option( 'footer-desktop-items', $footer_layout );
+	}
+}
 
 flush_rewrite_rules( false );
 if ( has_action( 'litespeed_purge_all' ) ) { do_action( 'litespeed_purge_all' ); }

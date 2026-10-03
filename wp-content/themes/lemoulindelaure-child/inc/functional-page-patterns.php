@@ -27,7 +27,7 @@ add_action( 'init', function () {
 	register_block_pattern( 'lmdl/faq-answer-entry', array( 'title' => 'LMdL — Réponse FAQ (brouillon)', 'description' => 'Renseigner question et réponse, puis retirer la classe de masquage après approbation.', 'categories' => array( 'lmdl' ), 'content' => $answer ) );
 
 	$contact = lmdl_v1_section( 'lmdl-functional-hero lmdl-contact-hero', lmdl_v1_heading( 'Contact', 1 )
-		. lmdl_v1_p( 'Une question à poser à Laure ? Cette page réunit le formulaire de contact et l’accès à la réservation au fur et à mesure de leur ouverture.', 'lmdl-functional-lead' ) );
+		. lmdl_v1_p( 'Une question à poser à Laure ? Le formulaire de contact ouvrira après confirmation de son destinataire.', 'lmdl-functional-lead' ) );
 	$contact .= lmdl_v1_section( 'lmdl-contact-body', lmdl_v1_group( 'lmdl-functional-split',
 		lmdl_v1_group( 'lmdl-prose', lmdl_v1_heading( 'Écrire à Laure' )
 			. lmdl_v1_p( 'Votre nom, votre adresse email et votre message suffisent pour prendre contact.' )
@@ -35,7 +35,7 @@ add_action( 'init', function () {
 		lmdl_functional_shortcode_block( '[lmdl_contact_form]', 'lmdl-contact-form' ) ) );
 	$contact .= lmdl_v1_section( 'lmdl-functional-close lmdl-contact-close', lmdl_v1_group( 'lmdl-functional-split',
 		lmdl_v1_heading( 'Vous souhaitez réserver ?' ) .
-		lmdl_v1_group( 'lmdl-prose', lmdl_v1_p( 'La page de réservation vous permet de choisir un accompagnement et de consulter les disponibilités configurées.' )
+		lmdl_v1_group( 'lmdl-prose', lmdl_v1_p( 'Découvrez les accompagnements. Les créneaux seront affichés lorsque leurs modalités seront confirmées.' )
 			. lmdl_v1_link( 'Prendre rendez-vous', '/prendre-rendez-vous/', 'lmdl-button' ) ) ) );
 	register_block_pattern( 'lmdl/contact-v1', array( 'title' => 'LMdL — Contact V1', 'description' => 'Contact éditable avec Forminator configuré par option de site.', 'categories' => array( 'lmdl' ), 'content' => $contact ) );
 
@@ -56,7 +56,7 @@ add_action( 'init', function () {
 	$booking .= lmdl_v1_section( 'lmdl-booking-paths', lmdl_v1_heading( 'Les quatre accompagnements' )
 		. lmdl_v1_group( 'lmdl-booking-services', $list ) );
 	$booking .= lmdl_v1_section( 'lmdl-booking-main', lmdl_v1_heading( 'Choisir un créneau' )
-		. lmdl_v1_p( 'Les disponibilités et les informations de réservation sont présentées dans le module ci-dessous.' )
+		. lmdl_v1_p( 'Les créneaux et les informations de réservation apparaîtront ici après leur confirmation.' )
 		. lmdl_functional_shortcode_block( '[lmdl_booking]', 'lmdl-booking-shell' )
 		. lmdl_v1_p( 'Éditeur : les durées, tarifs, horaires, formats et règles d’annulation restent à confirmer avec Laure. Configurer Timetics avant publication ; ne pas reprendre les données TEST LOCAL.', 'lmdl-pattern-placeholder' ) );
 	$booking .= lmdl_v1_section( 'lmdl-functional-close', lmdl_v1_group( 'lmdl-functional-split',
