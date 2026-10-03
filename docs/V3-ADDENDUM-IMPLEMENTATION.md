@@ -46,6 +46,8 @@ The last palette audit found that Astra slot 3 and `theme.json` still carried le
 
 The original V3 extension switched to the compact menu through 1320 px despite sufficient room for the six links and booking CTA. The header now uses intrinsic logo/CTA columns and a flexible center column, with tighter editorial spacing. Desktop navigation and CTA stay visible from 1024 px; below that, the compact menu takes over. A local rendered check at 1024, 1200, 1280, 1366, 1440 and 1600 px found the nav and CTA in the same 88–93 px header row with no horizontal overflow. The 1024 px screenshot was inspected; all six links and the CTA remain legible on one line. Keyboard focus reveals all four submenu links; the CTA retains a single underline.
 
+Fresh backup `pre-37141470900` and theme-only deployment run `37141539393` passed, including noindex guard and LiteSpeed purge. The public 1024 px screenshot was reopened after paint and confirms the six links plus CTA on one line; live geometry also passed at 1200/1280/1366/1440/1600 px. The keyboard submenu exposes all four links. No plugin configuration or DB content mutation was part of this header deployment.
+
 ## Deployment sequence and gate
 
 1. Push this branch, run `preview-audit-backup.yml` and retain its `BACKUP_READY` ID. The backup stays in the SSH account's private directory outside the web root; it contains a compressed DB export and child theme archive. The workflow no longer copies `wp-config.php`.

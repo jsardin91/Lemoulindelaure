@@ -74,3 +74,5 @@ Implemented first-person copy, asset-caption cleanup, complete V3 header, editor
 Live preview deployed with backup `pre-37127265874`; final source/configuration run `37128150718` passed. The public domain retained `noindex, follow`. Live QA covered 48 route/width views, working internal links, French Forminator validation and the exact official Astra palette. Timetics' four native preview entries remain visible with their unusable booking controls hidden until real availability and staff details are confirmed. The handoff and implementation report record the remaining content gates.
 
 Follow-up: the complete desktop header now shares one row with the booking CTA from 1024 px. Local geometry and a 1024 px screenshot were checked before publication; the compact menu remains below that width.
+
+Published after backup `pre-37141470900` via theme run `37141539393`. Live 1024 px capture and desktop geometry confirm the complete menu and CTA in one line; focus opens the four service links.
