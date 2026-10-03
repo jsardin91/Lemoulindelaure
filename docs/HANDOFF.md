@@ -4,7 +4,7 @@ Last updated: 2026-10-03
 
 ## New brand asset: closed Butterfly door and reusable opening interaction
 
-On 2026-10-03 the missing Air/Papillon closed door was generated to match the existing series and the client's butterfly painting. The four closed doors now have a reusable `[lmdl_portal]` component that reveals their corresponding paintings on interaction, while preserving ordinary HTML links and reduced-motion behavior. `docs/DOOR-PORTAL-COMPONENT.md` maps the four universes and shows usage. The existing V1 hub content is not rewritten by adding the component; theme deployment is a separate manual action.
+On 2026-10-03 the missing Air/Papillon door and reusable four-universe `[lmdl_portal]` interaction were added to `main` at `46ec2d41f5fb59b561999c6121cc3d80a4ab6c39`. The preview theme was deployed with the verified private snapshot `pre-37113063801` in [run 37121637554](https://github.com/jsardin91/Lemoulindelaure/actions/runs/37121637554), which PHP-linted the full child theme and verified activation. The public Butterfly asset loads at 512 × 768. The approved V1 hub still uses the four paintings and was not rewritten; the new component is available for future placement. `docs/DOOR-PORTAL-COMPONENT.md` records mapping, usage and motion/accessibility behavior. Theme deployment remains manual after this release.
 
 ## Current state: V1 public preview on the main domain
 
