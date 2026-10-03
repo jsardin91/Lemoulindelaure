@@ -4,7 +4,7 @@ Last updated: 2026-10-03
 
 ## V3 Butterfly door integration — current follow-up
 
-The newly added `door-butterfly-master.png` and `door-butterfly.webp` from `origin/main` were visually compared with Forest, Phoenix and Ocean. The new export has an opaque dark surround, so the V3 theme keeps it unchanged and generates a transparent cutout using the Ocean door's matching alpha silhouette. Homepage, hub and Air now use this Butterfly threshold in place of the temporary CSS-only frame; Passage remains the common open transition. Local 390/1440 visual review and full responsive/a11y regression are recorded in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md). The V3 original milestone below remains historical context.
+The newly added `door-butterfly-master.png` and `door-butterfly.webp` from `origin/main` were visually compared with Forest, Phoenix and Ocean. The new export has an opaque dark surround, so the V3 theme keeps it unchanged and generates a transparent cutout using the Ocean door's matching alpha silhouette. Homepage, hub and Air now use this Butterfly threshold in place of the temporary CSS-only frame; Passage remains the common open transition. Source `0dc1e64` is deployed to the noindex preview after private backup `pre-37122618592`; run 37122668164 succeeded and purged LiteSpeed. Live review passed 48 responsive views and no-JS/keyboard checks. Details are in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md). The V3 original milestone below remains historical context.
 
 ## V3 editorial portals — current milestone
 
