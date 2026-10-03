@@ -99,6 +99,9 @@ jobs:
           wp --path="$root" theme activate lemoulindelaure-child --quiet
           test "$(wp --path="$root" option get stylesheet)" = 'lemoulindelaure-child'
           wp --path="$root" core is-installed --quiet
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
+          wp --path="$root" eval 'do_action("litespeed_purge_all");' >/dev/null
+          printf 'CACHE_PURGED=yes\nPREVIEW_NOINDEX=1\n'
           printf 'THEME_DEPLOYED_SHA=%s\n' "$source_sha"
           printf 'BACKUP_ID=%s\n' "$backup_id"
           REMOTE
