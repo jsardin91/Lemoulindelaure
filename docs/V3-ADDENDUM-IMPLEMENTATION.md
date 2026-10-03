@@ -28,7 +28,7 @@ The local run produced Forminator ID 275 and Timetics IDs 276–279. These are d
 
 1. Push this branch, run `preview-audit-backup.yml` and retain its `BACKUP_READY` ID. The backup stays in the SSH account's private directory outside the web root; it contains a compressed DB export and child theme archive. The workflow no longer copies `wp-config.php`.
 2. Run `preview-deploy-theme.yml` with that backup ID. It verifies the backup, PHP syntax and noindex guard, and rolls back the theme on failure.
-3. Run `preview-configure-v3.yml` with the same backup ID. It verifies the snapshot and guard before running the idempotent plugin/Astra script, then purges LiteSpeed.
+3. Run the same workflow with `configure_v3=true` and the same backup ID. Its guarded optional step verifies the snapshot and noindex before running the idempotent plugin/Astra script, then purges LiteSpeed. GitHub cannot dispatch a newly created standalone workflow until that workflow exists on the default branch, so configuration is attached to the already registered deploy workflow.
 4. Repeat visual, plugin, color and noindex checks on the public domain. Do not infer success from local QA.
 
 The automatic approval reviewer initially rejected the existing backup workflow because it copied the sensitive `wp-config.php` into a private remote backup. That copy was removed. If it still rejects the revised backup, do not deploy or mutate the live DB; seek explicit approval for that action.
