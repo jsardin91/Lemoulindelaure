@@ -2,6 +2,12 @@
 
 Last updated: 2026-10-03
 
+## V2 painted editorial experience — current milestone
+
+The owner rejected V1 art direction and authorized a complete visual redesign, retaining the approved brand foundations. Three 1440/390 static directions were compared; the selected “painted book to move through” combines the collage opening, art-book typography and four distinct narrative chapters. Homepage, hub and the four service views now use art-directed child-theme compositions. A custom header/footer and V2 editorial rules extend to Jardin, About, Journal, FAQ, Contact, Booking and native articles. There are no equal service cards, stock images, fake articles, prices or credentials. The full critique, 21st previews, choices and two polish rounds are in [ART-DIRECTION-V2.md](ART-DIRECTION-V2.md).
+
+The V2 child theme is live on the public **noindex preview** at `https://lemoulindelaure.fr/`. A private pre-V2 rollback snapshot `pre-37115809404` was verified; the final theme deployment run 37115998942 purged LiteSpeed after preserving `lmdl_preview_noindex=1`. Live QA covered 48 responsive views and all 12 routes with `noindex, follow`, no overflow, broken images or console errors; mobile menu, first Tab, reduced motion and service links pass. Lab LCP/CLS values and limitations are recorded in [V2-PREVIEW-DEPLOYMENT-REPORT.md](V2-PREVIEW-DEPLOYMENT-REPORT.md). Earlier V1 sections below are historical.
+
 ## Public preview V1 — current milestone
 
 The owner authorized the main-domain preview on 2026-10-03. The Homepage, hub, four service pages, Jardin, About, Journal, FAQ, Contact and Booking now use the reviewed Gutenberg patterns on `https://lemoulindelaure.fr`; the child theme is active and Astra still renders header, menus and footer. All twelve pages are temporarily noindex. The live first pass found stale LiteSpeed HTML and 403 theme assets; explicit purge and 755/644 extraction permissions fixed both. The second pass found generic Astra footer credit, premature Contact/Booking language and stored HTTP artwork URLs; the native Astra footer/menu, page patterns and HTTPS serialization were corrected. All twelve paths now return 200/noindex.

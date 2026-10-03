@@ -2,6 +2,14 @@
 
 Last updated: 2026-10-03
 
+## Current state: V2 art direction on the public noindex preview
+
+The owner rejected the V1 visual composition and authorized an art-directed V2. Work is on `redesign/art-direction-v2`; the tested child theme is deployed at `https://lemoulindelaure.fr/` from source `9743558`. The four original paintings now form the hero and four full-width narrative chapters; a custom header/footer removes Astra's generic appearance without altering its parent. All 12 routes remain HTTP 200 with `noindex, follow`, and the physical `robots.txt` allows crawling of those tags. **Do not remove noindex yet.** The pre-V2 private rollback snapshot is `pre-37115809404` (backup run 37115809404); the final theme deployment and cache purge is run 37115998942. Full QA and rollback are in [V2-PREVIEW-DEPLOYMENT-REPORT.md](V2-PREVIEW-DEPLOYMENT-REPORT.md); design decisions are in [ART-DIRECTION-V2.md](ART-DIRECTION-V2.md).
+
+The homepage, hub and four service compositions are loaded from versioned HTML in `wp-content/themes/lemoulindelaure-child/assets/v2/` by `inc/v2.php`, through the existing assigned page-template path. Other page content remains in Gutenberg, with a V2 header/footer and editorial style; native articles use the same shell. Editing old Gutenberg blocks on the six art-directed pages will **not** change their visible V2 text. Edit the versioned HTML/variant data and redeploy the child theme for those pages, or later add deliberate CMS fields without weakening the design. No production DB page content was changed by V2. The exact next step is to collect the client-approved content and configure Forminator, Timetics, consent and SEO, then repeat route, visual, a11y and performance checks before any indexation decision.
+
+The V1 sections below are historical and describe the state before the V2 owner decision.
+
 ## Current state: V1 public preview on the main domain
 
 The owner explicitly authorized a public, temporarily noindex preview on the main PlanetHoster WordPress domain on 2026-10-03. The twelve V1 pages, static Homepage, Astra navigation/footer and child-theme design are live at `https://lemoulindelaure.fr`. The default WordPress sample page/post were drafted after fingerprint checks. `blog_public=1` keeps `robots.txt` crawlable; the child-theme preview option makes all twelve tested pages emit `noindex, follow`. Contact and Timetics are intentionally unavailable pending verified client configuration. No TEST LOCAL fixtures or private client data were imported. The active code and full execution/rollback/QA evidence are in [PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md](PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md).

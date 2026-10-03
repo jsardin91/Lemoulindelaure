@@ -1,6 +1,6 @@
 # Direction artistique V2 — Le Moulin de Laure
 
-État : intégration locale vérifiée le 2026-10-03. Branche `redesign/art-direction-v2`. Cette décision remplace la composition V1, pas les fondations de marque approuvées.
+État : intégration locale et préversion publique vérifiées le 2026-10-03. Branche `redesign/art-direction-v2`. Cette décision remplace la composition V1, pas les fondations de marque approuvées. Déploiement et QA live : `V2-PREVIEW-DEPLOYMENT-REPORT.md`.
 
 ## Audit sévère de la V1 publique
 
@@ -26,7 +26,7 @@ Les prototypes statiques se trouvent dans `design/prototypes/v2/` ; `scripts/rev
 | --- | --- | --- |
 | A, `galerie.html` | Couverture de livre d'art, grande œuvre, blanc intentionnel | Trop statique pour exprimer les quatre univers et le passage |
 | B, `passages.html` | Quatre chapitres lisibles, changements de rythme | Quatre compositions moitié texte/moitié image trop répétitives ; aplats trop littéraux |
-| C, `collage.html` | Ouverture vivante et très reconnaissable grâce aux fragments des tableaux | Première exploration trop fragmentée, chapitres incomplets, un débordement desktop dans l'esquisse |
+| C, `collage.html` | Ouverture vivante et très reconnaissable grâce aux fragments des tableaux | Une fois les quatre œuvres présentes, les bandes successives restaient trop proches les unes des autres |
 
 Direction retenue : **le livre peint à traverser**. Elle unit l'ouverture libre de C, l'échelle éditoriale de A et la narration en chapitres de B, sans conserver la porte comme vignette de service. Le fichier `door-passage.webp` reste une ponctuation possible, non une quatrième porte Air inventée.
 
