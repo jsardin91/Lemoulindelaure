@@ -1,0 +1,64 @@
+name: Configure V3 preview plugins and Astra
+
+on:
+  workflow_dispatch:
+    inputs:
+      backup_id:
+        description: Verified private rollback snapshot ID
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload guarded configuration script
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" scripts/configure-preview-v3.php \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-configure-v3-${GITHUB_RUN_ID}.php"
+      - name: Verify backup and configure preview
+        shell: bash
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: |
+          set -euo pipefail
+          case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID'" <<'REMOTE'
+          set -euo pipefail
+          run_id="$1"
+          backup_id="$2"
+          script="$HOME/.lmdl-configure-v3-$run_id.php"
+          trap 'rm -f "$script"' EXIT
+          test -f "$script"
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          if [ "${#configs[@]}" -ne 1 ]; then printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'; exit 1; fi
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          backup_dir="$(realpath "$HOME")/.lmdl-preview-backups/$backup_id"
+          test -f "$backup_dir/wordpress.sql.gz" && test -f "$backup_dir/lemoulindelaure-child.tgz"
+          test -f "$backup_dir/SHA256SUMS" && test -f "$backup_dir/manifest.txt"
+          grep -Fxq "backup_id=$backup_id" "$backup_dir/manifest.txt"
+          ( cd "$backup_dir" && sha256sum -c SHA256SUMS >/dev/null )
+          test "$(wp --path="$root" option get stylesheet)" = 'lemoulindelaure-child'
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
+          php -l "$script" >/dev/null
+          wp --path="$root" eval-file "$script"
+          test "$(wp --path="$root" option get lmdl_timetics_booking_mode)" = 'list'
+          test "$(wp --path="$root" option get lmdl_forminator_contact_id)" -gt 0
+          wp --path="$root" eval 'do_action("litespeed_purge_all");' >/dev/null
+          printf 'PREVIEW_NOINDEX=1\nCACHE_PURGED=yes\n'
+          REMOTE

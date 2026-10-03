@@ -12,6 +12,9 @@ function lmdl_v3_kind() {
   if ( is_page( 'a-propos' ) ) { return 'about'; }
   if ( is_page( 'le-jardin' ) ) { return 'garden'; }
   if ( is_page( 'journal' ) ) { return 'journal'; }
+  if ( is_page( 'faq' ) ) { return 'faq'; }
+  if ( is_page( 'contact' ) ) { return 'contact'; }
+  if ( is_page( 'prendre-rendez-vous' ) ) { return 'booking'; }
   return '';
 }
 
@@ -38,6 +41,7 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
     'logo/signature-transparent.png' => array( 1120, 179 ),
     'logo/devise-transparent.png' => array( 820, 150 ),
     'logo/logo-complet-creme.webp' => array( 1170, 1050 ),
+    'logo/logo-complet-transparent.png' => array( 1170, 1050 ),
   );
   $size = $dimensions[ $path ] ?? array( 1, 1 );
   return '<img class="' . esc_attr( $classes ) . '" src="' . esc_url( lmdl_v3_asset( $path ) ) . '" width="' . (int) $size[0] . '" height="' . (int) $size[1] . '" alt="' . esc_attr( $alt ) . '" loading="' . ( $eager ? 'eager' : 'lazy' ) . '" decoding="async"' . ( $priority ? ' fetchpriority="high"' : '' ) . '>';

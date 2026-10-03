@@ -244,6 +244,7 @@ add_action( 'wp_enqueue_scripts', function () {
 add_action( 'wp_enqueue_scripts', function () {
   if ( is_page_template( 'templates/lmdl-page-v1.php' ) || is_singular( 'post' ) ) {
     lmdl_enqueue_css( 'lmdl-v3', 'assets/v3/v3.css', array( 'lmdl-components' ) );
+    lmdl_enqueue_css( 'lmdl-v3-extension', 'assets/v3/v3-extension.css', array( 'lmdl-v3' ) );
     if ( lmdl_v3_kind() ) {
       $path = get_stylesheet_directory() . '/assets/v3/v3.js';
       wp_enqueue_script( 'lmdl-v3-portals', get_stylesheet_directory_uri() . '/assets/v3/v3.js', array(), (string) filemtime( $path ), true );

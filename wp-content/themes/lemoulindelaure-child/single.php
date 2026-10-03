@@ -37,10 +37,10 @@ get_header( 'v3' );
 		</header>
 		<?php if ( has_post_thumbnail() ) : ?>
 			<figure class="lmdl-article__cover">
-				<?php the_post_thumbnail( 'large', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
+				<?php the_post_thumbnail( 'large', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'alt' => get_the_title() ) ); ?>
 				<?php
 				$caption = get_the_post_thumbnail_caption();
-				if ( $caption ) { echo '<figcaption>' . esc_html( $caption ) . '</figcaption>'; }
+				if ( $caption && ! preg_match( '/peinture|peint(?:e)? par Laure|œuvre originale/iu', $caption ) ) { echo '<figcaption>' . esc_html( $caption ) . '</figcaption>'; }
 				?>
 			</figure>
 		<?php endif; ?>

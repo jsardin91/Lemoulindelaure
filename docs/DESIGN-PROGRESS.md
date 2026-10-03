@@ -67,3 +67,6 @@ Real WordPress: 104/104 Homepage and 67/67 hub blocks valid; two paragraph edit/
 ## Remaining before publication
 
 Client review/fact check of all provisional text; exact Laila credential wording; service logistics/pricing; real FAQ and Journal content; configured Timetics, Forminator, Complianz and Rank Math metadata; staging verification with real plugin content and production-like caching. No production deploy, GitHub Action or live DB change was made.
+# 2026-10-03 — V3 addendum
+
+Implemented first-person copy, asset-caption cleanup, complete V3 header, editorial footer, V3 Contact/Booking partials and scoped plugin styling. Added guarded local preview configuration for Forminator, Timetics and Astra palette. Second local responsive pass corrected Contact overflow at 375 px; 48 route/width checks passed. See `docs/V3-ADDENDUM-IMPLEMENTATION.md` for tests, deployment gate and remaining live QA.

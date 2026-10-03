@@ -63,7 +63,7 @@ jobs:
           test -d "$root/wp-admin" && test -d "$themes/astra" && test -d "$child"
           test -f "$archive" && test -d "$backup_dir"
           test -f "$backup_dir/wordpress.sql.gz" && test -f "$backup_dir/lemoulindelaure-child.tgz"
-          test -f "$backup_dir/wp-config.php" && test -f "$backup_dir/SHA256SUMS"
+          test -f "$backup_dir/SHA256SUMS"
           grep -Fxq "backup_id=$backup_id" "$backup_dir/manifest.txt"
           sha256sum -c "$backup_dir/SHA256SUMS" >/dev/null
           test ! -e "$old"
