@@ -74,6 +74,12 @@ jobs:
           printf 'FRONT_PAGE_ID=%s\n' "$(wp --path="$root" option get page_on_front)"
           printf 'PERMALINK=%s\n' "$(wp --path="$root" option get permalink_structure)"
           printf 'BLOG_PUBLIC=%s\n' "$(wp --path="$root" option get blog_public)"
+          if [ -f "$root/robots.txt" ]; then
+            printf 'PHYSICAL_ROBOTS_TXT=yes\n'
+            cat "$root/robots.txt"
+          else
+            printf 'PHYSICAL_ROBOTS_TXT=no\n'
+          fi
           printf 'PLUGINS_BEGIN\n'
           wp --path="$root" plugin list --fields=name,status,version --format=csv
           printf 'PLUGINS_END\n'
