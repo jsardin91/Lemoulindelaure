@@ -27,7 +27,7 @@ add_action( 'init', function () {
 	register_block_pattern( 'lmdl/faq-answer-entry', array( 'title' => 'LMdL — Réponse FAQ (brouillon)', 'description' => 'Renseigner question et réponse, puis retirer la classe de masquage après approbation.', 'categories' => array( 'lmdl' ), 'content' => $answer ) );
 
 	$contact = lmdl_v1_section( 'lmdl-functional-hero lmdl-contact-hero', lmdl_v1_heading( 'Contact', 1 )
-		. lmdl_v1_p( 'Une question à poser à Laure ? Écrivez-lui avec le formulaire. Pour choisir un créneau, rendez-vous sur la page de réservation.', 'lmdl-functional-lead' ) );
+		. lmdl_v1_p( 'Une question à poser à Laure ? Cette page réunit le formulaire de contact et l’accès à la réservation au fur et à mesure de leur ouverture.', 'lmdl-functional-lead' ) );
 	$contact .= lmdl_v1_section( 'lmdl-contact-body', lmdl_v1_group( 'lmdl-functional-split',
 		lmdl_v1_group( 'lmdl-prose', lmdl_v1_heading( 'Écrire à Laure' )
 			. lmdl_v1_p( 'Votre nom, votre adresse email et votre message suffisent pour prendre contact.' )
@@ -40,7 +40,7 @@ add_action( 'init', function () {
 	register_block_pattern( 'lmdl/contact-v1', array( 'title' => 'LMdL — Contact V1', 'description' => 'Contact éditable avec Forminator configuré par option de site.', 'categories' => array( 'lmdl' ), 'content' => $contact ) );
 
 	$booking = lmdl_v1_section( 'lmdl-functional-hero lmdl-booking-hero', lmdl_v1_heading( 'Prendre rendez-vous', 1 )
-		. lmdl_v1_p( 'Choisissez l’accompagnement qui vous correspond, puis consultez les créneaux disponibles.', 'lmdl-functional-lead' ) );
+		. lmdl_v1_p( 'Découvrez les quatre accompagnements. Les créneaux apparaîtront ici dès que leurs modalités seront confirmées.', 'lmdl-functional-lead' ) );
 	$paths = array(
 		array( 'Écureuil · Terre', 'Communication animale', '/accompagnements/communication-animale/' ),
 		array( 'Phénix · Feu', 'Accompagnement énergétique animalier', '/accompagnements/accompagnement-energetique-animalier/' ),
