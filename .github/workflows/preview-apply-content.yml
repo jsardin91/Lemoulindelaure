@@ -100,6 +100,8 @@ jobs:
           test "$(wp --path="$root" option get blog_public)" = '0'
           test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
           test "$(wp --path="$root" option get show_on_front)" = 'page'
+          wp --path="$root" eval 'do_action("litespeed_purge_all");' >/dev/null
+          printf 'LITESPEED_PURGED\n'
           printf 'CONTENT_APPLIED_SHA=%s\n' "$source_sha"
           printf 'BACKUP_ID=%s\n' "$backup_id"
           REMOTE
