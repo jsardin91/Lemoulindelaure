@@ -91,6 +91,8 @@ jobs:
           test -f "$staging/lemoulindelaure-child/style.css"
           test -f "$staging/lemoulindelaure-child/inc/functional-page-patterns.php"
           find "$staging/lemoulindelaure-child" -type f -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null
+          find "$staging/lemoulindelaure-child" -type d -exec chmod 755 {} +
+          find "$staging/lemoulindelaure-child" -type f -exec chmod 644 {} +
           mv "$child" "$old"
           swapped=1
           mv "$staging/lemoulindelaure-child" "$child"
