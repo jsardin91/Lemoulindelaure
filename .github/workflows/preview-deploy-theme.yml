@@ -1,0 +1,102 @@
+name: Deploy preview child theme
+
+on:
+  workflow_dispatch:
+    inputs:
+      backup_id:
+        description: Verified private rollback snapshot ID
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure SSH and package child theme
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          tar -C wp-content/themes -czf "$RUNNER_TEMP/lemoulindelaure-child.tgz" lemoulindelaure-child
+
+      - name: Upload verified source archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" \
+            "$RUNNER_TEMP/lemoulindelaure-child.tgz" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-child-${GITHUB_RUN_ID}.tgz"
+
+      - name: Install and verify with automatic theme rollback
+        shell: bash
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: |
+          set -euo pipefail
+          case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID' '${GITHUB_SHA}'" <<'REMOTE'
+          set -euo pipefail
+          umask 077
+          run_id="$1"
+          backup_id="$2"
+          source_sha="$3"
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          if [ "${#configs[@]}" -ne 1 ]; then printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'; exit 1; fi
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          themes="$root/wp-content/themes"
+          child="$themes/lemoulindelaure-child"
+          old="$themes/.lmdl-preinstall-$run_id"
+          archive="$HOME/.lmdl-child-$run_id.tgz"
+          backup_dir="$(realpath "$HOME")/.lmdl-preview-backups/$backup_id"
+          test -d "$root/wp-admin" && test -d "$themes/astra" && test -d "$child"
+          test -f "$archive" && test -d "$backup_dir"
+          test -f "$backup_dir/wordpress.sql.gz" && test -f "$backup_dir/lemoulindelaure-child.tgz"
+          test -f "$backup_dir/wp-config.php" && test -f "$backup_dir/SHA256SUMS"
+          grep -Fxq "backup_id=$backup_id" "$backup_dir/manifest.txt"
+          sha256sum -c "$backup_dir/SHA256SUMS" >/dev/null
+          test ! -e "$old"
+          wp --path="$root" core is-installed --quiet
+          previous_theme="$(wp --path="$root" option get stylesheet)"
+          staging="$(mktemp -d "$themes/.lmdl-stage.XXXXXX")"
+          swapped=0
+          finish() {
+            status=$?
+            trap - EXIT
+            if [ "$status" -ne 0 ] && [ "$swapped" -eq 1 ]; then
+              rm -rf "$child"
+              mv "$old" "$child"
+              if [ "$previous_theme" != 'lemoulindelaure-child' ]; then
+                wp --path="$root" theme activate "$previous_theme" >/dev/null 2>&1 || true
+              fi
+              printf 'THEME_ROLLED_BACK\n'
+            fi
+            rm -f "$archive"
+            rm -rf "$staging"
+            exit "$status"
+          }
+          trap finish EXIT
+          tar -xzf "$archive" -C "$staging" --no-same-owner
+          test -f "$staging/lemoulindelaure-child/style.css"
+          test -f "$staging/lemoulindelaure-child/inc/functional-page-patterns.php"
+          find "$staging/lemoulindelaure-child" -type f -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null
+          mv "$child" "$old"
+          swapped=1
+          mv "$staging/lemoulindelaure-child" "$child"
+          wp --path="$root" theme activate lemoulindelaure-child --quiet
+          test "$(wp --path="$root" option get stylesheet)" = 'lemoulindelaure-child'
+          wp --path="$root" core is-installed --quiet
+          printf 'THEME_DEPLOYED_SHA=%s\n' "$source_sha"
+          printf 'BACKUP_ID=%s\n' "$backup_id"
+          REMOTE

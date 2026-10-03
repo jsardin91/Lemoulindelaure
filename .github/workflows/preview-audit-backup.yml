@@ -29,7 +29,7 @@ jobs:
             "bash -s -- '${GITHUB_RUN_ID}'" <<'REMOTE'
           set -euo pipefail
           umask 077
-          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' 2>/dev/null)"
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
           configs=()
           if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
           if [ "${#configs[@]}" -ne 1 ]; then
