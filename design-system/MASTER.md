@@ -8,6 +8,10 @@ last_reviewed: 2026-10-03
 
 > **ACTIVE.** Palette, typography and logo rules were explicitly approved by the project owner on 2026-10-02. Future agents must preserve these foundations unless a later explicit decision supersedes them.
 
+## V3 art direction override — 2026-10-03
+
+The current public visual thesis is **a painted book whose doors open into four worlds**. Terre/Feu/Eau use the three official closed doors and the corresponding animal paintings; Air uses a clearly identified digital portal, never the shared open Passage. The latter marks the transition between the manifesto and the universes. Homepage, hub and four detail chapters use distinct editorial compositions. Keep approved palette, Lora/Source Sans 3 and logos. See `../docs/ART-DIRECTION-V3.md`, `../docs/BRAND-ASSET-USAGE-V3.md` and `../docs/V3-INTERACTION-ARCHITECTURE.md`. The V2 direction below is historical.
+
 ## V2 art direction override — 2026-10-03
 
 The owner rejected the V1 composition and authorized a complete visual redesign. The approved palette, Lora/Source Sans 3 and original logo remain active. For the public site, the new thesis is **a painted book to move through**: the four original works set composition, crop, scale and chapter rhythm. See `../docs/ART-DIRECTION-V2.md` for prototypes, 21st previews, implementation and visual QA. The earlier “four equal gateways/panels” guidance below is historical V1 guidance and must not be recreated as cards or a four-column service grid. The common door motif is a passage language; there is no fourth closed Air door.

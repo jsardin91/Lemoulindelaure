@@ -2,6 +2,14 @@
 
 Last updated: 2026-10-03
 
+## Current state: V3 editorial portals
+
+Branch `redesign/editorial-portals-v3` starts at exact V2 HEAD `0bfefe4bbd0fed21592d9d61e88f5606a3fe5ec5`. The V3 thesis is a painted book with four navigable doors. `inc/v3/content.php` is the structured content layer, `inc/v3/render.php` routes the nine art-directed pages, `partials/v3/` gives each world a composition, `assets/v3/` holds CSS and optional small JS, and `header-v3.php`/`footer-v3.php` provide the site shell. `templates/lmdl-page-v1.php` remains the assigned WP page template but no longer renders old blocks for the nine art-directed pages; the database content is untouched for rollback. Contact/booking/FAQ still use their WP/plugin content. Single Journal posts retain native WordPress content. The four portals and asset provenance are in [BRAND-ASSET-USAGE-V3.md](BRAND-ASSET-USAGE-V3.md); design/interaction rationale in [ART-DIRECTION-V3.md](ART-DIRECTION-V3.md) and [V3-INTERACTION-ARCHITECTURE.md](V3-INTERACTION-ARCHITECTURE.md).
+
+Local review passed 48 responsive views plus no-JS Homepage/hub/Terre and keyboard/reduced-motion checks. Deployment, exact live QA and rollback reference are recorded in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md). **Keep the public preview `noindex, follow`; do not remove it for this milestone.** Next step after V3 visual acceptance: collect Laure's fact-checked service copy, training evidence, operational details, FAQ, Journal content and portrait; configure/verify Forminator, Timetics, consent and Rank Math before any indexation decision.
+
+The V2 section below describes the previous preview only.
+
 ## Current state: V2 art direction on the public noindex preview
 
 The owner rejected the V1 visual composition and authorized an art-directed V2. Work is on `redesign/art-direction-v2`; the tested child theme is deployed at `https://lemoulindelaure.fr/` from source `9743558`. The four original paintings now form the hero and four full-width narrative chapters; a custom header/footer removes Astra's generic appearance without altering its parent. All 12 routes remain HTTP 200 with `noindex, follow`, and the physical `robots.txt` allows crawling of those tags. **Do not remove noindex yet.** The pre-V2 private rollback snapshot is `pre-37115809404` (backup run 37115809404); the final theme deployment and cache purge is run 37115998942. Full QA and rollback are in [V2-PREVIEW-DEPLOYMENT-REPORT.md](V2-PREVIEW-DEPLOYMENT-REPORT.md); design decisions are in [ART-DIRECTION-V2.md](ART-DIRECTION-V2.md).

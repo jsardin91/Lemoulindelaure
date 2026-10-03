@@ -2,6 +2,12 @@
 
 Last updated: 2026-10-03
 
+## V3 editorial portals — current milestone
+
+The V3 child-theme frontend is implemented on `redesign/editorial-portals-v3` from the exact V2 live source. It replaces V2's repeated painted chapters with an open Passage and four navigable threshold compositions. Terre/Feu/Eau layer official doors over their paintings; Air has an explicitly digital CSS portal. Nine art-directed pages are server-rendered from structured content/partials, while functional pages retain their WordPress/plugin content. Homepage, hub, Terre and Air were first inspected at 1440/390; a composition pass corrected the lower Homepage spreads, and a second interaction pass made the doors keyboard/touch links, fixed heading levels and reduced image priority requests.
+
+Local WordPress review: 12 routes × 375/768/1024/1440, one H1 each, no horizontal overflow, broken loaded image or console error. No-JS DOM and opening screenshots pass on Homepage, hub and Terre; first Tab, native mobile menu, eight hub links and reduced motion pass. Local WP emits `noindex, nofollow, follow` due its own search setting; the live preview must be checked independently for exact `noindex, follow` after deployment. Details and evidence: [ART-DIRECTION-V3.md](ART-DIRECTION-V3.md), [V3-INTERACTION-ARCHITECTURE.md](V3-INTERACTION-ARCHITECTURE.md) and [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md). V2 and V1 milestones below are historical.
+
 ## V2 painted editorial experience — current milestone
 
 The owner rejected V1 art direction and authorized a complete visual redesign, retaining the approved brand foundations. Three 1440/390 static directions were compared; the selected “painted book to move through” combines the collage opening, art-book typography and four distinct narrative chapters. Homepage, hub and the four service views now use art-directed child-theme compositions. A custom header/footer and V2 editorial rules extend to Jardin, About, Journal, FAQ, Contact, Booking and native articles. There are no equal service cards, stock images, fake articles, prices or credentials. The full critique, 21st previews, choices and two polish rounds are in [ART-DIRECTION-V2.md](ART-DIRECTION-V2.md).

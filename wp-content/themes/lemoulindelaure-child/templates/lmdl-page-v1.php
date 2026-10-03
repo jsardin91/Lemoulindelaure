@@ -1,21 +1,22 @@
 <?php
 /**
- * Template Name: LMdL — Page éditoriale V2
+ * Template Name: LMdL — Pages éditoriales V3
  * Template Post Type: page
  *
- * Keep the existing page assignment while rendering the art-directed V2.
- * Supporting pages continue to use their source-safe Gutenberg content.
+ * Keep the existing page assignment and stored content for rollback.
+ * Art-directed pages use server-rendered V3 partials; functional pages retain
+ * their stored plugin-aware WordPress content.
  */
 
 defined( 'ABSPATH' ) || exit;
 
-get_header( 'v2' );
-if ( ! lmdl_v2_render() ) {
+get_header( 'v3' );
+if ( ! lmdl_v3_render() ) {
   while ( have_posts() ) {
     the_post();
-    echo '<main id="contenu" class="v2-content">';
+    echo '<main id="contenu" class="v3-functional">';
     the_content();
     echo '</main>';
   }
 }
-get_footer( 'v2' );
+get_footer( 'v3' );
