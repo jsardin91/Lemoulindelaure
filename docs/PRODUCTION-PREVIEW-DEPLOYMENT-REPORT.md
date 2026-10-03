@@ -6,6 +6,8 @@ La décision du propriétaire du 2026-10-03 autorise une prévisualisation publi
 
 Le thème enfant Astra est actif ; le parent n'a pas été modifié. La navigation principale et le menu de footer pointent vers les pages V1. Le footer reste rendu par Astra, avec un crédit LMdL et sans texte « Powered by Astra ». Gutenberg conserve le contenu des pages ; le PHP du thème fournit les patterns et le rendu. Les notes éditeur `lmdl-pattern-placeholder` restent dans les blocs mais sont supprimées du HTML public par `render_block`. Les images du contenu enregistré utilisent HTTPS.
 
+Patterns insérés : `lmdl/homepage-v1`, `lmdl/accompagnements-v1`, `lmdl/{earth,fire,water,air}-accompaniment-v1`, `lmdl/{le-jardin,a-propos,journal,faq,contact,booking}-v1`. Tous les contenus ont le template **LMdL — Page V1**. Le menu principal a les quatre services en sous-menu d'Accompagnements et un CTA Prendre rendez-vous ; le menu Astra du footer relie les sept sections publiques sans faux lien légal.
+
 Le Journal reste vide (aucun article fictif). Le Jardin ne contient aucun faux partenaire. FAQ ne publie aucune réponse inventée ni balisage FAQ. Contact et Prendre rendez-vous montrent un état d'attente explicite : aucun destinataire Forminator vérifié, aucun vrai service Timetics configuré. Aucun meeting `TEST LOCAL`, tarif, durée ou disponibilité fictive n'a été importé. Les options d'intégration existantes auraient bloqué le script avant écriture ; elles étaient absentes lors de l'installation.
 
 ## Audit et exécutions
@@ -31,3 +33,5 @@ Le test live ne peut pas valider l'envoi d'un formulaire ou une réservation : l
 ## Reprise exacte
 
 Recueillir les réponses dans `docs/CLIENT-CONTENT-QUESTIONS.md` : textes approuvés, justificatif de formation, FAQ, articles, profils consentis, adresse destinataire privée, détails des services, tarifs/durées/créneaux, mentions légales et consentement. Configurer Forminator et Timetics avec ces seules données réelles, puis Complianz et Rank Math. Tester envoi, réservation, notifications, anglais résiduel, SEO/canonicals/sitemap et toutes les largeurs. Après validation explicite du contenu et des parcours, retirer le noindex temporaire avec un workflow réversible et purger LiteSpeed.
+
+Pour rouvrir l'indexation après cette validation : garder `blog_public=1` et `robots.txt` avec `Allow: /`, passer seulement `lmdl_preview_noindex` à 0 via WP-CLI dans un changement auditable, purger LiteSpeed, puis vérifier les robots, canonicals, titres/meta et le sitemap sur toutes les pages. Prévoir un rollback de l'option et un snapshot préalable. Aucun workflow actuel n'effectue cette ouverture automatiquement.
