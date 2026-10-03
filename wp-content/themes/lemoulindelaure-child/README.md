@@ -21,11 +21,12 @@ The child theme currently provides:
 - Lora / Source Sans 3 local fonts;
 - default logo/site-icon fallbacks;
 - optimized client-art derivatives;
-- decorative door assets;
+- four closed decorative universe doors and one shared open passage;
+- reusable `[lmdl_portal]` opening interaction with visible HTML labels;
 - basic accessibility/focus styling;
 - a prototype `[lmdl_door]` shortcode.
 
-The final public pages have **not yet been implemented**.
+The V1 public preview pages are now implemented; the door interaction is a reusable component and is not inserted into the published hub automatically.
 
 ## Assets
 
@@ -57,10 +58,11 @@ For major content imagery, the implementation plan recommends importing optimize
 
 - `assets/doors/door-forest.webp`
 - `assets/doors/door-ocean.webp`
-- `assets/doors/door-passage.webp`
 - `assets/doors/door-phoenix.webp`
+- `assets/doors/door-butterfly.webp`
+- `assets/doors/door-passage.webp` (shared open transition)
 
-The final service mapping must be visually verified before implementation. Do not infer every service mapping from filenames alone.
+The four closed door mappings and paintings are documented in `docs/BRAND-ASSET-MAPPING.md` and the reusable interaction in `docs/DOOR-PORTAL-COMPONENT.md`.
 
 ## Palette
 
@@ -104,7 +106,9 @@ Later client edits in Astra are preserved.
 
 ## Door shortcode
 
-Prototype usage:
+Reusable animated version: `[lmdl_portal href="/accompagnements/guidance-pour-soi/" label="Guidance pour soi" art="butterfly"]`. Supported arts: `forest`, `phoenix`, `ocean`, `butterfly`. It reveals the matching painting; keyboard, touch, reduced motion and native links are documented in `docs/DOOR-PORTAL-COMPONENT.md`.
+
+Legacy prototype usage:
 
 `[lmdl_door href="/service/" label="Nom du service" art="ocean"]`
 

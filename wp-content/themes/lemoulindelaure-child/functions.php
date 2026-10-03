@@ -28,6 +28,11 @@ if ( file_exists( $functional_patterns_file ) ) {
 	require_once $functional_patterns_file;
 }
 
+$door_portals_file = get_stylesheet_directory() . '/inc/door-portals.php';
+if ( file_exists( $door_portals_file ) ) {
+	require_once $door_portals_file;
+}
+
 /** Site-local plugin IDs stay in WordPress options, never in the public patterns. */
 add_shortcode( 'lmdl_contact_form', function () {
 	$id = absint( get_option( 'lmdl_forminator_contact_id', 0 ) );
@@ -211,6 +216,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	);
 
 	lmdl_enqueue_css( 'lmdl-components', 'assets/css/components.css', array( 'lemoulindelaure-child' ) );
+	lmdl_enqueue_css( 'lmdl-door-portals', 'assets/css/door-portals.css', array( 'lmdl-components' ) );
 
 	if ( is_front_page() ) {
 		lmdl_enqueue_css( 'lmdl-home', 'assets/css/pages/home.css', array( 'lmdl-components' ) );
@@ -318,7 +324,7 @@ add_filter( 'render_block', function ( $html, $block ) {
  * Legacy prototype shortcode.
  *
  * Usage: [lmdl_door href="/service/" label="Nom du service" art="ocean"]
- * Available art: ocean, forest, phoenix, passage.
+ * Available art: ocean, forest, phoenix, butterfly, passage.
  *
  * This remains useful for a simple decorative link but is not the planned
  * production implementation for the coordinated four-universe hub.
@@ -326,7 +332,7 @@ add_filter( 'render_block', function ( $html, $block ) {
 add_shortcode( 'lmdl_door', function ( $atts ) {
 	$atts = shortcode_atts( array( 'href' => '', 'label' => '', 'art' => 'passage' ), $atts, 'lmdl_door' );
 	$art  = sanitize_key( $atts['art'] );
-	$arts = array( 'ocean', 'forest', 'phoenix', 'passage' );
+	$arts = array( 'ocean', 'forest', 'phoenix', 'butterfly', 'passage' );
 	if ( ! in_array( $art, $arts, true ) || '' === trim( $atts['href'] ) || '' === trim( $atts['label'] ) ) {
 		return '';
 	}

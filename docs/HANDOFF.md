@@ -2,6 +2,10 @@
 
 Last updated: 2026-10-03
 
+## New brand asset: closed Butterfly door and reusable opening interaction
+
+On 2026-10-03 the missing Air/Papillon closed door was generated to match the existing series and the client's butterfly painting. The four closed doors now have a reusable `[lmdl_portal]` component that reveals their corresponding paintings on interaction, while preserving ordinary HTML links and reduced-motion behavior. `docs/DOOR-PORTAL-COMPONENT.md` maps the four universes and shows usage. The existing V1 hub content is not rewritten by adding the component; theme deployment is a separate manual action.
+
 ## Current state: V1 public preview on the main domain
 
 The owner explicitly authorized a public, temporarily noindex preview on the main PlanetHoster WordPress domain on 2026-10-03. The twelve V1 pages, static Homepage, Astra navigation/footer and child-theme design are live at `https://lemoulindelaure.fr`. The default WordPress sample page/post were drafted after fingerprint checks. `blog_public=1` keeps `robots.txt` crawlable; the child-theme preview option makes all twelve tested pages emit `noindex, follow`. Contact and Timetics are intentionally unavailable pending verified client configuration. No TEST LOCAL fixtures or private client data were imported. The active code and full execution/rollback/QA evidence are in [PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md](PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md).

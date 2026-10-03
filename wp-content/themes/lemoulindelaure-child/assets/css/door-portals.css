@@ -1,0 +1,60 @@
+/* Reusable closed-door links. The painted door is the hinged leaf. */
+.lmdl-portal {
+  display: block;
+  color: var(--lmdl-ink);
+  text-align: center;
+  text-decoration: none;
+}
+.lmdl-portal__scene {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  isolation: isolate;
+  perspective: 1100px;
+  border: 2px solid var(--lmdl-gold, #b68631);
+  border-radius: 48% 48% 1rem 1rem / 14% 14% 1rem 1rem;
+  background: var(--lmdl-ink);
+  box-shadow: 0 12px 30px rgb(23 63 84 / .16);
+}
+.lmdl-portal__world,
+.lmdl-portal__door {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lmdl-portal__world { object-position: center; }
+.lmdl-portal__door {
+  z-index: 1;
+  transform-origin: 16% 50%;
+  backface-visibility: hidden;
+  transition: transform 650ms cubic-bezier(.22,.65,.2,1), filter 650ms ease;
+  will-change: transform;
+}
+.lmdl-portal__label {
+  display: block;
+  padding: .75rem .25rem;
+  font-family: var(--lmdl-font-heading, Georgia, serif);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: .25em;
+}
+.lmdl-portal:focus-visible { outline: 3px solid var(--lmdl-blue); outline-offset: 5px; }
+.lmdl-portal:is(:hover, :focus-visible, .is-opening) .lmdl-portal__label {
+  text-decoration-color: currentColor;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lmdl-portal:is(:hover, :focus-visible, .is-opening) .lmdl-portal__door {
+    transform: rotateY(-78deg);
+    filter: brightness(.82);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lmdl-portal__door { transition: none; will-change: auto; }
+  .lmdl-portal:is(:hover, :focus-visible) .lmdl-portal__label { text-decoration-color: currentColor; }
+}

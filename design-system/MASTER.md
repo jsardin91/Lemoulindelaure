@@ -121,7 +121,7 @@ Avoid generic stock imagery when client/original imagery can tell the story bett
 
 ## Doors / universe navigation
 
-Four door illustration files are available under `design/brand/doors/`, but visual audit confirms three closed universe doors and one shared open passage. There is no closed Air/Papillon door. See `../docs/BRAND-ASSET-MAPPING.md` before assigning door media.
+Five door illustrations are available under `design/brand/doors/`: four closed universe doors (Terre/Forêt, Feu/Phénix, Eau/Océan, Air/Papillon) and one shared open Passage. The Butterfly door was added on 2026-10-03 from the client's painting. See `../docs/BRAND-ASSET-MAPPING.md` and `../docs/DOOR-PORTAL-COMPONENT.md` before assigning door media.
 
 Use them as storytelling/navigation support, especially for the Accompagnements hub.
 

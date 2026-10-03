@@ -23,7 +23,7 @@ Business-card photographs were reviewed for context but are not versioned becaus
 
 ## Doors
 
-`doors/` contains the generated master door illustrations.
+`doors/` contains the five generated master door illustrations: four closed universe doors, including the Butterfly/Air door added on 2026-10-03, and one shared open passage.
 
 They support the “doors opening to new universes” navigation/storytelling concept.
 

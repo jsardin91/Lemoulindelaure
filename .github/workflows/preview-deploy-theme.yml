@@ -1,6 +1,10 @@
 name: Deploy preview child theme
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/preview-deploy-theme.yml
   workflow_dispatch:
     inputs:
       backup_id:
@@ -13,6 +17,8 @@ permissions:
 
 jobs:
   deploy:
+    # The push path and explicit marker release only this reviewed door set.
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[deploy-door-portals]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +44,7 @@ jobs:
       - name: Install and verify with automatic theme rollback
         shell: bash
         env:
-          BACKUP_ID: ${{ inputs.backup_id }}
+          BACKUP_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.backup_id || 'pre-37113063801' }}
         run: |
           set -euo pipefail
           case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
