@@ -271,6 +271,15 @@ add_filter( 'astra_tablet_breakpoint', function () {
 	return 1199;
 } );
 
+/** Keep editorial notes in Gutenberg while removing them from public HTML. */
+add_filter( 'render_block', function ( $html, $block ) {
+	$classes = isset( $block['attrs']['className'] ) ? (string) $block['attrs']['className'] : '';
+	if ( preg_match( '/(?:^|\s)lmdl-pattern-placeholder(?:\s|$)/', $classes ) ) {
+		return '';
+	}
+	return $html;
+}, 9, 2 );
+
 /** Keep serialized core/image blocks valid while sizing the bundled art. */
 add_filter( 'render_block', function ( $html, $block ) {
 	if ( 'core/image' !== $block['blockName'] || ! class_exists( 'WP_HTML_Tag_Processor' ) ) {
