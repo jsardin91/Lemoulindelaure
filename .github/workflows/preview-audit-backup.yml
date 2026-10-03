@@ -56,12 +56,14 @@ jobs:
           tar -C "$root/wp-content/themes" -czf "$backup_dir/lemoulindelaure-child.tgz" lemoulindelaure-child
           tar -tzf "$backup_dir/lemoulindelaure-child.tgz" >/dev/null
           cp "$root/wp-config.php" "$backup_dir/wp-config.php"
+          if [ -f "$root/robots.txt" ]; then cp "$root/robots.txt" "$backup_dir/robots.txt"; fi
           chmod 600 "$backup_dir"/*
           printf 'backup_id=%s\ncreated_utc=%s\nsite_home=%s\nprevious_theme=%s\n' \
             "$backup_id" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             "$(wp --path="$root" option get home)" \
             "$(wp --path="$root" option get stylesheet)" > "$backup_dir/manifest.txt"
           sha256sum "$backup_dir/wordpress.sql.gz" "$backup_dir/lemoulindelaure-child.tgz" "$backup_dir/wp-config.php" > "$backup_dir/SHA256SUMS"
+          if [ -f "$backup_dir/robots.txt" ]; then sha256sum "$backup_dir/robots.txt" >> "$backup_dir/SHA256SUMS"; fi
           chmod 600 "$backup_dir/manifest.txt" "$backup_dir/SHA256SUMS"
           printf 'BACKUP_READY=%s\n' "$backup_id"
 
