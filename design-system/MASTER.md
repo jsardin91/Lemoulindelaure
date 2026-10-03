@@ -1,12 +1,16 @@
 ---
 status: active
 brand: "Le Moulin de Laure"
-last_reviewed: 2026-10-02
+last_reviewed: 2026-10-03
 ---
 
 # Le Moulin de Laure — Master Design System
 
 > **ACTIVE.** Palette, typography and logo rules were explicitly approved by the project owner on 2026-10-02. Future agents must preserve these foundations unless a later explicit decision supersedes them.
+
+## V2 art direction override — 2026-10-03
+
+The owner rejected the V1 composition and authorized a complete visual redesign. The approved palette, Lora/Source Sans 3 and original logo remain active. For the public site, the new thesis is **a painted book to move through**: the four original works set composition, crop, scale and chapter rhythm. See `../docs/ART-DIRECTION-V2.md` for prototypes, 21st previews, implementation and visual QA. The earlier “four equal gateways/panels” guidance below is historical V1 guidance and must not be recreated as cards or a four-column service grid. The common door motif is a passage language; there is no fourth closed Air door.
 
 ## Brand foundations
 

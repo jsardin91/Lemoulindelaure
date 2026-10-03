@@ -7,9 +7,9 @@ if ( 'post' !== get_post_type() ) {
 	return;
 }
 
-get_header();
+get_header( 'v2' );
 ?>
-<main id="primary" class="site-main lmdl-article" aria-label="Article du Journal">
+<main id="contenu" class="site-main lmdl-article" aria-label="Article du Journal">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<article <?php post_class( 'lmdl-article__entry' ); ?>>
 		<header class="lmdl-article__header lmdl-reading">
@@ -53,4 +53,4 @@ get_header();
 	</article>
 	<?php endwhile; ?>
 </main>
-<?php get_footer(); ?>
+<?php get_footer( 'v2' ); ?>

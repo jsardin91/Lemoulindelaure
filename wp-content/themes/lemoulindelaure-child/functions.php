@@ -7,6 +7,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once get_stylesheet_directory() . '/inc/v2.php';
+
 $patterns_file = get_stylesheet_directory() . '/inc/patterns.php';
 if ( file_exists( $patterns_file ) ) {
 	require_once $patterns_file;
@@ -238,6 +240,12 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 }, 20 );
 
+add_action( 'wp_enqueue_scripts', function () {
+  if ( is_page_template( 'templates/lmdl-page-v1.php' ) || is_singular( 'post' ) ) {
+    lmdl_enqueue_css( 'lmdl-v2', 'assets/v2/v2.css', array( 'lmdl-components' ) );
+  }
+}, 30 );
+
 /** Timetics globally queues its React bundle; content without a booking embed does not need it. */
 add_action( 'wp_enqueue_scripts', function () {
 	if ( ! is_page( 'prendre-rendez-vous' ) && ( is_front_page() || is_page( 'accompagnements' ) || is_page_template( 'templates/lmdl-page-v1.php' ) || is_singular( 'post' ) ) ) {
@@ -257,6 +265,13 @@ function lmdl_is_v1_page() {
 add_filter( 'body_class', function ( $classes ) {
 	if ( lmdl_is_v1_page() ) {
 		$classes[] = 'lmdl-page-v1';
+		$kind = lmdl_v2_page_kind();
+		if ( 'selected' === $kind ) { $classes[] = 'v2-home'; }
+		if ( 'hub' === $kind ) { $classes[] = 'v2-hub'; }
+		if ( 'terre' === $kind ) {
+			$classes[] = 'v2-detail';
+			$classes[] = 'v2-detail-' . sanitize_html_class( get_post_field( 'post_name', get_queried_object_id() ) );
+		}
 	}
 	return $classes;
 } );

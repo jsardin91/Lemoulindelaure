@@ -1,12 +1,21 @@
 <?php
 /**
- * Template Name: LMdL — Page V1
+ * Template Name: LMdL — Page éditoriale V2
  * Template Post Type: page
  *
- * Use Astra's page rendering and hooks with an explicit editor-selectable
- * presentation marker. Content remains entirely in Gutenberg blocks.
+ * Keep the existing page assignment while rendering the art-directed V2.
+ * Supporting pages continue to use their source-safe Gutenberg content.
  */
 
 defined( 'ABSPATH' ) || exit;
 
-require get_template_directory() . '/page.php';
+get_header( 'v2' );
+if ( ! lmdl_v2_render() ) {
+  while ( have_posts() ) {
+    the_post();
+    echo '<main id="contenu" class="v2-content">';
+    the_content();
+    echo '</main>';
+  }
+}
+get_footer( 'v2' );

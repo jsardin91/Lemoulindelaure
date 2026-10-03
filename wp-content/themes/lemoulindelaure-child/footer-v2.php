@@ -1,0 +1,3 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
+<footer class="v2-footer"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="v2-footer-brand">Le Moulin<br><em>de Laure.</em></a><nav aria-label="Navigation de pied de page"><a href="<?php echo esc_url( home_url( '/accompagnements/' ) ); ?>">Accompagnements</a><a href="<?php echo esc_url( home_url( '/le-jardin/' ) ); ?>">Le Jardin</a><a href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Journal</a><a href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>">À propos</a><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></nav><p>Au cœur du lien, au-delà des sens.</p></footer>
+<?php wp_footer(); ?></body></html>
