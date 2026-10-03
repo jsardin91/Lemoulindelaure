@@ -1,0 +1,105 @@
+name: Apply V1 preview content
+
+on:
+  workflow_dispatch:
+    inputs:
+      backup_id:
+        description: Verified private rollback snapshot ID
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Upload versioned content installer
+        shell: bash
+        run: |
+          set -euo pipefail
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" \
+            scripts/apply-production-preview.php \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-apply-${GITHUB_RUN_ID}.php"
+
+      - name: Check theme, snapshot database and apply content
+        shell: bash
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: |
+          set -euo pipefail
+          case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          theme_function_hash="$(sha256sum wp-content/themes/lemoulindelaure-child/functions.php | cut -d ' ' -f 1)"
+          theme_pattern_hash="$(sha256sum wp-content/themes/lemoulindelaure-child/inc/functional-page-patterns.php | cut -d ' ' -f 1)"
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID' '${GITHUB_SHA}' '$theme_function_hash' '$theme_pattern_hash'" <<'REMOTE'
+          set -euo pipefail
+          umask 077
+          run_id="$1"
+          backup_id="$2"
+          source_sha="$3"
+          function_hash="$4"
+          pattern_hash="$5"
+          uploaded="$HOME/.lmdl-apply-$run_id.php"
+          trap 'rm -f "$uploaded"' EXIT
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          if [ "${#configs[@]}" -ne 1 ]; then printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'; exit 1; fi
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          backup_dir="$(realpath "$HOME")/.lmdl-preview-backups/$backup_id"
+          test -d "$root/wp-admin" && test -d "$root/wp-content/themes/astra"
+          test -f "$uploaded" && test -d "$backup_dir"
+          test -f "$backup_dir/SHA256SUMS" && test -f "$backup_dir/manifest.txt"
+          grep -Fxq "backup_id=$backup_id" "$backup_dir/manifest.txt"
+          sha256sum -c "$backup_dir/SHA256SUMS" >/dev/null
+          test "$(wp --path="$root" option get stylesheet)" = 'lemoulindelaure-child'
+          test "$(wp --path="$root" option get home)" = 'https://lemoulindelaure.fr'
+          test "$(sha256sum "$root/wp-content/themes/lemoulindelaure-child/functions.php" | cut -d ' ' -f 1)" = "$function_hash"
+          test "$(sha256sum "$root/wp-content/themes/lemoulindelaure-child/inc/functional-page-patterns.php" | cut -d ' ' -f 1)" = "$pattern_hash"
+
+          backup_parent="$(realpath "$HOME")/.lmdl-preview-backups"
+          case "$backup_parent" in "$root"|"$root"/*) printf 'BACKUP_INSIDE_WEBROOT_REFUSED\n'; exit 1;; esac
+          rollback_id="before-content-$run_id"
+          rollback_dir="$backup_parent/$rollback_id"
+          test ! -e "$rollback_dir"
+          mkdir -m 700 "$rollback_dir"
+          wp --path="$root" db export "$rollback_dir/wordpress.sql" --quiet
+          test -s "$rollback_dir/wordpress.sql"
+          gzip -n "$rollback_dir/wordpress.sql"
+          gzip -t "$rollback_dir/wordpress.sql.gz"
+          sha256sum "$rollback_dir/wordpress.sql.gz" > "$rollback_dir/SHA256SUMS"
+          chmod 600 "$rollback_dir"/*
+          printf 'CONTENT_ROLLBACK_ID=%s\n' "$rollback_id"
+
+          if ! LMDL_PREVIEW_APPLY=1 LMDL_PREVIEW_SOURCE_SHA="$source_sha" \
+            wp --path="$root" --skip-plugins eval-file "$uploaded"; then
+            gunzip -c "$rollback_dir/wordpress.sql.gz" > "$rollback_dir/restore.sql"
+            if wp --path="$root" db import "$rollback_dir/restore.sql" --quiet; then
+              rm -f "$rollback_dir/restore.sql"
+              printf 'CONTENT_DB_ROLLED_BACK\n'
+            else
+              rm -f "$rollback_dir/restore.sql"
+              printf 'CONTENT_ROLLBACK_FAILED\n'
+            fi
+            exit 1
+          fi
+          test "$(wp --path="$root" option get blog_public)" = '0'
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
+          test "$(wp --path="$root" option get show_on_front)" = 'page'
+          printf 'CONTENT_APPLIED_SHA=%s\n' "$source_sha"
+          printf 'BACKUP_ID=%s\n' "$backup_id"
+          REMOTE
