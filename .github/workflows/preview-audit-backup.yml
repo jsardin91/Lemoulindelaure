@@ -1,0 +1,89 @@
+name: Preview audit and backup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Audit and create private rollback snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}'" <<'REMOTE'
+          set -euo pipefail
+          umask 077
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          if [ "${#configs[@]}" -ne 1 ]; then
+            printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'
+            exit 1
+          fi
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          test -d "$root/wp-admin" && test -d "$root/wp-content/themes/astra"
+          test -d "$root/wp-content/themes/lemoulindelaure-child"
+          wp --path="$root" core is-installed --quiet
+
+          backup_parent="$(realpath "$HOME")/.lmdl-preview-backups"
+          case "$backup_parent" in "$root"|"$root"/*) printf 'BACKUP_INSIDE_WEBROOT_REFUSED\n'; exit 1;; esac
+          mkdir -p "$backup_parent"
+          chmod 700 "$backup_parent"
+          backup_id="pre-${1}"
+          backup_dir="$backup_parent/$backup_id"
+          test ! -e "$backup_dir"
+          mkdir -m 700 "$backup_dir"
+          wp --path="$root" db export "$backup_dir/wordpress.sql" --quiet
+          test -s "$backup_dir/wordpress.sql"
+          gzip -n "$backup_dir/wordpress.sql"
+          gzip -t "$backup_dir/wordpress.sql.gz"
+          tar -C "$root/wp-content/themes" -czf "$backup_dir/lemoulindelaure-child.tgz" lemoulindelaure-child
+          tar -tzf "$backup_dir/lemoulindelaure-child.tgz" >/dev/null
+          cp "$root/wp-config.php" "$backup_dir/wp-config.php"
+          chmod 600 "$backup_dir"/*
+          printf 'backup_id=%s\ncreated_utc=%s\nsite_home=%s\nprevious_theme=%s\n' \
+            "$backup_id" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            "$(wp --path="$root" option get home)" \
+            "$(wp --path="$root" option get stylesheet)" > "$backup_dir/manifest.txt"
+          sha256sum "$backup_dir/wordpress.sql.gz" "$backup_dir/lemoulindelaure-child.tgz" "$backup_dir/wp-config.php" > "$backup_dir/SHA256SUMS"
+          chmod 600 "$backup_dir/manifest.txt" "$backup_dir/SHA256SUMS"
+          printf 'BACKUP_READY=%s\n' "$backup_id"
+
+          printf 'HOME_URL=%s\n' "$(wp --path="$root" option get home)"
+          printf 'SITE_URL=%s\n' "$(wp --path="$root" option get siteurl)"
+          printf 'WORDPRESS_VERSION=%s\n' "$(wp --path="$root" core version)"
+          printf 'ASTRA_VERSION=%s\n' "$(wp --path="$root" theme get astra --field=version)"
+          printf 'ACTIVE_THEME=%s\n' "$(wp --path="$root" option get stylesheet)"
+          printf 'FRONT_MODE=%s\n' "$(wp --path="$root" option get show_on_front)"
+          printf 'FRONT_PAGE_ID=%s\n' "$(wp --path="$root" option get page_on_front)"
+          printf 'PERMALINK=%s\n' "$(wp --path="$root" option get permalink_structure)"
+          printf 'BLOG_PUBLIC=%s\n' "$(wp --path="$root" option get blog_public)"
+          printf 'PLUGINS_BEGIN\n'
+          wp --path="$root" plugin list --fields=name,status,version --format=csv
+          printf 'PLUGINS_END\n'
+          printf 'PUBLIC_PAGES_BEGIN\n'
+          wp --path="$root" post list --post_type=page --post_status=publish --fields=ID,post_name,post_parent,post_status --format=csv
+          printf 'PUBLIC_PAGES_END\n'
+          printf 'ALL_PAGE_COUNTS_BEGIN\n'
+          wp --path="$root" post list --post_type=page --fields=post_status --format=csv | sort | uniq -c
+          printf 'ALL_PAGE_COUNTS_END\n'
+          printf 'MENUS_BEGIN\n'
+          wp --path="$root" menu location list --format=csv
+          printf 'MENUS_END\n'
+          REMOTE
