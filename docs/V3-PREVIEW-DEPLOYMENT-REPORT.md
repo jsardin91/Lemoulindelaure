@@ -1,6 +1,6 @@
 # V3 — préversion, tests et retour arrière
 
-État du rapport : V3 déployée et contrôlée sur la préversion publique le 2026-10-03. Branche : `redesign/editorial-portals-v3`, créée du V2 live exact `0bfefe4bbd0fed21592d9d61e88f5606a3fe5ec5` puisque `origin/main` ne contenait pas V2. Source déployée : `b3460af02f5a70d2055208abf8740f0469cc45d9`.
+État du rapport : V3 déployée et contrôlée sur la préversion publique le 2026-10-03. Branche : `redesign/editorial-portals-v3`, créée du V2 live exact `0bfefe4bbd0fed21592d9d61e88f5606a3fe5ec5` puisque `origin/main` ne contenait pas V2. Source finale du thème déployé : `b9cdd6e9099c8d76cda4f55913904b16b72cee10` (avant dernier commit documentaire).
 
 ## Revue locale réelle
 
@@ -14,9 +14,9 @@ La fixture WordPress locale a `blog_public=0` et peut produire `noindex, nofollo
 
 ## Déploiement live et rollback
 
-Branche poussée avant déploiement. `preview-audit-backup.yml` run **37120600151** : succès, `BACKUP_READY=pre-37120600151`, thème actif `lemoulindelaure-child`, `BLOG_PUBLIC=1`, snapshot privé hors webroot. `preview-deploy-theme.yml` run **37120703635** sur source `b3460af` avec cet ID : succès, lint PHP distant, vérification de l'option `lmdl_preview_noindex=1`, `CACHE_PURGED=yes`, `PREVIEW_NOINDEX=1`. Le workflow a remplacé uniquement le thème enfant et n'a lancé aucun installateur de contenu ni changé la base. Astra parent est intact.
+Branche poussée avant déploiement. `preview-audit-backup.yml` run **37120600151** : succès, `BACKUP_READY=pre-37120600151`, thème actif `lemoulindelaure-child`, `BLOG_PUBLIC=1`, snapshot privé hors webroot. `preview-deploy-theme.yml` run **37120703635** sur source `b3460af` avec cet ID : succès, lint PHP distant, vérification de l'option `lmdl_preview_noindex=1`, `CACHE_PURGED=yes`, `PREVIEW_NOINDEX=1`. Pour le polish Journal, nouveau snapshot privé **`pre-37121213664`** (backup run 37121213664), puis second déploiement **37121264221** de `b9cdd6e` réussi avec les mêmes garde-fous et purge. Le workflow a remplacé uniquement le thème enfant et n'a lancé aucun installateur de contenu ni changé la base. Astra parent est intact.
 
-URL : `https://lemoulindelaure.fr/`. Le snapshot de rollback est privé, hors webroot. Restaurer le thème enfant depuis l'archive privée `pre-37120600151` selon la procédure de préversion V2, sans modifier Astra parent. Ne jamais committer le backup ni les secrets. La décision d'indexation reste hors de cette mission.
+URL : `https://lemoulindelaure.fr/`. Les snapshots de rollback sont privés, hors webroot. Pour revenir au V3 avant polish : `pre-37121213664` ; pour revenir au V2 : `pre-37120600151`. Restaurer le thème enfant selon la procédure de préversion V2, sans modifier Astra parent. Ne jamais committer les backups ni les secrets. La décision d'indexation reste hors de cette mission.
 
 ## QA du domaine après purge
 
@@ -25,6 +25,8 @@ URL : `https://lemoulindelaure.fr/`. Le snapshot de rollback est privé, hors we
 `review-v3-performance.mjs` (navigations de laboratoire avec cache chaud, sans valeur terrain) : LCP 0,352/0,104 s pour accueil 390/1440, 0,204/0,084 s pour hub et 0,100/0,088 s pour Terre ; CLS observé 0 sur ces six vues. Les métriques locales plus froides sont indiquées plus haut. Ne pas utiliser ces chiffres comme Core Web Vitals de production.
 
 Une dernière revue d'un vrai article WordPress **local** à 390/1440 (`/journal/test-local-journal-7/`) a mis en évidence un espacement de prose trop serré. Le template d'article et sa CSS V3 ont été polis ; un nouveau commit/déploiement de thème les transporte. Aucun article test n'a été déployé sur le site public.
+
+Après le second déploiement, le contrôle des 48 vues a été répété : exact `noindex, follow` sur toutes, un H1, zéro débordement, image cassée ou erreur console. Captures finales `.local-wp/review-v3-live-final/`.
 
 ## Points ouverts dépendant de Laure
 
