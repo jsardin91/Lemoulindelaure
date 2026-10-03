@@ -32,7 +32,7 @@ if ( file_exists( $functional_patterns_file ) ) {
 add_shortcode( 'lmdl_contact_form', function () {
 	$id = absint( get_option( 'lmdl_forminator_contact_id', 0 ) );
 	if ( ! $id || ! shortcode_exists( 'forminator_form' ) ) {
-		return '<p class="lmdl-functional-unavailable">Le formulaire de contact n’est pas encore configuré.</p>';
+		return '<p class="lmdl-functional-unavailable">Le formulaire de contact sera bientôt disponible. Ce site est en cours de finalisation.</p>';
 	}
 	return do_shortcode( '[forminator_form id="' . $id . '"]' );
 } );
@@ -42,7 +42,7 @@ add_shortcode( 'lmdl_booking', function () {
 	}
 	$id = absint( get_option( 'lmdl_timetics_booking_id', 0 ) );
 	if ( ! $id || ! shortcode_exists( 'timetics-booking-form' ) ) {
-		return '<p class="lmdl-functional-unavailable">La réservation en ligne n’est pas encore configurée. Vous pouvez contacter Laure pour une question.</p>';
+		return '<p class="lmdl-functional-unavailable">Les créneaux de réservation seront bientôt disponibles. Les modalités sont en cours de finalisation.</p>';
 	}
 	return do_shortcode( '[timetics-booking-form id="' . $id . '"]' );
 } );
@@ -60,7 +60,8 @@ add_filter( 'post_link', function ( $permalink, $post ) {
 
 /** Keep receipts and Timetics' duplicate meeting URLs crawlable but noindex. */
 function lmdl_is_functional_noindex() {
-	return is_page( array( 'merci', 'reservation-confirmee', 'reservation-annulee' ) )
+	return (bool) get_option( 'lmdl_preview_noindex', false )
+		|| is_page( array( 'merci', 'reservation-confirmee', 'reservation-annulee' ) )
 		|| is_singular( 'timetics-appointment' )
 		|| is_post_type_archive( 'timetics-appointment' )
 		|| is_tax( 'timetics-meeting-category' );
