@@ -1,6 +1,14 @@
 # Handoff / Project State
 
-Last updated: 2026-10-02
+Last updated: 2026-10-03
+
+## Current state: V1 public preview on the main domain
+
+The owner explicitly authorized a public, temporarily noindex preview on the main PlanetHoster WordPress domain on 2026-10-03. The twelve V1 pages, static Homepage, Astra navigation/footer and child-theme design are live at `https://lemoulindelaure.fr`. The default WordPress sample page/post were drafted after fingerprint checks. `blog_public=1` keeps `robots.txt` crawlable; the child-theme preview option makes all twelve tested pages emit `noindex, follow`. Contact and Timetics are intentionally unavailable pending verified client configuration. No TEST LOCAL fixtures or private client data were imported. The active code and full execution/rollback/QA evidence are in [PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md](PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md).
+
+Pre-V1 private backup: `pre-37110295574`; final post-V1 private backup: `pre-37113063801`. Both are on the PlanetHoster account outside webroot. Do not commit/export them. The theme and content deployment workflows in `.github/workflows/` are manual only; the content installer is `scripts/apply-production-preview.php`. Running it without `refresh_content` preserves populated pages, while the explicit refresh flag overwrites only pages marked with their LMdL pattern. The last theme deployment was run 37112230875; the final content/noindex option application was run 37112736055; the physical robots fix was run 37112923291. The next concrete step is client-supported Forminator/Timetics and legal/SEO setup, then a fresh 375/768/1024/1440 and keyboard review. Keep noindex until content, consent, metadata and journeys are approved.
+
+The sections below are historical local milestones. Their older staging/no-deploy instructions describe the state before the owner's 2026-10-03 decision and do not describe the current preview.
 
 ## Current milestone: functional pages V1
 
@@ -8,7 +16,7 @@ The reviewed editorial branch was fast-forwarded into `main` and pushed at `ad34
 
 The isolated local WordPress tested the Forminator empty/invalid/corrected/success flow and Timetics TEST LOCAL service/date/slot/form/confirmation flow. Gutenberg validated 32 FAQ, 20 Contact and 38 Booking blocks with two save/reload text passes each. Twelve required responsive views plus four receipt views passed; Timetics' initial generic cards were corrected in a second visual pass. WordPress core receipt sitemap exclusion and noindex worked locally; Rank Math sitemap and Complianz banner remain unconfigured in the fixture. Timetics' English UI and unverified email promise are staging gates. Exact evidence and limits: [FUNCTIONAL-PAGES-INTEGRATION-REPORT.md](FUNCTIONAL-PAGES-INTEGRATION-REPORT.md).
 
-The single client collection document is [CLIENT-CONTENT-QUESTIONS.md](CLIENT-CONTENT-QUESTIONS.md), with the next environment gate in [STAGING-READINESS-CHECKLIST.md](STAGING-READINESS-CHECKLIST.md). Next step: review this branch, collect Laure's answers once, then build and test real approved content/plugin configuration on staging. Keep production deployment separate.
+The single client collection document is [CLIENT-CONTENT-QUESTIONS.md](CLIENT-CONTENT-QUESTIONS.md); the current environment gate is described in [STAGING-READINESS-CHECKLIST.md](STAGING-READINESS-CHECKLIST.md).
 
 ## New milestone: Jardin, À propos, Journal and article V1
 
@@ -46,4 +54,4 @@ The older `lmdl/home-hero-shell` and `lmdl/four-universe-panels` are legacy stru
 
 In actual WordPress, all **104 Homepage and 67 hub blocks validate**. Two edit/save/reload passes plus title, image and section-move tests succeeded for each page. Astra header/menu/footer, routes, responsive views at 375/768/1024/1440, skip link, focus, reduced motion, image dimensions, frontend console and conditional CSS were checked. All internal local routes returned HTTP 200. The PHP files lint, and existing preview tests pass. The five requested plugins were installed and activated in the local test only; unconfigured booking, forms, consent and production cache behavior remain to be validated when real client inputs exist.
 
-The client must still verify public copy and provide exact credential wording, service operations/prices, FAQ/Journal content and plugin configuration. For the active milestone, review `feat/editorial-pages-v1` separately, then integrate approved content on staging. Do not deploy or run the production workflow.
+The client must still verify public copy and provide exact credential wording, service operations/prices, FAQ/Journal content and plugin configuration. See the current preview section and deployment report above for the live state and next step.

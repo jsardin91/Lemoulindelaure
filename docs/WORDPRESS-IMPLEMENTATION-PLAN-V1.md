@@ -1,8 +1,14 @@
 # WordPress Implementation Plan V1 — Le Moulin de Laure
 
-Status: **Homepage, Accompagnements hub, four service pages, editorial pages/articles and functional pages V1 implemented and verified in isolated WordPress; production content/build not started.**
+Status: **V1 public preview installed on the main WordPress domain with temporary site-wide noindex; client-dependent functions and final content remain open.**
 
-Last updated: 2026-10-02
+Last updated: 2026-10-03
+
+## Current integration
+
+The owner authorized the main-domain public preview on 2026-10-03. All twelve V1 pages and both Astra menus were installed by the guarded, idempotent `scripts/apply-production-preview.php` through the manual `preview-apply-content.yml` workflow. The source theme is deployed by manual `preview-deploy-theme.yml` with automatic folder rollback; the manual `preview-audit-backup.yml` stores private, checksum-verified DB/theme/config/robots snapshots outside webroot. Existing populated pages are preserved unless `refresh_content=true` is explicitly passed and the page bears the matching LMdL marker. The temporary site-wide noindex uses `lmdl_preview_noindex=1` and the child-theme robots hooks; `blog_public=1` and the physical `robots.txt` with `Allow: /` let engines read the noindex tags. LiteSpeed is purged after content changes. Refer to [PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md](PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md) for exact run IDs, state, QA and rollback.
+
+The source paragraphs below describe the local implementation stages. References to future staging or no-production authorization are historical; the owner changed that decision for this V1 preview. Do not enable indexation or configure real contact/booking without the verified inputs listed in `CLIENT-CONTENT-QUESTIONS.md`.
 
 ## Functional-page extension
 

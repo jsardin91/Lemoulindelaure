@@ -1,6 +1,12 @@
 # Design Progress — Le Moulin de Laure
 
-Last updated: 2026-10-02
+Last updated: 2026-10-03
+
+## Public preview V1 — current milestone
+
+The owner authorized the main-domain preview on 2026-10-03. The Homepage, hub, four service pages, Jardin, About, Journal, FAQ, Contact and Booking now use the reviewed Gutenberg patterns on `https://lemoulindelaure.fr`; the child theme is active and Astra still renders header, menus and footer. All twelve pages are temporarily noindex. The live first pass found stale LiteSpeed HTML and 403 theme assets; explicit purge and 755/644 extraction permissions fixed both. The second pass found generic Astra footer credit, premature Contact/Booking language and stored HTTP artwork URLs; the native Astra footer/menu, page patterns and HTTPS serialization were corrected. All twelve paths now return 200/noindex.
+
+The final live browser pass covered 48 views at 375/768/1024/1440 under reduced motion. It found no horizontal overflow, missing image or frontend console error; each page has one H1. Full-size captures of the core pages were inspected. A physical `robots.txt` was corrected to `Allow: /` while every page kept `noindex, follow`, so crawlers can read the tags. No 21st/React/Tailwind code was deployed; the earlier 21st visual references and approved Master System still govern the composition. Detailed run IDs, backups, rollback, results and client-only gaps: [PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md](PRODUCTION-PREVIEW-DEPLOYMENT-REPORT.md). The sections below document earlier local milestones.
 
 ## Functional pages V1 — current milestone
 
