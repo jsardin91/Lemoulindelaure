@@ -1,5 +1,11 @@
 # V3 — préversion, tests et retour arrière
 
+## Suivi — nouvelle porte Papillon
+
+Après le premier déploiement V3, `origin/main` a ajouté `design/brand/doors/door-butterfly-master.png` et `assets/doors/door-butterfly.webp` (`46ec2d4`). Ils ont été importés sur la branche V3 sans fusionner son composant V1 distinct. Audit visuel côte à côte : la porte violette suit la série Forêt/Phénix/Océan mais son export WebP a un fond sombre opaque. `scripts/build-v3-derived.py` préserve master et export, et crée `brand-derived/v3/door-butterfly-cutout.webp` avec la silhouette alpha du fichier Océan (512 × 768, environ 112 Ko). Les quatre portes apparaissent désormais sur l'accueil et le hub ; Air utilise la porte Papillon dans son hero, avec tableau original visible derrière à l'ouverture. Le Passage reste exclusivement commun.
+
+Deux passes locales à 390/1440 ont corrigé une légende Air chevauchée et un morceau de tableau rectangulaire visible hors de la porte. La seconde capture montre la porte et sa légende distinctes. `review-v3-wordpress.mjs` : 48 vues locales, un H1 chacune, zéro overflow, image cassée ou erreur console. `review-v3-nojs.mjs` : accueil, hub, Terre et Air à 390/1440 gardent texte, liens et images sans JS. `test-v3-interaction.mjs` vérifie les quatre sources de porte, huit liens de hub, menu, premier focus et mouvement réduit. Lint PHP des trois fichiers modifiés réussi. Les résultats live et le nouveau rollback seront ajoutés après le workflow de préversion.
+
 État du rapport : V3 déployée et contrôlée sur la préversion publique le 2026-10-03. Branche : `redesign/editorial-portals-v3`, créée du V2 live exact `0bfefe4bbd0fed21592d9d61e88f5606a3fe5ec5` puisque `origin/main` ne contenait pas V2. Source finale du thème déployé : `b9cdd6e9099c8d76cda4f55913904b16b72cee10` (avant dernier commit documentaire).
 
 ## Revue locale réelle

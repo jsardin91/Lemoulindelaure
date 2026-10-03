@@ -23,7 +23,7 @@ Business-card photographs were reviewed for context but are not versioned becaus
 
 ## Doors
 
-`doors/` contains the generated master door illustrations.
+`doors/` contains four generated closed universe doors (including the Butterfly door added after the initial V3) and the shared open Passage. The Butterfly master derives from the client's painting; it is not a new original painting by Laure.
 
 They support the “doors opening to new universes” navigation/storytelling concept.
 

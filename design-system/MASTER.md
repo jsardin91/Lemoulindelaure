@@ -10,7 +10,7 @@ last_reviewed: 2026-10-03
 
 ## V3 art direction override — 2026-10-03
 
-The current public visual thesis is **a painted book whose doors open into four worlds**. Terre/Feu/Eau use the three official closed doors and the corresponding animal paintings; Air uses a clearly identified digital portal, never the shared open Passage. The latter marks the transition between the manifesto and the universes. Homepage, hub and four detail chapters use distinct editorial compositions. Keep approved palette, Lora/Source Sans 3 and logos. See `../docs/ART-DIRECTION-V3.md`, `../docs/BRAND-ASSET-USAGE-V3.md` and `../docs/V3-INTERACTION-ARCHITECTURE.md`. The V2 direction below is historical.
+The current public visual thesis is **a painted book whose doors open into four worlds**. Terre/Feu/Eau/Air use the four closed doors and corresponding animal paintings. The Butterfly door was added after the initial V3 as a generated brand derivative of the client's painting; it is not a new original painting by Laure. The shared open Passage marks the transition between the manifesto and the universes and never stands for Air. Homepage, hub and four detail chapters use distinct editorial compositions. Keep approved palette, Lora/Source Sans 3 and logos. See `../docs/ART-DIRECTION-V3.md`, `../docs/BRAND-ASSET-USAGE-V3.md` and `../docs/V3-INTERACTION-ARCHITECTURE.md`. The V2 direction below is historical.
 
 ## V2 art direction override — 2026-10-03
 
@@ -129,7 +129,7 @@ Avoid generic stock imagery when client/original imagery can tell the story bett
 
 ## Doors / universe navigation
 
-Four door illustration files are available under `design/brand/doors/`, but visual audit confirms three closed universe doors and one shared open passage. There is no closed Air/Papillon door. See `../docs/BRAND-ASSET-MAPPING.md` before assigning door media.
+Five door illustration masters are available under `design/brand/doors/`: four closed universe doors and one shared open Passage. Air/Papillon was added after the original four-file audit. See `../docs/BRAND-ASSET-MAPPING.md` before assigning door media.
 
 Use them as storytelling/navigation support, especially for the Accompagnements hub.
 

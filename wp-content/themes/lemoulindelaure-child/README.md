@@ -25,7 +25,7 @@ The child theme currently provides:
 - basic accessibility/focus styling;
 - a prototype `[lmdl_door]` shortcode.
 
-The final public pages have **not yet been implemented**.
+The V3 public preview is implemented with server-rendered templates and four navigable painted doors. Air uses the new Butterfly door through a non-destructive transparent cutout in `assets/brand-derived/v3/`. See `docs/ART-DIRECTION-V3.md` and `docs/BRAND-ASSET-USAGE-V3.md`.
 
 ## Assets
 

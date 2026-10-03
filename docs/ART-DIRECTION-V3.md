@@ -6,7 +6,7 @@
 
 **Un livre peint dont les portes ouvrent sur quatre mondes.** La couverture conserve la collision typographie/peintures de V2. Le manifeste sombre introduit le lien ; la porte ouverte `door-passage.webp` articule le passage ; les quatre grandes portes prennent ensuite la place principale. La salle des quatre portes sur `/accompagnements/` expose ces seuils comme des œuvres à traverser, sans grille de cartes.
 
-Terre, Feu et Eau emploient respectivement les portes officielles Forêt, Phénix et Océan. Une peinture dérivée apparaît derrière chacune. Air n'a pas de porte officielle : son cadre lavande/or est une composition CSS avec la peinture Papillon. Le Passage reste l'ouverture commune, jamais l'image d'Air. Les quatre services, animaux, éléments, introductions et destinations restent visibles hors survol et dans le HTML initial.
+Terre, Feu et Eau emploient respectivement les portes Forêt, Phénix et Océan. Une peinture dérivée apparaît derrière chacune. La porte Papillon a été ajoutée au repo après le premier déploiement V3 ; Air l'emploie désormais, avec un détourage transparent dérivé de son export opaque. L'illustration Papillon est un concept généré à partir du tableau client et de la série des portes, pas une nouvelle peinture originale de Laure. Le Passage reste l'ouverture commune, jamais l'image d'Air. Les quatre services, animaux, éléments, introductions et destinations restent visibles hors survol et dans le HTML initial.
 
 ## Mise en scène éditoriale
 
@@ -15,7 +15,7 @@ Terre, Feu et Eau emploient respectivement les portes officielles Forêt, Phéni
 - **Terre** : proximité verte, deux colonnes de prose, peinture à découpe organique, note marginale, cadre pratique.
 - **Feu** : porte et peinture verticales, rupture sombre, grandes lettres de fond et composition plus tendue.
 - **Eau** : ouverture centrée, espace calme, prose lente, peinture en ellipse et vastes plages bleues.
-- **Air** : cadre digital, grands blancs, texte décentré et peinture flottante oblique.
+- **Air** : porte Papillon violette, grands blancs, texte décentré et peinture flottante oblique.
 - **À propos** : portrait sans photo, emblème à la place d'un faux portrait, histoire en chapitres, signature graphique utilisée comme marque de Laure.
 - **Jardin** : parenthèse verte, manifeste, espace réservé aux futurs portraits éditoriaux sans faux profils.
 - **Journal** : couverture picturale, index dynamique des vrais articles WordPress, article natif avec chapeau, date et largeur de lecture. Les articles `TEST LOCAL` de la fixture ne sont pas du contenu public.

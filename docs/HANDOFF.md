@@ -2,6 +2,10 @@
 
 Last updated: 2026-10-03
 
+## Latest follow-up: Butterfly door on V3
+
+`origin/main` added the closed Butterfly door after V3 was deployed (`46ec2d4`). This V3 branch imports its master and WebP without merging the rest of main's V1 portal component. The theme now uses a transparent cutout of that door for Air on Homepage, hub and the Guidance page; source export and master are preserved. `scripts/build-v3-derived.py` reproduces the cutout from `door-butterfly.webp` and the existing Ocean alpha mask. The old CSS-only Air frame is removed. See [BRAND-ASSET-MAPPING.md](BRAND-ASSET-MAPPING.md) and [BRAND-ASSET-USAGE-V3.md](BRAND-ASSET-USAGE-V3.md) for attribution and provenance. The earlier V3 state below describes the first deployment.
+
 ## Current state: V3 editorial portals
 
 Branch `redesign/editorial-portals-v3` starts at exact V2 HEAD `0bfefe4bbd0fed21592d9d61e88f5606a3fe5ec5`. The V3 thesis is a painted book with four navigable doors. `inc/v3/content.php` is the structured content layer, `inc/v3/render.php` routes the nine art-directed pages, `partials/v3/` gives each world a composition, `assets/v3/` holds CSS and optional small JS, and `header-v3.php`/`footer-v3.php` provide the site shell. `templates/lmdl-page-v1.php` remains the assigned WP page template but no longer renders old blocks for the nine art-directed pages; the database content is untouched for rollback. Contact/booking/FAQ still use their WP/plugin content. Single Journal posts retain native WordPress content. The four portals and asset provenance are in [BRAND-ASSET-USAGE-V3.md](BRAND-ASSET-USAGE-V3.md); design/interaction rationale in [ART-DIRECTION-V3.md](ART-DIRECTION-V3.md) and [V3-INTERACTION-ARCHITECTURE.md](V3-INTERACTION-ARCHITECTURE.md).

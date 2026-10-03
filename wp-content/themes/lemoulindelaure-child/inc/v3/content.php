@@ -45,7 +45,7 @@ function lmdl_v3_content() {
         'slug' => 'guidance-pour-soi', 'element' => 'Air', 'animal' => 'Papillon',
         'motif' => 'Le messager', 'title' => 'Guidance pour soi',
         'path' => '/accompagnements/guidance-pour-soi/',
-        'door' => '', 'painting' => 'art/painting-butterfly-display.webp',
+        'door' => 'brand-derived/v3/door-butterfly-cutout.webp', 'painting' => 'art/painting-butterfly-display.webp',
         'preview' => 'brand-derived/v3/butterfly-portal.webp',
         'intro' => 'Chercher un autre éclairage pour soi.',
         'lead' => 'Ce qui se ressent peut parfois ouvrir une autre façon de comprendre une situation ou un parcours de vie.',

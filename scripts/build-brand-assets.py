@@ -57,7 +57,7 @@ for name in ("butterfly", "turtle", "squirrel", "phoenix"):
     painting.thumbnail((1440, 1440), Image.Resampling.LANCZOS)
     painting.save(OUT / "art" / f"painting-{name}.webp", "WEBP", quality=83, method=6)
 
-for name in ("passage", "ocean", "forest", "phoenix"):
+for name in ("passage", "ocean", "forest", "phoenix", "butterfly"):
     door = Image.open(DOORS / f"door-{name}-master.png").convert("RGBA")
     door.thumbnail((512, 768), Image.Resampling.LANCZOS)
     door.save(OUT / "doors" / f"door-{name}.webp", "WEBP", quality=82, method=6)

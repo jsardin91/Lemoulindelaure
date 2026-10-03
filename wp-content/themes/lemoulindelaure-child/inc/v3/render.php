@@ -29,6 +29,7 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
     'doors/door-phoenix.webp' => array( 512, 768 ),
     'doors/door-ocean.webp' => array( 512, 768 ),
     'doors/door-passage.webp' => array( 512, 768 ),
+    'brand-derived/v3/door-butterfly-cutout.webp' => array( 512, 768 ),
     'brand-derived/v3/squirrel-portal.webp' => array( 709, 720 ),
     'brand-derived/v3/phoenix-portal.webp' => array( 709, 720 ),
     'brand-derived/v3/turtle-portal.webp' => array( 720, 710 ),
@@ -44,12 +45,8 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
 
 function lmdl_v3_portal_visual( $key, $service, $eager = false, $linked = false ) {
   $html = '<div class="v3-portal v3-portal--' . esc_attr( $key ) . '"' . ( $linked ? '' : ' aria-hidden="true"' ) . '><span class="v3-portal__aura" aria-hidden="true"></span><span class="v3-portal__frame" aria-hidden="true">';
-  $html .= lmdl_v3_image( $service['preview'], '', 'v3-portal__painting', $eager, $eager && ! $service['door'] );
-  if ( $service['door'] ) {
-    $html .= lmdl_v3_image( $service['door'], '', 'v3-portal__door', $eager, $eager );
-  } else {
-    $html .= '<span class="v3-portal__air-leaf v3-portal__air-leaf--one"></span><span class="v3-portal__air-leaf v3-portal__air-leaf--two"></span><span class="v3-portal__air-line"></span>';
-  }
+  $html .= lmdl_v3_image( $service['preview'], '', 'v3-portal__painting', $eager );
+  $html .= lmdl_v3_image( $service['door'], '', 'v3-portal__door', $eager, $eager );
   $html .= '</span>';
   if ( $linked ) {
     $html .= '<a class="v3-portal__hit" href="' . esc_url( home_url( $service['path'] ) ) . '" aria-label="Entrer dans l’univers ' . esc_attr( $service['element'] ) . ' : ' . esc_attr( $service['title'] ) . '"></a>';

@@ -22,7 +22,7 @@ try {
  await send('Page.enable');await send('Runtime.enable');await send('Log.enable');await send('Emulation.setScriptExecutionDisabled',{value:true});
  const pages=[['home','/'],['hub','/accompagnements/'],['earth','/accompagnements/communication-animale/'],['fire','/accompagnements/accompagnement-energetique-animalier/'],['water','/accompagnements/connexion-defunts/'],['air','/accompagnements/guidance-pour-soi/'],['jardin','/le-jardin/'],['about','/a-propos/'],['journal','/journal/'],['faq','/faq/'],['contact','/contact/'],['booking','/prendre-rendez-vous/']];
  const report=[];
- for(const [name,path] of pages.filter(([name])=>['home','hub','earth'].includes(name)))for(const width of [390,1440]){
+ for(const [name,path] of pages.filter(([name])=>['home','hub','earth','air'].includes(name)))for(const width of [390,1440]){
   errors.length=0;
   await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<768});
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
