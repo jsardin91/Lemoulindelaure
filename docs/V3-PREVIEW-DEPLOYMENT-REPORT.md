@@ -1,5 +1,11 @@
 # V3 — préversion, tests et retour arrière
 
+## Suivi FAQ visible et article — 2026-10-04
+
+Le thème `4263227` ajoute des FAQ contextuelles sur l'accueil, le hub et les quatre univers, une source éditable Gutenberg/shortcode pour la page FAQ avec fallback provisoire, et une nouvelle ouverture de `single.php`. Le plugin Structured FAQ est actif mais ses deux shortcodes sans paramètres ne produisent actuellement aucun contenu ; le thème n'émet pas FAQPage. Voir [FAQ-V3-INTEGRATION.md](FAQ-V3-INTEGRATION.md) pour la décision d'intégration et les limites.
+
+Snapshot privé avant mise à jour : **`pre-37196165347`** (workflow 37196165347, succès). Déploiement du seul thème enfant : **workflow 37197606113**, succès, `CACHE_PURGED=yes`, `PREVIEW_NOINDEX=1`. Les étapes DB et article Journal ont été ignorées ; Astra parent n'a pas été touché. QA live : 12 routes et l'article de démonstration × 375/768/1024/1440 = **52 vues**, toutes avec un H1, `noindex, follow`, sans débordement, image cassée ni erreur console. Cinq liens FAQ contextuels répondent 200 ; clavier et dix vues sans JavaScript à 390/1440 passent. Les captures sont ignorées sous `.local-wp/review-v3-faq-article-live/`, `.local-wp/review-v3-article-live/` et `.local-wp/review-v3-faq-nojs-live/`.
+
 ## Suivi FAQ provisoire — 2026-10-04
 
 L'utilisateur a autorisé des réponses FAQ provisoires et de nouvelles questions utiles. La page `/faq/` affiche désormais huit questions, dont les quatre questions du brief. La structure est une liste native `<details>/<summary>` à séparateurs, sans JavaScript ajouté. Le contenu évite les tarifs, durées, modalités non confirmées et garanties de résultat ; Laure doit revoir la formulation finale avant indexation. Le rendu local a été examiné à 375 et 1440 px puis corrigé pour charger les images différées avant capture.

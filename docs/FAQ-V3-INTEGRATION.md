@@ -26,6 +26,12 @@ Un seul propriétaire doit produire FAQPage si ce balisage est finalement conser
 - Revue locale de 12 routes × 375/768/1024/1440, plus l'article de démonstration aux quatre largeurs. Captures de l'article et des modules FAQ vues après première passe ; l'affordance `+` des blocs édités a été ajoutée en seconde passe.
 - Dix vues sans JavaScript à 390/1440 (accueil, hub, Terre, Air, FAQ) gardent leurs titres, liens et disclosures natifs. Le lint des 28 PHP du thème et la syntaxe des scripts de revue passent.
 
+## Prévisualisation live
+
+Source `4263227` poussée sur `redesign/editorial-portals-v3`, puis déployée par le workflow 37197606113 après le snapshot privé **`pre-37196165347`**. Le workflow a purgé LiteSpeed, confirmé `PREVIEW_NOINDEX=1` et ignoré les étapes de configuration DB V3 et d'article Journal. Astra parent et la base WordPress n'ont pas été modifiés par ce déploiement.
+
+Sur `https://lemoulindelaure.fr/` : 12 routes × 375/768/1024/1440, plus l'article de démonstration aux quatre largeurs, soit **52 vues** : un H1 par page, aucun débordement horizontal, image cassée ou erreur console, robots exactement `noindex, follow`. L'accueil, le hub et les quatre univers ont chacun une section FAQ visible ; `/faq/` a huit réponses, zéro JSON-LD FAQPage et un second panneau qui s'ouvre à la barre d'espace avec focus conservé. Les cinq liens contextuels de la page FAQ répondent 200. L'article contient le renvoi FAQ et garde l'ordre texte puis image sur mobile. Dix vues live sans JavaScript (accueil, hub, Terre, Air, FAQ à 390/1440) passent. Captures ignorées sous `.local-wp/review-v3-faq-article-live/`, `.local-wp/review-v3-article-live/` et `.local-wp/review-v3-faq-nojs-live/`.
+
 ## Prochaine étape éditoriale
 
 Laure relit les huit réponses, puis choisit si elle les maintient en blocs Gutenberg ou si le plugin Structured FAQ devient la source visible. Pour le second choix, configurer les entrées dans le plugin sur la prévisualisation, insérer son shortcode dans le contenu de la page FAQ, vérifier rendu/clavier/schéma, et enlever les doublons de Rank Math. Ne pas activer l'indexation à cette étape.
