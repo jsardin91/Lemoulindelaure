@@ -16,10 +16,17 @@ try{
  await send('Page.enable');await send('Runtime.enable');
  for(const width of [375,768,1024,1200,1280,1366,1440,1600]){
   await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<768});
-  await send('Page.navigate',{url:(process.env.LMDL_BASE_URL||'http://127.0.0.1:8765')+'/'});await new Promise(r=>setTimeout(r,900));
+  await send('Page.navigate',{url:(process.env.LMDL_BASE_URL||'http://127.0.0.1:8765')+'/'});
+  let ready=false;
+  for(let attempt=0;attempt<50;attempt++){
+   if(await ev(`document.readyState==='complete'&&!!document.querySelector('.v3-footer')`)){ready=true;break}
+   await new Promise(r=>setTimeout(r,100));
+  }
+  if(!ready)throw Error(`Homepage did not load at ${width}px`);
   const result=await ev(`(()=>{const q=s=>document.querySelector(s),css=(s,p)=>q(s)&&getComputedStyle(q(s))[p];return {width:${width},nav:[...document.querySelectorAll('.v3-header__nav>a,.v3-header__group>a')].map(x=>x.textContent.trim()),body:css('body','color'),bodyBackground:css('body','backgroundColor'),h1:css('h1','color'),link:css('.v3-header__nav a','color'),cta:css('.v3-header__booking','color'),ctaDecoration:css('.v3-header__booking','textDecorationLine'),ctaBorder:css('.v3-header__booking','borderBottomColor'),footer:css('.v3-footer','backgroundColor'),astraSlot3:getComputedStyle(document.documentElement).getPropertyValue('--ast-global-color-3').trim(),navDisplay:css('.v3-header__nav','display'),bookingDisplay:css('.v3-header__booking','display'),headerHeight:q('.v3-header')?.getBoundingClientRect().height,navRight:q('.v3-header__nav')?.getBoundingClientRect().right,bookingLeft:q('.v3-header__booking')?.getBoundingClientRect().left,scrollWidth:document.documentElement.scrollWidth}})()`);
   console.log(JSON.stringify(result));
   if(process.env.LMDL_HEADER_SCREENSHOT&&width===Number(process.env.LMDL_HEADER_WIDTH||1024)){await new Promise(r=>setTimeout(r,450));const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(process.env.LMDL_HEADER_SCREENSHOT,Buffer.from(shot.data,'base64'))}
+  if(process.env.LMDL_FOOTER_SCREENSHOT_DIR&&[375,1440].includes(width)){await ev(`(async()=>{const f=document.querySelector('.v3-footer');f?.scrollIntoView();await Promise.all([...f.querySelectorAll('img')].map(x=>x.decode().catch(()=>{})));return true})()`);await new Promise(r=>setTimeout(r,250));const clip=await ev(`(()=>{const r=document.querySelector('.v3-footer').getBoundingClientRect();return {x:0,y:r.top+scrollY,width:innerWidth,height:r.height,scale:1}})()`);const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip});await writeFile(join(process.env.LMDL_FOOTER_SCREENSHOT_DIR,`footer-${width}.png`),Buffer.from(shot.data,'base64'))}
   if(width===1024){await ev(`document.querySelector('.v3-header__group>a')?.focus()`);await new Promise(r=>setTimeout(r,220));console.log('SUBMENU_FOCUS='+JSON.stringify(await ev(`({focused:document.activeElement?.getAttribute('href'),visibility:getComputedStyle(document.querySelector('.v3-header__submenu')).visibility,links:document.querySelectorAll('.v3-header__submenu a').length})`)))}
  }
  await send('Emulation.setDeviceMetricsOverride',{width:375,height:900,deviceScaleFactor:1,mobile:true});
