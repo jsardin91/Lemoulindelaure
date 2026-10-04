@@ -33,4 +33,4 @@ La documentation officielle Timetics décrit la configuration des rendez-vous in
 - Rendu local de la page en état fermé aux largeurs 375/768/1024/1440 : un H1, aucun débordement ni image cassée ; captures 375/1440 inspectées.
 - Lint PHP des fichiers modifiés et vérification JS du script de revue : réussis.
 - Une fixture **TEST LOCAL** a permis de vérifier que le shortcode unique remplace la liste. Le calendrier Timetics a montré un chargement continu dans cette fixture ; le navigateur a signalé une ressource externe bloquée (`ERR_NETWORK_ACCESS_DENIED`). Cela ne valide pas le parcours de réservation. Aucun rendez-vous réel ni notification n'a été créé.
-- Aucun changement à la base WordPress live, à Astra parent ou au workflow de déploiement à ce stade.
+- La page d'appel découverte préparée a été déployée avec le polish Journal du 2026-10-04. Elle reste **fermée** : aucun rendez-vous Timetics actif ni créneau n'a été créé. Astra parent est intact. Le workflow de thème a reçu un mode `journal_demo_only` pour l'article témoin, indépendant de la configuration Timetics.
