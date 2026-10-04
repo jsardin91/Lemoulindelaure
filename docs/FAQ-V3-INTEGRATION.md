@@ -1,5 +1,15 @@
 # FAQ V3 et article du Journal — suivi du 2026-10-04
 
+## Décision actuelle : V3 sans Gutenberg
+
+La composition V3 est contrôlée par les templates PHP et le CSS du thème enfant. L'éditeur de blocs est désormais désactivé pour les pages et les articles WordPress ; les articles gardent leur texte dans WordPress, rendu par `the_content()` sous la mise en page de `single.php`. Les anciens blocs stockés en base sont conservés pour réversibilité. Ne pas réenregistrer leur ancien balisage avec l'éditeur classique sans contrôle du rendu.
+
+La page `/faq/` ne lit plus ses blocs ni son shortcode inséré dans le contenu WordPress. Les huit réponses provisoires de `inc/v3/faq.php` sont la source visible par défaut. Les deux patterns FAQ V3 ont été retirés. Pour adopter le plugin après configuration et vérification de ses vraies réponses, basculer l'option WordPress `lmdl_v3_faq_source` de `theme` à `plugin` : le template exécute alors `[structured_faq]` directement. Un résultat vide conserve les réponses du thème sur la page FAQ. Les aperçus des autres pages deviennent de simples liens vers `/faq/` lorsque l'option `plugin` est sélectionnée. Aucun changement de cette option ni des données plugin n'a été fait sur la prévisualisation.
+
+Les sections ci-dessous décrivent la passe précédente, avant cette décision. Leurs contrôles ne valent pas vérification du changement d'éditeur actuel.
+
+Contrôle local de cette correction : PHP lint des quatre fichiers touchés ; le filtre WordPress réel renvoie `false` pour les éditeurs `page` et `post` ; accueil, FAQ et article de démonstration à 375/768/1024/1440 px, avec un H1 par vue, aucun débordement, image cassée ou erreur console. Huit réponses restent visibles sur `/faq/`. Les disclosures de la FAQ, de l'accueil et de l'article s'ouvrent au clavier et conservent le focus. La capture mobile de la FAQ a été revue. Aucun changement DB n'a été effectué pendant ce contrôle.
+
 ## Constat avant correction
 
 La FAQ V3 affichait huit réponses provisoires directement dans `partials/v3/faq.php`. Aucune section de réponses n'apparaissait sur l'accueil, le hub ou les pages accompagnements ; seul le menu menait à `/faq/`. Le template `single.php` possédait une typographie de lecture mais une ouverture très verticale, avec le tableau placé après toute la titraille.

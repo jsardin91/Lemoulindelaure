@@ -157,20 +157,10 @@ add_action( 'after_switch_theme', function () {
 	update_option( 'lmdl_brand_defaults_installed', '1' );
 } );
 
-/** Load the project presentation CSS inside the block editor as well. */
-add_action( 'after_setup_theme', function () {
-	add_theme_support( 'editor-styles' );
-	add_editor_style( array(
-		'style.css',
-		'assets/css/components.css',
-		'assets/css/pages/home.css',
-		'assets/css/pages/accompagnements.css',
-		'assets/css/pages/accompaniment-detail.css',
-		'assets/css/pages/editorial.css',
-		'assets/css/pages/functional.css',
-		'assets/css/editor.css',
-	) );
-} );
+/** V3 layouts live in the child theme; posts and pages use the classic editor. */
+add_filter( 'use_block_editor_for_post_type', function ( $use_block_editor, $post_type ) {
+	return in_array( $post_type, array( 'post', 'page' ), true ) ? false : $use_block_editor;
+}, 10, 2 );
 
 /** Fonts stay selectable in Astra; their files are served by the child theme. */
 add_filter( 'astra_render_fonts', function ( $fonts ) {
@@ -286,7 +276,7 @@ add_filter( 'body_class', function ( $classes ) {
 	return $classes;
 } );
 
-/** Gutenberg patterns include their own H1, so suppress Astra's page title. */
+/** Art-directed pages include their own H1, so suppress Astra's page title. */
 add_filter( 'astra_the_title_enabled', function ( $enabled ) {
 	return lmdl_is_v1_page() ? false : $enabled;
 } );

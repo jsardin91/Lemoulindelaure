@@ -59,12 +59,12 @@ body.lmdl-v3 .lmdl-article .v3-faq-preview{margin-top:clamp(4rem,7vw,7rem)}body.
 .v3-faq__close{padding:clamp(5rem,8vw,8rem) clamp(1.25rem,9vw,9rem);background:#e7ece2}.v3-faq__close h2{margin:1.2rem 0 2rem;font-size:clamp(3.2rem,6vw,7rem);letter-spacing:-.05em}
 .v3-faq-preview{display:grid;grid-template-columns:minmax(0,35%) minmax(0,1fr);gap:clamp(2.5rem,7vw,8rem);padding:clamp(4rem,7vw,7rem) clamp(1.25rem,9vw,9rem);background:var(--v3-paper);border-top:1px solid var(--v3-line)}
 .v3-faq-preview__intro h2{max-width:12ch;margin:1.4rem 0 2rem;font-size:clamp(2.6rem,4.8vw,5.4rem);line-height:1.1;letter-spacing:-.05em}
-.v3-faq-preview__editor-note{align-self:center;max-width:36ch;font:400 clamp(1.2rem,2vw,1.7rem)/1.5 Lora,serif}
-.v3-faq__list--editor :is(details,.wp-block-details){border-bottom:1px solid var(--v3-line)}
-.v3-faq__list--editor summary{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:68px;padding:1.25rem 0;cursor:pointer;list-style:none;font:400 clamp(1.2rem,1.7vw,1.55rem)/1.35 Lora,serif}
-.v3-faq__list--editor summary::-webkit-details-marker{display:none}.v3-faq__list--editor summary::after{content:'+';flex:none;color:var(--v3-teal);font:400 1.8rem/1 'Source Sans 3',sans-serif}.v3-faq__list--editor details[open] summary::after{content:'−'}
-.v3-faq__list--editor summary:focus-visible,body.lmdl-v3 .lmdl-article__body summary:focus-visible{outline:3px solid var(--v3-blue);outline-offset:4px}
-.v3-faq__list--editor details>*:not(summary){max-width:64ch;line-height:1.7}
+.v3-faq-preview__plugin-note{align-self:center;max-width:36ch;font:400 clamp(1.2rem,2vw,1.7rem)/1.5 Lora,serif}
+.v3-faq__list--plugin details{border-bottom:1px solid var(--v3-line)}
+.v3-faq__list--plugin summary{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:68px;padding:1.25rem 0;cursor:pointer;list-style:none;font:400 clamp(1.2rem,1.7vw,1.55rem)/1.35 Lora,serif}
+.v3-faq__list--plugin summary::-webkit-details-marker{display:none}.v3-faq__list--plugin summary::after{content:'+';flex:none;color:var(--v3-teal);font:400 1.8rem/1 'Source Sans 3',sans-serif}.v3-faq__list--plugin details[open] summary::after{content:'−'}
+.v3-faq__list--plugin summary:focus-visible,body.lmdl-v3 .lmdl-article__body summary:focus-visible{outline:3px solid var(--v3-blue);outline-offset:4px}
+.v3-faq__list--plugin details>*:not(summary){max-width:64ch;line-height:1.7}
 body.lmdl-v3 .lmdl-article__body details{border-top:1px solid var(--v3-line);border-bottom:1px solid var(--v3-line);padding:1rem 0;margin:2rem 0}
 body.lmdl-v3 .lmdl-article__body summary{cursor:pointer;min-height:44px;font:400 clamp(1.2rem,2vw,1.6rem)/1.4 Lora,serif}
 @media(max-width:999px){.v3-journal-list--single .v3-journal-entry--lead{display:block}.v3-journal-list--single .v3-journal-entry--lead img{margin-bottom:1.5rem}}

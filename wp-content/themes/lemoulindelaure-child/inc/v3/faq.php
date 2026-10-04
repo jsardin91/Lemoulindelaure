@@ -47,43 +47,17 @@ function lmdl_v3_faq_items() {
 	);
 }
 
-/** The FAQ page can be edited with native Details or the installed plugin shortcode. */
-function lmdl_v3_faq_editor_source() {
-	$page = get_page_by_path( 'faq' );
-	if ( ! $page || 'publish' !== $page->post_status ) {
-		return '';
-	}
-	$content = $page->post_content;
-	return has_block( 'core/details', $content ) || has_shortcode( $content, 'structured_faq' ) || has_shortcode( $content, 'structured_term_faq' ) ? $content : '';
+/** Plugin FAQ is an explicit site setting, never inferred from page blocks. */
+function lmdl_v3_faq_plugin_selected() {
+	return 'plugin' === get_option( 'lmdl_v3_faq_source', 'theme' );
 }
 
-function lmdl_v3_faq_render_details( $blocks ) {
-	$html = '';
-	foreach ( $blocks as $block ) {
-		if ( 'core/details' === $block['blockName'] && false === strpos( $block['attrs']['className'] ?? '', 'lmdl-pattern-placeholder' ) ) {
-			$html .= render_block( $block );
-		} elseif ( ! empty( $block['innerBlocks'] ) ) {
-			$html .= lmdl_v3_faq_render_details( $block['innerBlocks'] );
-		}
-	}
-	return $html;
-}
-
-function lmdl_v3_faq_editor_content() {
-	$content = lmdl_v3_faq_editor_source();
-	if ( ! $content ) {
+function lmdl_v3_faq_plugin_content() {
+	if ( ! lmdl_v3_faq_plugin_selected() || ! shortcode_exists( 'structured_faq' ) ) {
 		return '';
 	}
-	$rendered = lmdl_v3_faq_render_details( parse_blocks( $content ) );
-	if ( ! $rendered ) {
-		$pattern = get_shortcode_regex( array( 'structured_faq', 'structured_term_faq' ) );
-		if ( preg_match_all( '/' . $pattern . '/s', $content, $matches, PREG_SET_ORDER ) ) {
-			foreach ( $matches as $match ) {
-				$rendered .= do_shortcode( $match[0] );
-			}
-		}
-	}
-	$visible = preg_replace( '/<script\b[^>]*>.*?<\/script>/is', '', $rendered );
+	$rendered = do_shortcode( '[structured_faq]' );
+	$visible = preg_replace( '/<(?:script|style)\b[^>]*>.*?<\/(?:script|style)>/is', '', $rendered );
 	return trim( wp_strip_all_tags( $visible ) ) ? $rendered : '';
 }
 
@@ -111,8 +85,8 @@ function lmdl_v3_faq_list( $keys = array(), $open_first = false ) {
 
 function lmdl_v3_faq_preview( $keys, $id, $title = 'Quelques réponses.' ) {
 	$html = '<section class="v3-faq-preview" aria-labelledby="' . esc_attr( $id ) . '"><div class="v3-faq-preview__intro"><p class="v3-folio">Questions fréquentes</p><h2 id="' . esc_attr( $id ) . '">' . esc_html( $title ) . '</h2><a class="v3-editorial-link" href="' . esc_url( home_url( '/faq/' ) ) . '">Toutes les questions <span aria-hidden="true">↗</span></a></div>';
-	if ( lmdl_v3_faq_editor_source() ) {
-		$html .= '<p class="v3-faq-preview__editor-note">Les réponses complètes sont à retrouver dans la FAQ.</p>';
+	if ( lmdl_v3_faq_plugin_selected() ) {
+		$html .= '<p class="v3-faq-preview__plugin-note">Les réponses complètes sont à retrouver dans la FAQ.</p>';
 	} else {
 		$html .= lmdl_v3_faq_list( $keys );
 	}

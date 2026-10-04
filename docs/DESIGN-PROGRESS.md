@@ -2,6 +2,10 @@
 
 Last updated: 2026-10-04
 
+## V3 sans Gutenberg — décision du propriétaire
+
+L'éditeur de blocs est désactivé pour les pages et articles. Le rendu V3 reste dans le thème enfant ; le contenu des articles reste en base WordPress et `single.php` en contrôle la présentation. La FAQ V3 n'extrait plus les blocs de la page : huit réponses provisoires versionnées sont affichées par défaut, avec bascule explicite vers Structured FAQ Manager une fois le plugin renseigné. Les deux nouveaux patterns FAQ V3 sont supprimés ; les patterns V1 historiques sont conservés pour réversibilité. Aucun contenu ou réglage plugin n'est modifié par ce changement. Détails : [FAQ-V3-INTEGRATION.md](FAQ-V3-INTEGRATION.md).
+
 ## FAQ visibility and Journal article follow-up
 
 The V3 fallback answers are now shared by FAQ, Homepage, the four-door hub and each service chapter. The preview is a small editorial disclosure list with a clear path to the full FAQ; it does not add a second schema source. The FAQ page now accepts native Gutenberg Details or the installed plugin shortcode in its stored content, retaining fallback copy while the plugin has no entries. The Journal single opening places its title and artwork side by side on desktop, text first on mobile, with the same two-question FAQ section after the article. A local Gutenberg pattern switch was tested and restored. The second pass corrected the missing plus affordance on editor-authored Details. Source `4263227` was deployed after private backup `pre-37196165347` via run 37197606113; article polish `e7583f0` followed after `pre-37198061784` via run 37198124869. Live 52-view, ten no-JS-view and final four article-view checks passed. See [FAQ-V3-INTEGRATION.md](FAQ-V3-INTEGRATION.md).

@@ -12,9 +12,9 @@
       <p>Chaque situation est différente. Ces réponses donnent des repères ; vous pouvez m’écrire si votre question n’y figure pas.</p>
     </div>
     <?php
-    $editor_faq = lmdl_v3_faq_editor_content();
-    if ( $editor_faq ) {
-      echo '<div class="v3-faq__list v3-faq__list--editor">' . $editor_faq . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Filtered WordPress content or shortcode output.
+    $plugin_faq = lmdl_v3_faq_plugin_content();
+    if ( $plugin_faq ) {
+      echo '<div class="v3-faq__list v3-faq__list--plugin">' . $plugin_faq . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted FAQ plugin output.
     } else {
       echo lmdl_v3_faq_list( array(), true ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper.
     }

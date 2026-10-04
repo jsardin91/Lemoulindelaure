@@ -20,17 +20,6 @@ add_action( 'init', function () {
 		lmdl_v1_group( 'lmdl-prose', lmdl_v1_p( 'Vous pouvez écrire à Laure pour demander une précision.' )
 			. lmdl_v1_link( 'Contacter Laure', '/contact/', 'lmdl-button' ) ) ) );
 	register_block_pattern( 'lmdl/faq-v1', array( 'title' => 'LMdL — FAQ V1', 'description' => 'Page FAQ sans réponse inventée, prête pour les Détails natifs après validation.', 'categories' => array( 'lmdl' ), 'content' => $faq ) );
-	$faq_v3 = '';
-	foreach ( lmdl_v3_faq_items() as $item ) {
-		$answer_content = lmdl_v1_p( $item['answer'] );
-		if ( isset( $item['link'] ) ) {
-			$answer_content .= lmdl_v1_link( $item['label'], $item['link'] );
-		}
-		$faq_v3 .= '<!-- wp:details --><details class="wp-block-details"><summary>' . esc_html( $item['question'] ) . '</summary>' . $answer_content . '</details><!-- /wp:details -->';
-	}
-	register_block_pattern( 'lmdl/faq-v3-questions', array( 'title' => 'LMdL — Questions V3 à relire', 'description' => 'Huit réponses provisoires éditables. Insérer dans la page FAQ, puis relire les formulations avec Laure.', 'categories' => array( 'lmdl' ), 'content' => $faq_v3 ) );
-	register_block_pattern( 'lmdl/faq-v3-plugin', array( 'title' => 'LMdL — FAQ du plugin', 'description' => 'Insérer seulement après avoir configuré les réponses du plugin Structured FAQ.', 'categories' => array( 'lmdl' ), 'content' => '<!-- wp:shortcode -->[structured_faq]<!-- /wp:shortcode -->' ) );
-
 	$answer = '<!-- wp:details {"className":"lmdl-faq-item lmdl-pattern-placeholder"} -->'
 		. '<details class="wp-block-details lmdl-faq-item lmdl-pattern-placeholder"><summary>Question validée à renseigner</summary>'
 		. lmdl_v1_p( 'Réponse approuvée par Laure à renseigner.' ) . '</details><!-- /wp:details -->';
