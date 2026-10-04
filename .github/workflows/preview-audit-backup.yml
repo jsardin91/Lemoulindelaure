@@ -96,6 +96,17 @@ jobs:
           foreach ( get_post_types() as $name ) {
             if ( false !== stripos( $name, "faq" ) ) { echo "post_type=" . $name . "\n"; }
           }
+          foreach ( array( "structured_faq", "structured_term_faq" ) as $tag ) {
+            if ( shortcode_exists( $tag ) ) {
+              $html = do_shortcode( "[" . $tag . "]" );
+              echo "empty_shortcode=" . $tag . ":bytes=" . strlen( $html ) . ":details=" . substr_count( $html, "<details" ) . "\n";
+            }
+          }
+          $faq = get_page_by_path( "faq" );
+          if ( $faq ) {
+            echo "faq_meta_keys=" . implode( ",", array_keys( get_post_meta( $faq->ID ) ) ) . "\n";
+            echo "faq_block_names=" . implode( ",", array_unique( array_filter( array_column( parse_blocks( $faq->post_content ), "blockName" ) ) ) ) . "\n";
+          }
           '
           printf 'FAQ_INTEGRATION_END\n'
           printf 'PUBLIC_PAGES_BEGIN\n'
