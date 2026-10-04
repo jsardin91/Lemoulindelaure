@@ -5,5 +5,6 @@
   <figure class="v3-fire-art"><?php echo lmdl_v3_image( $service['painting'], 'Phénix dans l’univers Feu', '' ); ?><figcaption>Phénix · Feu</figcaption></figure>
   <section class="v3-fire-note"><p class="v3-folio">La posture</p><h2>L’attention avant l’effet.</h2><p><?php echo esc_html( $service['note'] ); ?></p></section>
   <section class="v3-detail-practical"><p class="v3-folio">En pratique</p><h2>Un cadre responsable.</h2><p><?php echo esc_html( $service['practical'] ); ?></p><p>Je ne pose pas de diagnostic médical ou vétérinaire. Les professionnels compétents restent essentiels lorsque la situation le demande.</p></section>
+  <?php echo lmdl_v3_faq_preview( array( 'feeling', 'medical' ), 'v3-fire-faq-title', 'Quelques repères.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   <?php echo lmdl_v3_related( 'fire' ); echo lmdl_v3_close( 'Poursuivre le chemin ?' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helpers. ?>
 </main>

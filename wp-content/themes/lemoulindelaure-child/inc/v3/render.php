@@ -2,6 +2,7 @@
 /** V3 server-rendered composition router and reusable primitives. */
 defined( 'ABSPATH' ) || exit;
 require_once __DIR__ . '/content.php';
+require_once __DIR__ . '/faq.php';
 
 function lmdl_v3_kind() {
   if ( is_front_page() ) { return 'home'; }

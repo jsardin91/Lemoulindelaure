@@ -5,5 +5,6 @@
   <figure class="v3-earth-art"><?php echo lmdl_v3_image( $service['painting'], 'Écureuil dans l’univers Terre', '' ); ?><figcaption>Écureuil · Terre</figcaption></figure>
   <section class="v3-earth-note"><span class="v3-earth-note__margin">Le vivant</span><h2>Écouter la relation.</h2><p><?php echo esc_html( $service['note'] ); ?></p><div><h3>Pour qui ?</h3><p>Pour les personnes qui vivent avec un animal et les professionnels en lien avec les animaux, notamment celles et ceux qui en prennent soin.</p></div></section>
   <section class="v3-detail-practical"><p class="v3-folio">En pratique</p><h2>Le cadre du chemin.</h2><p><?php echo esc_html( $service['practical'] ); ?></p><p>Je ne suis ni vétérinaire ni médecin et ne pose pas de diagnostic. Lorsqu’une situation le demande, les professionnels compétents restent essentiels.</p></section>
+  <?php echo lmdl_v3_faq_preview( array( 'why', 'feeling', 'medical' ), 'v3-earth-faq-title', 'À propos de l’animal.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   <?php echo lmdl_v3_related( 'earth' ); echo lmdl_v3_close( 'En parler ensemble ?' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helpers. ?>
 </main>

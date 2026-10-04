@@ -4,5 +4,6 @@
   <section id="lire" class="v3-air-opening"><p class="v3-folio">Chapitre Air · 04</p><h2>Faire place<br><em>à la perspective.</em></h2><p class="v3-air-opening__lead"><?php echo esc_html( $service['lead'] ); ?></p><div><p><?php echo esc_html( $service['body'] ); ?></p><p><?php echo esc_html( $service['note'] ); ?></p></div></section>
   <figure class="v3-air-art"><?php echo lmdl_v3_image( $service['painting'], 'Papillon dans l’univers Air', '' ); ?><figcaption>Papillon · Air</figcaption></figure>
   <section class="v3-detail-practical"><p class="v3-folio">En pratique</p><h2>Une liberté de regard.</h2><p>Bienveillance, humilité, honnêteté et confidentialité font partie du cadre commun aux accompagnements du Moulin.</p><p><?php echo esc_html( $service['practical'] ); ?></p></section>
+  <?php echo lmdl_v3_faq_preview( array( 'guidance', 'choose' ), 'v3-air-faq-title', 'Garder votre liberté.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   <?php echo lmdl_v3_related( 'air' ); echo lmdl_v3_close( 'Une question ?' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helpers. ?>
 </main>

@@ -12,7 +12,8 @@ get_header( 'v3' );
 <main id="contenu" class="site-main lmdl-article" aria-label="Article du Journal">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<article <?php post_class( 'lmdl-article__entry' ); ?>>
-		<header class="lmdl-article__header lmdl-reading">
+		<div class="lmdl-article__opening">
+		<header class="lmdl-article__header">
 			<a class="lmdl-article__back" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">← Journal</a>
 			<p class="v3-folio">Le Moulin de Laure · Le Journal</p>
 			<h1><?php the_title(); ?></h1>
@@ -44,10 +45,15 @@ get_header( 'v3' );
 				?>
 			</figure>
 		<?php endif; ?>
+		</div>
 		<div class="lmdl-article__body lmdl-reading">
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<nav class="lmdl-article__pages" aria-label="Pages de l’article">', 'after' => '</nav>' ) ); ?>
 		</div>
+		<aside class="lmdl-article__help lmdl-reading" aria-labelledby="lmdl-article-help-title">
+			<div><p class="v3-folio">Pour poursuivre</p><h2 id="lmdl-article-help-title">Une question en chemin ?</h2></div>
+			<a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">Lire les questions fréquentes <span aria-hidden="true">↗</span></a>
+		</aside>
 		<footer class="lmdl-article__footer lmdl-reading">
 			<div><p class="v3-folio">La page suivante</p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Tous les articles du Journal <span aria-hidden="true">↗</span></a></div>
 			<?php echo lmdl_v3_image( 'logo/signature-transparent.png', '', 'lmdl-article__signature' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>

@@ -39,6 +39,16 @@
 .v3-journal-list--single .v3-journal-entry--lead{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center;gap:clamp(2rem,5vw,6rem);border-top:1px solid var(--v3-line);padding-top:2.5rem}
 .v3-journal-list--single .v3-journal-entry__image{display:block}
 .v3-journal-list--single .v3-journal-entry--lead img{height:auto;max-height:560px;aspect-ratio:6/5;object-fit:cover;margin:0}
+body.lmdl-v3 .lmdl-article__opening{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;gap:clamp(2.5rem,6vw,7rem);width:min(100% - 2.5rem,1400px);margin-inline:auto;padding:clamp(4rem,8vw,9rem) 0 clamp(4rem,7vw,7rem);border-bottom:1px solid var(--v3-line)}
+body.lmdl-v3 .lmdl-article__header{width:auto;padding:0}body.lmdl-v3 .lmdl-article__back{margin-bottom:clamp(2.5rem,5vw,5rem)}
+body.lmdl-v3 .lmdl-article__header h1{max-width:12ch;font-size:clamp(3.8rem,6vw,7rem);overflow-wrap:anywhere}
+body.lmdl-v3 .lmdl-article__standfirst{max-width:32ch}body.lmdl-v3 .lmdl-article__meta{margin-top:clamp(2rem,4vw,4rem)}
+body.lmdl-v3 .lmdl-article__cover{max-width:none;margin:0;padding:clamp(1.25rem,3vw,3.5rem);background:#e5e9dd;transform:rotate(-1deg)}
+body.lmdl-v3 .lmdl-article__cover img{display:block;width:100%;height:auto;max-height:590px;aspect-ratio:1;object-fit:contain}body.lmdl-v3 .lmdl-article__cover figcaption{margin-top:1rem}
+body.lmdl-v3 .lmdl-article__body{margin-top:clamp(4rem,7vw,7rem)}
+body.lmdl-v3 .lmdl-article__help{width:min(100% - 2.5rem,1060px);margin:clamp(4rem,7vw,7rem) auto 0;padding:clamp(2rem,4vw,4rem) 0;border-top:1px solid var(--v3-line);border-bottom:1px solid var(--v3-line);display:flex;align-items:end;justify-content:space-between;gap:2rem}
+body.lmdl-v3 .lmdl-article__help h2{margin:1rem 0 0;font-size:clamp(1.8rem,3vw,3.5rem);line-height:1.15;letter-spacing:-.04em}body.lmdl-v3 .lmdl-article__help .v3-editorial-link{flex:none}
+body.lmdl-v3 .lmdl-article__footer{border-top:0;margin-top:0}
 .v3-faq__content{display:grid;grid-template-columns:minmax(240px,34%) minmax(0,1fr);gap:clamp(2.5rem,7vw,8rem);padding:clamp(5rem,9vw,10rem) clamp(1.25rem,9vw,9rem)}
 .v3-faq__heading h2{margin:1.5rem 0 2rem;font-size:clamp(3rem,5vw,6rem);letter-spacing:-.05em;line-height:1.08}.v3-faq__heading h2 em{font-weight:400}
 .v3-faq__heading>p:last-child{max-width:35ch;font-size:1.1rem;line-height:1.65}
@@ -49,8 +59,20 @@
 .v3-faq__item summary:focus-visible{outline:3px solid var(--v3-blue);outline-offset:4px}
 .v3-faq__answer{max-width:64ch;padding:0 2.5rem 2rem 0;line-height:1.7}.v3-faq__answer p{margin:0 0 1rem}.v3-faq__answer a{display:inline-flex;align-items:center;min-height:44px;gap:.65rem;text-underline-offset:.25em}
 .v3-faq__close{padding:clamp(5rem,8vw,8rem) clamp(1.25rem,9vw,9rem);background:#e7ece2}.v3-faq__close h2{margin:1.2rem 0 2rem;font-size:clamp(3.2rem,6vw,7rem);letter-spacing:-.05em}
+.v3-faq-preview{display:grid;grid-template-columns:minmax(0,35%) minmax(0,1fr);gap:clamp(2.5rem,7vw,8rem);padding:clamp(4rem,7vw,7rem) clamp(1.25rem,9vw,9rem);background:var(--v3-paper);border-top:1px solid var(--v3-line)}
+.v3-faq-preview__intro h2{max-width:12ch;margin:1.4rem 0 2rem;font-size:clamp(2.6rem,4.8vw,5.4rem);line-height:1.1;letter-spacing:-.05em}
+.v3-faq-preview__editor-note{align-self:center;max-width:36ch;font:400 clamp(1.2rem,2vw,1.7rem)/1.5 Lora,serif}
+.v3-faq__list--editor :is(details,.wp-block-details){border-bottom:1px solid var(--v3-line)}
+.v3-faq__list--editor summary{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:68px;padding:1.25rem 0;cursor:pointer;list-style:none;font:400 clamp(1.2rem,1.7vw,1.55rem)/1.35 Lora,serif}
+.v3-faq__list--editor summary::-webkit-details-marker{display:none}.v3-faq__list--editor summary::after{content:'+';flex:none;color:var(--v3-teal);font:400 1.8rem/1 'Source Sans 3',sans-serif}.v3-faq__list--editor details[open] summary::after{content:'−'}
+.v3-faq__list--editor summary:focus-visible,body.lmdl-v3 .lmdl-article__body summary:focus-visible{outline:3px solid var(--v3-blue);outline-offset:4px}
+.v3-faq__list--editor details>*:not(summary){max-width:64ch;line-height:1.7}
+body.lmdl-v3 .lmdl-article__body details{border-top:1px solid var(--v3-line);border-bottom:1px solid var(--v3-line);padding:1rem 0;margin:2rem 0}
+body.lmdl-v3 .lmdl-article__body summary{cursor:pointer;min-height:44px;font:400 clamp(1.2rem,2vw,1.6rem)/1.4 Lora,serif}
 @media(max-width:999px){.v3-journal-list--single .v3-journal-entry--lead{display:block}.v3-journal-list--single .v3-journal-entry--lead img{margin-bottom:1.5rem}}
+@media(max-width:900px){body.lmdl-v3 .lmdl-article__opening{grid-template-columns:1fr;gap:3rem}body.lmdl-v3 .lmdl-article__cover{width:min(100%,670px);justify-self:center}body.lmdl-v3 .lmdl-article__help{display:block}body.lmdl-v3 .lmdl-article__help .v3-editorial-link{margin-top:1.5rem}}
+@media(max-width:760px){body.lmdl-v3 .lmdl-article__opening{padding:4.5rem 0 3.5rem}body.lmdl-v3 .lmdl-article__header{padding:0}body.lmdl-v3 .lmdl-article__header h1{font-size:clamp(3rem,12vw,5rem)}body.lmdl-v3 .lmdl-article__cover{padding:1.5rem 1.25rem;transform:none}body.lmdl-v3 .lmdl-article__body{margin-top:3.5rem}}
 @media(min-width:1024px){.v3-header__nav{display:flex}.v3-header__booking{display:block}.v3-header__menu{display:none}}
 @media(max-width:1023px){.v3-header__nav,.v3-header__booking{display:none}.v3-header{grid-template-columns:1fr auto}.v3-header__menu{display:block}}
-@media(max-width:760px){.v3-footer{display:block;padding:4.5rem 1.25rem 2rem}.v3-footer__logo{width:190px}.v3-footer__chapter{margin-top:4rem}.v3-footer__chapter h2{font-size:clamp(3.3rem,14vw,5rem)}.v3-footer__links{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}.v3-footer__links nav:first-child{display:grid;grid-template-columns:1fr}.v3-footer__end{display:block;margin-top:4rem}.v3-footer__end span{display:block;margin-top:.7rem}.v3-functional__content,.v3-faq__content{grid-template-columns:1fr}.v3-functional__intro h1{font-size:clamp(3.6rem,14vw,6rem)}.v3-faq__content{gap:3rem}.v3-faq__item summary{min-height:68px}}
+@media(max-width:760px){.v3-footer{display:block;padding:4.5rem 1.25rem 2rem}.v3-footer__logo{width:190px}.v3-footer__chapter{margin-top:4rem}.v3-footer__chapter h2{font-size:clamp(3.3rem,14vw,5rem)}.v3-footer__links{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}.v3-footer__links nav:first-child{display:grid;grid-template-columns:1fr}.v3-footer__end{display:block;margin-top:4rem}.v3-footer__end span{display:block;margin-top:.7rem}.v3-functional__content,.v3-faq__content,.v3-faq-preview{grid-template-columns:1fr}.v3-functional__intro h1{font-size:clamp(3.6rem,14vw,6rem)}.v3-faq__content,.v3-faq-preview{gap:3rem}.v3-faq__item summary{min-height:68px}}
 @media(prefers-reduced-motion:reduce){.v3-header__submenu,.v3-header__booking span{transition:none}}

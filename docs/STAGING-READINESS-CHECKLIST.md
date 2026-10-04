@@ -13,6 +13,7 @@ Status 2026-10-03: **main-domain V1 preview is live under temporary noindex; cli
 - [ ] Decide whether Timetics' native confirmation is truthful, especially its email claim. Verify actual sent email and reschedule/cancel links. Use `/reservation-confirmee/` only if a reliable redirect is tested.
 - [ ] Complete Complianz with approved legal/consent text; classify Timetics, Forminator and any external resources. Test banner desktop/mobile, keyboard and focus without obscuring header, CTA or plugin modals.
 - [ ] Complete Rank Math titles/descriptions and canonical settings for index pages; ensure receipts and Timetics duplicate URLs are noindex and excluded from the active sitemap, while remaining crawlable. No FAQPage until all visible answers are approved; never QAPage or duplicate schema.
+- [ ] Choose the FAQ source after Laure's copy review: insert the native V3 Details pattern or configure the installed Structured FAQ plugin and insert its shortcode on `/faq/`. Verify that the visible output is nonempty, accessible and matches any single FAQPage schema owner. The plugin currently returns no content from its bare shortcodes.
 - [ ] Configure LiteSpeed only after checking forms, Timetics AJAX/calendar, logged-out cache and consent states; avoid caching personalized booking responses.
 
 ## Final release QA gate

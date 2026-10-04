@@ -5,5 +5,6 @@
   <figure class="v3-water-art"><?php echo lmdl_v3_image( $service['painting'], 'Tortue dans l’univers Eau', '' ); ?><figcaption>Tortue · Eau</figcaption></figure>
   <section class="v3-water-note"><p class="v3-folio">Écoute et confidentialité</p><h2>Un espace sensible.</h2><p>Je souhaite accueillir ces échanges avec bienveillance, honnêteté et sans jugement. Aucun message n’est garanti.</p></section>
   <section class="v3-detail-practical"><p class="v3-folio">En pratique</p><h2>Un cadre à préciser.</h2><p><?php echo esc_html( $service['practical'] ); ?></p><p>Si vous avez besoin d’une précision avant de choisir cet accompagnement, vous pouvez m’écrire.</p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Me contacter <span aria-hidden="true">↗</span></a></section>
+  <?php echo lmdl_v3_faq_preview( array( 'deceased', 'choose' ), 'v3-water-faq-title', 'Un sujet délicat.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   <?php echo lmdl_v3_related( 'water' ); echo lmdl_v3_close( 'En parler ensemble ?' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helpers. ?>
 </main>

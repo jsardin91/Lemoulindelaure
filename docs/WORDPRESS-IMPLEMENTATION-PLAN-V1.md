@@ -1,5 +1,7 @@
 # WordPress Implementation Plan V1 — Le Moulin de Laure
 
+**V3 FAQ follow-up (2026-10-04):** The older V1 FAQ paragraph below describes the initial empty-answer phase. Eight provisional, owner-authorized answers now render on the V3 FAQ and contextual sections. The page template can consume native Gutenberg Details or the installed Structured FAQ shortcodes from its stored content, with a visible fallback while the plugin has no entries. No theme FAQPage schema is generated. See [FAQ-V3-INTEGRATION.md](FAQ-V3-INTEGRATION.md) for the editor handoff and verification.
+
 Status: **V1 public preview installed on the main WordPress domain with temporary site-wide noindex; client-dependent functions and final content remain open.**
 
 Last updated: 2026-10-03
