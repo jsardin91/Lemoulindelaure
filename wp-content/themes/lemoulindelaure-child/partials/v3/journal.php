@@ -7,7 +7,7 @@
     $query = new WP_Query( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 6, 'paged' => $page, 'ignore_sticky_posts' => true ) );
     if ( $query->have_posts() ) {
       $index = 0;
-      echo '<div class="v3-journal-list">';
+      echo '<div class="v3-journal-list' . ( 1 === (int) $query->post_count ? ' v3-journal-list--single' : '' ) . '">';
       while ( $query->have_posts() ) {
         $query->the_post();
         $index++;
