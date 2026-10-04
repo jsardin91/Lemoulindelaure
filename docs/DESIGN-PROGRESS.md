@@ -80,3 +80,5 @@ Published after backup `pre-37141470900` via theme run `37141539393`. Live 1024 
 2026-10-04 footer polish: the complete logo image already includes “Au cœur du lien, au-delà des sens.” Removed the redundant line below it and the duplicate at the footer bottom, then adjusted mobile spacing. Local visual checks at 375/1440 px show the artwork and footer hierarchy remain clear.
 
 Live preview verified after backup `pre-37186956057` and theme run `37187015854`: footer screenshots at 375/1440 px, responsive geometry through 1600 px, keyboard submenu, PHP lint, and HTTP 200 with `noindex, follow` passed. No plugin or content change.
+
+2026-10-04 booking follow-up in progress: V3 `/prendre-rendez-vous/` now focuses on one free introductory call, with a single native Timetics shortcode guarded by a tagged appointment. Local 375/768/1024/1440 layout passed; actual slot booking remains pending Laure's exact schedule, duration, medium and notifications. See `docs/DISCOVERY-BOOKING-PREPARATION.md`. No live booking configuration was changed.

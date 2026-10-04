@@ -32,6 +32,17 @@ if ( file_exists( $functional_patterns_file ) ) {
 }
 
 /** Site-local plugin IDs stay in WordPress options, never in the public patterns. */
+function lmdl_discovery_booking_id() {
+	if ( 'single' !== get_option( 'lmdl_timetics_booking_mode', '' ) ) {
+		return 0;
+	}
+	$id = absint( get_option( 'lmdl_timetics_booking_id', 0 ) );
+	$post = $id ? get_post( $id ) : null;
+	if ( ! $post || 'timetics-appointment' !== $post->post_type || 'publish' !== $post->post_status || '1' !== get_post_meta( $id, '_lmdl_discovery_call', true ) || 'enabled' !== get_post_meta( $id, '_tt_apointment_visibility', true ) ) {
+		return 0;
+	}
+	return $id;
+}
 add_shortcode( 'lmdl_contact_form', function () {
 	$id = absint( get_option( 'lmdl_forminator_contact_id', 0 ) );
 	if ( ! $id || ! shortcode_exists( 'forminator_form' ) ) {
@@ -40,12 +51,9 @@ add_shortcode( 'lmdl_contact_form', function () {
 	return do_shortcode( '[forminator_form id="' . $id . '"]' );
 } );
 add_shortcode( 'lmdl_booking', function () {
-	if ( 'list' === get_option( 'lmdl_timetics_booking_mode', '' ) && shortcode_exists( 'timetics-meeting-list' ) ) {
-		return do_shortcode( '[timetics-meeting-list limit="4"]' );
-	}
-	$id = absint( get_option( 'lmdl_timetics_booking_id', 0 ) );
+	$id = lmdl_discovery_booking_id();
 	if ( ! $id || ! shortcode_exists( 'timetics-booking-form' ) ) {
-		return '<p class="lmdl-functional-unavailable">Les créneaux de réservation seront bientôt disponibles. Les modalités sont en cours de finalisation.</p>';
+		return '<p class="lmdl-functional-unavailable">Les créneaux de l’appel découverte seront bientôt disponibles.</p>';
 	}
 	return do_shortcode( '[timetics-booking-form id="' . $id . '"]' );
 } );

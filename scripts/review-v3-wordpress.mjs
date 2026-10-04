@@ -20,7 +20,8 @@ try {
  const send=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,m=>m.error?reject(Error(JSON.stringify(m.error))):resolve(m.result));socket.send(JSON.stringify({id:n,method,params}))});
  const evaluate=async expression=>{const r=(await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true})).result;if(r.exceptionDetails)throw Error(r.exceptionDetails.text);return r.value};
  await send('Page.enable');await send('Runtime.enable');await send('Log.enable');
- const pages=[['home','/'],['hub','/accompagnements/'],['earth','/accompagnements/communication-animale/'],['fire','/accompagnements/accompagnement-energetique-animalier/'],['water','/accompagnements/connexion-defunts/'],['air','/accompagnements/guidance-pour-soi/'],['jardin','/le-jardin/'],['about','/a-propos/'],['journal','/journal/'],['faq','/faq/'],['contact','/contact/'],['booking','/prendre-rendez-vous/']];
+ const allPages=[['home','/'],['hub','/accompagnements/'],['earth','/accompagnements/communication-animale/'],['fire','/accompagnements/accompagnement-energetique-animalier/'],['water','/accompagnements/connexion-defunts/'],['air','/accompagnements/guidance-pour-soi/'],['jardin','/le-jardin/'],['about','/a-propos/'],['journal','/journal/'],['faq','/faq/'],['contact','/contact/'],['booking','/prendre-rendez-vous/']];
+ const pages=process.env.LMDL_REVIEW_PAGE?allPages.filter(([name])=>name===process.env.LMDL_REVIEW_PAGE):allPages;
  const report=[];
  for(const [name,path] of pages)for(const width of [375,768,1024,1440]){
   errors.length=0;
@@ -33,9 +34,10 @@ try {
    await evaluate(`(async()=>{for(let y=0;y<document.body.scrollHeight;y+=innerHeight){scrollTo(0,y);await new Promise(r=>setTimeout(r,35))}scrollTo(0,0);await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return true})()`);
   }
   const data=await evaluate(`({title:document.title,h1:[...document.querySelectorAll('h1')].map(x=>x.textContent.trim()),width:innerWidth,scrollWidth:document.documentElement.scrollWidth,robots:[...document.querySelectorAll('meta[name=robots]')].map(x=>x.content),canonical:document.querySelector('link[rel=canonical]')?.href,brokenImages:[...document.images].filter(x=>x.complete&&!x.naturalWidth).map(x=>x.src),internalBroken:[...document.querySelectorAll('a[href]')].map(x=>x.getAttribute('href')).filter(x=>x&&x.startsWith('http://127.0.0.1')),placeholderText:document.body.innerText.includes('TEST LOCAL')||document.body.innerText.includes('certifiée par Laila Del Monte'),contactFields:document.querySelectorAll('forminator-custom-form input').length,bookingMeetings:document.querySelectorAll('.tt-meeting-list-item').length,header:!!document.querySelector('header'),footer:!!document.querySelector('footer'),links:[...document.querySelectorAll('a[href]')].filter(x=>x.href.startsWith(location.origin)).map(x=>new URL(x.href).pathname).filter((x,i,a)=>a.indexOf(x)===i)})`);
-  if(['home','hub','earth','fire','water','air','about','jardin','journal','faq','contact','booking'].includes(name)&&width===375){const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:width===375});await writeFile(join(output,`${name}-${width}.png`),Buffer.from(shot.data,'base64'))}
+  if((['home','hub','earth','fire','water','air','about','jardin','journal','faq','contact','booking'].includes(name)&&width===375)||(name==='booking'&&width===1440)){const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:name==='booking'||width===375});await writeFile(join(output,`${name}-${width}.png`),Buffer.from(shot.data,'base64'))}
   report.push({page:name,path,width,...data,errors:[...errors]});
   console.log(`${name} ${width} h1=${data.h1.length} overflow=${data.scrollWidth-width} robots=${data.robots.join(',')} images=${data.brokenImages.length} errors=${errors.length}`);
+  if(name==='booking'&&errors.length)console.log('BOOKING_ERRORS='+JSON.stringify(errors));
  }
  await writeFile(join(output,'report.json'),JSON.stringify(report,null,2));
 } finally {socket?.close();edge.kill();await new Promise(r=>setTimeout(r,150));await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:100})}
