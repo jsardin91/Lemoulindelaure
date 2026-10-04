@@ -78,3 +78,5 @@ Follow-up: the complete desktop header now shares one row with the booking CTA f
 Published after backup `pre-37141470900` via theme run `37141539393`. Live 1024 px capture and desktop geometry confirm the complete menu and CTA in one line; focus opens the four service links.
 
 2026-10-04 footer polish: the complete logo image already includes “Au cœur du lien, au-delà des sens.” Removed the redundant line below it and the duplicate at the footer bottom, then adjusted mobile spacing. Local visual checks at 375/1440 px show the artwork and footer hierarchy remain clear.
+
+Live preview verified after backup `pre-37186956057` and theme run `37187015854`: footer screenshots at 375/1440 px, responsive geometry through 1600 px, keyboard submenu, PHP lint, and HTTP 200 with `noindex, follow` passed. No plugin or content change.
