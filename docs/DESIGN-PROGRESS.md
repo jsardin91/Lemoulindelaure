@@ -1,10 +1,10 @@
 # Design Progress — Le Moulin de Laure
 
-Last updated: 2026-10-03
+Last updated: 2026-10-04
 
 ## FAQ V3 — provisional editorial answers
 
-The owner authorized draft FAQ answers and useful extra questions on 2026-10-04. The V3 FAQ now answers the four original brief questions and four visitor concerns: choosing among the universes, medical/veterinary limits, guarantees around the deceased, and future prediction. A ruled native disclosure list replaces the placeholder; its first answer is open. The closing contact prompt stays short. The copy avoids unverified logistics and efficacy claims and awaits Laure's final editorial review. Desktop and mobile captures were inspected after a second image-loading pass; 375/768/1024/1440 have no overflow, broken images or console errors. Native Space activation and focus were checked under reduced motion. The old V1 wireframe remains historical and notes the owner override.
+The owner authorized draft FAQ answers and useful extra questions on 2026-10-04. The V3 FAQ now answers the four original brief questions and four visitor concerns: choosing among the universes, medical/veterinary limits, guarantees around the deceased, and future prediction. A ruled native disclosure list replaces the placeholder; its first answer is open. The closing contact prompt stays short. The copy avoids unverified logistics and efficacy claims and awaits Laure's final editorial review. Desktop and mobile captures were inspected after a second image-loading pass; 375/768/1024/1440 have no overflow, broken images or console errors locally and on the noindex preview. Native Space activation and focus were checked under reduced motion; internal FAQ links return 200. Source `36bdd74` was deployed after backup `pre-37189479384` via run 37189547245. The old V1 wireframe remains historical and notes the owner override.
 
 ## V3 Butterfly door integration — current follow-up
 

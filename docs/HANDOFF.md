@@ -1,10 +1,10 @@
 # Handoff / Project State
 
-Last updated: 2026-10-03
+Last updated: 2026-10-04
 
 ## FAQ V3 — provisional copy in review
 
-On 2026-10-04, the owner authorized provisional answers and additional visitor questions. `partials/v3/faq.php` now renders eight questions: the four from the client brief, plus choosing an accompaniment, medical/veterinary limits, deceased-message guarantees and guidance/prediction. Native `<details>/<summary>` keeps all answers available without JavaScript; the first is open by default. The page has an editorial two-column layout on desktop and a single-column mobile layout in `assets/v3/v3-extension.css`. Text does not state prices, durations, confirmed procedures, results or credentials. Laure should review the wording before the final public/indexable version. The historical V1 wireframe has an override note. Local QA: 375/768/1024/1440, one H1, no horizontal overflow, broken image or console error; Space opens a focused question under reduced motion. Deployment details are in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md).
+On 2026-10-04, the owner authorized provisional answers and additional visitor questions. `partials/v3/faq.php` now renders eight questions: the four from the client brief, plus choosing an accompaniment, medical/veterinary limits, deceased-message guarantees and guidance/prediction. Native `<details>/<summary>` keeps all answers available without JavaScript; the first is open by default. The page has an editorial two-column layout on desktop and a single-column mobile layout in `assets/v3/v3-extension.css`. Text does not state prices, durations, confirmed procedures, results or credentials. Laure should review the wording before the final public/indexable version. The historical V1 wireframe has an override note. Source `36bdd74` was deployed to the noindex preview after private backup `pre-37189479384` via successful run 37189547245. Local and live FAQ QA passed at 375/768/1024/1440: one H1, no horizontal overflow, broken image or console error; Space opens a focused question under reduced motion, and the relevant links return 200. Deployment details are in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md).
 
 ## Latest follow-up: Butterfly door on V3
 

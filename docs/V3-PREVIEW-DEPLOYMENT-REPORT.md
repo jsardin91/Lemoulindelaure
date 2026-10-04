@@ -1,5 +1,13 @@
 # V3 — préversion, tests et retour arrière
 
+## Suivi FAQ provisoire — 2026-10-04
+
+L'utilisateur a autorisé des réponses FAQ provisoires et de nouvelles questions utiles. La page `/faq/` affiche désormais huit questions, dont les quatre questions du brief. La structure est une liste native `<details>/<summary>` à séparateurs, sans JavaScript ajouté. Le contenu évite les tarifs, durées, modalités non confirmées et garanties de résultat ; Laure doit revoir la formulation finale avant indexation. Le rendu local a été examiné à 375 et 1440 px puis corrigé pour charger les images différées avant capture.
+
+Source thème déployée : `36bdd74` sur `redesign/editorial-portals-v3`. Snapshot privé préalable : **`pre-37189479384`** (run 37189479384, succès). Déploiement du seul thème enfant : **run 37189547245**, succès ; les étapes de configuration DB V3 et de création d'article Journal ont été ignorées. Le garde-fou `noindex, follow` et la purge LiteSpeed sont maintenus par le workflow. Aucun changement Astra parent ni contenu WordPress n'a été effectué.
+
+QA live `https://lemoulindelaure.fr/faq/` : 375/768/1024/1440 px, un H1, huit questions, aucun débordement horizontal, image cassée ou erreur console ; robots exactement `noindex, follow`. La barre d'espace ouvre la deuxième réponse après focus clavier, sous `prefers-reduced-motion: reduce`. Les liens internes de la FAQ, du contact et de la navigation répondent 200 dans Edge. Captures locales ignorées : `.local-wp/review-v3-faq-live/faq-375.png` et `faq-1440.png`. La seule prochaine action éditoriale est la relecture de Laure des huit réponses et la confirmation des modalités réelles de séance.
+
 ## Suivi — nouvelle porte Papillon
 
 Après le premier déploiement V3, `origin/main` a ajouté `design/brand/doors/door-butterfly-master.png` et `assets/doors/door-butterfly.webp` (`46ec2d4`). Ils ont été importés sur la branche V3 sans fusionner son composant V1 distinct. Audit visuel côte à côte : la porte violette suit la série Forêt/Phénix/Océan mais son export WebP a un fond sombre opaque. `scripts/build-v3-derived.py` préserve master et export, et crée `brand-derived/v3/door-butterfly-cutout.webp` avec la silhouette alpha du fichier Océan (512 × 768, environ 112 Ko). Les quatre portes apparaissent désormais sur l'accueil et le hub ; Air utilise la porte Papillon dans son hero, avec tableau original visible derrière à l'ouverture. Le Passage reste exclusivement commun.
