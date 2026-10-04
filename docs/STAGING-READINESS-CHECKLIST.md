@@ -4,7 +4,7 @@ Status 2026-10-03: **main-domain V1 preview is live under temporary noindex; cli
 
 ## Before final client approval and indexing
 
-- [ ] Collect one consolidated response to [CLIENT-CONTENT-QUESTIONS.md](CLIENT-CONTENT-QUESTIONS.md); have Laure approve every public sentence, four FAQ answers, service terms, image/portrait/profile rights and exact training wording.
+- [ ] Collect one consolidated response to [CLIENT-CONTENT-QUESTIONS.md](CLIENT-CONTENT-QUESTIONS.md); have Laure review all eight provisional FAQ answers and every other public sentence, service terms, image/portrait/profile rights and exact training wording.
 - [x] Install the reviewed child theme without touching Astra parent; verify Astra header/footer/menu and **LMdL — Page V1** template. Install the twelve V1 patterns. Optional receipt pages remain unpublished and out of navigation.
 - [x] Flush rewrite rules once; check all service links and the canonical `/prendre-rendez-vous/` route. Recheck `/journal/[slug]/` when a real article exists.
 - [ ] Create the real Forminator form with Nom, Email, Message only unless Laure approves more. Configure a real private recipient, delivery, retention, spam control, French validation, accessible required states and a truthful success message. Store its ID in site option `lmdl_forminator_contact_id`.

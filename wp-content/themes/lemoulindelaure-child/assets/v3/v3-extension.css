@@ -39,8 +39,18 @@
 .v3-journal-list--single .v3-journal-entry--lead{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center;gap:clamp(2rem,5vw,6rem);border-top:1px solid var(--v3-line);padding-top:2.5rem}
 .v3-journal-list--single .v3-journal-entry__image{display:block}
 .v3-journal-list--single .v3-journal-entry--lead img{height:auto;max-height:560px;aspect-ratio:6/5;object-fit:cover;margin:0}
+.v3-faq__content{display:grid;grid-template-columns:minmax(240px,34%) minmax(0,1fr);gap:clamp(2.5rem,7vw,8rem);padding:clamp(5rem,9vw,10rem) clamp(1.25rem,9vw,9rem)}
+.v3-faq__heading h2{margin:1.5rem 0 2rem;font-size:clamp(3rem,5vw,6rem);letter-spacing:-.05em;line-height:1.08}.v3-faq__heading h2 em{font-weight:400}
+.v3-faq__heading>p:last-child{max-width:35ch;font-size:1.1rem;line-height:1.65}
+.v3-faq__list{border-top:1px solid var(--v3-line)}
+.v3-faq__item{border-bottom:1px solid var(--v3-line)}
+.v3-faq__item summary{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:76px;padding:1.25rem 0;cursor:pointer;list-style:none;font:400 clamp(1.2rem,1.7vw,1.55rem)/1.35 Lora,serif}
+.v3-faq__item summary::-webkit-details-marker{display:none}.v3-faq__item summary::after{content:'+';flex:none;font:400 1.8rem/1 'Source Sans 3',sans-serif;color:var(--v3-teal)}.v3-faq__item[open] summary::after{content:'−'}
+.v3-faq__item summary:focus-visible{outline:3px solid var(--v3-blue);outline-offset:4px}
+.v3-faq__answer{max-width:64ch;padding:0 2.5rem 2rem 0;line-height:1.7}.v3-faq__answer p{margin:0 0 1rem}.v3-faq__answer a{display:inline-flex;align-items:center;min-height:44px;gap:.65rem;text-underline-offset:.25em}
+.v3-faq__close{padding:clamp(5rem,8vw,8rem) clamp(1.25rem,9vw,9rem);background:#e7ece2}.v3-faq__close h2{margin:1.2rem 0 2rem;font-size:clamp(3.2rem,6vw,7rem);letter-spacing:-.05em}
 @media(max-width:999px){.v3-journal-list--single .v3-journal-entry--lead{display:block}.v3-journal-list--single .v3-journal-entry--lead img{margin-bottom:1.5rem}}
 @media(min-width:1024px){.v3-header__nav{display:flex}.v3-header__booking{display:block}.v3-header__menu{display:none}}
 @media(max-width:1023px){.v3-header__nav,.v3-header__booking{display:none}.v3-header{grid-template-columns:1fr auto}.v3-header__menu{display:block}}
-@media(max-width:760px){.v3-footer{display:block;padding:4.5rem 1.25rem 2rem}.v3-footer__logo{width:190px}.v3-footer__chapter{margin-top:4rem}.v3-footer__chapter h2{font-size:clamp(3.3rem,14vw,5rem)}.v3-footer__links{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}.v3-footer__links nav:first-child{display:grid;grid-template-columns:1fr}.v3-footer__end{display:block;margin-top:4rem}.v3-footer__end span{display:block;margin-top:.7rem}.v3-functional__content{grid-template-columns:1fr}.v3-functional__intro h1{font-size:clamp(3.6rem,14vw,6rem)}}
+@media(max-width:760px){.v3-footer{display:block;padding:4.5rem 1.25rem 2rem}.v3-footer__logo{width:190px}.v3-footer__chapter{margin-top:4rem}.v3-footer__chapter h2{font-size:clamp(3.3rem,14vw,5rem)}.v3-footer__links{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem}.v3-footer__links nav:first-child{display:grid;grid-template-columns:1fr}.v3-footer__end{display:block;margin-top:4rem}.v3-footer__end span{display:block;margin-top:.7rem}.v3-functional__content,.v3-faq__content{grid-template-columns:1fr}.v3-functional__intro h1{font-size:clamp(3.6rem,14vw,6rem)}.v3-faq__content{gap:3rem}.v3-faq__item summary{min-height:68px}}
 @media(prefers-reduced-motion:reduce){.v3-header__submenu,.v3-header__booking span{transition:none}}

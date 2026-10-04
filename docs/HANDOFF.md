@@ -2,6 +2,10 @@
 
 Last updated: 2026-10-03
 
+## FAQ V3 — provisional copy in review
+
+On 2026-10-04, the owner authorized provisional answers and additional visitor questions. `partials/v3/faq.php` now renders eight questions: the four from the client brief, plus choosing an accompaniment, medical/veterinary limits, deceased-message guarantees and guidance/prediction. Native `<details>/<summary>` keeps all answers available without JavaScript; the first is open by default. The page has an editorial two-column layout on desktop and a single-column mobile layout in `assets/v3/v3-extension.css`. Text does not state prices, durations, confirmed procedures, results or credentials. Laure should review the wording before the final public/indexable version. The historical V1 wireframe has an override note. Local QA: 375/768/1024/1440, one H1, no horizontal overflow, broken image or console error; Space opens a focused question under reduced motion. Deployment details are in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md).
+
 ## Latest follow-up: Butterfly door on V3
 
 `origin/main` added the closed Butterfly door after V3 was deployed (`46ec2d4`). This V3 branch imports its master and WebP without merging the rest of main's V1 portal component. The theme now uses a transparent cutout of that door for Air on Homepage, hub and the Guidance page; source export and master are preserved. `scripts/build-v3-derived.py` reproduces the cutout from `door-butterfly.webp` and the existing Ocean alpha mask. The old CSS-only Air frame is removed. Source `0dc1e64` was deployed to `https://lemoulindelaure.fr/` with private rollback `pre-37122618592` and successful workflow 37122668164; the public preview remains `noindex, follow`. The 48 live views, no-JS and keyboard regression passed. See [BRAND-ASSET-MAPPING.md](BRAND-ASSET-MAPPING.md), [BRAND-ASSET-USAGE-V3.md](BRAND-ASSET-USAGE-V3.md) and [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md) for provenance, QA and rollback. The earlier V3 state below describes the first deployment.

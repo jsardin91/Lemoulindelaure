@@ -2,6 +2,10 @@
 
 Last updated: 2026-10-03
 
+## FAQ V3 — provisional editorial answers
+
+The owner authorized draft FAQ answers and useful extra questions on 2026-10-04. The V3 FAQ now answers the four original brief questions and four visitor concerns: choosing among the universes, medical/veterinary limits, guarantees around the deceased, and future prediction. A ruled native disclosure list replaces the placeholder; its first answer is open. The closing contact prompt stays short. The copy avoids unverified logistics and efficacy claims and awaits Laure's final editorial review. Desktop and mobile captures were inspected after a second image-loading pass; 375/768/1024/1440 have no overflow, broken images or console errors. Native Space activation and focus were checked under reduced motion. The old V1 wireframe remains historical and notes the owner override.
+
 ## V3 Butterfly door integration — current follow-up
 
 The newly added `door-butterfly-master.png` and `door-butterfly.webp` from `origin/main` were visually compared with Forest, Phoenix and Ocean. The new export has an opaque dark surround, so the V3 theme keeps it unchanged and generates a transparent cutout using the Ocean door's matching alpha silhouette. Homepage, hub and Air now use this Butterfly threshold in place of the temporary CSS-only frame; Passage remains the common open transition. Source `0dc1e64` is deployed to the noindex preview after private backup `pre-37122618592`; run 37122668164 succeeded and purged LiteSpeed. Live review passed 48 responsive views and no-JS/keyboard checks. Details are in [V3-PREVIEW-DEPLOYMENT-REPORT.md](V3-PREVIEW-DEPLOYMENT-REPORT.md). The V3 original milestone below remains historical context.

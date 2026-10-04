@@ -27,7 +27,7 @@ Document de collecte unique — 2026-10-02. Les quatre noms d’accompagnement, 
 
 ## FAQ, Contact et pages de confirmation
 
-- Réponses approuvées aux quatre questions du brief : « Pourquoi la communication animale ? », « Comment se passe une séance ? », « Est-ce en présentiel ou à distance ? », « Est-ce que l’animal ressent quelque chose ? » ; autres questions réellement fréquentes si vous en avez.
+- Relire les huit réponses provisoires de `partials/v3/faq.php`, dont les quatre questions du brief (« Pourquoi la communication animale ? », « Comment se passe une séance ? », « Est-ce en présentiel ou à distance ? », « Est-ce que l’animal ressent quelque chose ? »). Confirmer les modalités réelles, corriger toute formulation et signaler d’autres questions réellement fréquentes si vous en avez.
 - Adresse email professionnelle publique éventuelle ; destinataire privé du formulaire, délai de réponse que vous acceptez de publier, message de succès, finalité et durée de conservation des messages. Ne pas envoyer d’adresse ou d’accès secret dans ce document public.
 - Pour la réservation, texte de confirmation exact après une réservation effective ; pour le contact, le succès inline est prévu, la page `/merci/` n’est pas utilisée tant qu’une redirection n’apporte pas d’intérêt clair.
 - Textes légaux et politique de confidentialité validés par la personne compétente, et décisions sur consentement/statistiques/ressources externes pour Complianz.

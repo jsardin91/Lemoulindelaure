@@ -1,6 +1,8 @@
 # FAQ — Page Wireframe V1
 
-Status: **working design draft — questions sourced, answers still pending**
+Status: **historical V1 draft; V3 provisional FAQ implemented on 2026-10-04**
+
+The owner authorized draft answers and additional visitor questions on 2026-10-04, with wording to be revised later. V3 now has eight visible questions in `partials/v3/faq.php`: four from the client brief and four about choosing an accompaniment, medical/veterinary boundaries, deceased-message guarantees and guidance/prediction. The answers avoid unverified prices, durations and procedures. Laure still needs to review the final public wording. V3 uses native `<details>/<summary>` for keyboard access instead of a custom button accordion.
 
 Last updated: 2026-10-02
 

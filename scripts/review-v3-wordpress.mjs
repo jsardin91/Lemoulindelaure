@@ -30,11 +30,19 @@ try {
   await send('Page.navigate',{url:(process.env.LMDL_BASE_URL||'http://127.0.0.1:8765')+path});
   for(let i=0;i<120;i++){if(await evaluate(`document.readyState==='complete'&&document.querySelectorAll('h1').length>0`))break;await new Promise(r=>setTimeout(r,100))}
   await new Promise(r=>setTimeout(r,250));
-  if(['home','hub','earth','air','journal','demo-article'].includes(name)&&(width===375||width===1440)){
+  if(['home','hub','earth','air','journal','faq','demo-article'].includes(name)&&(width===375||width===1440)){
    await evaluate(`(async()=>{for(let y=0;y<document.body.scrollHeight;y+=innerHeight){scrollTo(0,y);await new Promise(r=>setTimeout(r,35))}scrollTo(0,0);await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return true})()`);
   }
   const data=await evaluate(`({title:document.title,h1:[...document.querySelectorAll('h1')].map(x=>x.textContent.trim()),width:innerWidth,scrollWidth:document.documentElement.scrollWidth,robots:[...document.querySelectorAll('meta[name=robots]')].map(x=>x.content),canonical:document.querySelector('link[rel=canonical]')?.href,brokenImages:[...document.images].filter(x=>x.complete&&!x.naturalWidth).map(x=>x.src),internalBroken:[...document.querySelectorAll('a[href]')].map(x=>x.getAttribute('href')).filter(x=>x&&x.startsWith('http://127.0.0.1')),placeholderText:document.body.innerText.includes('TEST LOCAL')||document.body.innerText.includes('certifiée par Laila Del Monte'),contactFields:document.querySelectorAll('forminator-custom-form input').length,bookingMeetings:document.querySelectorAll('.tt-meeting-list-item').length,header:!!document.querySelector('header'),footer:!!document.querySelector('footer'),links:[...document.querySelectorAll('a[href]')].filter(x=>x.href.startsWith(location.origin)).map(x=>new URL(x.href).pathname).filter((x,i,a)=>a.indexOf(x)===i)})`);
-  if((['home','hub','earth','fire','water','air','about','jardin','journal','faq','contact','booking','demo-article'].includes(name)&&width===375)||(['booking','journal','demo-article'].includes(name)&&width===1440)){const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:['booking','journal','demo-article'].includes(name)||width===375});await writeFile(join(output,`${name}-${width}.png`),Buffer.from(shot.data,'base64'))}
+  if((['home','hub','earth','fire','water','air','about','jardin','journal','faq','contact','booking','demo-article'].includes(name)&&width===375)||(['booking','journal','demo-article','faq'].includes(name)&&width===1440)){const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:['booking','journal','demo-article','faq'].includes(name)||width===375});await writeFile(join(output,`${name}-${width}.png`),Buffer.from(shot.data,'base64'))}
+  if(name==='faq'&&width===375){
+   await evaluate(`document.querySelectorAll('.v3-faq__item summary')[1].focus()`);
+   await send('Input.dispatchKeyEvent',{type:'keyDown',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32,text:' '});
+   await send('Input.dispatchKeyEvent',{type:'keyUp',key:' ',code:'Space',windowsVirtualKeyCode:32,nativeVirtualKeyCode:32});
+   await new Promise(r=>setTimeout(r,100));
+   data.faqKeyboard=await evaluate(`({open:document.querySelectorAll('.v3-faq__item')[1].open,focused:document.activeElement===document.querySelectorAll('.v3-faq__item summary')[1]})`);
+   console.log(`FAQ_KEYBOARD=${JSON.stringify(data.faqKeyboard)}`);
+  }
   report.push({page:name,path,width,...data,errors:[...errors]});
   console.log(`${name} ${width} h1=${data.h1.length} overflow=${data.scrollWidth-width} robots=${data.robots.join(',')} images=${data.brokenImages.length} errors=${errors.length}`);
   if(name==='booking'&&errors.length)console.log('BOOKING_ERRORS='+JSON.stringify(errors));
