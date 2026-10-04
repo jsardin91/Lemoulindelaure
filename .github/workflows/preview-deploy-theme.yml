@@ -12,6 +12,11 @@ on:
         required: false
         default: false
         type: boolean
+      journal_demo_only:
+        description: Add the guarded Journal demo article without deploying the theme
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -21,8 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Configure SSH and package child theme
+      - name: Configure SSH and package child theme when requested
         shell: bash
+        env:
+          JOURNAL_DEMO_ONLY: ${{ inputs.journal_demo_only }}
         run: |
           set -euo pipefail
           mkdir -p ~/.ssh
@@ -30,9 +37,12 @@ jobs:
           printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
-          tar -C wp-content/themes -czf "$RUNNER_TEMP/lemoulindelaure-child.tgz" lemoulindelaure-child
+          if [ "$JOURNAL_DEMO_ONLY" != 'true' ]; then
+            tar -C wp-content/themes -czf "$RUNNER_TEMP/lemoulindelaure-child.tgz" lemoulindelaure-child
+          fi
 
       - name: Upload verified source archive
+        if: ${{ ! inputs.journal_demo_only }}
         shell: bash
         run: |
           set -euo pipefail
@@ -41,6 +51,7 @@ jobs:
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-child-${GITHUB_RUN_ID}.tgz"
 
       - name: Install and verify with automatic theme rollback
+        if: ${{ ! inputs.journal_demo_only }}
         shell: bash
         env:
           BACKUP_ID: ${{ inputs.backup_id }}
@@ -112,7 +123,7 @@ jobs:
           REMOTE
 
       - name: Configure guarded V3 preview database
-        if: ${{ inputs.configure_v3 }}
+        if: ${{ inputs.configure_v3 && ! inputs.journal_demo_only }}
         shell: bash
         env:
           BACKUP_ID: ${{ inputs.backup_id }}
@@ -146,6 +157,44 @@ jobs:
           wp --path="$root" eval-file "$script"
           test "$(wp --path="$root" option get lmdl_timetics_booking_mode)" = 'list'
           test "$(wp --path="$root" option get lmdl_forminator_contact_id)" -gt 0
+          wp --path="$root" eval 'do_action("litespeed_purge_all");' >/dev/null
+          printf 'PREVIEW_NOINDEX=1\nCACHE_PURGED=yes\n'
+          REMOTE
+
+      - name: Add guarded Journal demo article
+        if: ${{ inputs.journal_demo_only }}
+        shell: bash
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: |
+          set -euo pipefail
+          case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" scripts/create-journal-demo.php \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-journal-demo-${GITHUB_RUN_ID}.php"
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID'" <<'REMOTE'
+          set -euo pipefail
+          run_id="$1"
+          backup_id="$2"
+          script="$HOME/.lmdl-journal-demo-$run_id.php"
+          trap 'rm -f "$script"' EXIT
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          if [ "${#configs[@]}" -ne 1 ]; then printf 'EXPECTED_ONE_WORDPRESS_INSTALLATION\n'; exit 1; fi
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          backup_dir="$(realpath "$HOME")/.lmdl-preview-backups/$backup_id"
+          test -f "$script" && test -f "$backup_dir/wordpress.sql.gz" && test -f "$backup_dir/lemoulindelaure-child.tgz"
+          test -f "$backup_dir/SHA256SUMS" && test -f "$backup_dir/manifest.txt"
+          grep -Fxq "backup_id=$backup_id" "$backup_dir/manifest.txt"
+          sha256sum -c "$backup_dir/SHA256SUMS" >/dev/null
+          test "$(wp --path="$root" option get home)" = 'https://lemoulindelaure.fr'
+          test "$(wp --path="$root" option get stylesheet)" = 'lemoulindelaure-child'
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
+          php -l "$script" >/dev/null
+          wp --path="$root" --skip-plugins eval-file "$script"
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
           wp --path="$root" eval 'do_action("litespeed_purge_all");' >/dev/null
           printf 'PREVIEW_NOINDEX=1\nCACHE_PURGED=yes\n'
           REMOTE
