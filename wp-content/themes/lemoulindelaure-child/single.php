@@ -50,10 +50,7 @@ get_header( 'v3' );
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<nav class="lmdl-article__pages" aria-label="Pages de l’article">', 'after' => '</nav>' ) ); ?>
 		</div>
-		<aside class="lmdl-article__help lmdl-reading" aria-labelledby="lmdl-article-help-title">
-			<div><p class="v3-folio">Pour poursuivre</p><h2 id="lmdl-article-help-title">Une question en chemin ?</h2></div>
-			<a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">Lire les questions fréquentes <span aria-hidden="true">↗</span></a>
-		</aside>
+		<?php echo lmdl_v3_faq_preview( array( 'choose', 'how' ), 'lmdl-article-faq-title', 'Une question en chemin ?' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 		<footer class="lmdl-article__footer lmdl-reading">
 			<div><p class="v3-folio">La page suivante</p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Tous les articles du Journal <span aria-hidden="true">↗</span></a></div>
 			<?php echo lmdl_v3_image( 'logo/signature-transparent.png', '', 'lmdl-article__signature' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
