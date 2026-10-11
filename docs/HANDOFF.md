@@ -1,5 +1,9 @@
 # Handoff / Project State
 
+## 2026-10-11 — Héros et compositions des quatre services
+
+Les quatre héros de service suivent désormais la disposition de « La communication animalière » : texte et lien de lecture à gauche, porte seule à droite sur ordinateur, puis texte avant porte sur mobile. La Tortue n’a plus un héros centré, et la légende redondante de la porte Papillon a été retirée. Dans chaque chapitre, la photo réelle et le tableau signé forment une composition continue ; le tableau reste un petit médaillon carré sans légende visible. Les textes alternatifs sont conservés. Les URL et les portes sans image en arrière-plan ne changent pas.
+
 ## 2026-10-11 — Portes sans image derrière elles
 
 Correction demandée après l’intégration photographique : les quatre portes affichent uniquement leur image de porte sur un aplat. Aucune photo ni aucun tableau n’est rendu derrière la porte, sur l’accueil, le hub ou les quatre pages d’accompagnement. Les photos d’animaux restent dans les séquences éditoriales et les tableaux dans les médaillons des chapitres. Les notes antérieures décrivant des photos dans les portes sont historiques et ne définissent plus le rendu actif.

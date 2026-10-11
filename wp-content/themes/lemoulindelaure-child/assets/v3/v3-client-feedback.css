@@ -64,3 +64,41 @@
 @media(min-width:761px) and (max-width:900px){.v3-gateway--earth :is(h2,h3){font-size:2.15rem}}
 @media(max-width:760px){.v3-gateway--earth :is(h2,h3){font-size:clamp(2.25rem,9vw,3.3rem)}}
 @media(max-width:480px){.v3-detail-hero--earth h1{font-size:clamp(2.25rem,10vw,2.7rem)}}
+
+/* The four service covers share the same editorial split as Communication animalière. */
+@media(min-width:761px){
+  .v3-detail-hero:is(.v3-detail-hero--earth,.v3-detail-hero--fire,.v3-detail-hero--water,.v3-detail-hero--air){display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:clamp(1rem,4vw,5rem);min-height:clamp(620px,54vw,850px);padding:clamp(3rem,6vw,6rem) clamp(2rem,8vw,9rem);text-align:left}
+  .v3-detail-hero__copy{position:relative;z-index:2;min-width:0}
+  .v3-detail-hero:is(.v3-detail-hero--earth,.v3-detail-hero--fire,.v3-detail-hero--water,.v3-detail-hero--air) h1{font-size:clamp(2.4rem,5vw,5.8rem);overflow-wrap:normal}
+  .v3-detail-hero--water .v3-detail-hero__lead{margin-inline:0}
+  .v3-detail-hero:is(.v3-detail-hero--earth,.v3-detail-hero--fire,.v3-detail-hero--water,.v3-detail-hero--air) .v3-portal{width:min(100%,340px);align-self:center;justify-self:center;margin:0;transform:none}
+}
+@media(min-width:761px) and (max-width:1100px){
+  .v3-detail-hero:is(.v3-detail-hero--earth,.v3-detail-hero--fire,.v3-detail-hero--water,.v3-detail-hero--air) h1{font-size:clamp(2.25rem,4.5vw,3.4rem)}
+}
+@media(max-width:760px){
+  .v3-detail-hero--water .v3-detail-hero__copy{width:100%}
+  .v3-detail-hero--water .v3-detail-hero__lead{margin-inline:0}
+}
+
+/* The real animal and Laure's signed painting form one continuous chapter spread. */
+.v3-chapter-visual{position:relative;padding:clamp(2rem,5vw,5rem) clamp(1.25rem,9vw,9rem) clamp(4rem,8vw,7rem);background:#e9eee6}
+.v3-chapter-visual--fire{background:#f4e9d7}
+.v3-chapter-visual--water{background:#e5efef}
+.v3-chapter-visual--air{background:#efedf3}
+.v3-chapter-visual__photo{width:calc(100% - clamp(70px,10vw,140px));max-width:1060px;margin:0}
+.v3-chapter-visual__photo img{display:block;width:100%;height:clamp(280px,35vw,500px);object-fit:cover;border-radius:2px 150px 2px 2px}
+.v3-chapter-visual--water .v3-chapter-visual__photo img{object-position:center 54%}
+.v3-chapter-visual--fire .v3-chapter-visual__photo,.v3-chapter-visual--air .v3-chapter-visual__photo{margin-left:auto}
+.v3-chapter-visual--fire .v3-chapter-visual__photo img,.v3-chapter-visual--air .v3-chapter-visual__photo img{border-radius:150px 2px 2px 2px}
+.v3-chapter-visual__medallion{position:absolute;right:clamp(1.25rem,9vw,9rem);bottom:clamp(1.25rem,3vw,3rem);width:clamp(150px,19vw,245px);margin:0;padding:8px;background:var(--v3-paper);box-shadow:0 0 0 1px var(--v3-line),0 14px 30px #160e4d1c}
+.v3-chapter-visual__medallion img{display:block;width:100%;aspect-ratio:1;object-fit:contain}
+.v3-chapter-visual--fire .v3-chapter-visual__medallion,.v3-chapter-visual--air .v3-chapter-visual__medallion{right:auto;left:clamp(1.25rem,9vw,9rem)}
+@media(max-width:760px){
+  .v3-chapter-visual{padding:1.25rem 1.25rem 2.5rem}
+  .v3-chapter-visual__photo{width:100%}
+  .v3-chapter-visual__photo img{height:clamp(230px,62vw,420px);border-radius:2px 80px 2px 2px}
+  .v3-chapter-visual--fire .v3-chapter-visual__photo img,.v3-chapter-visual--air .v3-chapter-visual__photo img{border-radius:80px 2px 2px 2px}
+  .v3-chapter-visual__medallion{position:relative;left:auto!important;right:auto;width:min(43vw,190px);margin:-3rem 0 0 auto;padding:6px}
+  .v3-chapter-visual--fire .v3-chapter-visual__medallion,.v3-chapter-visual--air .v3-chapter-visual__medallion{margin-left:0}
+}

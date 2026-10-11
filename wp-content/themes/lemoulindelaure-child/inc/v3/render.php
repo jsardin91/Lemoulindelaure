@@ -64,6 +64,13 @@ function lmdl_v3_portal_visual( $key, $service, $eager = false, $linked = false 
   return $html . '</div>';
 }
 
+function lmdl_v3_chapter_visual( $key, $service, $photo, $photo_alt, $painting_alt ) {
+  $html = '<div class="v3-chapter-visual v3-chapter-visual--' . esc_attr( $key ) . '">';
+  $html .= '<figure class="v3-chapter-visual__photo">' . lmdl_v3_image( $photo, $photo_alt ) . '</figure>';
+  $html .= '<figure class="v3-chapter-visual__medallion">' . lmdl_v3_image( $service['painting'], $painting_alt ) . '</figure>';
+  return $html . '</div>';
+}
+
 function lmdl_v3_portal_article( $key, $service, $context = 'home' ) {
   $title_id = 'v3-' . $context . '-' . $key;
   $heading = 'hub' === $context ? 'h2' : 'h3';

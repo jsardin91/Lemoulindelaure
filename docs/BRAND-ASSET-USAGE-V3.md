@@ -4,6 +4,8 @@
 
 La composition active conserve les quatre portes **sans image derrière elles**. Les photographies réelles d’animaux prennent place dans les séquences éditoriales de l’accueil, de la page À propos, des quatre accompagnements, du Jardin et du Journal. Les quatre tableaux signés apparaissent uniquement en petits médaillons dans leur chapitre respectif, sans légende visible ; un texte alternatif nomme l’œuvre et Laure. Les portraits de Laure, les photos d’animaux et les médaillons n’ont plus de légende visible. L’emblème et la signature gardent leurs usages de marque. La provenance et les licences des huit photos d’animaux sont consignées dans [CLIENT-FEEDBACK-2026-10-11.md](CLIENT-FEEDBACK-2026-10-11.md).
 
+Sur les quatre pages de service, chaque photo d’animal et son tableau forment une seule composition : photographie large, médaillon carré en léger chevauchement sur fond papier. Les dispositions alternent selon les chapitres, sans image derrière les portes ni légende visible.
+
 Les descriptions ci-dessous documentent la conception V3 initiale ; la révision ci-dessus prévaut pour le rendu actif. Les anciens dérivés `*-portal.webp` restent des fichiers historiques et ne sont pas appelés par les portes actives.
 
 Audit visuel : les quatre sources picturales, leurs dérivés display, les trois portes fermées initiales, le Passage, logo horizontal, logo complet crème/transparent, emblème, signature, devise et icônes ont été ouverts côte à côte. La porte Papillon ajoutée ensuite sur `main` a été ouverte à sa taille native et comparée aux trois autres portes dans `.local-wp/new-doors.jpg` (ignoré par Git). La planche source versionnée reste `design/asset-contact-sheet.png`. Les originaux ne sont pas modifiés.
