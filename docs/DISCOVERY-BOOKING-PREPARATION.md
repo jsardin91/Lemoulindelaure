@@ -18,6 +18,14 @@ Le rendu V3 et le shortcode enfant sont préparés pour un formulaire Timetics n
 
 Le brief historique indique seulement « principalement les soirs et le samedi ». Il ne permet pas de créer des créneaux exacts. L'instruction « gratuit » du propriétaire est la source du tarif zéro pour **cet appel seulement**.
 
+## Mise en service de l’aperçu — 2026-10-11
+
+Le propriétaire a fixé un seul appel découverte gratuit de **30 minutes**, par téléphone : Laure rappelle au numéro fourni dans Timetics. Disponibilités : lundi à vendredi, **18 h 30–21 h, Europe/Paris**. La configuration retient un préavis de 24 heures, 15 minutes entre deux appels, une capacité de 1 et une fenêtre glissante de 60 jours. Le filtre du thème enfant vérifie à nouveau les jours, les heures et le préavis lors de la soumission, y compris si quelqu’un contourne l’interface. Les quatre rendez-vous de démonstration sont masqués, pas supprimés.
+
+L’audit de l’aperçu a confirmé un unique compte Timetics actif au nom de Laure avec adresse de notification. La sauvegarde privée `pre-38175906570` et le déploiement du thème et de la configuration `38175981541` ont réussi. Le nouveau rendez-vous Timetics porte l’ID local `86` ; son tarif est nul, sa durée 30 minutes et son lieu `attendee-call`. Les notifications de création pour Laure et la personne qui réserve sont activées. Le site reste `noindex`. Aucun rendez-vous de test ni courriel n’a été envoyé ; la délivrabilité des notifications reste à confirmer lors d’un essai convenu avec Laure.
+
+Les points ci-dessous décrivent la préparation historique du 2026-10-04.
+
 ## Mise en service prévue
 
 1. Sauvegarde privée vérifiée, puis audit du compte Timetics existant et du rôle `timetics-staff` sans divulguer ses données dans Git ou les logs publics.

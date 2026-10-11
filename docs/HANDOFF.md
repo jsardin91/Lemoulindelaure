@@ -112,6 +112,10 @@ The client must still verify public copy and provide exact credential wording, s
 
 Le pied de page V3 affiche désormais les intitulés publics des quatre accompagnements, issus de `lmdl_v3_content()['services']`, à la place des seuls noms d’animaux. Les quatre URL canoniques restent identiques. La grille des liens est adaptée aux écrans étroits. Modification du thème enfant au commit `5dfd00182c501ec283b8a017ca2a98781c328e49`, sauvegarde privée `pre-38174747718`, déploiement de l’aperçu réussi par le workflow `38174813107`. Le HTML public confirme les quatre libellés et destinations ainsi que `noindex`. Le contrôle visuel automatisé n’a pas pu être exécuté dans cette session faute de Node disponible et de capture Edge ; revoir le footer à 375 et 1440 px lors de la prochaine revue visuelle.
 
+## 2026-10-11 — Appel découverte Timetics
+
+Un seul appel gratuit de 30 minutes est ouvert dans l’aperçu (lundi–vendredi, 18 h 30–21 h, Europe/Paris ; Laure rappelle ; préavis 24 h). Les quatre réunions de démonstration sont masquées. Sauvegarde `pre-38175906570`, déploiement `38175981541`. La page publique et l’API ont confirmé l’ID 86, la durée, le tarif nul, le lieu téléphonique, trois créneaux un mercredi et aucun le samedi ; `noindex` est maintenu. Aucun courriel de test n’a été envoyé. Détails et limites : [DISCOVERY-BOOKING-PREPARATION.md](DISCOVERY-BOOKING-PREPARATION.md).
+
 # 2026-10-03 — V3 addendum handoff
 
 The current branch adds the first-person editorial revision, six-link desktop header with accessible service submenu, redesigned footer and V3 native-plugin envelopes. Backup `pre-37127265874`, guarded plugin/Astra run `37127485364`, Timetics UI polish run `37127901152` and final nine-color sync run `37128150718` passed. Live browser QA covered 12 routes × four widths, `noindex, follow`, links, Forminator validation and computed colors; see `docs/V3-ADDENDUM-IMPLEMENTATION.md`. The final run reused the existing plugin IDs and purged cache. The earlier automatic reviewer rejected a sensitive backup step; `wp-config.php` has been removed from that workflow. Keep `lmdl_preview_noindex=1` until a separate publication decision.

@@ -34,3 +34,26 @@ foreach ( $appointments as $post ) {
 		'discovery' => get_post_meta( $post->ID, '_lmdl_discovery_call', true ),
 	) ) . "\n";
 }
+
+$id = absint( get_option( 'lmdl_timetics_booking_id', 0 ) );
+if ( $id && '1' === get_post_meta( $id, '_lmdl_discovery_call', true ) ) {
+	$meeting = new Timetics\Core\Appointments\Appointment( $id );
+	$host_id = $meeting->get_staff_ids()[0] ?? 0;
+	$paris = new DateTimeZone( 'Europe/Paris' );
+	$weekday = new DateTimeImmutable( 'today', $paris );
+	$weekday = $weekday->modify( '+10 days' );
+	while ( (int) $weekday->format( 'N' ) > 5 ) { $weekday = $weekday->modify( '+1 day' ); }
+	$weekend = $weekday->modify( 'next saturday' );
+	$slot = static function ( $day, $time ) use ( $meeting, $host_id ) {
+		return apply_filters( 'timetics_is_slot_available', true, $meeting, array(
+			'staff_id' => $host_id, 'start_date' => $day->format( 'Y-m-d' ), 'start_time' => $time, 'timezone' => 'Europe/Paris',
+		) );
+	};
+	echo 'DISCOVERY_RULE_VALID_WEEKDAY=' . ( $slot( $weekday, '6:30pm' ) ? 'yes' : 'no' ) . "\n";
+	echo 'DISCOVERY_RULE_EARLY_HOUR=' . ( $slot( $weekday, '6:00pm' ) ? 'yes' : 'no' ) . "\n";
+	echo 'DISCOVERY_RULE_LATE_HOUR=' . ( $slot( $weekday, '8:45pm' ) ? 'yes' : 'no' ) . "\n";
+	echo 'DISCOVERY_RULE_WEEKEND=' . ( $slot( $weekend, '6:30pm' ) ? 'yes' : 'no' ) . "\n";
+	echo 'DISCOVERY_RULE_SAME_DAY=' . ( $slot( new DateTimeImmutable( 'today', $paris ), '6:30pm' ) ? 'yes' : 'no' ) . "\n";
+	echo 'CUSTOMER_EMAIL_ENABLED=' . ( timetics_get_option( 'booking_created_customer' ) ? 'yes' : 'no' ) . "\n";
+	echo 'HOST_EMAIL_ENABLED=' . ( timetics_get_option( 'booking_created_host' ) ? 'yes' : 'no' ) . "\n";
+}
