@@ -29,9 +29,9 @@ $meeting = new Timetics\Core\Appointments\Appointment( $id );
 $meeting->set_props( array(
 	'name' => 'Appel découverte gratuit',
 	'type' => 'One-to-One',
-	'description' => 'Un échange téléphonique de 30 minutes pour faire connaissance. Laure vous rappellera au numéro indiqué lors de la réservation.',
+	'description' => 'Un échange téléphonique de 30 minutes pour faire connaissance. Je vous rappellerai au numéro indiqué lors de votre réservation.',
 	'staff' => array( (int) $host->get_id() ),
-	'locations' => array( array( 'location_type' => 'attendee-call', 'location' => 'Attendee Phone Call' ) ),
+	'locations' => array( array( 'location_type' => 'attendee-call', 'location' => 'Je vous rappelle par téléphone' ) ),
 	'duration' => '30 min',
 	'schedule' => array( (int) $host->get_id() => array( 'Mon' => $hours, 'Tue' => $hours, 'Wed' => $hours, 'Thu' => $hours, 'Fri' => $hours, 'Sat' => array(), 'Sun' => array() ) ),
 	'blocked_schedule' => array(),
@@ -67,6 +67,11 @@ foreach ( $previews as $preview ) {
 
 timetics_update_option( 'booking_created_customer', 1 );
 timetics_update_option( 'booking_created_host', 1 );
+timetics_update_option( 'calendar_locale', 'fr' );
+timetics_update_option( 'booking_created_customer_email_title', 'Votre appel découverte est confirmé' );
+timetics_update_option( 'booking_created_customer_email_body', '<p>Bonjour {%customer_name%},</p><p>Votre appel découverte gratuit avec moi est confirmé pour le {%meeting_date%} à {%meeting_time%} (heure de Paris). Je vous rappellerai au numéro indiqué lors de votre réservation.</p><p>À bientôt,<br>Laure</p>' );
+timetics_update_option( 'booking_created_host_email_title', 'Nouvel appel découverte réservé' );
+timetics_update_option( 'booking_created_host_email_body', '<p>Bonjour {%host_name%},</p><p>{%customer_name%} a réservé un appel découverte le {%meeting_date%} à {%meeting_time%} (heure de Paris).</p>' );
 update_option( 'lmdl_timetics_booking_id', $id );
 update_option( 'lmdl_timetics_booking_mode', 'single' );
 do_action( 'litespeed_purge_all' );

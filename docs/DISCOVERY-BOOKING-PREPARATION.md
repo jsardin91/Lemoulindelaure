@@ -24,6 +24,8 @@ Le propriétaire a fixé un seul appel découverte gratuit de **30 minutes**, pa
 
 L’audit de l’aperçu a confirmé un unique compte Timetics actif au nom de Laure avec adresse de notification. La sauvegarde privée `pre-38175906570` et le déploiement du thème et de la configuration `38175981541` ont réussi. Le nouveau rendez-vous Timetics porte l’ID local `86` ; son tarif est nul, sa durée 30 minutes et son lieu `attendee-call`. Les notifications de création pour Laure et la personne qui réserve sont activées. Le site reste `noindex`. Aucun rendez-vous de test ni courriel n’a été envoyé ; la délivrabilité des notifications reste à confirmer lors d’un essai convenu avec Laure.
 
+Révision linguistique demandée ensuite : les textes de présentation et la description Timetics emploient « je » ; le lieu affiché indique que Laure rappelle par téléphone. La locale du calendrier est `fr` et les libellés du formulaire React sont fournis par le thème enfant au domaine `timetics`, sans modifier les fichiers de l’extension. Les notifications de création reçoivent des titres et corps français. Le parcours visible doit être revérifié après déploiement, ainsi que les courriels lors d’un essai autorisé.
+
 Les points ci-dessous décrivent la préparation historique du 2026-10-04.
 
 ## Mise en service prévue

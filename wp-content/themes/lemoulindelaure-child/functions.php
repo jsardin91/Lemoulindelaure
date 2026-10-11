@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 require_once get_stylesheet_directory() . '/inc/v2.php';
 require_once get_stylesheet_directory() . '/inc/v3/render.php';
+require_once get_stylesheet_directory() . '/inc/v3/timetics-fr.php';
 
 /** Keep the established service slugs while reflecting Laure's later public titles. */
 function lmdl_v3_current_service_titles() {
