@@ -21,3 +21,30 @@
 .v3-journal-list--single{grid-template-columns:minmax(0,860px)}body.lmdl-v3 .lmdl-article__opening--text-only{display:block}body.lmdl-v3 .lmdl-article__opening--text-only .lmdl-article__header{max-width:1000px}
 @media(max-width:480px){.v3-detail-hero--earth h1{font-size:clamp(2.7rem,12vw,3.15rem)}}
 @media(prefers-reduced-motion:reduce){.v3-portal__door{transform:none!important}}
+
+/* Photographs live within the story and behind each threshold, without visible labels. */
+.v3-home-animals{position:relative;z-index:2;align-items:start;padding-top:0;padding-bottom:clamp(2.5rem,5vw,5rem);background:var(--v3-paper)}
+.v3-home-animals figure{overflow:hidden;border-radius:46% 46% 2px 2px / 17% 17% 2px 2px}
+.v3-home-animals img{transition:transform .5s ease}
+.v3-home-animals figure:nth-child(1){transform:translateY(-1.5rem)}
+.v3-home-animals figure:nth-child(2){margin-top:1.8rem}
+.v3-home-animals figure:nth-child(3){transform:translateY(-.75rem)}
+.v3-home-animals figure:nth-child(4){margin-top:2.5rem}
+.v3-portal__animal{position:absolute;z-index:0;inset:10% 10% 5%;width:80%;height:85%;object-fit:cover;border-radius:47% 47% 2% 2% / 24% 24% 2% 2%;filter:saturate(.9)}
+.v3-portal--fire .v3-portal__animal{object-position:42% center}
+.v3-portal--water .v3-portal__animal{object-position:56% center}
+.v3-portal__door{z-index:1}
+.v3-animal-interlude{padding:clamp(1.5rem,4vw,4rem) clamp(1.25rem,9vw,9rem);background:var(--v3-white)}
+.v3-animal-interlude img{width:min(100%,1080px);height:clamp(260px,34vw,470px);object-fit:cover;border-radius:2px 150px 2px 2px;margin-left:auto}
+.v3-animal-interlude--fire img,.v3-animal-interlude--air img{margin-left:0;border-radius:150px 2px 2px 2px}
+.v3-animal-interlude--water img{object-position:center 54%}
+.v3-chapter-medallion{padding-top:clamp(2rem,4vw,4rem);padding-bottom:clamp(2rem,4vw,4rem)}
+.v3-about-painting figure{overflow:hidden;border-radius:48% 48% 2px 2px / 16% 16% 2px 2px}
+.v3-about-painting figure img{width:100%;max-width:none;max-height:600px;aspect-ratio:4/3;object-fit:cover;clip-path:none}
+.v3-home-garden__art img{width:100%;max-width:none;max-height:none;height:100%;min-height:460px;object-fit:cover;clip-path:none;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
+.v3-home-journal figure{transform:none;overflow:hidden;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
+.v3-home-journal figure img{width:100%;max-width:none;max-height:none;aspect-ratio:4/5;object-fit:cover;clip-path:none}
+.v3-garden-hero figure img,.v3-journal-hero figure img{width:100%;max-width:none;max-height:600px;aspect-ratio:4/5;object-fit:cover;clip-path:none;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
+.v3-garden-visual figure{overflow:hidden;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
+.v3-garden-visual figure img{width:100%;max-width:none;max-height:540px;aspect-ratio:4/3;object-fit:cover;clip-path:none}
+@media(max-width:760px){.v3-home-animals{gap:.6rem;padding-top:1rem;padding-bottom:3rem}.v3-home-animals figure:nth-child(n){margin:0;transform:none}.v3-home-animals figure:nth-child(even){margin-top:1.2rem}.v3-home-animals img{height:38vw;min-height:125px}.v3-animal-interlude{padding:1.25rem}.v3-animal-interlude img{height:60vw;min-height:220px;border-radius:2px 80px 2px 2px}.v3-animal-interlude--fire img,.v3-animal-interlude--air img{border-radius:80px 2px 2px 2px}.v3-home-garden__art{padding:2rem 1.25rem 0}.v3-home-garden__art img{width:100%;height:60vw;min-height:220px;max-height:360px}.v3-home-journal figure img{max-height:none}.v3-garden-hero figure img,.v3-journal-hero figure img{max-height:420px}.v3-about-painting figure img{max-height:380px}}

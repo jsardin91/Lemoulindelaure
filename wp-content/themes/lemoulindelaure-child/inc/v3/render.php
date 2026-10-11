@@ -49,6 +49,10 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
     'photos/chien.jpg' => array( 960, 656 ),
     'photos/cheval.jpg' => array( 960, 641 ),
     'photos/oiseau.jpg' => array( 960, 560 ),
+    'photos/squirrel.jpg' => array( 1280, 855 ),
+    'photos/ibis.jpg' => array( 1280, 964 ),
+    'photos/turtle.jpg' => array( 1280, 800 ),
+    'photos/butterfly.jpg' => array( 1280, 854 ),
   );
   $size = $dimensions[ $path ] ?? array( 1, 1 );
   return '<img class="' . esc_attr( $classes ) . '" src="' . esc_url( lmdl_v3_asset( $path ) ) . '" width="' . (int) $size[0] . '" height="' . (int) $size[1] . '" alt="' . esc_attr( $alt ) . '" loading="' . ( $eager ? 'eager' : 'lazy' ) . '" decoding="async"' . ( $priority ? ' fetchpriority="high"' : '' ) . '>';
@@ -56,6 +60,10 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
 
 function lmdl_v3_portal_visual( $key, $service, $eager = false, $linked = false ) {
   $html = '<div class="v3-portal v3-portal--' . esc_attr( $key ) . '"' . ( $linked ? '' : ' aria-hidden="true"' ) . '><span class="v3-portal__aura" aria-hidden="true"></span><span class="v3-portal__frame" aria-hidden="true">';
+  $animals = array( 'earth' => 'squirrel.jpg', 'fire' => 'ibis.jpg', 'water' => 'turtle.jpg', 'air' => 'butterfly.jpg' );
+  if ( isset( $animals[ $key ] ) ) {
+    $html .= lmdl_v3_image( 'photos/' . $animals[ $key ], '', 'v3-portal__animal', $eager );
+  }
   $html .= lmdl_v3_image( $service['door'], '', 'v3-portal__door', $eager, $eager );
   $html .= '</span>';
   if ( $linked ) {

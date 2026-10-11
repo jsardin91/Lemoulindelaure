@@ -8,11 +8,11 @@
       <p class="v3-home-hero__lead">Quatre univers pour explorer les liens avec les animaux, les êtres chers et soi-même.</p>
       <a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/accompagnements/' ) ); ?>">Découvrir les accompagnements <span aria-hidden="true">↗</span></a>
     </div>
-    <figure class="v3-home-hero__art"><?php echo lmdl_v3_image( 'photos/laure-accueil.jpg', 'Laure dans un paysage de campagne', 'v3-home-hero__photo', true, true ); ?><figcaption>Laure, au grand air</figcaption></figure>
+    <figure class="v3-home-hero__art"><?php echo lmdl_v3_image( 'photos/laure-accueil.jpg', 'Laure dans un paysage de campagne', 'v3-home-hero__photo', true, true ); ?></figure>
     <p class="v3-home-hero__caption">Le chemin commence ici <span aria-hidden="true">↓</span></p>
   </section>
 
-  <section class="v3-home-animals" aria-label="Chats, chiens, chevaux et oiseaux"><figure><?php echo lmdl_v3_image( 'photos/chat.jpg', 'Chat tigré au repos' ); ?><figcaption>Chats</figcaption></figure><figure><?php echo lmdl_v3_image( 'photos/chien.jpg', 'Chien dans un chemin boisé' ); ?><figcaption>Chiens</figcaption></figure><figure><?php echo lmdl_v3_image( 'photos/cheval.jpg', 'Cheval dans une prairie' ); ?><figcaption>Chevaux</figcaption></figure><figure><?php echo lmdl_v3_image( 'photos/oiseau.jpg', 'Rouge-gorge' ); ?><figcaption>Oiseaux</figcaption></figure></section>
+  <section class="v3-home-animals" aria-label="Chats, chiens, chevaux et oiseaux"><figure><?php echo lmdl_v3_image( 'photos/chat.jpg', 'Chat tigré au repos' ); ?></figure><figure><?php echo lmdl_v3_image( 'photos/chien.jpg', 'Chien dans un chemin boisé' ); ?></figure><figure><?php echo lmdl_v3_image( 'photos/cheval.jpg', 'Cheval dans une prairie' ); ?></figure><figure><?php echo lmdl_v3_image( 'photos/oiseau.jpg', 'Rouge-gorge' ); ?></figure></section>
 
   <section class="v3-manifesto" aria-labelledby="v3-manifesto-title">
     <p class="v3-folio">Pourquoi Le Moulin ?</p>
@@ -38,9 +38,9 @@
     <span class="v3-home-laure__margin">Respect · écoute · confidentialité</span>
   </section>
 
-  <section class="v3-home-garden" aria-labelledby="v3-garden-title"><div class="v3-home-garden__art" aria-hidden="true"><?php echo lmdl_v3_image( 'logo/embleme-transparent.png', '', '' ); ?></div><div><p class="v3-folio">Une parenthèse</p><h2 id="v3-garden-title">Le Jardin<br><em>du Moulin.</em></h2><p><?php echo esc_html( $data['garden']['lead'] ); ?></p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/le-jardin/' ) ); ?>">Découvrir le Jardin <span aria-hidden="true">↗</span></a></div></section>
+  <section class="v3-home-garden" aria-labelledby="v3-garden-title"><figure class="v3-home-garden__art"><?php echo lmdl_v3_image( 'photos/cheval.jpg', 'Cheval dans une prairie', '' ); ?></figure><div><p class="v3-folio">Une parenthèse</p><h2 id="v3-garden-title">Le Jardin<br><em>du Moulin.</em></h2><p><?php echo esc_html( $data['garden']['lead'] ); ?></p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/le-jardin/' ) ); ?>">Découvrir le Jardin <span aria-hidden="true">↗</span></a></div></section>
 
-  <section class="v3-home-journal" aria-labelledby="v3-journal-title"><p class="v3-folio">Pages à venir</p><div><h2 id="v3-journal-title">Le <em>Journal.</em></h2><p><?php echo esc_html( $data['journal']['lead'] ); ?></p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Ouvrir le Journal <span aria-hidden="true">↗</span></a></div><figure aria-hidden="true"><?php echo lmdl_v3_image( 'logo/embleme-transparent.png', '', '' ); ?><figcaption>Une page · mille regards</figcaption></figure></section>
+  <section class="v3-home-journal" aria-labelledby="v3-journal-title"><p class="v3-folio">Pages à venir</p><div><h2 id="v3-journal-title">Le <em>Journal.</em></h2><p><?php echo esc_html( $data['journal']['lead'] ); ?></p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Ouvrir le Journal <span aria-hidden="true">↗</span></a></div><figure><?php echo lmdl_v3_image( 'photos/oiseau.jpg', 'Rouge-gorge posé sur une branche', '' ); ?></figure></section>
   <?php echo lmdl_v3_faq_preview( array( 'choose', 'how' ), 'v3-home-faq-title', 'Avant de choisir.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   <?php echo lmdl_v3_close(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 </main>

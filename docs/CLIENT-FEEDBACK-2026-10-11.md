@@ -28,6 +28,19 @@ Les quatre photographies suivantes sont des dérivés optimisés, téléchargés
 | `photos/cheval.jpg` | Cheval | [Gray horse on green and yellow meadow](https://commons.wikimedia.org/wiki/File:Gray_horse_on_green_and_yellow_meadow_(Unsplash).jpg), auteur indiqué sur la page Commons |
 | `photos/oiseau.jpg` | Rouge-gorge | [Robin Bird Portrait Photo](https://commons.wikimedia.org/wiki/File:Robin_Bird_Portrait_Photo.jpg), Andrea Stöckel |
 
+### Complément visuel du 11 octobre 2026
+
+À la demande du propriétaire, les légendes visibles sous les portraits, les photographies d’animaux et les quatre tableaux ont été retirées. Leurs textes alternatifs restent présents. Les photos sont réparties dans les portes, les chapitres, la page À propos, le Jardin et le Journal ; les tableaux restent des médaillons dans les chapitres.
+
+Quatre photographies réelles supplémentaires ont été redimensionnées et réencodées sans métadonnées personnelles. Les originaux téléchargés restent hors dépôt. Les pages Commons indiquent la licence [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) ; provenance vérifiée le 11 octobre 2026.
+
+| Fichier web | Sujet | Source et auteur |
+| --- | --- | --- |
+| `photos/squirrel.jpg` | Écureuil roux | [Red squirrel (54030915774)](https://commons.wikimedia.org/wiki/File:Red_squirrel_(54030915774).jpg), Mustang Joe |
+| `photos/ibis.jpg` | Ibis rouge, évocation visuelle de l’univers du Phénix | [Scarlet Ibis (13398591033)](https://commons.wikimedia.org/wiki/File:Scarlet_Ibis_(13398591033).jpg), Bernard Spragg |
+| `photos/turtle.jpg` | Tortue marine | [A Sea Turtle](https://commons.wikimedia.org/wiki/File:A_Sea_Turtle.jpg), safaritravelplus |
+| `photos/butterfly.jpg` | Papillon | [Marbled white butterfly](https://commons.wikimedia.org/wiki/File:Marbled_white_butterfly.jpg), Jessica Towne |
+
 ## Publication
 
 Les formulations publiques ont été présentées pour relecture dans [RELECTURE-LAURE-2026-10-11.md](RELECTURE-LAURE-2026-10-11.md) ; l’utilisateur a répondu « c’est bon ». Le thème enfant a été déployé après la sauvegarde privée `pre-38171811684` par le workflow `38171865623`. L’aperçu conserve `lmdl_preview_noindex=1`. Le Journal de démonstration et son image en médiathèque restent à retirer avant toute indexation.
