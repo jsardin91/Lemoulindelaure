@@ -99,6 +99,6 @@
   .v3-chapter-visual__photo{width:100%}
   .v3-chapter-visual__photo img{height:clamp(230px,62vw,420px);border-radius:2px 80px 2px 2px}
   .v3-chapter-visual--fire .v3-chapter-visual__photo img,.v3-chapter-visual--air .v3-chapter-visual__photo img{border-radius:80px 2px 2px 2px}
-  .v3-chapter-visual__medallion{position:relative;left:auto!important;right:auto;width:min(43vw,190px);margin:-3rem 0 0 auto;padding:6px}
-  .v3-chapter-visual--fire .v3-chapter-visual__medallion,.v3-chapter-visual--air .v3-chapter-visual__medallion{margin-left:0}
+  .v3-chapter-visual .v3-chapter-visual__medallion{position:relative;left:auto!important;right:auto;bottom:auto;width:min(43vw,190px);margin:-3rem 0 0 auto;padding:6px}
+  .v3-chapter-visual--fire .v3-chapter-visual__medallion,.v3-chapter-visual--air .v3-chapter-visual__medallion{margin-left:0;margin-right:auto}
 }
