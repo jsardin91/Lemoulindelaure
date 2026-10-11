@@ -34,10 +34,6 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
     'doors/door-ocean.webp' => array( 512, 768 ),
     'doors/door-passage.webp' => array( 512, 768 ),
     'brand-derived/v3/door-butterfly-cutout.webp' => array( 512, 768 ),
-    'brand-derived/v3/squirrel-portal.webp' => array( 709, 720 ),
-    'brand-derived/v3/phoenix-portal.webp' => array( 709, 720 ),
-    'brand-derived/v3/turtle-portal.webp' => array( 720, 710 ),
-    'brand-derived/v3/butterfly-portal.webp' => array( 720, 720 ),
     'logo/embleme-transparent.png' => array( 700, 636 ),
     'logo/signature-transparent.png' => array( 1120, 179 ),
     'logo/devise-transparent.png' => array( 820, 150 ),
@@ -60,10 +56,6 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
 
 function lmdl_v3_portal_visual( $key, $service, $eager = false, $linked = false ) {
   $html = '<div class="v3-portal v3-portal--' . esc_attr( $key ) . '"' . ( $linked ? '' : ' aria-hidden="true"' ) . '><span class="v3-portal__aura" aria-hidden="true"></span><span class="v3-portal__frame" aria-hidden="true">';
-  $animals = array( 'earth' => 'squirrel.jpg', 'fire' => 'ibis.jpg', 'water' => 'turtle.jpg', 'air' => 'butterfly.jpg' );
-  if ( isset( $animals[ $key ] ) ) {
-    $html .= lmdl_v3_image( 'photos/' . $animals[ $key ], '', 'v3-portal__animal', $eager );
-  }
   $html .= lmdl_v3_image( $service['door'], '', 'v3-portal__door', $eager, $eager );
   $html .= '</span>';
   if ( $linked ) {

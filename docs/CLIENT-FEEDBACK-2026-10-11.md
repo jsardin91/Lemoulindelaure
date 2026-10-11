@@ -32,6 +32,10 @@ Les quatre photographies suivantes sont des dérivés optimisés, téléchargés
 | `photos/cheval.jpg` | Cheval | [Gray horse on green and yellow meadow](https://commons.wikimedia.org/wiki/File:Gray_horse_on_green_and_yellow_meadow_(Unsplash).jpg), auteur indiqué sur la page Commons |
 | `photos/oiseau.jpg` | Rouge-gorge | [Robin Bird Portrait Photo](https://commons.wikimedia.org/wiki/File:Robin_Bird_Portrait_Photo.jpg), Andrea Stöckel |
 
+### Correction ultérieure : aucune image derrière les portes
+
+Le propriétaire a corrigé la composition : les portes restent visibles et interactives, mais ne révèlent aucune photographie ni aucun tableau. Les photos d’animaux restent intégrées aux autres sections des pages. Les mentions de photos « dans les portes » ci-dessous décrivent un état antérieur de l’aperçu.
+
 ### Complément visuel du 11 octobre 2026
 
 À la demande du propriétaire, les légendes visibles sous les portraits, les photographies d’animaux et les quatre tableaux ont été retirées. Leurs textes alternatifs restent présents. Les photos sont réparties dans les portes, les chapitres, la page À propos, le Jardin et le Journal ; les tableaux restent des médaillons dans les chapitres.

@@ -1,5 +1,9 @@
 # Handoff / Project State
 
+## 2026-10-11 — Portes sans image derrière elles
+
+Correction demandée après l’intégration photographique : les quatre portes affichent uniquement leur image de porte sur un aplat. Aucune photo ni aucun tableau n’est rendu derrière la porte, sur l’accueil, le hub ou les quatre pages d’accompagnement. Les photos d’animaux restent dans les séquences éditoriales et les tableaux dans les médaillons des chapitres. Les notes antérieures décrivant des photos dans les portes sont historiques et ne définissent plus le rendu actif.
+
 ## 2026-10-11 — Intitulés des accompagnements selon Laure
 
 Le propriétaire a transmis les intitulés exacts à placer après les noms des animaux : « La communication animalière », « L’accompagnement énergétique », « La connexion avec les défunts » et « Une guidance pour soi ». Les quatre URL existantes restent identiques. Le thème V3 applique ces titres aux portes de l’accueil et du hub, à la navigation, aux quatre titres H1, aux liens connexes, à la FAQ et aux titres HTML. Le nom « Communication Animale » reste exact dans la présentation documentaire du diplôme. Les notes entre parenthèses de la capture client ne sont pas affichées comme titres.
