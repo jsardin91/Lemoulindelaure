@@ -49,6 +49,7 @@
 .v3-home-journal__article h3 a{text-decoration:none}.v3-home-journal__article h3 a:hover{text-decoration:underline;text-underline-offset:.14em}
 .v3-home-journal__article>p:not(.v3-folio){font:400 1.1rem/1.55 'Source Sans 3',sans-serif;margin:0 0 .7rem}
 .v3-home-journal__index-link{margin-top:1.4rem}
+@media(min-width:761px) and (max-width:1100px){.v3-home-journal{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:1.5rem 3rem;padding:5rem 7vw}.v3-home-journal>.v3-folio{grid-column:1/-1}.v3-home-journal>div{max-width:none}.v3-home-journal figure{width:100%}}
 .v3-garden-hero figure img,.v3-journal-hero figure img{width:100%;max-width:none;max-height:600px;aspect-ratio:4/5;object-fit:cover;clip-path:none;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-garden-visual figure{overflow:hidden;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-garden-visual figure img{width:100%;max-width:none;max-height:540px;aspect-ratio:4/3;object-fit:cover;clip-path:none}
