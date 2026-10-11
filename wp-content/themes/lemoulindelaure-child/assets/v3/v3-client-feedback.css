@@ -109,3 +109,13 @@
   .v3-chapter-visual .v3-chapter-visual__medallion{position:relative;left:auto!important;right:auto;bottom:auto;width:min(43vw,190px);margin:-3rem 0 0 auto;padding:6px}
   .v3-chapter-visual--fire .v3-chapter-visual__medallion,.v3-chapter-visual--air .v3-chapter-visual__medallion{margin-left:0;margin-right:auto}
 }
+
+/* The Journal article closes directly into the site footer, with one deliberate reading pause. */
+body.lmdl-v3 .lmdl-article,body.lmdl-v3 .lmdl-article__entry{padding-bottom:0}
+body.lmdl-v3 .lmdl-article__opening--text-only{width:min(100% - 2.5rem,72ch);padding:clamp(4rem,7vw,6rem) 0 clamp(2.75rem,4vw,4rem)}
+body.lmdl-v3 .lmdl-article__opening--text-only .lmdl-article__header{max-width:none}
+body.lmdl-v3 .lmdl-article__opening--text-only .lmdl-article__back{display:inline-block;margin-bottom:clamp(2.5rem,4vw,4rem)}
+body.lmdl-v3 .lmdl-article__opening--text-only h1{max-width:15ch;font-size:clamp(3.2rem,5.5vw,6rem);overflow-wrap:break-word}
+body.lmdl-v3 .lmdl-article__opening--text-only+.lmdl-article__body{margin-top:clamp(3rem,5vw,5rem)}
+body.lmdl-v3 .lmdl-article__footer{border-top:1px solid var(--v3-line);margin-top:clamp(4rem,6vw,6rem);padding:2rem 0 clamp(2.5rem,4vw,4rem)}
+@media(max-width:760px){body.lmdl-v3 .lmdl-article__opening--text-only{padding-top:4rem}body.lmdl-v3 .lmdl-article__opening--text-only h1{font-size:clamp(3rem,12vw,5rem)}body.lmdl-v3 .lmdl-article__footer{padding-bottom:2.5rem}}

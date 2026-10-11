@@ -22,7 +22,7 @@ get_header( 'v3' );
 				<p class="lmdl-article__standfirst"><?php echo esc_html( get_the_excerpt() ); ?></p>
 			<?php endif; ?>
 			<p class="lmdl-article__meta">
-				<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+				<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date( 'j F Y' ) ); ?></time>
 				<?php
 				$author_id = (int) get_post_field( 'post_author', get_the_ID() );
 				$author_name = get_the_author_meta( 'display_name', $author_id );
@@ -51,9 +51,8 @@ get_header( 'v3' );
 			<?php the_content(); ?>
 			<?php wp_link_pages( array( 'before' => '<nav class="lmdl-article__pages" aria-label="Pages de l’article">', 'after' => '</nav>' ) ); ?>
 		</div>
-		<?php echo lmdl_v3_faq_preview( array( 'choose', 'how' ), 'lmdl-article-faq-title', 'Une question en chemin ?' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 		<footer class="lmdl-article__footer lmdl-reading">
-			<div><p class="v3-folio">La page suivante</p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Tous les articles du Journal <span aria-hidden="true">↗</span></a></div>
+			<div><p class="v3-folio">Poursuivre la lecture</p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Tous les articles du Journal <span aria-hidden="true">↗</span></a></div>
 			<?php echo lmdl_v3_image( 'logo/signature-transparent.png', '', 'lmdl-article__signature' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 		</footer>
 	</article>
