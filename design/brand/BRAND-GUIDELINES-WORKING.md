@@ -6,6 +6,10 @@ Last updated: 2026-10-02
 
 This file normalizes the written client brief and project decisions into a durable reference.
 
+## Later client correction — 2026-10-11
+
+Laure's later review supersedes the four-element and four-wings presentation in public copy. The four universes are now named Écureuil, Phénix, Tortue and Papillon; the service labels remain clear. She requests a warmer homepage without the paintings, smaller doors, signed painting medallions inside the four chapters, real photographs of cats, dogs, horses and birds, and Majorelle blue writing. Communication animale and accompagnement énergétique animalier are remote only. Her communication-animal diploma is documented, but applies only to that practice. See `../../docs/CLIENT-FEEDBACK-2026-10-11.md` for the implementation decisions and photo provenance.
+
 It does not replace future explicit client corrections. Later approved decisions supersede this file where they conflict.
 
 ## Brand essence

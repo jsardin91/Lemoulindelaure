@@ -8,6 +8,10 @@ last_reviewed: 2026-10-03
 
 > **ACTIVE.** Palette, typography and logo rules were explicitly approved by the project owner on 2026-10-02. Future agents must preserve these foundations unless a later explicit decision supersedes them.
 
+## Client correction — 2026-10-11
+
+The later client review changes V3's public expression: animal-named universes replace visible element/wings labels; the homepage uses Laure's real photograph and real animal photographs rather than paintings; original signed paintings are small square chapter medallions; doors are smaller and hinge from the illustrated side. Majorelle `#6050DC` is the dominant writing color on light surfaces, while the ochre footer uses deep indigo `#160E4D` for readable text. The approved Lora/Source Sans 3 typography and original logo artwork remain. See `../docs/CLIENT-FEEDBACK-2026-10-11.md`.
+
 ## V3 art direction override — 2026-10-03
 
 The current public visual thesis is **a painted book whose doors open into four worlds**. Terre/Feu/Eau/Air use the four closed doors and corresponding animal paintings. The Butterfly door was added after the initial V3 as a generated brand derivative of the client's painting; it is not a new original painting by Laure. The shared open Passage marks the transition between the manifesto and the universes and never stands for Air. Homepage, hub and four detail chapters use distinct editorial compositions. Keep approved palette, Lora/Source Sans 3 and logos. See `../docs/ART-DIRECTION-V3.md`, `../docs/BRAND-ASSET-USAGE-V3.md` and `../docs/V3-INTERACTION-ARCHITECTURE.md`. The V2 direction below is historical.

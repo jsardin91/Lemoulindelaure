@@ -6,6 +6,8 @@ Last updated: 2026-10-02
 
 This document is the canonical reference for the current information architecture, page names, URL strategy and navigation.
 
+Later client correction (2026-10-11): the public universes are named for Écureuil, Phénix, Tortue and Papillon without element or wings labels. Communication animale and accompagnement énergétique animalier are remote only. The former in-person wording is obsolete. See `CLIENT-FEEDBACK-2026-10-11.md`.
+
 The detailed content of pages may evolve. Structural changes should be recorded here.
 
 ## Global tree

@@ -15,8 +15,8 @@ function lmdl_v3_faq_items() {
 			'answer'   => 'Le déroulement dépend de l’accompagnement choisi. Avant de vous engager, je vous préciserai le format, les étapes et les informations utiles. Vous pouvez aussi me poser vos questions en amont.',
 		),
 		'format' => array(
-			'question' => 'Est-ce en présentiel ou à distance ?',
-			'answer'   => 'Pour la communication animale, les deux formats sont envisagés. Le format des autres accompagnements et les modalités concrètes seront confirmés avec vous avant tout rendez-vous.',
+			'question' => 'Les accompagnements se font-ils à distance ?',
+			'answer'   => 'La communication animale et l’accompagnement énergétique animalier se font uniquement à distance. Les modalités des autres accompagnements sont précisées avec vous avant le rendez-vous.',
 		),
 		'feeling' => array(
 			'question' => 'Est-ce que l’animal ressent quelque chose ?',
@@ -31,12 +31,6 @@ function lmdl_v3_faq_items() {
 		'medical' => array(
 			'question' => 'Ces accompagnements remplacent-ils un avis médical ou vétérinaire ?',
 			'answer'   => 'Non. Je ne pose pas de diagnostic et ces accompagnements ne remplacent ni une consultation médicale ni une consultation vétérinaire. Pour toute question de santé, adressez-vous au professionnel compétent.',
-		),
-		'deceased' => array(
-			'question' => 'Peut-on être certain de recevoir un message d’un défunt ?',
-			'answer'   => 'Non. Je ne peux pas garantir qu’un message sera reçu. Ce sujet demande de la délicatesse : votre vécu et vos limites doivent pouvoir être respectés, sans pression ni promesse.',
-			'link'     => '/accompagnements/connexion-defunts/',
-			'label'    => 'Lire la page Connexion avec les défunts',
 		),
 		'guidance' => array(
 			'question' => 'La guidance pour soi prédit-elle l’avenir ?',

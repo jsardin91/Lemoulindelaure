@@ -43,6 +43,12 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
     'logo/devise-transparent.png' => array( 820, 150 ),
     'logo/logo-complet-creme.webp' => array( 1170, 1050 ),
     'logo/logo-complet-transparent.png' => array( 1170, 1050 ),
+    'photos/laure-accueil.jpg' => array( 1200, 1079 ),
+    'photos/laure-portrait.jpg' => array( 1000, 964 ),
+    'photos/chat.jpg' => array( 960, 640 ),
+    'photos/chien.jpg' => array( 960, 656 ),
+    'photos/cheval.jpg' => array( 960, 641 ),
+    'photos/oiseau.jpg' => array( 960, 560 ),
   );
   $size = $dimensions[ $path ] ?? array( 1, 1 );
   return '<img class="' . esc_attr( $classes ) . '" src="' . esc_url( lmdl_v3_asset( $path ) ) . '" width="' . (int) $size[0] . '" height="' . (int) $size[1] . '" alt="' . esc_attr( $alt ) . '" loading="' . ( $eager ? 'eager' : 'lazy' ) . '" decoding="async"' . ( $priority ? ' fetchpriority="high"' : '' ) . '>';
@@ -50,11 +56,10 @@ function lmdl_v3_image( $path, $alt = '', $classes = '', $eager = false, $priori
 
 function lmdl_v3_portal_visual( $key, $service, $eager = false, $linked = false ) {
   $html = '<div class="v3-portal v3-portal--' . esc_attr( $key ) . '"' . ( $linked ? '' : ' aria-hidden="true"' ) . '><span class="v3-portal__aura" aria-hidden="true"></span><span class="v3-portal__frame" aria-hidden="true">';
-  $html .= lmdl_v3_image( $service['preview'], '', 'v3-portal__painting', $eager );
   $html .= lmdl_v3_image( $service['door'], '', 'v3-portal__door', $eager, $eager );
   $html .= '</span>';
   if ( $linked ) {
-    $html .= '<a class="v3-portal__hit" href="' . esc_url( home_url( $service['path'] ) ) . '" aria-label="Entrer dans l’univers ' . esc_attr( $service['element'] ) . ' : ' . esc_attr( $service['title'] ) . '"></a>';
+    $html .= '<a class="v3-portal__hit" href="' . esc_url( home_url( $service['path'] ) ) . '" aria-label="Entrer dans l’univers ' . esc_attr( $service['universe'] ) . ' : ' . esc_attr( $service['title'] ) . '"></a>';
   }
   return $html . '</div>';
 }
@@ -63,12 +68,12 @@ function lmdl_v3_portal_article( $key, $service, $context = 'home' ) {
   $title_id = 'v3-' . $context . '-' . $key;
   $heading = 'hub' === $context ? 'h2' : 'h3';
   $html = '<article class="v3-gateway v3-gateway--' . esc_attr( $key ) . '" aria-labelledby="' . esc_attr( $title_id ) . '" data-v3-reveal>';
-  $html .= '<div class="v3-gateway__copy"><p class="v3-folio">' . esc_html( $service['element'] ) . ' <span>·</span> ' . esc_html( $service['animal'] ) . ' <span>·</span> ' . esc_html( $service['motif'] ) . '</p>';
+  $html .= '<div class="v3-gateway__copy"><p class="v3-folio">L’univers ' . esc_html( $service['universe'] ) . '</p>';
   $html .= '<' . $heading . ' id="' . esc_attr( $title_id ) . '">' . esc_html( $service['title'] ) . '</' . $heading . '>';
   $html .= '<p class="v3-gateway__intro">' . esc_html( $service['intro'] ) . '</p>';
-  $html .= '<a class="v3-editorial-link" href="' . esc_url( home_url( $service['path'] ) ) . '">Entrer dans l’univers ' . esc_html( $service['element'] ) . ' <span aria-hidden="true">↗</span></a></div>';
+  $html .= '<a class="v3-editorial-link" href="' . esc_url( home_url( $service['path'] ) ) . '">Entrer dans l’univers ' . esc_html( $service['universe'] ) . ' <span aria-hidden="true">↗</span></a></div>';
   $html .= lmdl_v3_portal_visual( $key, $service, false, true );
-  $html .= '<span class="v3-gateway__element" aria-hidden="true">' . esc_html( $service['element'] ) . '</span>';
+  $html .= '<span class="v3-gateway__element" aria-hidden="true">' . esc_html( $service['animal'] ) . '</span>';
   return $html . '</article>';
 }
 
@@ -80,7 +85,7 @@ function lmdl_v3_related( $current ) {
   $html = '<nav class="v3-related" aria-label="Autres accompagnements"><p class="v3-folio">Poursuivre la visite</p><h2>Les autres portes.</h2><div>';
   foreach ( lmdl_v3_content()['services'] as $key => $service ) {
     if ( $key === $current ) { continue; }
-    $html .= '<a href="' . esc_url( home_url( $service['path'] ) ) . '"><span>' . esc_html( $service['element'] ) . ' · ' . esc_html( $service['animal'] ) . '</span><strong>' . esc_html( $service['title'] ) . '</strong><span aria-hidden="true">↗</span></a>';
+    $html .= '<a href="' . esc_url( home_url( $service['path'] ) ) . '"><span>L’univers ' . esc_html( $service['universe'] ) . '</span><strong>' . esc_html( $service['title'] ) . '</strong><span aria-hidden="true">↗</span></a>';
   }
   return $html . '</div></nav>';
 }

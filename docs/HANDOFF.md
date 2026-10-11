@@ -1,5 +1,9 @@
 # Handoff / Project State
 
+## 2026-10-11 — Client feedback implementation in progress
+
+The V3 child theme now reflects Laure's later review: animal-named universes, corrected remote modalities, a conservative diploma statement confined to communication animale, revised deceased copy, photo-led Homepage/About, four CC0 animal photos, signed painting medallions and Majorelle/ochre styling. Two optimized Laure portraits and four licensed animal photos are in theme assets; raw client files and the diploma PDF remain private. Source decisions and photo licenses: [CLIENT-FEEDBACK-2026-10-11.md](CLIENT-FEEDBACK-2026-10-11.md). Copy awaiting her review: [RELECTURE-LAURE-2026-10-11.md](RELECTURE-LAURE-2026-10-11.md). PHP lint passes, static renders have no missing local images or PHP warnings, and the revised page openings were visually checked at mobile and desktop sizes. **Client copy review, GitHub publication, private backup and preview deployment remain outstanding. Keep `lmdl_preview_noindex=1`.**
+
 Last updated: 2026-10-04
 
 ## Current decision: V3 without Gutenberg

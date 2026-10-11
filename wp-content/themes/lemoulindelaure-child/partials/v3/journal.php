@@ -1,6 +1,6 @@
 <?php defined( 'ABSPATH' ) || exit; $journal = $data['journal']; ?>
 <main id="contenu" class="v3-main v3-journal">
-  <section class="v3-editorial-hero v3-journal-hero"><div><p class="v3-folio">Le Moulin · cahier de lecture</p><h1>Le <em>Journal.</em></h1><p><?php echo esc_html( $journal['lead'] ); ?></p></div><figure><?php echo lmdl_v3_image( 'art/painting-turtle-display.webp', 'Tortue dans l’univers Eau', '' ); ?><figcaption>Le Journal</figcaption></figure></section>
+  <section class="v3-editorial-hero v3-journal-hero"><div><p class="v3-folio">Le Moulin · cahier de lecture</p><h1>Le <em>Journal.</em></h1><p><?php echo esc_html( $journal['lead'] ); ?></p></div><figure aria-hidden="true"><?php echo lmdl_v3_image( 'logo/embleme-transparent.png', '', '' ); ?><figcaption>Le Journal</figcaption></figure></section>
   <section class="v3-journal-index"><p class="v3-folio">Les pages du Moulin</p><h2>À lire.</h2>
     <?php
     $page = max( 1, (int) get_query_var( 'paged' ) );

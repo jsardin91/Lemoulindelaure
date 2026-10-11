@@ -1,6 +1,6 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
 <main id="contenu" class="v3-main v3-hub">
-  <section class="v3-hub-hero"><p class="v3-folio">Le Moulin de Laure · Accompagnements</p><h1>La salle des<br><em>quatre portes.</em></h1><div><p>Quatre chemins pour explorer le lien avec le vivant, les êtres chers et soi-même. Chaque porte ouvre sur un élément et un accompagnement.</p><span aria-hidden="true">↓</span></div></section>
+  <section class="v3-hub-hero"><p class="v3-folio">Le Moulin de Laure · Accompagnements</p><h1>L’espace des<br><em>quatre portes.</em></h1><div><p>Quatre chemins pour explorer le lien du cœur avec vos animaux, vos êtres chers disparus et vous-même. Chaque porte ouvre sur un univers et un accompagnement.</p><span aria-hidden="true">↓</span></div></section>
   <div class="v3-hub-portals" aria-label="Les quatre univers du Moulin">
     <?php foreach ( $services as $key => $service ) { echo lmdl_v3_portal_article( $key, $service, 'hub' ); } // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   </div>
