@@ -17,6 +17,11 @@ on:
         required: false
         default: false
         type: boolean
+      configure_discovery:
+        description: Configure the single Timetics discovery call after theme install
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -120,6 +125,38 @@ jobs:
           printf 'CACHE_PURGED=yes\nPREVIEW_NOINDEX=1\n'
           printf 'THEME_DEPLOYED_SHA=%s\n' "$source_sha"
           printf 'BACKUP_ID=%s\n' "$backup_id"
+          REMOTE
+
+      - name: Configure single discovery call
+        if: ${{ inputs.configure_discovery && ! inputs.journal_demo_only && ! inputs.configure_v3 }}
+        shell: bash
+        env:
+          BACKUP_ID: ${{ inputs.backup_id }}
+        run: |
+          set -euo pipefail
+          case "$BACKUP_ID" in pre-[0-9]*) ;; *) printf 'INVALID_BACKUP_ID\n'; exit 1;; esac
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" scripts/configure-discovery-preview.php \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-discovery-${GITHUB_RUN_ID}.php"
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}' '$BACKUP_ID'" <<'REMOTE'
+          set -euo pipefail
+          script="$HOME/.lmdl-discovery-$1.php"
+          trap 'rm -f "$script"' EXIT
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          test "${#configs[@]}" -eq 1
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          backup_dir="$(realpath "$HOME")/.lmdl-preview-backups/$2"
+          test -f "$script" && test -f "$backup_dir/wordpress.sql.gz" && test -f "$backup_dir/lemoulindelaure-child.tgz"
+          grep -Fxq "backup_id=$2" "$backup_dir/manifest.txt"
+          sha256sum -c "$backup_dir/SHA256SUMS" >/dev/null
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
+          php -l "$script" >/dev/null
+          wp --path="$root" eval-file "$script"
+          test "$(wp --path="$root" option get lmdl_timetics_booking_mode)" = 'single'
+          test "$(wp --path="$root" option get lmdl_preview_noindex)" = '1'
           REMOTE
 
       - name: Configure guarded V3 preview database

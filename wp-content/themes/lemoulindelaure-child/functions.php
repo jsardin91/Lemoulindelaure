@@ -70,6 +70,38 @@ function lmdl_discovery_booking_id() {
 	}
 	return $id;
 }
+/** Keep the public discovery calendar open for the next 60 days in Paris time. */
+add_action( 'init', function () {
+	$id = lmdl_discovery_booking_id();
+	if ( ! $id ) {
+		return;
+	}
+	$today = new DateTimeImmutable( 'today', new DateTimeZone( 'Europe/Paris' ) );
+	$availability = array( 'start' => $today->format( 'Y-m-d' ), 'end' => $today->modify( '+60 days' )->format( 'Y-m-d' ) );
+	if ( get_post_meta( $id, '_tt_apointment_availability', true ) !== $availability ) {
+		update_post_meta( $id, '_tt_apointment_availability', $availability );
+	}
+} );
+/** Enforce the booking rules at submission as well as in Timetics' calendar UI. */
+add_filter( 'timetics_is_slot_available', function ( $available, $meeting, $booking_data ) {
+	if ( ! $available || ! is_object( $meeting ) || (int) $meeting->get_id() !== lmdl_discovery_booking_id() ) {
+		return $available;
+	}
+	try {
+		$zone = new DateTimeZone( $booking_data['timezone'] ?? 'Europe/Paris' );
+		$start = new DateTimeImmutable( $booking_data['start_date'] . ' ' . $booking_data['start_time'], $zone );
+		$paris = $start->setTimezone( new DateTimeZone( 'Europe/Paris' ) );
+		$now = new DateTimeImmutable( 'now', new DateTimeZone( 'Europe/Paris' ) );
+	} catch ( Exception $error ) {
+		return false;
+	}
+	$minutes = (int) $paris->format( 'G' ) * 60 + (int) $paris->format( 'i' );
+	return $start->getTimestamp() >= $now->getTimestamp() + DAY_IN_SECONDS
+		&& $paris <= $now->modify( '+60 days' )
+		&& (int) $paris->format( 'N' ) <= 5
+		&& $minutes >= 18 * 60 + 30
+		&& $minutes + 30 <= 21 * 60;
+}, 10, 3 );
 add_shortcode( 'lmdl_contact_form', function () {
 	$id = absint( get_option( 'lmdl_forminator_contact_id', 0 ) );
 	if ( ! $id || ! shortcode_exists( 'forminator_form' ) ) {
