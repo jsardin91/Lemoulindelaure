@@ -43,6 +43,12 @@
 .v3-home-garden__art img{width:100%;max-width:none;max-height:none;height:100%;min-height:460px;object-fit:cover;clip-path:none;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-home-journal figure{transform:none;overflow:hidden;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-home-journal figure img{width:100%;max-width:none;max-height:none;aspect-ratio:4/5;object-fit:cover;clip-path:none}
+.v3-home-journal__article{margin:2rem 0 1rem;padding-top:1.5rem;border-top:1px solid var(--v3-line)}
+.v3-home-journal__article .v3-folio{margin:0 0 .8rem}
+.v3-home-journal__article h3{margin:0 0 .8rem;font:400 clamp(1.8rem,2.4vw,2.8rem)/1.17 Lora,serif;letter-spacing:-.035em}
+.v3-home-journal__article h3 a{text-decoration:none}.v3-home-journal__article h3 a:hover{text-decoration:underline;text-underline-offset:.14em}
+.v3-home-journal__article>p:not(.v3-folio){font:400 1.1rem/1.55 'Source Sans 3',sans-serif;margin:0 0 .7rem}
+.v3-home-journal__index-link{margin-top:1.4rem}
 .v3-garden-hero figure img,.v3-journal-hero figure img{width:100%;max-width:none;max-height:600px;aspect-ratio:4/5;object-fit:cover;clip-path:none;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-garden-visual figure{overflow:hidden;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-garden-visual figure img{width:100%;max-width:none;max-height:540px;aspect-ratio:4/3;object-fit:cover;clip-path:none}

@@ -40,7 +40,24 @@
 
   <section class="v3-home-garden" aria-labelledby="v3-garden-title"><figure class="v3-home-garden__art"><?php echo lmdl_v3_image( 'photos/cheval.jpg', 'Cheval dans une prairie', '' ); ?></figure><div><p class="v3-folio">Une parenthèse</p><h2 id="v3-garden-title">Le Jardin<br><em>du Moulin.</em></h2><p><?php echo esc_html( $data['garden']['lead'] ); ?></p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/le-jardin/' ) ); ?>">Découvrir le Jardin <span aria-hidden="true">↗</span></a></div></section>
 
-  <section class="v3-home-journal" aria-labelledby="v3-journal-title"><p class="v3-folio">Pages à venir</p><div><h2 id="v3-journal-title">Le <em>Journal.</em></h2><p><?php echo esc_html( $data['journal']['lead'] ); ?></p><a class="v3-editorial-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Ouvrir le Journal <span aria-hidden="true">↗</span></a></div><figure><?php echo lmdl_v3_image( 'photos/oiseau.jpg', 'Rouge-gorge posé sur une branche', '' ); ?></figure></section>
+  <?php $latest_journal_posts = get_posts( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 1, 'ignore_sticky_posts' => true, 'no_found_rows' => true ) ); ?>
+  <section class="v3-home-journal" aria-labelledby="v3-journal-title">
+    <p class="v3-folio">Dans le Journal</p>
+    <div class="v3-home-journal__content">
+      <h2 id="v3-journal-title">Le <em>Journal.</em></h2>
+      <p><?php echo esc_html( $data['journal']['lead'] ); ?></p>
+      <?php if ( $latest_journal_posts ) : $latest_journal_post = $latest_journal_posts[0]; ?>
+        <article class="v3-home-journal__article">
+          <p class="v3-folio"><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C, $latest_journal_post ) ); ?>"><?php echo esc_html( get_the_date( 'j F Y', $latest_journal_post ) ); ?></time></p>
+          <h3><a href="<?php echo esc_url( get_permalink( $latest_journal_post ) ); ?>"><?php echo esc_html( get_the_title( $latest_journal_post ) ); ?></a></h3>
+          <p><?php echo esc_html( get_the_excerpt( $latest_journal_post ) ); ?></p>
+          <a class="v3-editorial-link" href="<?php echo esc_url( get_permalink( $latest_journal_post ) ); ?>">Lire l’article <span aria-hidden="true">↗</span></a>
+        </article>
+      <?php endif; ?>
+      <a class="v3-editorial-link v3-home-journal__index-link" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">Ouvrir le Journal <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure><?php echo lmdl_v3_image( 'photos/oiseau.jpg', 'Rouge-gorge posé sur une branche', '' ); ?></figure>
+  </section>
   <?php echo lmdl_v3_faq_preview( array( 'choose', 'how' ), 'v3-home-faq-title', 'Avant de choisir.' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
   <?php echo lmdl_v3_close(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
 </main>
