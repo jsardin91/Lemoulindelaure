@@ -11,8 +11,9 @@ get_header( 'v3' );
 ?>
 <main id="contenu" class="site-main lmdl-article" aria-label="Article du Journal">
 	<?php while ( have_posts() ) : the_post(); ?>
+	<?php $show_cover = has_post_thumbnail() && '1' !== (string) get_post_meta( get_the_ID(), '_lmdl_journal_demo', true ); ?>
 	<article <?php post_class( 'lmdl-article__entry' ); ?>>
-		<div class="lmdl-article__opening">
+		<div class="lmdl-article__opening<?php echo $show_cover ? '' : ' lmdl-article__opening--text-only'; ?>">
 		<header class="lmdl-article__header">
 			<a class="lmdl-article__back" href="<?php echo esc_url( home_url( '/journal/' ) ); ?>">← Journal</a>
 			<p class="v3-folio">Le Moulin de Laure · Le Journal</p>
@@ -36,7 +37,7 @@ get_header( 'v3' );
 				?>
 			</p>
 		</header>
-		<?php if ( has_post_thumbnail() ) : ?>
+		<?php if ( $show_cover ) : ?>
 			<figure class="lmdl-article__cover">
 				<?php the_post_thumbnail( 'large', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'alt' => get_the_title() ) ); ?>
 				<?php

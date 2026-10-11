@@ -13,6 +13,7 @@
 
 - Quatre univers nommés par les animaux : Écureuil, Phénix, Tortue et Papillon. Les anciens éléments ne figurent plus dans le contenu V3 actif.
 - Accueil sans tableaux : portrait de Laure, quatre photographies d’animaux et porte d’entrée. Les tableaux signés restent en médaillons carrés dans leurs chapitres.
+- L’image peinte de l’article de démonstration reste dans la médiathèque pour retrait éditorial ultérieur, mais n’est plus affichée sur l’index ni dans l’article du Journal.
 - Bleu Majorelle `#6050DC` pour l’écriture sur fond clair. L’ocre `#B68631` reste au pied de page avec texte indigo foncé `#160E4D` pour le contraste.
 - Deux photos de Laure sont publiées sous forme de JPEG redimensionnés et réencodés sans EXIF ; les fichiers WhatsApp originaux restent hors Git.
 

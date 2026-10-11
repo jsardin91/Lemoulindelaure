@@ -12,7 +12,7 @@
         $query->the_post();
         $index++;
         echo '<article class="v3-journal-entry' . ( 1 === $index ? ' v3-journal-entry--lead' : '' ) . '">';
-        if ( has_post_thumbnail() ) { echo '<a class="v3-journal-entry__image" href="' . esc_url( get_permalink() ) . '">'; the_post_thumbnail( 'large', array( 'loading' => 'lazy', 'alt' => get_the_title() ) ); echo '</a>'; }
+        if ( has_post_thumbnail() && '1' !== (string) get_post_meta( get_the_ID(), '_lmdl_journal_demo', true ) ) { echo '<a class="v3-journal-entry__image" href="' . esc_url( get_permalink() ) . '">'; the_post_thumbnail( 'large', array( 'loading' => 'lazy', 'alt' => get_the_title() ) ); echo '</a>'; }
         echo '<div><p class="v3-folio"><time datetime="' . esc_attr( get_the_date( DATE_W3C ) ) . '">' . esc_html( get_the_date() ) . '</time></p><h3><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a></h3>';
         if ( has_excerpt() ) { echo '<p>' . esc_html( get_the_excerpt() ) . '</p>'; }
         echo '</div></article>';
