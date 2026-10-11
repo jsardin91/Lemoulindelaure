@@ -1,5 +1,11 @@
 # Handoff / Project State
 
+## 2026-10-11 — Intitulés des accompagnements selon Laure
+
+Le propriétaire a transmis les intitulés exacts à placer après les noms des animaux : « La communication animalière », « L’accompagnement énergétique », « La connexion avec les défunts » et « Une guidance pour soi ». Les quatre URL existantes restent identiques. Le thème V3 applique ces titres aux portes de l’accueil et du hub, à la navigation, aux quatre titres H1, aux liens connexes, à la FAQ et aux titres HTML. Le nom « Communication Animale » reste exact dans la présentation documentaire du diplôme. Les notes entre parenthèses de la capture client ne sont pas affichées comme titres.
+
+Source éditoriale `0a0f7eb29bf6b3218cc64672d0d013cc1d3a67d1`, déployée après sauvegarde privée `pre-38174090933` par le workflow `38174141142`. Le contrôle visuel a repéré « La » seul sur une ligne pour l’Écureuil ; le correctif CSS `edd808e608c76f9cd7f13f383ee0dd9a3efd5de6` a été redéployé après une nouvelle sauvegarde privée `pre-38174359644` par le workflow `38174408758`. PHP lint et `git diff --check` passent. En ligne, les quatre anciennes URL répondent en 200 avec les nouveaux H1 et titres HTML, et `noindex` est maintenu. Captures vérifiées à 375 px pour les quatre chapitres, puis à 768 et 1440 px pour la mise en page du hub ; le correctif final est visible à 375 et 1440 px. Les titres stockés des pages WordPress ne sont pas modifiés : le thème V3 et les filtres de titre portent le libellé public.
+
 ## 2026-10-11 — Portes V3 plus compactes sur ordinateur
 
 Les quatre sections de portes partagées par l’accueil et `/accompagnements/` suivent désormais la hauteur réelle des portes et des textes, avec des marges verticales réduites au-dessus de 760 px. Les anciens minimums de 750 à 950 px ne s’appliquent plus. À 761–900 px, les portes sont limitées à 260 px pour préserver l’espace du texte ; la composition mobile reste inchangée. Source `79bbcd9ce967f7fc2e5913bea79d23aa926b884c`, sauvegarde privée `pre-38173431802`, déploiement GitHub Actions réussi `38173492052`. Prévisualisation locale à 768, 1024 et 1440 px, puis contrôle visuel de l’aperçu en ligne à 768 et 1440 px : pas de chevauchement visible. Accueil et page Accompagnements répondent en 200 avec `noindex` ; le CSS compact est servi. Conserver `noindex` pendant la révision.
