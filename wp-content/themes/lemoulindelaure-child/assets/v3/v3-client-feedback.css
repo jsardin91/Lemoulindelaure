@@ -48,3 +48,14 @@
 .v3-garden-visual figure{overflow:hidden;border-radius:46% 46% 2px 2px / 15% 15% 2px 2px}
 .v3-garden-visual figure img{width:100%;max-width:none;max-height:540px;aspect-ratio:4/3;object-fit:cover;clip-path:none}
 @media(max-width:760px){.v3-home-animals{gap:.6rem;padding-top:1rem;padding-bottom:3rem}.v3-home-animals figure:nth-child(n){margin:0;transform:none}.v3-home-animals figure:nth-child(even){margin-top:1.2rem}.v3-home-animals img{height:38vw;min-height:125px}.v3-animal-interlude{padding:1.25rem}.v3-animal-interlude img{height:60vw;min-height:220px;border-radius:2px 80px 2px 2px}.v3-animal-interlude--fire img,.v3-animal-interlude--air img{border-radius:80px 2px 2px 2px}.v3-home-garden__art{padding:2rem 1.25rem 0}.v3-home-garden__art img{width:100%;height:60vw;min-height:220px;max-height:360px}.v3-home-journal figure img{max-height:none}.v3-garden-hero figure img,.v3-journal-hero figure img{max-height:420px}.v3-about-painting figure img{max-height:380px}}
+
+/* The door spreads follow their content on desktop instead of holding empty viewport height. */
+@media(min-width:761px){
+  .v3-gateway,.v3-gateway--fire,.v3-gateway--water,.v3-gateway--air,.v3-hub-portals .v3-gateway,.v3-hub-portals .v3-gateway--fire{min-height:0;padding-top:clamp(2rem,3vw,3rem);padding-bottom:clamp(2rem,3vw,3rem)}
+  .v3-gateway--fire .v3-gateway__copy,.v3-gateway--water .v3-gateway__copy{align-self:center;margin-top:0;margin-bottom:0}
+  .v3-gateway--air .v3-portal{transform:none}
+}
+@media(min-width:761px) and (max-width:900px){
+  .v3-gateway .v3-portal{width:min(100%,260px)}
+  .v3-gateway--earth .v3-portal{margin-left:0}
+}
