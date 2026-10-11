@@ -28,6 +28,8 @@ Révision linguistique demandée ensuite : les textes de présentation et la des
 
 Contrôle de l’aperçu après cette révision : calendrier, jours et créneaux s’affichent en français, avec des heures sur 24 h ; l’étape des coordonnées affiche les libellés français. Le formulaire s’étend sur la largeur disponible à l’écran afin que le texte ne soit pas comprimé. Timetics 1.0.63 impose dans son script le préfixe américain au champ téléphone ; le thème enfant sélectionne la France à l’ouverture du formulaire, tout en laissant la personne choisir un autre pays. Ce contournement devra être revérifié lors d’une mise à jour de Timetics. Aucun rendez-vous de test n’a été confirmé.
 
+Performance : les pages sans formulaire ne chargent pas les ressources Timetics. Sur la page de réservation, les quatre scripts de Timetics (`flatpickr`, `packages`, `frontend`, locale française) restent nécessaires au widget. Le thème enfant demande à WordPress de les charger avec `defer` dans leur ordre de dépendance ; les données et traductions intégrées sont placées avant le script principal pour préserver ce chargement. Après chaque mise à jour de l’extension, vérifier l’attribut `defer`, l’absence d’erreur JavaScript et le parcours date → heure → coordonnées. Le fichier `packages.js` fourni par Timetics pèse environ 1,2 Mo non compressé (environ 364 Ko transférés en gzip lors du contrôle) ; cette optimisation ne réduit pas sa taille intrinsèque.
+
 Les points ci-dessous décrivent la préparation historique du 2026-10-04.
 
 ## Mise en service prévue

@@ -102,6 +102,14 @@ add_action( 'wp_footer', function () {
 	foreach ( $strings as $source => $translation ) {
 		$locale_data[ $source ] = array( $translation );
 	}
+	// These footer bundles depend on one another, so defer them in document order.
+	// Keep both inline snippets before the bundles: an "after" snippet would make
+	// WordPress fall back to blocking script tags for the dependency chain.
+	foreach ( array( 'timetics-flatpickr-scripts', 'timetics-packages', 'timetics-frontend-scripts', 'calendar-locale' ) as $handle ) {
+		if ( wp_script_is( $handle, 'enqueued' ) ) {
+			wp_script_add_data( $handle, 'strategy', 'defer' );
+		}
+	}
 	wp_add_inline_script(
 		'timetics-frontend-scripts',
 		'wp.i18n.setLocaleData(' . wp_json_encode( $locale_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ', "timetics");',
@@ -126,5 +134,7 @@ add_action( 'wp_footer', function () {
   useFrenchDialCode();
 }());
 JS
+		,
+		'before'
 	);
 }, 5 );
