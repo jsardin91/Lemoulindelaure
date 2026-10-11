@@ -26,6 +26,8 @@ L’audit de l’aperçu a confirmé un unique compte Timetics actif au nom de L
 
 Révision linguistique demandée ensuite : les textes de présentation et la description Timetics emploient « je » ; le lieu affiché indique que Laure rappelle par téléphone. La locale du calendrier est `fr` et les libellés du formulaire React sont fournis par le thème enfant au domaine `timetics`, sans modifier les fichiers de l’extension. Les notifications de création reçoivent des titres et corps français. Le parcours visible doit être revérifié après déploiement, ainsi que les courriels lors d’un essai autorisé.
 
+Contrôle de l’aperçu après cette révision : calendrier, jours et créneaux s’affichent en français, avec des heures sur 24 h ; l’étape des coordonnées affiche les libellés français. Le formulaire s’étend sur la largeur disponible à l’écran afin que le texte ne soit pas comprimé. Timetics 1.0.63 impose dans son script le préfixe américain au champ téléphone ; le thème enfant sélectionne la France à l’ouverture du formulaire, tout en laissant la personne choisir un autre pays. Ce contournement devra être revérifié lors d’une mise à jour de Timetics. Aucun rendez-vous de test n’a été confirmé.
+
 Les points ci-dessous décrivent la préparation historique du 2026-10-04.
 
 ## Mise en service prévue

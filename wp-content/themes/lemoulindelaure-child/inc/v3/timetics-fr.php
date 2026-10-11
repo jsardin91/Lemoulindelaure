@@ -107,4 +107,24 @@ add_action( 'wp_footer', function () {
 		'wp.i18n.setLocaleData(' . wp_json_encode( $locale_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ', "timetics");',
 		'before'
 	);
+	// Timetics hardcodes the US dialling code in its bundled phone input.
+	wp_add_inline_script( 'timetics-frontend-scripts', <<<'JS'
+(function () {
+  const initialized = new WeakSet();
+  const useFrenchDialCode = () => {
+    const flag = document.querySelector('.v3-booking .tt-country-phone-code .selected-flag');
+    if (!flag || initialized.has(flag)) return;
+    initialized.add(flag);
+    if (!flag.querySelector('.flag.us')) return;
+    flag.click();
+    requestAnimationFrame(() => {
+      const france = document.querySelector('.v3-booking .tt-country-phone-code [data-country-code="fr"]');
+      if (france) france.click();
+    });
+  };
+  new MutationObserver(useFrenchDialCode).observe(document.body, { childList: true, subtree: true });
+  useFrenchDialCode();
+}());
+JS
+	);
 }, 5 );
