@@ -30,4 +30,4 @@ Les quatre photographies suivantes sont des dérivés optimisés, téléchargés
 
 ## Publication
 
-Le code et les dérivés peuvent être préparés sur GitHub. Avant déploiement de l’aperçu, faire relire à Laure les formulations publiques nouvelles, particulièrement le diplôme et les quatre accompagnements. Garder `lmdl_preview_noindex=1` et effectuer une sauvegarde privée vérifiée avant le workflow de déploiement.
+Les formulations publiques ont été présentées pour relecture dans [RELECTURE-LAURE-2026-10-11.md](RELECTURE-LAURE-2026-10-11.md) ; l’utilisateur a répondu « c’est bon ». Le thème enfant a été déployé après la sauvegarde privée `pre-38171811684` par le workflow `38171865623`. L’aperçu conserve `lmdl_preview_noindex=1`. Le Journal de démonstration et son image en médiathèque restent à retirer avant toute indexation.

@@ -1,6 +1,6 @@
 # Texte à faire relire par Laure avant la mise à jour de l’aperçu
 
-Ces formulations sont prêtes dans le thème enfant. Elles restent provisoires jusqu’au retour de Laure. Les quatre noms publics des accompagnements restent inchangés.
+Ces formulations ont été préparées dans le thème enfant. L’utilisateur a confirmé leur relecture par « c’est bon » le 11 octobre 2026. Les quatre noms publics des accompagnements restent inchangés.
 
 ## Présentation de la formation
 
