@@ -12,6 +12,11 @@ if ( ! class_exists( 'Timetics\\Core\\Appointments\\Appointment' ) ) {
 $staff = get_users( array( 'role' => 'timetics-staff', 'fields' => array( 'ID' ) ) );
 echo 'STAFF_COUNT=' . count( $staff ) . "\n";
 echo 'STAFF_EMAILS_PRESENT=' . ( count( $staff ) && count( array_filter( $staff, static function ( $user ) { return (bool) get_userdata( $user->ID )->user_email; } ) ) === count( $staff ) ? 'yes' : 'no' ) . "\n";
+if ( 1 === count( $staff ) ) {
+	$host = new Timetics\Core\Staffs\Staff( $staff[0]->ID );
+	echo 'STAFF_ACTIVE=' . ( $host->get_status() ? 'yes' : 'no' ) . "\n";
+	echo 'STAFF_NAME_MATCHES_LAURE=' . ( false !== stripos( $host->get_full_name(), 'Laure' ) ? 'yes' : 'no' ) . "\n";
+}
 echo 'TIMEZONE=' . wp_timezone_string() . "\n";
 echo 'BOOKING_MODE=' . get_option( 'lmdl_timetics_booking_mode', '' ) . "\n";
 echo 'BOOKING_ID_SET=' . ( get_option( 'lmdl_timetics_booking_id', 0 ) ? 'yes' : 'no' ) . "\n";
