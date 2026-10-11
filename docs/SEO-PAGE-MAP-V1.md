@@ -6,6 +6,8 @@ Last updated: 2026-10-02
 
 Titles/meta below are drafts for direction. Final copy should be checked after page content is written.
 
+Later public naming override (2026-10-11): use « La communication animalière », « L’accompagnement énergétique », « La connexion avec les défunts » and « Une guidance pour soi » for visible service titles and browser titles. The historical URL slugs in this draft remain unchanged. The old title suggestions below do not override Laure's later wording.
+
 Google does not impose a fixed title/meta character limit; snippets/title links are truncated or rewritten as needed. Prioritize clarity and uniqueness.
 
 ---
@@ -346,7 +348,7 @@ Allow crawl so Google can read noindex.
 # Final pre-build metadata gate
 
 Before page creation:
-1. use the approved public label/slug `Communication animale` / `/accompagnements/communication-animale/`;
+1. use the later public title « La communication animalière » with the unchanged slug `/accompagnements/communication-animale/`;
 2. confirm exact credential wording;
 3. confirm energy-service wording;
 4. confirm whether “guidance intuitive” is acceptable;

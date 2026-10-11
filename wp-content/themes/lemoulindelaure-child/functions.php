@@ -10,6 +10,33 @@ defined( 'ABSPATH' ) || exit;
 require_once get_stylesheet_directory() . '/inc/v2.php';
 require_once get_stylesheet_directory() . '/inc/v3/render.php';
 
+/** Keep the established service slugs while reflecting Laure's later public titles. */
+function lmdl_v3_current_service_titles() {
+	$previous = array(
+		'earth' => 'Communication animale',
+		'fire'  => 'Accompagnement énergétique animalier',
+		'water' => 'Connexion avec les défunts',
+		'air'   => 'Guidance pour soi',
+	);
+	foreach ( lmdl_v3_content()['services'] as $key => $service ) {
+		if ( is_page( $service['slug'] ) ) {
+			return array( $previous[ $key ], $service['title'] );
+		}
+	}
+	return array();
+}
+add_filter( 'document_title_parts', function ( $parts ) {
+	$titles = lmdl_v3_current_service_titles();
+	if ( $titles ) {
+		$parts['title'] = $titles[1];
+	}
+	return $parts;
+}, 20 );
+add_filter( 'rank_math/frontend/title', function ( $title ) {
+	$titles = lmdl_v3_current_service_titles();
+	return $titles ? str_replace( $titles[0], $titles[1], $title ) : $title;
+}, 20 );
+
 $patterns_file = get_stylesheet_directory() . '/inc/patterns.php';
 if ( file_exists( $patterns_file ) ) {
 	require_once $patterns_file;

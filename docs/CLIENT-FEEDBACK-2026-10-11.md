@@ -2,7 +2,7 @@
 
 ## Décisions de contenu
 
-- « Communication animale » reste le nom public et l’URL canonique. « Communicatrice animalière professionnelle » décrit Laure.
+- L’URL `/accompagnements/communication-animale/` reste canonique. Une correction ultérieure du même jour fixe le nom public à « La communication animalière ». « Communicatrice animalière professionnelle » décrit Laure.
 - Le diplôme daté du 20 juin 2025 atteste l’achèvement des modules de la formation en communication animale enseignée par Laila del Monte. Cette formation ne couvre ni l’accompagnement énergétique ni la connexion avec les défunts. Le PDF source reste privé et hors Git.
 - La communication animale et l’accompagnement énergétique animalier se font uniquement à distance.
 - Les séances de groupe ne sont pas présentées sur la page Connexion avec les défunts. Le format de la guidance reste à confirmer.
@@ -10,6 +10,10 @@
 - Les phrases que Laure souhaite encore retravailler restent provisoires et devront être relues par elle avant publication/indexation.
 
 ## Direction visuelle
+
+### Intitulés publics corrigés le 11 octobre 2026
+
+Le propriétaire demande de reprendre exactement les intitulés de Laure après les noms des animaux : Écureuil — « La communication animalière » ; Phénix — « L’accompagnement énergétique » ; Tortue — « La connexion avec les défunts » ; Papillon — « Une guidance pour soi ». Cette correction s’applique aux portes, menus, titres de chapitre, liens et titres HTML. Les quatre URL existantes restent inchangées. Les parenthèses de la capture client (« diplôme à intégrer », « attention vétérinaire », « au lieu de terre/feu/eau ») sont des notes éditoriales, pas des fragments de titre à afficher. Le diplôme et les limites vétérinaires restent présentés dans leurs sections dédiées.
 
 - Quatre univers nommés par les animaux : Écureuil, Phénix, Tortue et Papillon. Les anciens éléments ne figurent plus dans le contenu V3 actif.
 - Accueil sans tableaux : portrait de Laure, quatre photographies d’animaux et porte d’entrée. Les tableaux signés restent en médaillons carrés dans leurs chapitres.

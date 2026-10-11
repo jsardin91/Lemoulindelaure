@@ -8,6 +8,8 @@ This document is the canonical reference for the current information architectur
 
 Later client correction (2026-10-11): the public universes are named for Écureuil, Phénix, Tortue and Papillon without element or wings labels. Communication animale and accompagnement énergétique animalier are remote only. The former in-person wording is obsolete. See `CLIENT-FEEDBACK-2026-10-11.md`.
 
+Later wording correction (2026-10-11): the visible service titles after the animal names are « La communication animalière », « L’accompagnement énergétique », « La connexion avec les défunts » and « Une guidance pour soi ». The canonical URLs below remain unchanged.
+
 The detailed content of pages may evolve. Structural changes should be recorded here.
 
 ## Global tree
@@ -16,10 +18,10 @@ The detailed content of pages may evolve. Structural changes should be recorded 
 /
 ├── Accueil
 ├── Accompagnements
-│   ├── Communication animale
-│   ├── Accompagnement énergétique animalier
-│   ├── Connexion avec les défunts
-│   └── Guidance pour soi
+│   ├── La communication animalière
+│   ├── L’accompagnement énergétique
+│   ├── La connexion avec les défunts
+│   └── Une guidance pour soi
 ├── Le Jardin du Moulin
 ├── À propos
 ├── Journal
@@ -36,10 +38,10 @@ The detailed content of pages may evolve. Structural changes should be recorded 
 | --- | --- | --- |
 | Accueil | `/` | index |
 | Accompagnements | `/accompagnements/` | index |
-| Communication animale | `/accompagnements/communication-animale/` | index |
-| Accompagnement énergétique animalier | `/accompagnements/accompagnement-energetique-animalier/` | index |
-| Connexion avec les défunts | `/accompagnements/connexion-defunts/` | index |
-| Guidance pour soi | `/accompagnements/guidance-pour-soi/` | index |
+| La communication animalière | `/accompagnements/communication-animale/` | index |
+| L’accompagnement énergétique | `/accompagnements/accompagnement-energetique-animalier/` | index |
+| La connexion avec les défunts | `/accompagnements/connexion-defunts/` | index |
+| Une guidance pour soi | `/accompagnements/guidance-pour-soi/` | index |
 | Le Jardin du Moulin | `/le-jardin/` | index |
 | À propos | `/a-propos/` | index |
 | Journal | `/journal/` | index |
@@ -116,7 +118,7 @@ Purpose:
 
 The “doors opening to universes” concept is especially suitable here.
 
-## Communication animale
+## La communication animalière
 
 URL: `/accompagnements/communication-animale/`
 
@@ -133,7 +135,7 @@ Suggested structure:
 
 Important source point: Laure reports four years of training at the school of Laila Del Monte. Final public wording should be fact-checked before publication.
 
-## Accompagnement énergétique animalier
+## L’accompagnement énergétique
 
 URL: `/accompagnements/accompagnement-energetique-animalier/`
 
@@ -149,7 +151,7 @@ Suggested structure:
 
 Do not make medical/veterinary efficacy claims.
 
-## Connexion avec les défunts
+## La connexion avec les défunts
 
 URL: `/accompagnements/connexion-defunts/`
 
@@ -165,7 +167,7 @@ Suggested structure:
 
 Tone should be especially calm, respectful and non-sensational.
 
-## Guidance pour soi
+## Une guidance pour soi
 
 URL: `/accompagnements/guidance-pour-soi/`
 

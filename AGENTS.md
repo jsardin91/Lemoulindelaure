@@ -63,12 +63,12 @@ Before meaningful page/content/frontend work:
 Current approved architecture uses **Accompagnements** and **Journal**.
 
 Current public service labels:
-- Communication animale
-- Accompagnement énergétique animalier
-- Connexion avec les défunts
-- Guidance pour soi
+- La communication animalière
+- L’accompagnement énergétique
+- La connexion avec les défunts
+- Une guidance pour soi
 
-The project owner approved the public communication-service wording **Communication animale** on 2026-10-02. Canonical slug: `/accompagnements/communication-animale/`. Client-source quotations may still preserve “communication animalière” when documenting the original brief.
+The owner's later 2026-10-11 correction adopts these exact public titles after the animal names. The 2026-10-02 **Communication animale** naming decision is superseded for visible service titles. Canonical URLs remain unchanged, including `/accompagnements/communication-animale/`. Keep the diploma's documented training name exact.
 
 ## Credential safety — Laila Del Monte
 

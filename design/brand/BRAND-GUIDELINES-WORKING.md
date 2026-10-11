@@ -8,6 +8,8 @@ This file normalizes the written client brief and project decisions into a durab
 
 ## Later client correction — 2026-10-11
 
+Later the same day, the owner supplied Laure's exact titles after each animal: « La communication animalière », « L’accompagnement énergétique », « La connexion avec les défunts » and « Une guidance pour soi ». The page slugs do not change. This replaces the older visible service labels below; the documentary name of the diploma training remains exact.
+
 Laure's later review supersedes the four-element and four-wings presentation in public copy. The four universes are now named Écureuil, Phénix, Tortue and Papillon; the service labels remain clear. She requests a warmer homepage without the paintings, smaller doors, signed painting medallions inside the four chapters, real photographs of cats, dogs, horses and birds, and Majorelle blue writing. Communication animale and accompagnement énergétique animalier are remote only. Her communication-animal diploma is documented, but applies only to that practice. See `../../docs/CLIENT-FEEDBACK-2026-10-11.md` for the implementation decisions and photo provenance.
 
 It does not replace future explicit client corrections. Later approved decisions supersede this file where they conflict.
@@ -48,22 +50,22 @@ Appointment availability: mainly evenings and Saturdays.
 ## Four universes
 
 ### 1. Écureuil — Terre — Vivant
-**Communication animalière**
+**La communication animalière**
 
 Belief/intention: better understanding an animal can deepen understanding of the bond with it.
 
 ### 2. Phénix — Feu — Énergie
-**Accompagnement énergétique animalier**
+**L’accompagnement énergétique**
 
 Belief/intention: caring for living beings may also involve an energetic approach.
 
 ### 3. Tortue — Eau — Famille
-**Connexion avec les défunts**
+**La connexion avec les défunts**
 
 Belief/intention: some bonds may continue when physical presence has disappeared.
 
 ### 4. Papillon — Air — Messager
-**Guidance pour soi**
+**Une guidance pour soi**
 
 Belief/intention: some things may be felt before they can be explained and may open new ways of understanding a situation or life path.
 

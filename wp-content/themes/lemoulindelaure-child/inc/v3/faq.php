@@ -5,10 +5,10 @@ defined( 'ABSPATH' ) || exit;
 function lmdl_v3_faq_items() {
 	return array(
 		'why' => array(
-			'question' => 'Pourquoi la communication animale ?',
+			'question' => 'Pourquoi la communication animalière ?',
 			'answer'   => 'Elle propose une autre manière de porter attention à votre animal et au lien qui vous unit. Elle peut ouvrir une piste de compréhension, sans remplacer ce que vous observez chaque jour auprès de lui.',
 			'link'     => '/accompagnements/communication-animale/',
-			'label'    => 'Découvrir la communication animale',
+			'label'    => 'Découvrir la communication animalière',
 		),
 		'how' => array(
 			'question' => 'Comment se passe une séance ?',
@@ -16,7 +16,7 @@ function lmdl_v3_faq_items() {
 		),
 		'format' => array(
 			'question' => 'Les accompagnements se font-ils à distance ?',
-			'answer'   => 'La communication animale et l’accompagnement énergétique animalier se font uniquement à distance. Les modalités des autres accompagnements sont précisées avec vous avant le rendez-vous.',
+			'answer'   => 'La communication animalière et l’accompagnement énergétique se font uniquement à distance. Les modalités des autres accompagnements sont précisées avec vous avant le rendez-vous.',
 		),
 		'feeling' => array(
 			'question' => 'Est-ce que l’animal ressent quelque chose ?',
@@ -33,10 +33,10 @@ function lmdl_v3_faq_items() {
 			'answer'   => 'Non. Je ne pose pas de diagnostic et ces accompagnements ne remplacent ni une consultation médicale ni une consultation vétérinaire. Pour toute question de santé, adressez-vous au professionnel compétent.',
 		),
 		'guidance' => array(
-			'question' => 'La guidance pour soi prédit-elle l’avenir ?',
-			'answer'   => 'Non. La guidance pour soi invite à explorer un autre regard sur une situation. Elle ne donne ni prédiction ni certitude sur l’avenir ; vos choix vous appartiennent.',
+			'question' => 'Une guidance pour soi prédit-elle l’avenir ?',
+			'answer'   => 'Non. Cette guidance invite à explorer un autre regard sur une situation. Elle ne donne ni prédiction ni certitude sur l’avenir ; vos choix vous appartiennent.',
 			'link'     => '/accompagnements/guidance-pour-soi/',
-			'label'    => 'Lire la page Guidance pour soi',
+			'label'    => 'Découvrir une guidance pour soi',
 		),
 	);
 }

@@ -6,18 +6,18 @@ function lmdl_v3_content() {
   return array(
     'services' => array(
       'earth' => array(
-        'slug' => 'communication-animale', 'animal' => 'Écureuil', 'universe' => 'de l’Écureuil', 'title' => 'Communication animale',
+        'slug' => 'communication-animale', 'animal' => 'Écureuil', 'universe' => 'de l’Écureuil', 'title' => 'La communication animalière',
         'path' => '/accompagnements/communication-animale/',
         'door' => 'doors/door-forest.webp', 'painting' => 'art/painting-squirrel-display.webp',
         'preview' => 'brand-derived/v3/squirrel-portal.webp',
         'intro' => 'Mieux comprendre votre animal et le lien qui vous unit.',
-        'lead' => 'La communication animale propose une autre manière d’aborder ce qui se joue dans la relation avec votre compagnon.',
+        'lead' => 'La communication animalière propose une autre manière d’aborder ce qui se joue dans la relation avec votre compagnon.',
         'body' => 'Je place l’animal, son histoire et ses besoins au centre de mon approche. Je souhaite ouvrir un espace de compréhension, avec respect pour l’animal comme pour la personne qui l’accompagne.',
         'note' => 'L’animal est considéré comme un être à part entière, avec sa sensibilité, son histoire et ses besoins.',
         'practical' => 'Sur rendez-vous, uniquement à distance. Les rendez-vous sont envisagés principalement le soir et le samedi.',
       ),
       'fire' => array(
-        'slug' => 'accompagnement-energetique-animalier', 'animal' => 'Phénix', 'universe' => 'du Phénix', 'title' => 'Accompagnement énergétique animalier',
+        'slug' => 'accompagnement-energetique-animalier', 'animal' => 'Phénix', 'universe' => 'du Phénix', 'title' => 'L’accompagnement énergétique',
         'path' => '/accompagnements/accompagnement-energetique-animalier/',
         'door' => 'doors/door-phoenix.webp', 'painting' => 'art/painting-phoenix-display.webp',
         'preview' => 'brand-derived/v3/phoenix-portal.webp',
@@ -28,7 +28,7 @@ function lmdl_v3_content() {
         'practical' => 'Cet accompagnement se fait sur rendez-vous, uniquement à distance. Les rendez-vous sont envisagés principalement le soir et le samedi.',
       ),
       'water' => array(
-        'slug' => 'connexion-defunts', 'animal' => 'Tortue', 'universe' => 'de la Tortue', 'title' => 'Connexion avec les défunts',
+        'slug' => 'connexion-defunts', 'animal' => 'Tortue', 'universe' => 'de la Tortue', 'title' => 'La connexion avec les défunts',
         'path' => '/accompagnements/connexion-defunts/',
         'door' => 'doors/door-ocean.webp', 'painting' => 'art/painting-turtle-display.webp',
         'preview' => 'brand-derived/v3/turtle-portal.webp',
@@ -39,7 +39,7 @@ function lmdl_v3_content() {
         'practical' => 'Le déroulement est précisé avec vous lors d’un échange préalable.',
       ),
       'air' => array(
-        'slug' => 'guidance-pour-soi', 'animal' => 'Papillon', 'universe' => 'du Papillon', 'title' => 'Guidance pour soi',
+        'slug' => 'guidance-pour-soi', 'animal' => 'Papillon', 'universe' => 'du Papillon', 'title' => 'Une guidance pour soi',
         'path' => '/accompagnements/guidance-pour-soi/',
         'door' => 'brand-derived/v3/door-butterfly-cutout.webp', 'painting' => 'art/painting-butterfly-display.webp',
         'preview' => 'brand-derived/v3/butterfly-portal.webp',
