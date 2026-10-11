@@ -1,5 +1,9 @@
 # Handoff / Project State
 
+## 2026-10-11 — Portes V3 plus compactes sur ordinateur
+
+Les quatre sections de portes partagées par l’accueil et `/accompagnements/` suivent désormais la hauteur réelle des portes et des textes, avec des marges verticales réduites au-dessus de 760 px. Les anciens minimums de 750 à 950 px ne s’appliquent plus. À 761–900 px, les portes sont limitées à 260 px pour préserver l’espace du texte ; la composition mobile reste inchangée. Source `79bbcd9ce967f7fc2e5913bea79d23aa926b884c`, sauvegarde privée `pre-38173431802`, déploiement GitHub Actions réussi `38173492052`. Prévisualisation locale à 768, 1024 et 1440 px, puis contrôle visuel de l’aperçu en ligne à 768 et 1440 px : pas de chevauchement visible. Accueil et page Accompagnements répondent en 200 avec `noindex` ; le CSS compact est servi. Conserver `noindex` pendant la révision.
+
 ## 2026-10-11 — Photographies intégrées sur l’aperçu V3
 
 À la demande du propriétaire, les légendes visibles des portraits de Laure, des photos d’animaux et des quatre tableaux ont été retirées ; les textes alternatifs restent en place. Quatre photos réelles CC0 supplémentaires (écureuil, ibis rouge, tortue et papillon) sont dans le thème, en plus des quatre photos domestiques déjà présentes. Les photos entrent dans les portes, les quatre chapitres et les pages éditoriales ; Jardin et Journal utilisent des photos plutôt que l’emblème comme image principale. Provenance : [CLIENT-FEEDBACK-2026-10-11.md](CLIENT-FEEDBACK-2026-10-11.md).
