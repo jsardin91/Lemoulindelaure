@@ -44,3 +44,5 @@ Quatre photographies réelles supplémentaires ont été redimensionnées et ré
 ## Publication
 
 Les formulations publiques ont été présentées pour relecture dans [RELECTURE-LAURE-2026-10-11.md](RELECTURE-LAURE-2026-10-11.md) ; l’utilisateur a répondu « c’est bon ». Le thème enfant a été déployé après la sauvegarde privée `pre-38171811684` par le workflow `38171865623`. L’aperçu conserve `lmdl_preview_noindex=1`. Le Journal de démonstration et son image en médiathèque restent à retirer avant toute indexation.
+
+La révision photographique décrite ci-dessus est déployée depuis `2291f52` après la sauvegarde privée `pre-38172851730`, par le workflow de thème `38172940084`. Les formulations publiques n’ont pas été modifiées à cette étape ; l’aperçu reste `noindex`.
