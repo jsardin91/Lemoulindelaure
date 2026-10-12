@@ -1,5 +1,9 @@
 # Handoff / Project State
 
+## 2026-10-12 — Audit de performance de l’aperçu
+
+Contrôle en lecture seule de LiteSpeed et des ressources chargées sur 13 routes : Timetics n’est présent que sur la page de réservation ; le cache HTML répond en `hit` et les fichiers statiques ont sept jours de cache navigateur. Aucun réglage LiteSpeed n’a été modifié. Résultats, limites et pistes de suivi : [PERFORMANCE-AUDIT-2026-10-12.md](PERFORMANCE-AUDIT-2026-10-12.md). Workflow d’audit existant étendu avec des valeurs autorisées seulement ; run réussi `38227368843`. `noindex, follow` maintenu.
+
 ## 2026-10-11 — Héros et compositions des quatre services
 
 Les quatre héros de service suivent désormais la disposition de « La communication animalière » : texte et lien de lecture à gauche, porte seule à droite sur ordinateur, puis texte avant porte sur mobile. La Tortue n’a plus un héros centré, et la légende redondante de la porte Papillon a été retirée. Dans chaque chapitre, la photo réelle et le tableau signé forment une composition continue ; le tableau reste un petit médaillon carré sans légende visible. Les textes alternatifs sont conservés. Les URL et les portes sans image en arrière-plan ne changent pas.
