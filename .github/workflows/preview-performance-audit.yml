@@ -1,0 +1,43 @@
+name: Audit preview performance settings
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+      - name: Read allowlisted LiteSpeed settings
+        shell: bash
+        run: |
+          set -euo pipefail
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" scripts/audit-preview-performance.php \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-performance-audit-${GITHUB_RUN_ID}.php"
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}'" <<'REMOTE'
+          set -euo pipefail
+          trap 'rm -f "$HOME/.lmdl-performance-audit-$1.php"' EXIT
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          test "${#configs[@]}" -eq 1
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          test -d "$root/wp-admin" && test -d "$root/wp-content/themes/lemoulindelaure-child"
+          script="$HOME/.lmdl-performance-audit-$1.php"
+          php -l "$script" >/dev/null
+          wp --path="$root" eval-file "$script"
+          REMOTE
