@@ -113,3 +113,23 @@ jobs:
           root="$(realpath "$(dirname "${configs[0]}")")"
           wp --path="$root" eval-file "$HOME/.lmdl-discovery-audit-$1.php"
           REMOTE
+      - name: Audit LiteSpeed performance settings
+        shell: bash
+        run: |
+          set -euo pipefail
+          scp -q -i ~/.ssh/id_ed25519 -P "${{ secrets.SSH_PORT }}" scripts/audit-preview-performance.php \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:.lmdl-performance-audit-${GITHUB_RUN_ID}.php"
+          ssh -i ~/.ssh/id_ed25519 -p "${{ secrets.SSH_PORT }}" \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "bash -s -- '${GITHUB_RUN_ID}'" <<'REMOTE'
+          set -euo pipefail
+          trap 'rm -f "$HOME/.lmdl-performance-audit-$1.php"' EXIT
+          listings="$(find "$HOME" -maxdepth 7 -type f -name wp-config.php -not -path '*/.trash/*' -not -path '*/.lmdl-preview-backups/*' 2>/dev/null)"
+          configs=()
+          if [ -n "$listings" ]; then mapfile -t configs <<< "$listings"; fi
+          test "${#configs[@]}" -eq 1
+          root="$(realpath "$(dirname "${configs[0]}")")"
+          script="$HOME/.lmdl-performance-audit-$1.php"
+          php -l "$script" >/dev/null
+          wp --path="$root" eval-file "$script"
+          REMOTE
